@@ -36,15 +36,19 @@ function toFrontend(obj: Record<string, any>): Record<string, any> {
   return result;
 }
 
+// Tables that don't have an "order" column
+const NO_ORDER = new Set([
+  "amenities_hero", "rooms_hero", "douaria_hero", "kasbah_hero",
+  "desert_hero", "farm_hero", "beyond_the_walls_hero", "journeys_page",
+]);
+
 // ============================================================
 // Sectioned content (the-riad, philosophy, home)
 // ============================================================
 
 export async function getSections(table: string): Promise<Record<string, any>> {
-  let data = await getTableData(table, "order");
-  if (data.length === 0) {
-    data = await getTableData(table);
-  }
+  const orderBy = NO_ORDER.has(table) ? undefined : "order";
+  const data = await getTableData(table, orderBy);
   const sections: Record<string, any> = {};
   data.forEach((item: any) => {
     if (item.section) {
@@ -59,10 +63,7 @@ export async function getSections(table: string): Promise<Record<string, any>> {
 // ============================================================
 
 export async function getHero(table: string): Promise<any> {
-  let data = await getTableData(table, "order");
-  if (data.length === 0) {
-    data = await getTableData(table);
-  }
+  const data = await getTableData(table);
   if (data.length === 0) return null;
   return toFrontend(data[0]);
 }
@@ -72,28 +73,26 @@ export async function getHero(table: string): Promise<any> {
 // ============================================================
 
 export async function getList(table: string): Promise<any[]> {
-  // Try with "order" column first; if empty (column might not exist), retry without
-  let data = await getTableData(table, "order");
-  if (data.length === 0) {
-    data = await getTableData(table);
-  }
+  const orderBy = NO_ORDER.has(table) ? undefined : "order";
+  const data = await getTableData(table, orderBy);
   return data.map(toFrontend);
 }
 
 // ============================================================
-// Rooms (with features split)
+// Rooms (with features split + bookable conversion)
 // ============================================================
 
 export async function getRooms(table: string): Promise<any[]> {
-  let data = await getTableData(table, "order");
-  if (data.length === 0) {
-    data = await getTableData(table);
-  }
+  const data = await getTableData(table, "order");
   return data.map((room: any) => {
     const mapped = toFrontend(room);
     mapped.features = room.features
       ? room.features.split(",").map((f: string) => f.trim())
       : [];
+    // Convert boolean bookable to string (frontend expects "Yes"/"No")
+    if (typeof room.bookable === "boolean") {
+      mapped.Bookable = room.bookable ? "Yes" : "No";
+    }
     return mapped;
   });
 }
