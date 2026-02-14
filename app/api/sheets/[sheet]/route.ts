@@ -165,8 +165,15 @@ export async function GET(
 // Handlers — each returns the same JSON shape as the old Sheets version
 // ============================================================
 
+// Tables that do NOT have an "order" column
+const NO_ORDER_TABLES = new Set([
+  "amenities_hero", "rooms_hero", "douaria_hero", "kasbah_hero",
+  "desert_hero", "farm_hero", "beyond_the_walls_hero", "journeys_page",
+]);
+
 async function handleGeneric(sheet: string, table: string) {
-  const data = await getTableData(table, "order");
+  const orderBy = NO_ORDER_TABLES.has(table) ? undefined : "order";
+  const data = await getTableData(table, orderBy);
   const processed = data.map(toFrontend);
 
   // Return first item for "hero" sheets (single-object response)
@@ -203,6 +210,10 @@ async function handleRooms(table: string) {
     mapped.features = room.features
       ? room.features.split(",").map((f: string) => f.trim())
       : [];
+    // Convert boolean bookable to string (frontend expects "Yes"/"No")
+    if (typeof room.bookable === "boolean") {
+      mapped.Bookable = room.bookable ? "Yes" : "No";
+    }
     return mapped;
   });
   return NextResponse.json(processed);
