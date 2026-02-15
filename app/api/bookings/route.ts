@@ -5,13 +5,13 @@ export const revalidate = 0;
 
 const MAKE_WEBHOOK_URL = process.env.MAKE_BOOKING_WEBHOOK_URL || "";
 
-// Ops Supabase — where master_guests lives (shared with ops dashboard)
-const opsUrl = process.env.OPS_SUPABASE_URL || process.env.NEXT_PUBLIC_SUPABASE_URL!;
-const opsKey = process.env.OPS_SUPABASE_SERVICE_KEY || process.env.SUPABASE_SERVICE_ROLE_KEY!;
-const opsClient = createClient(opsUrl, opsKey);
-
 export async function POST(request: Request) {
   try {
+    // Create ops client at request time (env vars not available at build time)
+    const opsUrl = process.env.OPS_SUPABASE_URL || process.env.NEXT_PUBLIC_SUPABASE_URL!;
+    const opsKey = process.env.OPS_SUPABASE_SERVICE_KEY || process.env.SUPABASE_SERVICE_ROLE_KEY!;
+    const opsClient = createClient(opsUrl, opsKey);
+
     const body = await request.json();
 
     const bookingId = `RDS-${Date.now()}`;
