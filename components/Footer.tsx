@@ -5,7 +5,6 @@ import { useCurrency, Currency } from "./CurrencyContext";
 import { useState, useRef, useEffect } from "react";
 import { IconInstagram, IconChevronDown } from "@/components/icons";
 
-// Custom icons not in standard library
 const PinterestIcon = () => (
   <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
     <circle cx="12" cy="12" r="10" />
@@ -26,7 +25,6 @@ const GlobeIcon = () => (
   </svg>
 );
 
-// Fallback data if Nexus unavailable
 const FALLBACK_LANGUAGES = [
   { code: "EN", label: "English", native: "English", rtl: false },
   { code: "FR", label: "French", native: "Français", rtl: false },
@@ -61,15 +59,12 @@ export default function Footer() {
   const [currOpen, setCurrOpen] = useState(false);
   const langRef = useRef<HTMLDivElement>(null);
   const currRef = useRef<HTMLDivElement>(null);
-  
-  // Nexus data state
+
   const [languages, setLanguages] = useState<NexusLanguage[]>(FALLBACK_LANGUAGES);
   const [currencies, setCurrencies] = useState<NexusCurrency[]>(FALLBACK_CURRENCIES);
   const [contentSites, setContentSites] = useState<{ label: string; url: string }[]>([]);
 
-  // Fetch Nexus data on mount
   useEffect(() => {
-    // Fetch content sites from Nexus Supabase
     fetch("/api/footer")
       .then((res) => res.json())
       .then((data) => {
@@ -80,7 +75,6 @@ export default function Footer() {
       .catch((err) => console.error("Failed to fetch content sites:", err));
   }, []);
 
-  // Close dropdowns when clicking outside
   useEffect(() => {
     const handleClick = (e: MouseEvent) => {
       if (langRef.current && !langRef.current.contains(e.target as Node)) {
@@ -99,8 +93,8 @@ export default function Footer() {
 
   return (
     <footer>
-      {/* Level 2: Brand Content - darkest */}
-      <div className="bg-[#1a1a1a] text-sand">
+      {/* Level 1: Brand Content */}
+      <div className="bg-[#e8e0d4] text-[#2a2520]">
         <div className="max-w-7xl mx-auto px-6 py-16">
           <div className="grid grid-cols-1 md:grid-cols-4 gap-12">
             {/* Logo & Tagline */}
@@ -109,18 +103,17 @@ export default function Footer() {
                 <span className="text-sm tracking-[0.3em] font-light">RIAD</span>
                 <span className="text-sm tracking-[0.3em] font-light">DI SIENA</span>
               </div>
-              <p className="text-sand/70 text-sm leading-relaxed max-w-xs mb-6">
+              <p className="text-[#2a2520]/60 text-sm leading-relaxed max-w-xs mb-6">
                 Old walls, steady and sure. A place that keeps you safe from the city&apos;s rush.
               </p>
-              {/* Social Icons - Instagram, Pinterest, Tumblr (non-clickable for now) */}
               <div className="flex gap-4">
-                <span className="text-sand/40">
+                <span className="text-[#2a2520]/30">
                   <IconInstagram size={18} />
                 </span>
-                <span className="text-sand/40">
+                <span className="text-[#2a2520]/30">
                   <PinterestIcon />
                 </span>
-                <span className="text-sand/40">
+                <span className="text-[#2a2520]/30">
                   <TumblrIcon />
                 </span>
               </div>
@@ -130,12 +123,12 @@ export default function Footer() {
             <div>
               <span className="text-xs tracking-widest mb-6 block">STAY</span>
               <ul className="space-y-2">
-                <li><Link href="/the-riad" className="text-sand/70 text-sm hover:text-sand transition-colors">The House</Link></li>
-                <li><Link href="/rooms" className="text-sand/70 text-sm hover:text-sand transition-colors">Rooms</Link></li>
-                <li><Link href="/amenities" className="text-sand/70 text-sm hover:text-sand transition-colors">Amenities</Link></li>
-                <li><Link href="/philosophy" className="text-sand/70 text-sm hover:text-sand transition-colors">Philosophy</Link></li>
-                <li><Link href="/faq" className="text-sand/70 text-sm hover:text-sand transition-colors">FAQ</Link></li>
-                <li><Link href="/contact" className="text-sand/70 text-sm hover:text-sand transition-colors">Contact Us</Link></li>
+                <li><Link href="/the-riad" className="text-[#2a2520]/60 text-sm hover:text-[#2a2520] transition-colors">The House</Link></li>
+                <li><Link href="/rooms" className="text-[#2a2520]/60 text-sm hover:text-[#2a2520] transition-colors">Rooms</Link></li>
+                <li><Link href="/amenities" className="text-[#2a2520]/60 text-sm hover:text-[#2a2520] transition-colors">Amenities</Link></li>
+                <li><Link href="/philosophy" className="text-[#2a2520]/60 text-sm hover:text-[#2a2520] transition-colors">Philosophy</Link></li>
+                <li><Link href="/faq" className="text-[#2a2520]/60 text-sm hover:text-[#2a2520] transition-colors">FAQ</Link></li>
+                <li><Link href="/contact" className="text-[#2a2520]/60 text-sm hover:text-[#2a2520] transition-colors">Contact Us</Link></li>
               </ul>
             </div>
 
@@ -144,52 +137,27 @@ export default function Footer() {
               <span className="text-xs tracking-widest mb-6 block">EXPERIENCE</span>
               <ul className="space-y-2">
                 <li>
-                  <a 
-                    href="https://www.slowmorocco.com/places" 
-                    target="_blank" 
-                    rel="noopener noreferrer"
-                    className="text-sand/70 text-sm hover:text-sand transition-colors"
-                  >
+                  <a href="https://www.slowmorocco.com/places" target="_blank" rel="noopener noreferrer" className="text-[#2a2520]/60 text-sm hover:text-[#2a2520] transition-colors">
                     Places
                   </a>
                 </li>
                 <li>
-                  <a 
-                    href="https://www.slowmorocco.com/stories" 
-                    target="_blank" 
-                    rel="noopener noreferrer"
-                    className="text-sand/70 text-sm hover:text-sand transition-colors"
-                  >
+                  <a href="https://www.slowmorocco.com/stories" target="_blank" rel="noopener noreferrer" className="text-[#2a2520]/60 text-sm hover:text-[#2a2520] transition-colors">
                     Stories
                   </a>
                 </li>
                 <li>
-                  <a 
-                    href="https://www.slowmorocco.com/day-trips" 
-                    target="_blank" 
-                    rel="noopener noreferrer"
-                    className="text-sand/70 text-sm hover:text-sand transition-colors"
-                  >
+                  <a href="https://www.slowmorocco.com/day-trips" target="_blank" rel="noopener noreferrer" className="text-[#2a2520]/60 text-sm hover:text-[#2a2520] transition-colors">
                     Day Trips
                   </a>
                 </li>
                 <li>
-                  <a 
-                    href="https://www.slowmorocco.com/glossary" 
-                    target="_blank" 
-                    rel="noopener noreferrer"
-                    className="text-sand/70 text-sm hover:text-sand transition-colors"
-                  >
+                  <a href="https://www.slowmorocco.com/glossary" target="_blank" rel="noopener noreferrer" className="text-[#2a2520]/60 text-sm hover:text-[#2a2520] transition-colors">
                     Moroccan Glossary
                   </a>
                 </li>
                 <li>
-                  <a 
-                    href="https://derb.so" 
-                    target="_blank" 
-                    rel="noopener noreferrer"
-                    className="text-sand/70 text-sm hover:text-sand transition-colors"
-                  >
+                  <a href="https://derb.so" target="_blank" rel="noopener noreferrer" className="text-[#2a2520]/60 text-sm hover:text-[#2a2520] transition-colors">
                     Derb — City Guide
                   </a>
                 </li>
@@ -198,14 +166,14 @@ export default function Footer() {
 
             {/* Beyond the Walls */}
             <div>
-              <Link href="/beyond-the-walls" className="text-xs tracking-widest mb-6 block hover:text-sand/80 transition-colors">
+              <Link href="/beyond-the-walls" className="text-xs tracking-widest mb-6 block hover:text-[#2a2520]/70 transition-colors">
                 BEYOND THE WALLS
               </Link>
               <ul className="space-y-2">
-                <li><Link href="/the-douaria" className="text-sand/70 text-sm hover:text-sand transition-colors">The Douaria</Link></li>
-                <li><Link href="/the-kasbah" className="text-sand/70 text-sm hover:text-sand transition-colors">The Kasbah</Link></li>
-                <li><Link href="/the-desert-camp" className="text-sand/70 text-sm hover:text-sand transition-colors">The Desert Camp</Link></li>
-                <li><Link href="/the-farm" className="text-sand/70 text-sm hover:text-sand transition-colors">The Farm</Link></li>
+                <li><Link href="/the-douaria" className="text-[#2a2520]/60 text-sm hover:text-[#2a2520] transition-colors">The Douaria</Link></li>
+                <li><Link href="/the-kasbah" className="text-[#2a2520]/60 text-sm hover:text-[#2a2520] transition-colors">The Kasbah</Link></li>
+                <li><Link href="/the-desert-camp" className="text-[#2a2520]/60 text-sm hover:text-[#2a2520] transition-colors">The Desert Camp</Link></li>
+                <li><Link href="/the-farm" className="text-[#2a2520]/60 text-sm hover:text-[#2a2520] transition-colors">The Farm</Link></li>
               </ul>
             </div>
           </div>
@@ -214,10 +182,10 @@ export default function Footer() {
 
       {/* Content Network (from Nexus Supabase) */}
       {contentSites.length > 0 && (
-        <div className="bg-[#202020] text-sand">
+        <div className="bg-[#ddd5c8]">
           <div className="max-w-7xl mx-auto px-6 py-5">
             <div className="flex flex-wrap items-center gap-x-6 gap-y-2">
-              <span className="text-[10px] tracking-[0.2em] uppercase text-sand/25">
+              <span className="text-[10px] tracking-[0.2em] uppercase text-[#2a2520]/20">
                 Explore
               </span>
               {contentSites.map((site, idx) => (
@@ -226,7 +194,7 @@ export default function Footer() {
                   href={site.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-xs tracking-wide text-sand/40 hover:text-sand/70 transition-colors"
+                  className="text-xs tracking-wide text-[#2a2520]/40 hover:text-[#2a2520]/70 transition-colors"
                 >
                   {site.label}
                 </a>
@@ -236,39 +204,39 @@ export default function Footer() {
         </div>
       )}
 
-      {/* Level 3: Legal + Language/Currency - slightly lighter */}
-      <div className="bg-[#232323] text-sand">
+      {/* Level 3: Legal + Language/Currency */}
+      <div className="bg-[#d2c9bb]">
         <div className="max-w-7xl mx-auto px-6 py-5">
           <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
-            {/* Legal Links - Left */}
+            {/* Legal Links */}
             <div className="flex flex-wrap gap-6 text-xs">
-              <Link href="/privacy" className="text-sand/50 hover:text-sand/80 transition-colors">Privacy Policy</Link>
-              <Link href="/terms" className="text-sand/50 hover:text-sand/80 transition-colors">Terms of Service</Link>
-              <Link href="/disclaimer" className="text-sand/50 hover:text-sand/80 transition-colors">Before You Book</Link>
-              <Link href="/booking-conditions" className="text-sand/50 hover:text-sand/80 transition-colors">Booking Conditions</Link>
-              <Link href="/house-rules" className="text-sand/50 hover:text-sand/80 transition-colors">House Rules</Link>
+              <Link href="/privacy" className="text-[#2a2520]/40 hover:text-[#2a2520]/70 transition-colors">Privacy Policy</Link>
+              <Link href="/terms" className="text-[#2a2520]/40 hover:text-[#2a2520]/70 transition-colors">Terms of Service</Link>
+              <Link href="/disclaimer" className="text-[#2a2520]/40 hover:text-[#2a2520]/70 transition-colors">Before You Book</Link>
+              <Link href="/booking-conditions" className="text-[#2a2520]/40 hover:text-[#2a2520]/70 transition-colors">Booking Conditions</Link>
+              <Link href="/house-rules" className="text-[#2a2520]/40 hover:text-[#2a2520]/70 transition-colors">House Rules</Link>
             </div>
 
-            {/* Language & Currency Dropdowns - Right */}
+            {/* Language & Currency */}
             <div className="flex items-center gap-4 text-xs">
               {/* Language Dropdown */}
               <div ref={langRef} className="relative">
                 <button
                   onClick={() => { setLangOpen(!langOpen); setCurrOpen(false); }}
-                  className="flex items-center gap-1 text-sand/50 hover:text-sand/70 transition-colors"
+                  className="flex items-center gap-1 text-[#2a2520]/40 hover:text-[#2a2520]/70 transition-colors"
                 >
                   <GlobeIcon />
                   <span>{currentLang.code}</span>
                   <IconChevronDown size={10} />
                 </button>
                 {langOpen && (
-                  <div className="absolute bottom-full mb-2 right-0 bg-[#1a1a1a] border border-sand/10 py-1 min-w-[100px]">
+                  <div className="absolute bottom-full mb-2 right-0 bg-[#e8e0d4] border border-[#2a2520]/10 py-1 min-w-[100px] shadow-sm">
                     {languages.map((l) => (
                       <button
                         key={l.code}
                         onClick={() => { setLanguage(l.code); setLangOpen(false); }}
                         className={`block w-full text-left px-3 py-1.5 transition-colors ${
-                          language === l.code ? "text-sand/80" : "text-sand/50 hover:text-sand/70"
+                          language === l.code ? "text-[#2a2520]/80" : "text-[#2a2520]/40 hover:text-[#2a2520]/70"
                         }`}
                       >
                         {l.code}
@@ -282,19 +250,19 @@ export default function Footer() {
               <div ref={currRef} className="relative">
                 <button
                   onClick={() => { setCurrOpen(!currOpen); setLangOpen(false); }}
-                  className="flex items-center gap-1 text-sand/50 hover:text-sand/70 transition-colors"
+                  className="flex items-center gap-1 text-[#2a2520]/40 hover:text-[#2a2520]/70 transition-colors"
                 >
                   <span>{currentCurr.symbol} {currentCurr.code}</span>
                   <IconChevronDown size={10} />
                 </button>
                 {currOpen && (
-                  <div className="absolute bottom-full mb-2 right-0 bg-[#1a1a1a] border border-sand/10 py-1 min-w-[80px]">
+                  <div className="absolute bottom-full mb-2 right-0 bg-[#e8e0d4] border border-[#2a2520]/10 py-1 min-w-[80px] shadow-sm">
                     {currencies.map((c) => (
                       <button
                         key={c.code}
                         onClick={() => { setCurrency(c.code as Currency); setCurrOpen(false); }}
                         className={`block w-full text-left px-3 py-1.5 transition-colors ${
-                          currency === c.code ? "text-sand/80" : "text-sand/50 hover:text-sand/70"
+                          currency === c.code ? "text-[#2a2520]/80" : "text-[#2a2520]/40 hover:text-[#2a2520]/70"
                         }`}
                       >
                         {c.symbol} {c.code}
@@ -308,17 +276,17 @@ export default function Footer() {
         </div>
       </div>
 
-      {/* Level 4: Copyright - lightest of the three */}
-      <div className="bg-[#2a2a2a] text-sand">
+      {/* Level 4: Copyright */}
+      <div className="bg-[#c8bfb0]">
         <div className="max-w-7xl mx-auto px-6 py-4">
           <div className="flex items-center justify-between">
-            <p className="text-sand/40 text-xs">
+            <p className="text-[#2a2520]/35 text-xs">
               © {new Date().getFullYear()} Riad di Siena. All rights reserved.
             </p>
-            {/* Hidden directions links - Circle 1: No. 37 (Main Riad), Circle 2: No. 35 (Douaria) */}
+            {/* Hidden directions links */}
             <div className="flex items-center gap-2 mr-20">
-              <Link href="/directions" className="w-2.5 h-2.5 rounded-full bg-[#f5f0e8]/30 hover:bg-[#f5f0e8]/60 transition-colors" aria-label="Directions to No. 37" />
-              <Link href="/directions?building=annex" className="w-2.5 h-2.5 rounded-full bg-[#f5f0e8]/30 hover:bg-[#f5f0e8]/60 transition-colors" aria-label="Directions to No. 35" />
+              <Link href="/directions" className="w-2.5 h-2.5 rounded-full bg-[#2a2520]/15 hover:bg-[#2a2520]/30 transition-colors" aria-label="Directions to No. 37" />
+              <Link href="/directions?building=annex" className="w-2.5 h-2.5 rounded-full bg-[#2a2520]/15 hover:bg-[#2a2520]/30 transition-colors" aria-label="Directions to No. 35" />
             </div>
           </div>
         </div>
