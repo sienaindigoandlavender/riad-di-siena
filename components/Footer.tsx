@@ -60,13 +60,24 @@ export default function Footer() {
     return () => document.removeEventListener("click", handleClick);
   }, []);
 
-  // Load Elfsight platform script
+  // Load Elfsight platform script and mount translator widget
+  const translatorRef = useRef<HTMLDivElement>(null);
   useEffect(() => {
-    if (typeof window !== "undefined" && !document.querySelector('script[src*="elfsight"]')) {
+    // Load platform script if not already present
+    const existingScript = document.querySelector('script[src*="static.elfsight.com/platform"]');
+    if (!existingScript) {
       const script = document.createElement("script");
       script.src = "https://static.elfsight.com/platform/platform.js";
       script.async = true;
       document.body.appendChild(script);
+    }
+
+    // Mount the widget div
+    if (translatorRef.current && !translatorRef.current.querySelector(".elfsight-app-c82c87e8-eb9f-4c20-9164-65b10530bca4")) {
+      const widgetDiv = document.createElement("div");
+      widgetDiv.className = "elfsight-app-c82c87e8-eb9f-4c20-9164-65b10530bca4";
+      widgetDiv.setAttribute("data-elfsight-app-lazy", "");
+      translatorRef.current.appendChild(widgetDiv);
     }
   }, []);
 
@@ -201,9 +212,7 @@ export default function Footer() {
             {/* Language & Currency */}
             <div className="flex items-center gap-4 text-xs">
               {/* Elfsight Translator */}
-              <div className="elfsight-translator-wrapper">
-                <div className="elfsight-app-c82c87e8-eb9f-4c20-9164-65b10530bca4" data-elfsight-app-lazy></div>
-              </div>
+              <div ref={translatorRef} className="elfsight-translator-wrapper" suppressHydrationWarning />
 
               {/* Currency Dropdown */}
               <div ref={currRef} className="relative">
