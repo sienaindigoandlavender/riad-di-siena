@@ -1,8 +1,8 @@
 "use client";
 
-import { useState, useRef } from "react";
-import Link from "next/link";
+import { useState } from "react";
 import BookingModal from "@/components/BookingModal";
+import BeyondTheWallsCarousel from "@/components/BeyondTheWallsCarousel";
 import { useCurrency } from "@/components/CurrencyContext";
 import ElfsightWidget, { ElfsightScript } from "@/components/ElfsightWidget";
 import {
@@ -54,27 +54,18 @@ const iconMap: Record<string, () => JSX.Element> = {
   "toiletries": () => <IconShampoo size={20} />,
 };
 
-interface BeyondProperty {
-  name: string;
-  tagline: string;
-  description: string;
-  image: string;
-  href: string;
-}
-
 interface RoomsClientProps {
   rooms: any[];
   hero: any;
   gallery: any[];
   cityTaxPerNight: number;
-  beyondProperties: BeyondProperty[];
+  beyondTheWalls: any[];
 }
 
-export default function RoomsClient({ rooms, hero, gallery, cityTaxPerNight, beyondProperties }: RoomsClientProps) {
+export default function RoomsClient({ rooms, hero, gallery, cityTaxPerNight, beyondTheWalls }: RoomsClientProps) {
   const [selectedRoom, setSelectedRoom] = useState<any | null>(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const { formatPrice } = useCurrency();
-  const scrollRef = useRef<HTMLDivElement>(null);
 
   const openBookingModal = (room: any) => {
     setSelectedRoom(room);
@@ -207,79 +198,15 @@ export default function RoomsClient({ rooms, hero, gallery, cityTaxPerNight, bey
       />
       <ElfsightScript />
 
-      {/* Beyond the Riad — upsell, separate from rooms booking flow */}
-      {beyondProperties.length > 0 && (
-        <section className="py-24 md:py-32 bg-[#ebe5db]">
-          <div className="max-w-6xl mx-auto px-6">
-            <p className="text-xs tracking-[0.4em] uppercase text-[#2a2520]/40 mb-4 text-center">Beyond the Riad</p>
-            <h2 className="font-serif text-2xl md:text-3xl text-[#2a2520]/90 italic text-center mb-16">
-              The collection
-            </h2>
-
-            <div className="relative">
-              {/* Left Arrow */}
-              <button
-                onClick={() => scrollRef.current?.scrollBy({ left: -380, behavior: "smooth" })}
-                className="absolute left-0 top-[40%] -translate-y-1/2 z-10 w-10 h-10 bg-[#ebe5db] border border-[#2a2520]/20 rounded-full flex items-center justify-center hover:border-[#2a2520]/50 transition-colors -ml-5 max-md:hidden"
-                aria-label="Scroll left"
-              >
-                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.5">
-                  <path d="M10 12L6 8l4-4" />
-                </svg>
-              </button>
-
-              {/* Cards */}
-              <div
-                ref={scrollRef}
-                className="flex gap-8 overflow-x-auto scroll-smooth"
-                style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
-              >
-                {beyondProperties.map((property) => (
-                  <Link
-                    key={property.href}
-                    href={property.href}
-                    className="flex-shrink-0 w-[320px] md:w-[340px] group"
-                  >
-                    <div className="aspect-[3/4] mb-5 overflow-hidden">
-                      {property.image ? (
-                        <img
-                          src={property.image}
-                          alt={property.name}
-                          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
-                        />
-                      ) : (
-                        <div className="w-full h-full bg-[#2a2520]/5" />
-                      )}
-                    </div>
-                    <p className="text-xs tracking-widest text-[#2a2520]/40 mb-2 uppercase">
-                      {property.tagline}
-                    </p>
-                    <h3 className="font-serif text-xl text-[#2a2520]/90 italic mb-2 group-hover:text-[#2a2520]/60 transition-colors">
-                      {property.name}
-                    </h3>
-                    <p className="text-sm text-[#2a2520]/50 leading-relaxed">
-                      {property.description}
-                    </p>
-                  </Link>
-                ))}
-              </div>
-
-              {/* Right Arrow */}
-              <button
-                onClick={() => scrollRef.current?.scrollBy({ left: 380, behavior: "smooth" })}
-                className="absolute right-0 top-[40%] -translate-y-1/2 z-10 w-10 h-10 bg-[#ebe5db] border border-[#2a2520]/20 rounded-full flex items-center justify-center hover:border-[#2a2520]/50 transition-colors -mr-5 max-md:hidden"
-                aria-label="Scroll right"
-              >
-                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.5">
-                  <path d="M6 12l4-4-4-4" />
-                </svg>
-              </button>
-
-              {/* Hide scrollbar */}
-              <style jsx>{`
-                div::-webkit-scrollbar { display: none; }
-              `}</style>
+      {/* Beyond the Walls */}
+      {beyondTheWalls.length > 0 && (
+        <section className="py-20 md:py-32 px-6">
+          <div className="max-w-7xl mx-auto">
+            <div className="text-center mb-16">
+              <h2 className="font-display text-3xl md:text-4xl mb-4">Beyond the Walls</h2>
+              <p className="opacity-60 max-w-xl mx-auto">The riad is just the beginning. Discover the places we love.</p>
             </div>
+            <BeyondTheWallsCarousel properties={beyondTheWalls} />
           </div>
         </section>
       )}
