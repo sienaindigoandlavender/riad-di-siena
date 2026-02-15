@@ -100,6 +100,56 @@ const structuredData = {
     "reviewCount": "584",
     "bestRating": "10"
   },
+  "review": [
+    {
+      "@type": "Review",
+      "reviewRating": { "@type": "Rating", "ratingValue": "10", "bestRating": "10" },
+      "author": { "@type": "Person", "name": "Eduardo" },
+      "reviewBody": "This place was magical! For being my first time in Marrakesh I couldn't have asked for a better experience. The women maintaining the riad were so lovely making me breakfast every morning and Zahra was always helpful. Will be back again!",
+      "datePublished": "2024-11-15"
+    },
+    {
+      "@type": "Review",
+      "reviewRating": { "@type": "Rating", "ratingValue": "10", "bestRating": "10" },
+      "author": { "@type": "Person", "name": "Giovanni" },
+      "reviewBody": "We stayed for 5 days and left with many beautiful memories. We were very well received and felt at home. Everything was appreciated — the room, the breakfasts, the excellent dinner prepared by Zahra, and the terrace on top of the riad. The description of the accommodation is well done and true to reality.",
+      "datePublished": "2024-09-20"
+    },
+    {
+      "@type": "Review",
+      "reviewRating": { "@type": "Rating", "ratingValue": "10", "bestRating": "10" },
+      "author": { "@type": "Person", "name": "Chloe" },
+      "reviewBody": "A real little haven of peace in the Medina: typical, charming, peaceful and perfectly located. The house is impeccably clean, tastefully decorated in the traditional Moroccan style. Special mention for the rooftop, perfect for enjoying the sun after a day in the city. The breakfast was delicious, generous, and authentically Moroccan.",
+      "datePublished": "2025-03-10"
+    },
+    {
+      "@type": "Review",
+      "reviewRating": { "@type": "Rating", "ratingValue": "10", "bestRating": "10" },
+      "author": { "@type": "Person", "name": "Belen" },
+      "reviewBody": "A beautiful riad. The room was spacious, beautifully decorated and spotlessly clean. The bathroom was like a hammam, spectacular. The breakfasts were varied and delicious, and the personal attention was exceptional.",
+      "datePublished": "2025-01-22",
+      "inLanguage": "es"
+    },
+    {
+      "@type": "Review",
+      "reviewRating": { "@type": "Rating", "ratingValue": "10", "bestRating": "10" },
+      "author": { "@type": "Person", "name": "Juan Andres" },
+      "reviewBody": "I regret not spending enough days in this place. The building was so beautiful and clean. Jacqueline was very helpful and sweet. Best breakfast I had in a riad in Marrakech.",
+      "datePublished": "2024-12-05"
+    },
+    {
+      "@type": "Review",
+      "reviewRating": { "@type": "Rating", "ratingValue": "10", "bestRating": "10" },
+      "author": { "@type": "Person", "name": "Celine" },
+      "reviewBody": "Beautiful place, a real haven of peace close to the main square, a lovely host and an exquisite breakfast. What more could you ask for!",
+      "datePublished": "2025-02-14"
+    }
+  ],
+  "parentOrganization": {
+    "@type": "Organization",
+    "name": "Slow Morocco",
+    "url": "https://www.slowmorocco.com"
+  },
   "amenityFeature": [
     { "@type": "LocationFeatureSpecification", "name": "Free WiFi", "value": true },
     { "@type": "LocationFeatureSpecification", "name": "Air Conditioning", "value": true },
