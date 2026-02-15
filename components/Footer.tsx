@@ -266,8 +266,78 @@ export default function Footer() {
           display: flex;
           align-items: center;
         }
+        /* Force dropdown to open upward */
         .elfsight-translator-wrapper [class*="elfsight"] {
           font-family: inherit !important;
+        }
+        /* Override the dropdown container */
+        .elfsight-translator-wrapper .eapps-widget-toolbar,
+        .elfsight-translator-wrapper [class*="toolbar"],
+        .elfsight-translator-wrapper [class*="Toolbar"] {
+          background: transparent !important;
+          border: none !important;
+          box-shadow: none !important;
+          padding: 0 !important;
+        }
+        /* Style the trigger button to match footer */
+        .elfsight-translator-wrapper button,
+        .elfsight-translator-wrapper [class*="trigger"],
+        .elfsight-translator-wrapper [class*="Trigger"],
+        .elfsight-translator-wrapper [class*="selected"],
+        .elfsight-translator-wrapper [class*="Selected"] {
+          background: transparent !important;
+          border: none !important;
+          box-shadow: none !important;
+          color: rgba(42, 37, 32, 0.75) !important;
+          font-size: 12px !important;
+          padding: 0 !important;
+          font-family: inherit !important;
+        }
+        .elfsight-translator-wrapper button:hover,
+        .elfsight-translator-wrapper [class*="trigger"]:hover {
+          color: rgba(42, 37, 32, 1) !important;
+        }
+        /* Style the dropdown to match footer */
+        .elfsight-translator-wrapper [class*="dropdown"],
+        .elfsight-translator-wrapper [class*="Dropdown"],
+        .elfsight-translator-wrapper [class*="list"],
+        .elfsight-translator-wrapper [class*="List"],
+        .elfsight-translator-wrapper [class*="popup"],
+        .elfsight-translator-wrapper [class*="Popup"] {
+          background: #e8e0d4 !important;
+          border: 1px solid rgba(42, 37, 32, 0.1) !important;
+          border-radius: 0 !important;
+          box-shadow: 0 2px 8px rgba(0,0,0,0.08) !important;
+          bottom: 100% !important;
+          top: auto !important;
+          margin-bottom: 8px !important;
+        }
+        /* Style dropdown items */
+        .elfsight-translator-wrapper [class*="dropdown"] a,
+        .elfsight-translator-wrapper [class*="dropdown"] button,
+        .elfsight-translator-wrapper [class*="List"] a,
+        .elfsight-translator-wrapper [class*="List"] button,
+        .elfsight-translator-wrapper [class*="item"],
+        .elfsight-translator-wrapper [class*="Item"] {
+          color: rgba(42, 37, 32, 0.6) !important;
+          font-size: 12px !important;
+          padding: 6px 12px !important;
+          font-family: inherit !important;
+          background: transparent !important;
+        }
+        .elfsight-translator-wrapper [class*="item"]:hover,
+        .elfsight-translator-wrapper [class*="Item"]:hover,
+        .elfsight-translator-wrapper [class*="dropdown"] a:hover,
+        .elfsight-translator-wrapper [class*="List"] button:hover {
+          color: rgba(42, 37, 32, 0.9) !important;
+          background: rgba(42, 37, 32, 0.05) !important;
+        }
+        /* Hide Elfsight branding if present */
+        .elfsight-translator-wrapper [class*="branding"],
+        .elfsight-translator-wrapper [class*="Branding"],
+        .elfsight-translator-wrapper [class*="credit"],
+        .elfsight-translator-wrapper [class*="Credit"] {
+          display: none !important;
         }
       `}</style>
     </footer>
