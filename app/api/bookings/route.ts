@@ -1,9 +1,14 @@
 import { NextResponse } from "next/server";
-import { getServiceClient } from "@/lib/supabase";
+import { createClient } from "@supabase/supabase-js";
 
 export const revalidate = 0;
 
 const MAKE_WEBHOOK_URL = process.env.MAKE_BOOKING_WEBHOOK_URL || "";
+
+// Ops Supabase — where master_guests lives (shared with ops dashboard)
+const opsUrl = process.env.OPS_SUPABASE_URL || process.env.NEXT_PUBLIC_SUPABASE_URL!;
+const opsKey = process.env.OPS_SUPABASE_SERVICE_KEY || process.env.SUPABASE_SERVICE_ROLE_KEY!;
+const opsClient = createClient(opsUrl, opsKey);
 
 export async function POST(request: Request) {
   try {
@@ -34,9 +39,8 @@ export async function POST(request: Request) {
       return NextResponse.json({ success: false, error: "Payment not completed" }, { status: 400 });
     }
 
-    // ── 1. INSERT into Supabase master_guests ──────────────────────
-    const supabase = getServiceClient();
-    const { error: dbError } = await supabase.from("master_guests").insert({
+    // ── 1. INSERT into ops Supabase master_guests ─────────────────
+    const { error: dbError } = await opsClient.from("master_guests").insert({
       booking_id: bookingId,
       source: "Website",
       status: "confirmed",
