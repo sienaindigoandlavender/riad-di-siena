@@ -19,22 +19,9 @@ const nextConfig = {
   async redirects() {
     return [
       // ============================================
-      // WordPress legacy ?page_id= URLs → homepage
-      // Catches all /?page_id=11, /?page_id=20, etc.
+      // WordPress legacy ?page_id= and ?p= URLs
+      // Handled by middleware.ts (self-redirects don't work in next.config)
       // ============================================
-      {
-        source: "/",
-        has: [{ type: "query", key: "page_id" }],
-        destination: "/",
-        permanent: true,
-      },
-      // WordPress ?p= post URLs
-      {
-        source: "/",
-        has: [{ type: "query", key: "p" }],
-        destination: "/",
-        permanent: true,
-      },
 
       // ============================================
       // Old Squarespace individual room pages
@@ -51,8 +38,26 @@ const nextConfig = {
       { source: "/stay-at-riad-di-siena", destination: "/rooms", permanent: true },
       { source: "/riad-life", destination: "/the-riad", permanent: true },
       { source: "/about-us", destination: "/philosophy", permanent: true },
+      { source: "/our-philosophy", destination: "/philosophy", permanent: true },
+      { source: "/our-philosophy/", destination: "/philosophy", permanent: true },
       { source: "/book-a-room", destination: "/rooms", permanent: true },
       { source: "/booking-conditions-1", destination: "/booking-conditions", permanent: true },
+
+      // ============================================
+      // Old Squarespace paths found in Google index
+      // ============================================
+      { source: "/marrakesh", destination: "/", permanent: true },
+      { source: "/what-to-do-in-marrakesh", destination: "/", permanent: true },
+      { source: "/rooms-and-suites", destination: "/rooms", permanent: true },
+      { source: "/the-house", destination: "/the-riad", permanent: true },
+      { source: "/riad", destination: "/the-riad", permanent: true },
+      { source: "/philosophy-1", destination: "/philosophy", permanent: true },
+      { source: "/our-story", destination: "/about", permanent: true },
+      { source: "/contact-2", destination: "/contact", permanent: true },
+      { source: "/disclaimer-1", destination: "/disclaimer", permanent: true },
+      { source: "/house-rules-1", destination: "/house-rules", permanent: true },
+      { source: "/privacy-1", destination: "/privacy", permanent: true },
+      { source: "/terms-1", destination: "/terms", permanent: true },
 
       // ============================================
       // Additional old URL patterns
