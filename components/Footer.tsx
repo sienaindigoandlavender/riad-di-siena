@@ -60,26 +60,82 @@ export default function Footer() {
     return () => document.removeEventListener("click", handleClick);
   }, []);
 
-  // Load Elfsight platform script and mount translator widget
-  const translatorRef = useRef<HTMLDivElement>(null);
+  // Language switcher using Google Translate
+  const [langOpen, setLangOpen] = useState(false);
+  const [currentLang, setCurrentLang] = useState("EN");
+  const langRef = useRef<HTMLDivElement>(null);
+
+  const LANGUAGES = [
+    { code: "en", label: "EN", name: "English" },
+    { code: "es", label: "ES", name: "Español" },
+    { code: "fr", label: "FR", name: "Français" },
+    { code: "it", label: "IT", name: "Italiano" },
+    { code: "pt", label: "PT", name: "Português" },
+    { code: "de", label: "DE", name: "Deutsch" },
+    { code: "ar", label: "AR", name: "العربية" },
+    { code: "zh", label: "ZH", name: "中文" },
+    { code: "ja", label: "JA", name: "日本語" },
+  ];
+
+  // Load Google Translate and handle translation
   useEffect(() => {
-    // Load platform script if not already present
-    const existingScript = document.querySelector('script[src*="static.elfsight.com/platform"]');
-    if (!existingScript) {
+    // Close lang dropdown on outside click
+    const handleLangClick = (e: MouseEvent) => {
+      if (langRef.current && !langRef.current.contains(e.target as Node)) {
+        setLangOpen(false);
+      }
+    };
+    document.addEventListener("click", handleLangClick);
+
+    // Inject Google Translate script
+    if (!document.getElementById("google-translate-script")) {
+      (window as any).googleTranslateElementInit = () => {
+        new (window as any).google.translate.TranslateElement(
+          { pageLanguage: "en", autoDisplay: false },
+          "google-translate-hidden"
+        );
+      };
       const script = document.createElement("script");
-      script.src = "https://static.elfsight.com/platform/platform.js";
+      script.id = "google-translate-script";
+      script.src = "https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit";
       script.async = true;
       document.body.appendChild(script);
     }
 
-    // Mount the widget div
-    if (translatorRef.current && !translatorRef.current.querySelector(".elfsight-app-c82c87e8-eb9f-4c20-9164-65b10530bca4")) {
-      const widgetDiv = document.createElement("div");
-      widgetDiv.className = "elfsight-app-c82c87e8-eb9f-4c20-9164-65b10530bca4";
-      widgetDiv.setAttribute("data-elfsight-app-lazy", "");
-      translatorRef.current.appendChild(widgetDiv);
-    }
+    return () => document.removeEventListener("click", handleLangClick);
   }, []);
+
+  const translateTo = (langCode: string, label: string) => {
+    setCurrentLang(label);
+    setLangOpen(false);
+
+    if (langCode === "en") {
+      // Reset to original
+      const frame = document.querySelector(".goog-te-banner-frame") as HTMLIFrameElement;
+      if (frame) {
+        const closeBtn = frame.contentDocument?.querySelector(".goog-close-link") as HTMLElement;
+        closeBtn?.click();
+      }
+      // Also try cookie reset
+      document.cookie = "googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+      document.cookie = "googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; domain=." + window.location.hostname;
+      window.location.reload();
+      return;
+    }
+
+    // Set translation cookie and trigger
+    document.cookie = `googtrans=/en/${langCode}; path=/;`;
+    document.cookie = `googtrans=/en/${langCode}; path=/; domain=.${window.location.hostname}`;
+
+    // Trigger the hidden Google Translate select
+    const select = document.querySelector(".goog-te-combo") as HTMLSelectElement;
+    if (select) {
+      select.value = langCode;
+      select.dispatchEvent(new Event("change"));
+    } else {
+      window.location.reload();
+    }
+  };
 
   const currentCurr = currencies.find(c => c.code === currency) || currencies[0];
 
@@ -211,8 +267,39 @@ export default function Footer() {
 
             {/* Language & Currency */}
             <div className="flex items-center gap-4 text-xs">
-              {/* Elfsight Translator */}
-              <div ref={translatorRef} className="elfsight-translator-wrapper" suppressHydrationWarning />
+              {/* Language Dropdown */}
+              <div ref={langRef} className="relative">
+                <button
+                  onClick={() => { setLangOpen(!langOpen); setCurrOpen(false); }}
+                  className="flex items-center gap-1.5 text-[#2a2520]/75 hover:text-[#2a2520] transition-colors"
+                >
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                    <circle cx="12" cy="12" r="10" />
+                    <path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
+                  </svg>
+                  <span>{currentLang}</span>
+                  <IconChevronDown size={10} />
+                </button>
+                {langOpen && (
+                  <div className="absolute bottom-full mb-2 right-0 bg-[#e8e0d4] border border-[#2a2520]/10 py-1 min-w-[120px] shadow-sm">
+                    {LANGUAGES.map((l) => (
+                      <button
+                        key={l.code}
+                        onClick={() => translateTo(l.code, l.label)}
+                        className={`block w-full text-left px-3 py-1.5 transition-colors ${
+                          currentLang === l.label ? "text-[#2a2520]/90" : "text-[#2a2520]/60 hover:text-[#2a2520]/90"
+                        }`}
+                      >
+                        <span className="inline-block w-6">{l.label}</span>
+                        <span className="text-[#2a2520]/40 ml-1">{l.name}</span>
+                      </button>
+                    ))}
+                  </div>
+                )}
+              </div>
+
+              {/* Hidden Google Translate container */}
+              <div id="google-translate-hidden" className="hidden" />
 
               {/* Currency Dropdown */}
               <div ref={currRef} className="relative">
@@ -260,85 +347,19 @@ export default function Footer() {
         </div>
       </div>
 
-      {/* Tame Elfsight translator widget styling */}
+      {/* Hide Google Translate bar and artifacts */}
       <style jsx global>{`
-        .elfsight-translator-wrapper {
-          display: flex;
-          align-items: center;
-        }
-        /* Force dropdown to open upward */
-        .elfsight-translator-wrapper [class*="elfsight"] {
-          font-family: inherit !important;
-        }
-        /* Override the dropdown container */
-        .elfsight-translator-wrapper .eapps-widget-toolbar,
-        .elfsight-translator-wrapper [class*="toolbar"],
-        .elfsight-translator-wrapper [class*="Toolbar"] {
-          background: transparent !important;
-          border: none !important;
-          box-shadow: none !important;
-          padding: 0 !important;
-        }
-        /* Style the trigger button to match footer */
-        .elfsight-translator-wrapper button,
-        .elfsight-translator-wrapper [class*="trigger"],
-        .elfsight-translator-wrapper [class*="Trigger"],
-        .elfsight-translator-wrapper [class*="selected"],
-        .elfsight-translator-wrapper [class*="Selected"] {
-          background: transparent !important;
-          border: none !important;
-          box-shadow: none !important;
-          color: rgba(42, 37, 32, 0.75) !important;
-          font-size: 12px !important;
-          padding: 0 !important;
-          font-family: inherit !important;
-        }
-        .elfsight-translator-wrapper button:hover,
-        .elfsight-translator-wrapper [class*="trigger"]:hover {
-          color: rgba(42, 37, 32, 1) !important;
-        }
-        /* Style the dropdown to match footer */
-        .elfsight-translator-wrapper [class*="dropdown"],
-        .elfsight-translator-wrapper [class*="Dropdown"],
-        .elfsight-translator-wrapper [class*="list"],
-        .elfsight-translator-wrapper [class*="List"],
-        .elfsight-translator-wrapper [class*="popup"],
-        .elfsight-translator-wrapper [class*="Popup"] {
-          background: #e8e0d4 !important;
-          border: 1px solid rgba(42, 37, 32, 0.1) !important;
-          border-radius: 0 !important;
-          box-shadow: 0 2px 8px rgba(0,0,0,0.08) !important;
-          bottom: 100% !important;
-          top: auto !important;
-          margin-bottom: 8px !important;
-        }
-        /* Style dropdown items */
-        .elfsight-translator-wrapper [class*="dropdown"] a,
-        .elfsight-translator-wrapper [class*="dropdown"] button,
-        .elfsight-translator-wrapper [class*="List"] a,
-        .elfsight-translator-wrapper [class*="List"] button,
-        .elfsight-translator-wrapper [class*="item"],
-        .elfsight-translator-wrapper [class*="Item"] {
-          color: rgba(42, 37, 32, 0.6) !important;
-          font-size: 12px !important;
-          padding: 6px 12px !important;
-          font-family: inherit !important;
-          background: transparent !important;
-        }
-        .elfsight-translator-wrapper [class*="item"]:hover,
-        .elfsight-translator-wrapper [class*="Item"]:hover,
-        .elfsight-translator-wrapper [class*="dropdown"] a:hover,
-        .elfsight-translator-wrapper [class*="List"] button:hover {
-          color: rgba(42, 37, 32, 0.9) !important;
-          background: rgba(42, 37, 32, 0.05) !important;
-        }
-        /* Hide Elfsight branding if present */
-        .elfsight-translator-wrapper [class*="branding"],
-        .elfsight-translator-wrapper [class*="Branding"],
-        .elfsight-translator-wrapper [class*="credit"],
-        .elfsight-translator-wrapper [class*="Credit"] {
+        .goog-te-banner-frame,
+        #goog-gt-tt,
+        .goog-te-balloon-frame,
+        .goog-tooltip,
+        .goog-tooltip:hover,
+        .goog-text-highlight,
+        #google-translate-hidden,
+        .skiptranslate {
           display: none !important;
         }
+        body { top: 0 !important; }
       `}</style>
     </footer>
   );
