@@ -5,8 +5,6 @@ import { useCurrency, Currency } from "./CurrencyContext";
 import { useState, useRef, useEffect } from "react";
 import { IconInstagram, IconChevronDown } from "@/components/icons";
 
-import Script from "next/script";
-
 const PinterestIcon = () => (
   <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
     <circle cx="12" cy="12" r="10" />
@@ -60,6 +58,16 @@ export default function Footer() {
     };
     document.addEventListener("click", handleClick);
     return () => document.removeEventListener("click", handleClick);
+  }, []);
+
+  // Load Elfsight platform script
+  useEffect(() => {
+    if (typeof window !== "undefined" && !document.querySelector('script[src*="elfsight"]')) {
+      const script = document.createElement("script");
+      script.src = "https://static.elfsight.com/platform/platform.js";
+      script.async = true;
+      document.body.appendChild(script);
+    }
   }, []);
 
   const currentCurr = currencies.find(c => c.code === currency) || currencies[0];
@@ -242,12 +250,6 @@ export default function Footer() {
           </div>
         </div>
       </div>
-
-      {/* Elfsight Platform Script */}
-      <Script
-        src="https://static.elfsight.com/platform/platform.js"
-        strategy="lazyOnload"
-      />
 
       {/* Tame Elfsight translator widget styling */}
       <style jsx global>{`
