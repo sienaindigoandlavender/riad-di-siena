@@ -5,6 +5,8 @@ import { useCurrency, Currency } from "./CurrencyContext";
 import { useState, useRef, useEffect } from "react";
 import { IconInstagram, IconChevronDown } from "@/components/icons";
 
+import Script from "next/script";
+
 const PinterestIcon = () => (
   <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
     <circle cx="12" cy="12" r="10" />
@@ -18,33 +20,12 @@ const TumblrIcon = () => (
   </svg>
 );
 
-const GlobeIcon = () => (
-  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-    <circle cx="12" cy="12" r="10" />
-    <path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
-  </svg>
-);
-
-const FALLBACK_LANGUAGES = [
-  { code: "EN", label: "English", native: "English", rtl: false },
-  { code: "FR", label: "French", native: "Français", rtl: false },
-  { code: "ES", label: "Spanish", native: "Español", rtl: false },
-  { code: "DE", label: "German", native: "Deutsch", rtl: false },
-];
-
 const FALLBACK_CURRENCIES = [
   { code: "EUR", symbol: "€", label: "€ (EUR)" },
   { code: "USD", symbol: "$", label: "$ (USD)" },
   { code: "GBP", symbol: "£", label: "£ (GBP)" },
   { code: "MAD", symbol: "DH", label: "DH (MAD)" },
 ];
-
-interface NexusLanguage {
-  code: string;
-  label: string;
-  native: string;
-  rtl: boolean;
-}
 
 interface NexusCurrency {
   code: string;
@@ -54,13 +35,9 @@ interface NexusCurrency {
 
 export default function Footer() {
   const { currency, setCurrency } = useCurrency();
-  const [language, setLanguage] = useState("EN");
-  const [langOpen, setLangOpen] = useState(false);
   const [currOpen, setCurrOpen] = useState(false);
-  const langRef = useRef<HTMLDivElement>(null);
   const currRef = useRef<HTMLDivElement>(null);
 
-  const [languages, setLanguages] = useState<NexusLanguage[]>(FALLBACK_LANGUAGES);
   const [currencies, setCurrencies] = useState<NexusCurrency[]>(FALLBACK_CURRENCIES);
   const [contentSites, setContentSites] = useState<{ label: string; url: string }[]>([]);
 
@@ -77,9 +54,6 @@ export default function Footer() {
 
   useEffect(() => {
     const handleClick = (e: MouseEvent) => {
-      if (langRef.current && !langRef.current.contains(e.target as Node)) {
-        setLangOpen(false);
-      }
       if (currRef.current && !currRef.current.contains(e.target as Node)) {
         setCurrOpen(false);
       }
@@ -88,7 +62,6 @@ export default function Footer() {
     return () => document.removeEventListener("click", handleClick);
   }, []);
 
-  const currentLang = languages.find(l => l.code === language) || languages[0];
   const currentCurr = currencies.find(c => c.code === currency) || currencies[0];
 
   return (
@@ -103,17 +76,17 @@ export default function Footer() {
                 <span className="text-sm tracking-[0.3em] font-light">RIAD</span>
                 <span className="text-sm tracking-[0.3em] font-light">DI SIENA</span>
               </div>
-              <p className="text-[#2a2520]/60 text-sm leading-relaxed max-w-xs mb-6">
+              <p className="text-[#2a2520]/75 text-sm leading-relaxed max-w-xs mb-6">
                 Old walls, steady and sure. A place that keeps you safe from the city&apos;s rush.
               </p>
               <div className="flex gap-4">
-                <span className="text-[#2a2520]/30">
+                <span className="text-[#2a2520]/50">
                   <IconInstagram size={18} />
                 </span>
-                <span className="text-[#2a2520]/30">
+                <span className="text-[#2a2520]/50">
                   <PinterestIcon />
                 </span>
-                <span className="text-[#2a2520]/30">
+                <span className="text-[#2a2520]/50">
                   <TumblrIcon />
                 </span>
               </div>
@@ -123,12 +96,12 @@ export default function Footer() {
             <div>
               <span className="text-xs tracking-widest mb-6 block">STAY</span>
               <ul className="space-y-2">
-                <li><Link href="/the-riad" className="text-[#2a2520]/60 text-sm hover:text-[#2a2520] transition-colors">The House</Link></li>
-                <li><Link href="/rooms" className="text-[#2a2520]/60 text-sm hover:text-[#2a2520] transition-colors">Rooms</Link></li>
-                <li><Link href="/amenities" className="text-[#2a2520]/60 text-sm hover:text-[#2a2520] transition-colors">Amenities</Link></li>
-                <li><Link href="/philosophy" className="text-[#2a2520]/60 text-sm hover:text-[#2a2520] transition-colors">Philosophy</Link></li>
-                <li><Link href="/faq" className="text-[#2a2520]/60 text-sm hover:text-[#2a2520] transition-colors">FAQ</Link></li>
-                <li><Link href="/contact" className="text-[#2a2520]/60 text-sm hover:text-[#2a2520] transition-colors">Contact Us</Link></li>
+                <li><Link href="/the-riad" className="text-[#2a2520]/75 text-sm hover:text-[#2a2520] transition-colors">The House</Link></li>
+                <li><Link href="/rooms" className="text-[#2a2520]/75 text-sm hover:text-[#2a2520] transition-colors">Rooms</Link></li>
+                <li><Link href="/amenities" className="text-[#2a2520]/75 text-sm hover:text-[#2a2520] transition-colors">Amenities</Link></li>
+                <li><Link href="/philosophy" className="text-[#2a2520]/75 text-sm hover:text-[#2a2520] transition-colors">Philosophy</Link></li>
+                <li><Link href="/faq" className="text-[#2a2520]/75 text-sm hover:text-[#2a2520] transition-colors">FAQ</Link></li>
+                <li><Link href="/contact" className="text-[#2a2520]/75 text-sm hover:text-[#2a2520] transition-colors">Contact Us</Link></li>
               </ul>
             </div>
 
@@ -137,27 +110,27 @@ export default function Footer() {
               <span className="text-xs tracking-widest mb-6 block">EXPERIENCE</span>
               <ul className="space-y-2">
                 <li>
-                  <a href="https://www.slowmorocco.com/places" target="_blank" rel="noopener noreferrer" className="text-[#2a2520]/60 text-sm hover:text-[#2a2520] transition-colors">
+                  <a href="https://www.slowmorocco.com/places" target="_blank" rel="noopener noreferrer" className="text-[#2a2520]/75 text-sm hover:text-[#2a2520] transition-colors">
                     Places
                   </a>
                 </li>
                 <li>
-                  <a href="https://www.slowmorocco.com/stories" target="_blank" rel="noopener noreferrer" className="text-[#2a2520]/60 text-sm hover:text-[#2a2520] transition-colors">
+                  <a href="https://www.slowmorocco.com/stories" target="_blank" rel="noopener noreferrer" className="text-[#2a2520]/75 text-sm hover:text-[#2a2520] transition-colors">
                     Stories
                   </a>
                 </li>
                 <li>
-                  <a href="https://www.slowmorocco.com/day-trips" target="_blank" rel="noopener noreferrer" className="text-[#2a2520]/60 text-sm hover:text-[#2a2520] transition-colors">
+                  <a href="https://www.slowmorocco.com/day-trips" target="_blank" rel="noopener noreferrer" className="text-[#2a2520]/75 text-sm hover:text-[#2a2520] transition-colors">
                     Day Trips
                   </a>
                 </li>
                 <li>
-                  <a href="https://www.slowmorocco.com/glossary" target="_blank" rel="noopener noreferrer" className="text-[#2a2520]/60 text-sm hover:text-[#2a2520] transition-colors">
+                  <a href="https://www.slowmorocco.com/glossary" target="_blank" rel="noopener noreferrer" className="text-[#2a2520]/75 text-sm hover:text-[#2a2520] transition-colors">
                     Moroccan Glossary
                   </a>
                 </li>
                 <li>
-                  <a href="https://derb.so" target="_blank" rel="noopener noreferrer" className="text-[#2a2520]/60 text-sm hover:text-[#2a2520] transition-colors">
+                  <a href="https://derb.so" target="_blank" rel="noopener noreferrer" className="text-[#2a2520]/75 text-sm hover:text-[#2a2520] transition-colors">
                     Derb — City Guide
                   </a>
                 </li>
@@ -170,10 +143,10 @@ export default function Footer() {
                 BEYOND THE WALLS
               </Link>
               <ul className="space-y-2">
-                <li><Link href="/the-douaria" className="text-[#2a2520]/60 text-sm hover:text-[#2a2520] transition-colors">The Douaria</Link></li>
-                <li><Link href="/the-kasbah" className="text-[#2a2520]/60 text-sm hover:text-[#2a2520] transition-colors">The Kasbah</Link></li>
-                <li><Link href="/the-desert-camp" className="text-[#2a2520]/60 text-sm hover:text-[#2a2520] transition-colors">The Desert Camp</Link></li>
-                <li><Link href="/the-farm" className="text-[#2a2520]/60 text-sm hover:text-[#2a2520] transition-colors">The Farm</Link></li>
+                <li><Link href="/the-douaria" className="text-[#2a2520]/75 text-sm hover:text-[#2a2520] transition-colors">The Douaria</Link></li>
+                <li><Link href="/the-kasbah" className="text-[#2a2520]/75 text-sm hover:text-[#2a2520] transition-colors">The Kasbah</Link></li>
+                <li><Link href="/the-desert-camp" className="text-[#2a2520]/75 text-sm hover:text-[#2a2520] transition-colors">The Desert Camp</Link></li>
+                <li><Link href="/the-farm" className="text-[#2a2520]/75 text-sm hover:text-[#2a2520] transition-colors">The Farm</Link></li>
               </ul>
             </div>
           </div>
@@ -185,7 +158,7 @@ export default function Footer() {
         <div className="bg-[#ddd5c8]">
           <div className="max-w-7xl mx-auto px-6 py-5">
             <div className="flex flex-wrap items-center gap-x-6 gap-y-2">
-              <span className="text-[10px] tracking-[0.2em] uppercase text-[#2a2520]/20">
+              <span className="text-[10px] tracking-[0.2em] uppercase text-[#2a2520]/40">
                 Explore
               </span>
               {contentSites.map((site, idx) => (
@@ -194,7 +167,7 @@ export default function Footer() {
                   href={site.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-xs tracking-wide text-[#2a2520]/40 hover:text-[#2a2520]/70 transition-colors"
+                  className="text-xs tracking-wide text-[#2a2520]/75 hover:text-[#2a2520]  transition-colors"
                 >
                   {site.label}
                 </a>
@@ -210,47 +183,25 @@ export default function Footer() {
           <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
             {/* Legal Links */}
             <div className="flex flex-wrap gap-6 text-xs">
-              <Link href="/privacy" className="text-[#2a2520]/40 hover:text-[#2a2520]/70 transition-colors">Privacy Policy</Link>
-              <Link href="/terms" className="text-[#2a2520]/40 hover:text-[#2a2520]/70 transition-colors">Terms of Service</Link>
-              <Link href="/disclaimer" className="text-[#2a2520]/40 hover:text-[#2a2520]/70 transition-colors">Before You Book</Link>
-              <Link href="/booking-conditions" className="text-[#2a2520]/40 hover:text-[#2a2520]/70 transition-colors">Booking Conditions</Link>
-              <Link href="/house-rules" className="text-[#2a2520]/40 hover:text-[#2a2520]/70 transition-colors">House Rules</Link>
+              <Link href="/privacy" className="text-[#2a2520]/75 hover:text-[#2a2520]  transition-colors">Privacy Policy</Link>
+              <Link href="/terms" className="text-[#2a2520]/75 hover:text-[#2a2520]  transition-colors">Terms of Service</Link>
+              <Link href="/disclaimer" className="text-[#2a2520]/75 hover:text-[#2a2520]  transition-colors">Before You Book</Link>
+              <Link href="/booking-conditions" className="text-[#2a2520]/75 hover:text-[#2a2520]  transition-colors">Booking Conditions</Link>
+              <Link href="/house-rules" className="text-[#2a2520]/75 hover:text-[#2a2520]  transition-colors">House Rules</Link>
             </div>
 
             {/* Language & Currency */}
             <div className="flex items-center gap-4 text-xs">
-              {/* Language Dropdown */}
-              <div ref={langRef} className="relative">
-                <button
-                  onClick={() => { setLangOpen(!langOpen); setCurrOpen(false); }}
-                  className="flex items-center gap-1 text-[#2a2520]/40 hover:text-[#2a2520]/70 transition-colors"
-                >
-                  <GlobeIcon />
-                  <span>{currentLang.code}</span>
-                  <IconChevronDown size={10} />
-                </button>
-                {langOpen && (
-                  <div className="absolute bottom-full mb-2 right-0 bg-[#e8e0d4] border border-[#2a2520]/10 py-1 min-w-[100px] shadow-sm">
-                    {languages.map((l) => (
-                      <button
-                        key={l.code}
-                        onClick={() => { setLanguage(l.code); setLangOpen(false); }}
-                        className={`block w-full text-left px-3 py-1.5 transition-colors ${
-                          language === l.code ? "text-[#2a2520]/80" : "text-[#2a2520]/40 hover:text-[#2a2520]/70"
-                        }`}
-                      >
-                        {l.code}
-                      </button>
-                    ))}
-                  </div>
-                )}
+              {/* Elfsight Translator */}
+              <div className="elfsight-translator-wrapper">
+                <div className="elfsight-app-c82c87e8-eb9f-4c20-9164-65b10530bca4" data-elfsight-app-lazy></div>
               </div>
 
               {/* Currency Dropdown */}
               <div ref={currRef} className="relative">
                 <button
-                  onClick={() => { setCurrOpen(!currOpen); setLangOpen(false); }}
-                  className="flex items-center gap-1 text-[#2a2520]/40 hover:text-[#2a2520]/70 transition-colors"
+                  onClick={() => { setCurrOpen(!currOpen); }}
+                  className="flex items-center gap-1 text-[#2a2520]/75 hover:text-[#2a2520]  transition-colors"
                 >
                   <span>{currentCurr.symbol} {currentCurr.code}</span>
                   <IconChevronDown size={10} />
@@ -262,7 +213,7 @@ export default function Footer() {
                         key={c.code}
                         onClick={() => { setCurrency(c.code as Currency); setCurrOpen(false); }}
                         className={`block w-full text-left px-3 py-1.5 transition-colors ${
-                          currency === c.code ? "text-[#2a2520]/80" : "text-[#2a2520]/40 hover:text-[#2a2520]/70"
+                          currency === c.code ? "text-[#2a2520]/90" : "text-[#2a2520]/75 hover:text-[#2a2520] "
                         }`}
                       >
                         {c.symbol} {c.code}
@@ -280,17 +231,34 @@ export default function Footer() {
       <div className="bg-[#c8bfb0]">
         <div className="max-w-7xl mx-auto px-6 py-4">
           <div className="flex items-center justify-between">
-            <p className="text-[#2a2520]/35 text-xs">
+            <p className="text-[#2a2520]/70 text-xs">
               © {new Date().getFullYear()} Riad di Siena. All rights reserved.
             </p>
             {/* Hidden directions links */}
             <div className="flex items-center gap-2 mr-20">
-              <Link href="/directions" className="w-2.5 h-2.5 rounded-full bg-[#2a2520]/15 hover:bg-[#2a2520]/30 transition-colors" aria-label="Directions to No. 37" />
-              <Link href="/directions?building=annex" className="w-2.5 h-2.5 rounded-full bg-[#2a2520]/15 hover:bg-[#2a2520]/30 transition-colors" aria-label="Directions to No. 35" />
+              <Link href="/directions" className="w-2.5 h-2.5 rounded-full bg-[#2a2520]/20 hover:bg-[#2a2520]/40 transition-colors" aria-label="Directions to No. 37" />
+              <Link href="/directions?building=annex" className="w-2.5 h-2.5 rounded-full bg-[#2a2520]/20 hover:bg-[#2a2520]/40 transition-colors" aria-label="Directions to No. 35" />
             </div>
           </div>
         </div>
       </div>
+
+      {/* Elfsight Platform Script */}
+      <Script
+        src="https://static.elfsight.com/platform/platform.js"
+        strategy="lazyOnload"
+      />
+
+      {/* Tame Elfsight translator widget styling */}
+      <style jsx global>{`
+        .elfsight-translator-wrapper {
+          display: flex;
+          align-items: center;
+        }
+        .elfsight-translator-wrapper [class*="elfsight"] {
+          font-family: inherit !important;
+        }
+      `}</style>
     </footer>
   );
 }
