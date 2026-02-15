@@ -79,6 +79,18 @@ export default function FAQClient({ faqItems }: FAQClientProps) {
             </a>
           </div>
 
+          {/* Derb City Guide */}
+          <div className="mt-6 text-center py-12 border border-[#2a2520]/10">
+            <p className="text-[#2a2520]/40 text-sm mb-2">First time in Morocco?</p>
+            <p className="text-[#2a2520]/50 text-sm mb-4">
+              Taxis, tipping, the call to prayer, cockroaches, heat — 57 honest answers to the questions you haven't thought of yet.
+            </p>
+            <a href="https://www.derb.so" target="_blank" rel="noopener noreferrer"
+              className="inline-block border border-[#2a2520]/20 px-10 py-4 text-xs tracking-[0.2em] uppercase hover:bg-[#2a2520] hover:text-[#f5f0e8] transition-colors">
+              Derb — City Guide
+            </a>
+          </div>
+
           {/* CTA */}
           <div className="mt-16 text-center py-12 border border-[#2a2520]/10">
             <p className="text-[#2a2520]/40 text-sm mb-4">Still have questions?</p>

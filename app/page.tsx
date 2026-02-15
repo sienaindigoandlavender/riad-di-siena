@@ -109,6 +109,20 @@ export default async function Home() {
           </div>
         </section>
       )}
+
+      {/* Derb City Guide */}
+      <section className="py-16 md:py-20 border-t border-[#2a2520]/10">
+        <div className="max-w-3xl mx-auto px-6 text-center">
+          <a href="https://www.derb.so" target="_blank" rel="noopener noreferrer" className="group block">
+            <p className="font-serif text-2xl md:text-3xl italic text-[#2a2520]/80 group-hover:text-[#2a2520] transition-colors mb-4">
+              Is it rude to refuse tea?
+            </p>
+            <p className="text-xs tracking-[0.3em] uppercase text-[#2a2520]/40 group-hover:text-[#2a2520]/60 transition-colors">
+              Derb — 57 answers to the questions nobody tells you before Morocco
+            </p>
+          </a>
+        </div>
+      </section>
     </main>
   );
 }

@@ -91,14 +91,14 @@ const structuredData = {
   "petsAllowed": true,
   "starRating": {
     "@type": "Rating",
-    "ratingValue": "5",
-    "bestRating": "5"
+    "ratingValue": "9.0",
+    "bestRating": "10"
   },
   "aggregateRating": {
     "@type": "AggregateRating",
-    "ratingValue": "4.9",
-    "reviewCount": "127",
-    "bestRating": "5"
+    "ratingValue": "9.0",
+    "reviewCount": "584",
+    "bestRating": "10"
   },
   "amenityFeature": [
     { "@type": "LocationFeatureSpecification", "name": "Free WiFi", "value": true },

@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { useCurrency } from "@/components/CurrencyContext";
 import BookingModal from "@/components/BookingModal";
+import ElfsightWidget, { ElfsightScript } from "@/components/ElfsightWidget";
 import GalleryCarousel from "@/components/GalleryCarousel";
 import BeyondTheWallsNav from "@/components/BeyondTheWallsNav";
 import { IconBed, IconShower, IconAC, IconWifi } from "@/components/icons";
@@ -117,6 +118,15 @@ export default function TheDouariaClient({ hero, paragraphs, rooms, gallery, cit
       </section>
 
       {gallery.length > 0 && <GalleryCarousel images={gallery} />}
+
+      {/* Booking.com Reviews */}
+      <section className="py-20 md:py-28 px-6">
+        <div className="max-w-5xl mx-auto">
+          <ElfsightWidget widgetId="110c852e-6ba1-41dc-a763-754818783ca4" />
+        </div>
+      </section>
+      <ElfsightScript />
+
       <BeyondTheWallsNav />
 
       <BookingModal

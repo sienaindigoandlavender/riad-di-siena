@@ -285,6 +285,22 @@ function DirectionsContent() {
           );
           })}
         </div>
+
+        {/* Derb City Guide — contextual reference */}
+        <div className="mt-16 pt-12 border-t border-foreground/10 text-center">
+          <p className="text-foreground/40 text-sm mb-2">New to the medina?</p>
+          <p className="text-foreground/50 text-sm leading-relaxed max-w-md mx-auto mb-6">
+            Why taxis can't reach the door, how the alleyways work, what to expect from the sounds and rhythms of the old city.
+          </p>
+          <a 
+            href="https://www.derb.so/guides/getting-around" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="text-xs tracking-widest text-foreground/50 hover:text-foreground/70 transition-colors border-b border-foreground/20 pb-1"
+          >
+            DERB — GETTING AROUND
+          </a>
+        </div>
       </div>
     </div>
   );
