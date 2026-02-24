@@ -347,6 +347,15 @@ export default function Footer() {
         </div>
       </div>
 
+      {/* Level 5: Powered by */}
+      <div className="bg-[#beb5a5]">
+        <div className="max-w-7xl mx-auto px-6 py-2.5">
+          <p className="text-[10px] tracking-[0.15em] uppercase text-[#2a2520]/50 text-center">
+            Powered by <a href="https://www.dancingwiththelions.com" target="_blank" rel="noopener noreferrer" className="text-[#2a2520]/70 hover:text-[#2a2520] transition-colors">Dancing with Lions</a>
+          </p>
+        </div>
+      </div>
+
       {/* Hide Google Translate bar and artifacts */}
       <style jsx global>{`
         .goog-te-banner-frame,
