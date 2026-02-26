@@ -205,8 +205,13 @@ export default function Footer() {
                   </a>
                 </li>
                 <li>
-                  <a href="https://derb.so" target="_blank" rel="noopener noreferrer" className="text-[#2a2520]/75 text-sm hover:text-[#2a2520] transition-colors">
+                  <a href="https://www.derb.so" target="_blank" rel="noopener noreferrer" className="text-[#2a2520]/75 text-sm hover:text-[#2a2520] transition-colors">
                     Derb — City Guide
+                  </a>
+                </li>
+                <li>
+                  <a href="https://www.dharija.space" target="_blank" rel="noopener noreferrer" className="text-[#2a2520]/75 text-sm hover:text-[#2a2520] transition-colors">
+                    Darija Dictionary
                   </a>
                 </li>
               </ul>
