@@ -136,9 +136,6 @@ export default function CourtyardMarchPage() {
               objectFit: "cover",
               display: "block",
             }}
-            onError={(e) => {
-              (e.target as HTMLImageElement).style.display = "none";
-            }}
           />
         </div>
 

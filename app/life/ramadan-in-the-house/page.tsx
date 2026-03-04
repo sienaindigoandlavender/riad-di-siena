@@ -140,9 +140,6 @@ export default function RamadanPage() {
               objectFit: "cover",
               display: "block",
             }}
-            onError={(e) => {
-              (e.target as HTMLImageElement).style.display = "none";
-            }}
           />
         </div>
 
