@@ -11,8 +11,8 @@ export const metadata: Metadata = {
     canonical: "https://www.riaddisiena.com/intellectual-property",
   },
   robots: {
-    index: true,
-    follow: true,
+    index: false,
+    follow: false,
   },
 };
 

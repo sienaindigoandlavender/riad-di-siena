@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "The Douaria",
+  title: "The Douaria — Annex Rooms in Marrakech Medina",
   description: "Modern annex to Riad di Siena, steps from the main house. Three contemporary rooms with private rooftop terrace in Marrakech medina. Traditional location, modern comfort.",
   openGraph: {
     title: "The Douaria | Riad di Siena",
