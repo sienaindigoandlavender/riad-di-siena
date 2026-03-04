@@ -150,9 +150,6 @@ export default function LifePage() {
                       display: "block",
                       transition: "transform 0.6s ease",
                     }}
-                    onError={(e) => {
-                      (e.target as HTMLImageElement).style.display = "none";
-                    }}
                   />
                 </div>
 
