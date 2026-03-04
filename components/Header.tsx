@@ -13,6 +13,7 @@ export default function Header() {
     { href: "/rooms", label: "ROOMS" },
     { href: "/amenities", label: "AMENITIES" },
     { href: "/philosophy", label: "PHILOSOPHY" },
+    { href: "/life", label: "LIFE" },
   ];
 
   return (
