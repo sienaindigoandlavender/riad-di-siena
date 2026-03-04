@@ -101,6 +101,32 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.6,
     },
 
+    // Life section
+    {
+      url: `${baseUrl}/life`,
+      lastModified: today,
+      changeFrequency: "weekly",
+      priority: 0.7,
+    },
+    {
+      url: `${baseUrl}/life/ramadan-in-the-house`,
+      lastModified: today,
+      changeFrequency: "yearly",
+      priority: 0.6,
+    },
+    {
+      url: `${baseUrl}/life/the-breakfast-hour`,
+      lastModified: today,
+      changeFrequency: "yearly",
+      priority: 0.6,
+    },
+    {
+      url: `${baseUrl}/life/the-courtyard-in-march`,
+      lastModified: today,
+      changeFrequency: "yearly",
+      priority: 0.6,
+    },
+
     // Legal pages
     {
       url: `${baseUrl}/house-rules`,
