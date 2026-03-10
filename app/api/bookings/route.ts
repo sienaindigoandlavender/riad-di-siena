@@ -7,10 +7,10 @@ const MAKE_WEBHOOK_URL = process.env.MAKE_BOOKING_WEBHOOK_URL || "";
 
 export async function POST(request: Request) {
   try {
-    // Create ops client at request time (env vars not available at build time)
-    const opsUrl = process.env.OPS_SUPABASE_URL || process.env.NEXT_PUBLIC_SUPABASE_URL!;
-    const opsKey = process.env.OPS_SUPABASE_SERVICE_KEY || process.env.SUPABASE_SERVICE_ROLE_KEY!;
-    const opsClient = createClient(opsUrl, opsKey);
+    // master_guests now lives in the same Supabase project
+    const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL!;
+    const supabaseKey = process.env.SUPABASE_SERVICE_ROLE_KEY!;
+    const supabase = createClient(supabaseUrl, supabaseKey);
 
     const body = await request.json();
 
@@ -39,8 +39,8 @@ export async function POST(request: Request) {
       return NextResponse.json({ success: false, error: "Payment not completed" }, { status: 400 });
     }
 
-    // ── 1. INSERT into ops Supabase master_guests ─────────────────
-    const { error: dbError } = await opsClient.from("master_guests").insert({
+    // ── 1. INSERT into master_guests ─────────────────
+    const { error: dbError } = await supabase.from("master_guests").insert({
       booking_id: bookingId,
       source: "Website",
       status: "confirmed",
