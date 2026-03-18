@@ -274,10 +274,10 @@ function DirectionsContent() {
                 </p>
                 {step.Image_URL && (
                   <div className="aspect-video bg-foreground/5 overflow-hidden rounded">
-                    <img 
-                      src={step.Image_URL} 
+                    <img
+                      src={step.Image_URL}
                       alt={`Step ${step.Step_Number}`}
-                      className={`w-full h-full object-cover ${step.Image_Position === 'top' ? 'object-top' : step.Image_Position === 'bottom' ? 'object-bottom' : 'object-center'}`}
+                      className={`w-full h-full object-cover ${step.Image_Position === 'top' || step.Step_Number === '8' ? 'object-top' : step.Image_Position === 'bottom' ? 'object-bottom' : 'object-center'}`}
                     />
                   </div>
                 )}
