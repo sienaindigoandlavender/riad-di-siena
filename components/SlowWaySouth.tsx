@@ -104,8 +104,8 @@ export default function SlowWaySouth({
 
   return (
     <section id="the-journey" className="bg-sand">
-      {/* Immersive Hero Image */}
-      <div className="relative h-[70vh] bg-[#e8e0d4]">
+      {/* Hero with CTA */}
+      <div className="relative h-[50vh] min-h-[400px] bg-[#e8e0d4]">
         {journey.heroImage && (
           <Image
             src={journey.heroImage}
@@ -114,50 +114,63 @@ export default function SlowWaySouth({
             className="object-cover"
           />
         )}
-        <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-transparent to-black/40" />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/10 via-black/5 to-black/60" />
 
-        {/* Overlay Content */}
+        {/* Overlay — title, price, CTA all visible on the image */}
         <div className="absolute inset-0 flex items-end">
-          <div className="container mx-auto px-6 pb-16 text-white">
+          <div className="container mx-auto px-6 pb-10 text-white">
             {focusTags && (
-              <p className="text-[11px] tracking-[0.3em] uppercase mb-3 text-white/80">
+              <p style={{ fontSize: '10px', letterSpacing: '0.3em', textTransform: 'uppercase', marginBottom: '10px', opacity: 0.7 }}>
                 {focusTags}
               </p>
             )}
-            <h2 style={{ fontSize: 'clamp(1.25rem, 2.5vw, 1.75rem)' }} className="font-serif mb-3 leading-tight">
+            <h2 style={{ fontSize: '22px', fontFamily: 'var(--font-display)', lineHeight: 1.2, marginBottom: '6px' }}>
               {bannerTitle}
             </h2>
-            {journey.arcDescription && (
-              <p className="max-w-lg text-[13px] md:text-[14px] text-white/85 leading-relaxed">
-                {journey.arcDescription}
-              </p>
-            )}
+            <p style={{ fontSize: '13px', marginBottom: '16px', opacity: 0.7 }}>
+              From {formatPrice(journeyPrice)} for 2 guests · all meals included
+            </p>
+            <div style={{ display: 'flex', gap: '12px', alignItems: 'center', flexWrap: 'wrap' }}>
+              <button
+                onClick={() => setIsBookingOpen(true)}
+                style={{ fontSize: '10px', letterSpacing: '0.2em', textTransform: 'uppercase', padding: '10px 28px', backgroundColor: 'white', color: '#1a1a1a', border: 'none', cursor: 'pointer' }}
+              >
+                Begin
+              </button>
+              <Link
+                href={`https://www.slowmorocco.com/journeys/${journeySlug}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{ fontSize: '10px', letterSpacing: '0.2em', textTransform: 'uppercase', padding: '10px 28px', border: '1px solid rgba(255,255,255,0.5)', color: 'white', textDecoration: 'none' }}
+              >
+                {ctaText}
+              </Link>
+            </div>
           </div>
         </div>
       </div>
 
-      {/* Journey Details */}
-      <div className="py-20">
+      {/* Itinerary + attribution below */}
+      <div className="py-12">
         <div className="max-w-4xl mx-auto px-6">
-          {/* Day markers - Dynamic from itinerary */}
           {itinerary.length > 0 && (
-            <div className={`grid gap-12 mb-16 ${
+            <div className={`grid gap-8 mb-10 ${
               itinerary.length === 2 ? "md:grid-cols-2" :
               itinerary.length === 3 ? "md:grid-cols-3" :
               itinerary.length >= 4 ? "md:grid-cols-4" : ""
             }`}>
               {itinerary.map((day) => (
                 <div key={day.dayNumber} className="text-center">
-                  <div className="w-12 h-12 rounded-full border border-foreground/20 flex items-center justify-center text-sm mx-auto mb-4">
+                  <div style={{ width: '36px', height: '36px', borderRadius: '50%', border: '1px solid rgba(0,0,0,0.15)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '12px', margin: '0 auto 10px' }}>
                     {day.dayNumber}
                   </div>
-                  <h3 className="font-serif text-lg mb-2">
-                    {day.fromCity && day.toCity && day.fromCity !== day.toCity 
+                  <h3 style={{ fontSize: '14px', fontFamily: 'var(--font-display)', marginBottom: '4px' }}>
+                    {day.fromCity && day.toCity && day.fromCity !== day.toCity
                       ? `${day.fromCity} → ${day.toCity}`
                       : day.cityName || `Day ${day.dayNumber}`
                     }
                   </h3>
-                  <p className="text-sm text-muted-foreground line-clamp-3">
+                  <p style={{ fontSize: '12px', color: 'hsl(var(--muted-foreground))', lineHeight: 1.5, display: '-webkit-box', WebkitLineClamp: 3, WebkitBoxOrient: 'vertical', overflow: 'hidden', marginBottom: 0 }}>
                     {day.description}
                   </p>
                 </div>
@@ -165,52 +178,24 @@ export default function SlowWaySouth({
             </div>
           )}
 
-          {/* CTA */}
+          {/* Attribution */}
           <div className="text-center">
-            {/* Price */}
-            <p className="text-2xl font-serif mb-2">
-              {formatPrice(journeyPrice)}
-            </p>
-            <p className="text-sm text-muted-foreground mb-8">
-              for 2 guests / all meals included
-            </p>
-            
-            <div className="flex flex-col sm:flex-row gap-4 justify-center mb-6">
-              <Link
-                href={`https://www.slowmorocco.com/journeys/${journeySlug}`}
+            <p style={{ fontSize: '10px', color: 'hsl(var(--muted-foreground))', marginBottom: '4px' }}>
+              A journey by{" "}
+              <a
+                href="https://www.slowmorocco.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-block border border-foreground px-10 py-4 text-xs tracking-[0.2em] uppercase hover:bg-foreground hover:text-background transition-colors"
-              >
-                {ctaText}
-              </Link>
-              <button
-                onClick={() => setIsBookingOpen(true)}
-                className="inline-block bg-foreground text-sand px-10 py-4 text-xs tracking-[0.2em] uppercase hover:bg-foreground/90 transition-colors"
-              >
-                Begin
-              </button>
-            </div>
-
-            {/* Attribution */}
-            <p className="text-xs text-muted-foreground mb-4">
-              A journey by{" "}
-              <a 
-                href="https://www.slowmorocco.com" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="underline hover:text-foreground transition-colors"
+                style={{ textDecoration: 'underline' }}
               >
                 Slow Morocco
               </a>
             </p>
-
-            {/* Day Adventures Link */}
-            <a 
-              href="https://www.slowmorocco.com/day-trips" 
-              target="_blank" 
+            <a
+              href="https://www.slowmorocco.com/day-trips"
+              target="_blank"
               rel="noopener noreferrer"
-              className="inline-block text-xs tracking-[0.15em] uppercase text-muted-foreground hover:text-foreground transition-colors"
+              style={{ fontSize: '10px', letterSpacing: '0.15em', textTransform: 'uppercase', color: 'hsl(var(--muted-foreground))' }}
             >
               Day Adventures →
             </a>
