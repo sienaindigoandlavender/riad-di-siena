@@ -115,20 +115,20 @@ export default function SlowWaySouth({
           />
         )}
         <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-transparent to-black/40" />
-        
+
         {/* Overlay Content */}
         <div className="absolute inset-0 flex items-end">
           <div className="container mx-auto px-6 pb-16 text-white">
             {focusTags && (
-              <p className="text-xs tracking-[0.3em] uppercase mb-4 text-white/80">
+              <p className="text-[11px] tracking-[0.3em] uppercase mb-3 text-white/80">
                 {focusTags}
               </p>
             )}
-            <h2 className="font-serif text-2xl md:text-3xl lg:text-4xl mb-4">
+            <h2 style={{ fontSize: 'clamp(1.25rem, 2.5vw, 1.75rem)' }} className="font-serif mb-3 leading-tight">
               {bannerTitle}
             </h2>
             {journey.arcDescription && (
-              <p className="max-w-xl text-sm md:text-base text-white/90 leading-relaxed">
+              <p className="max-w-lg text-[13px] md:text-[14px] text-white/85 leading-relaxed">
                 {journey.arcDescription}
               </p>
             )}
