@@ -1,8 +1,9 @@
 import { NextResponse } from "next/server";
-import { supabase } from "@/lib/supabase";
+import { getServiceClient } from "@/lib/supabase";
 
 export async function GET() {
   try {
+    const supabase = getServiceClient();
     await supabase.from("rooms").select("room_id").limit(1);
     return NextResponse.json({ ok: true, ts: new Date().toISOString() });
   } catch {
