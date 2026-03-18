@@ -124,11 +124,11 @@ export default function SlowWaySouth({
                 {focusTags}
               </p>
             )}
-            <h2 className="font-serif text-4xl md:text-5xl lg:text-6xl mb-4">
+            <h2 className="font-serif text-2xl md:text-3xl lg:text-4xl mb-4">
               {bannerTitle}
             </h2>
             {journey.arcDescription && (
-              <p className="max-w-xl text-white/90 leading-relaxed">
+              <p className="max-w-xl text-sm md:text-base text-white/90 leading-relaxed">
                 {journey.arcDescription}
               </p>
             )}
