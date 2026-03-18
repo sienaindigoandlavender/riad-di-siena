@@ -273,7 +273,7 @@ function DirectionsContent() {
                   {caption}
                 </p>
                 {step.Image_URL && (
-                  <div className="aspect-video bg-foreground/5 overflow-hidden rounded">
+                  <div className={`${step.Step_Number === '8' ? 'aspect-square' : 'aspect-video'} bg-foreground/5 overflow-hidden rounded`}>
                     <img
                       src={step.Image_URL}
                       alt={`Step ${step.Step_Number}`}
