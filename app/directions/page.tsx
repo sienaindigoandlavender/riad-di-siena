@@ -277,7 +277,7 @@ function DirectionsContent() {
                     <img 
                       src={step.Image_URL} 
                       alt={`Step ${step.Step_Number}`}
-                      className={`w-full h-full object-cover object-${step.Image_Position || 'center'}`}
+                      className={`w-full h-full object-cover ${step.Image_Position === 'top' ? 'object-top' : step.Image_Position === 'bottom' ? 'object-bottom' : 'object-center'}`}
                     />
                   </div>
                 )}
