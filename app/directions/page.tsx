@@ -13,6 +13,7 @@ interface Direction {
   Caption_PT: string;
   Caption_AR: string;
   Image_URL: string;
+  Image_Position: string;
 }
 
 interface DirectionsSetting {
@@ -276,7 +277,7 @@ function DirectionsContent() {
                     <img 
                       src={step.Image_URL} 
                       alt={`Step ${step.Step_Number}`}
-                      className={`w-full h-full object-cover ${step.Step_Number === '8' ? 'object-top' : 'object-center'}`}
+                      className={`w-full h-full object-cover object-${step.Image_Position || 'center'}`}
                     />
                   </div>
                 )}
