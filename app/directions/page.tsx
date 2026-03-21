@@ -294,7 +294,7 @@ function DirectionsContent() {
             Why taxis can't reach the door, how the alleyways work, what to expect from the sounds and rhythms of the old city.
           </p>
           <a 
-            href="https://www.derb.so/guides/getting-around" 
+            href="https://www.slowmorocco.com/travel" 
             target="_blank" 
             rel="noopener noreferrer"
             className="text-xs tracking-widest text-foreground/50 hover:text-foreground/70 transition-colors border-b border-foreground/20 pb-1"
