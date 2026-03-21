@@ -69,7 +69,7 @@ export default async function AmenitiesPage() {
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
             <a 
-              href="https://www.derb.so" 
+              href="https://www.slowmorocco.com" 
               target="_blank" 
               rel="noopener noreferrer"
               className="inline-block border border-[#2a2520]/20 px-10 py-4 text-xs tracking-[0.2em] uppercase hover:bg-[#2a2520] hover:text-[#f5f0e8] transition-colors"
