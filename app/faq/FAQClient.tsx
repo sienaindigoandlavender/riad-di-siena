@@ -85,7 +85,7 @@ export default function FAQClient({ faqItems }: FAQClientProps) {
             <p className="text-[#2a2520]/50 text-sm mb-4">
               Taxis, tipping, the call to prayer, cockroaches, heat — 57 honest answers to the questions you haven't thought of yet.
             </p>
-            <a href="https://www.derb.so" target="_blank" rel="noopener noreferrer"
+            <a href="https://www.slowmorocco.com" target="_blank" rel="noopener noreferrer"
               className="inline-block border border-[#2a2520]/20 px-10 py-4 text-xs tracking-[0.2em] uppercase hover:bg-[#2a2520] hover:text-[#f5f0e8] transition-colors">
               Derb — City Guide
             </a>
