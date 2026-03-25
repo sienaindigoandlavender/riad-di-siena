@@ -1,7 +1,6 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import Image from "next/image";
 import Link from "next/link";
 import BookingModal from "./BookingModal";
 import { useCurrency } from "./CurrencyContext";
@@ -107,11 +106,10 @@ export default function SlowWaySouth({
       {/* Hero with CTA */}
       <div className="relative h-[50vh] min-h-[400px] bg-[#e8e0d4]">
         {journey.heroImage && (
-          <Image
+          <img
             src={journey.heroImage}
             alt={journey.title}
-            fill
-            className="object-cover"
+            className="absolute inset-0 w-full h-full object-cover"
           />
         )}
         <div className="absolute inset-0 bg-gradient-to-b from-black/10 via-black/5 to-black/60" />
