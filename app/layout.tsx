@@ -13,11 +13,17 @@ export const metadata: Metadata = {
     template: "%s | Riad di Siena",
   },
   description: "An 18th-century riad two minutes from Jemaa el-Fna. Step through the door and the medina falls quiet. Soul food, genuine care, and clarity of spirit come first.",
-  keywords: ["heritage riad marrakech", "historic riad medina", "traditional moroccan house", "zellige architecture marrakech", "laksour marrakech medina", "best reviewed riad marrakech", "authentic riad medina marrakech"],
+  keywords: ["heritage riad marrakech", "historic riad medina", "traditional moroccan house", "zellige architecture marrakech", "laksour marrakech medina", "best reviewed riad marrakech", "authentic riad medina marrakech",
+    // Spanish
+    "riad marrakech cerca jemaa el fna", "riad medina marrakech", "alojamiento marrakech medina", "riad auténtico marrakech", "casa tradicional marroquí",
+    // Italian
+    "riad marrakech vicino jemaa el fna", "riad medina marrakech", "alloggio marrakech medina", "riad autentico marrakech", "casa tradizionale marocchina"
+  ],
   authors: [{ name: "Riad di Siena" }],
   openGraph: {
     type: "website",
     locale: "en_US",
+    alternateLocale: ["es_ES", "it_IT", "fr_FR"],
     url: "https://www.riaddisiena.com",
     siteName: "Riad di Siena",
     title: "Riad di Siena | 18th-Century Riad in Marrakech Medina",
@@ -43,6 +49,12 @@ export const metadata: Metadata = {
   },
   alternates: {
     canonical: "https://www.riaddisiena.com",
+    languages: {
+      "en": "https://www.riaddisiena.com",
+      "es": "https://www.riaddisiena.com",
+      "it": "https://www.riaddisiena.com",
+      "fr": "https://www.riaddisiena.com",
+    },
   },
   robots: {
     index: true,
@@ -186,6 +198,10 @@ export default function RootLayout({
         <link rel="author" href="/llms.txt" type="text/plain" title="AI Knowledge Base" />
         <link rel="alternate" href="/api/knowledge/property" type="application/ld+json" title="Property Data" />
         <link rel="alternate" href="/api/knowledge/faq" type="application/ld+json" title="FAQ Data" />
+        {/* Spanish meta description — for es_ES Google results */}
+        <meta name="description:es" content="Riad del siglo XVIII a dos minutos de la Plaza Jemaa el-Fna. Cruza la puerta y la medina enmudece. Arquitectura auténtica, zellige original, desayuno en la terraza con vistas al Atlas." />
+        {/* Italian meta description — for it_IT Google results */}
+        <meta name="description:it" content="Riad del XVIII secolo a due minuti da Piazza Jemaa el-Fna. Varca la soglia e la medina si fa silenziosa. Architettura autentica, zellige originale, colazione in terrazza con vista sull'Atlante." />
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-V48C7J04GJ"
           strategy="afterInteractive"
