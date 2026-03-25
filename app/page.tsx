@@ -113,21 +113,21 @@ export default async function Home() {
       {/* Derb City Guide */}
       <section className="py-16 md:py-20 bg-[#1C1917] text-[#FAF9F6]">
         <div className="max-w-3xl mx-auto px-6 text-center">
-          <a href="https://www.slowmorocco.com/stories/the-three-glasses" target="_blank" rel="noopener noreferrer" className="group block">
+          <a href="https://www.derb.so/stories/the-three-glasses" target="_blank" rel="noopener noreferrer" className="group block">
             <p className="text-[#C2410C] text-xs tracking-[0.3em] uppercase mb-6">01</p>
             <p className="font-serif text-3xl md:text-4xl lg:text-5xl text-[#FAF9F6] group-hover:text-[#FAF9F6]/80 transition-colors mb-6" style={{ fontStyle: 'italic' }}>
               Is it rude to refuse tea?
             </p>
             <p className="text-[#A8A29E] text-sm leading-relaxed max-w-md mx-auto mb-8">
-              Tea is a social contract. Offering it means you're being received as a guest.
+              Tea is a social contract. Offering it means you&apos;re being received as a guest.
             </p>
             <span className="inline-flex items-center gap-2 text-[#C2410C] text-xs tracking-[0.2em] group-hover:gap-3 transition-all">
               Read more <span className="transition-transform group-hover:translate-x-1">→</span>
             </span>
           </a>
           <div className="mt-10 pt-6 border-t border-[#FAF9F6]/10">
-            <a href="https://www.slowmorocco.com" target="_blank" rel="noopener noreferrer" className="text-[#78716C] text-xs tracking-[0.2em] hover:text-[#A8A29E] transition-colors">
-              DERB — 57 QUESTIONS ABOUT MOROCCO
+            <a href="https://www.derb.so" target="_blank" rel="noopener noreferrer" className="text-[#78716C] text-xs tracking-[0.2em] hover:text-[#A8A29E] transition-colors">
+              DERB — THE MARRAKECH CITY GUIDE
             </a>
           </div>
         </div>
