@@ -11,14 +11,34 @@ export const metadata: Metadata = {
     "traditional riad rooms",
     "boutique hotel marrakech",
     "riad with breakfast marrakech",
+    // Spanish
+    "habitaciones riad marrakech",
+    "alojamiento medina marrakech",
+    "riad con desayuno marrakech",
+    "hotel boutique marrakech medina",
+    "dormir en la medina de marrakech",
+    // Italian
+    "camere riad marrakech",
+    "alloggio medina marrakech",
+    "riad con colazione marrakech",
+    "hotel boutique marrakech medina",
+    "dormire nella medina di marrakech",
   ],
   openGraph: {
     title: "Rooms at Riad di Siena | Marrakech Medina",
     description:
       "Three rooms around a courtyard fountain in a 300-year-old Marrakech riad, plus three at The Douaria annex. Queen beds, en-suite bathrooms, rooftop breakfast included. From €80/night.",
+    locale: "en_US",
+    alternateLocale: ["es_ES", "it_IT", "fr_FR"],
   },
   alternates: {
     canonical: "https://www.riaddisiena.com/rooms",
+    languages: {
+      "en": "https://www.riaddisiena.com/rooms",
+      "es": "https://www.riaddisiena.com/rooms",
+      "it": "https://www.riaddisiena.com/rooms",
+      "fr": "https://www.riaddisiena.com/rooms",
+    },
   },
 };
 
