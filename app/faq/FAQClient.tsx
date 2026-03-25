@@ -79,6 +79,21 @@ export default function FAQClient({ faqItems }: FAQClientProps) {
             </a>
           </div>
 
+          {/* Derb City Guide Reference */}
+          <div className="mt-8 bg-[#1C1917] text-[#FAF9F6] py-12 px-10 text-center">
+            <p className="text-[#C2410C] text-[10px] tracking-[0.3em] uppercase mb-4">Before You Go Out</p>
+            <p className="font-serif text-2xl md:text-3xl mb-4" style={{ fontStyle: 'italic' }}>
+              Know the city before you walk into it.
+            </p>
+            <p className="text-[#A8A29E] text-sm leading-relaxed max-w-sm mx-auto mb-8">
+              Where to eat, what to see, how to navigate the medina. Derb is the Marrakech guide written from inside the walls.
+            </p>
+            <a href="https://www.derb.so" target="_blank" rel="noopener noreferrer"
+              className="inline-block border border-[#FAF9F6]/20 px-10 py-4 text-xs tracking-[0.2em] uppercase text-[#FAF9F6] hover:bg-[#FAF9F6] hover:text-[#1C1917] transition-colors">
+              Open Derb
+            </a>
+          </div>
+
           {/* Derb City Guide */}
           <div className="mt-6 text-center py-12 border border-[#2a2520]/10">
             <p className="text-[#2a2520]/40 text-sm mb-2">First time in Morocco?</p>
