@@ -2,7 +2,6 @@ import { NextResponse } from "next/server";
 import {
   getTableData,
   getAllSettings,
-  convertDriveUrl,
 } from "@/lib/supabase";
 import { getLegalPageContent, getNexusContentSites } from "@/lib/nexus";
 
@@ -53,19 +52,6 @@ const TABLE_MAP: Record<string, string> = {
   "nexus-legal": "__nexus__",
 };
 
-// Fields containing Google Drive image URLs that need conversion
-const IMAGE_FIELDS = ["image_url"];
-
-function processImageUrls(obj: Record<string, any>): Record<string, any> {
-  const processed = { ...obj };
-  for (const field of IMAGE_FIELDS) {
-    if (processed[field]) {
-      processed[field] = convertDriveUrl(processed[field]);
-    }
-  }
-  return processed;
-}
-
 /**
  * Remap Supabase snake_case keys to the PascalCase keys the frontend expects.
  * The frontend fetches `/api/sheets/rooms` and reads `Room_ID`, `Image_URL`, etc.
@@ -112,7 +98,7 @@ function remapKeys(obj: Record<string, any>): Record<string, any> {
 }
 
 function toFrontend(obj: Record<string, any>): Record<string, any> {
-  return remapKeys(processImageUrls(obj));
+  return remapKeys(obj);
 }
 
 // ============================================================

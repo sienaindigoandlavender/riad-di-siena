@@ -186,39 +186,12 @@ export async function getSectionedContent(
   const obj: Record<string, ContentBlock> = {};
   rows.forEach((r) => {
     if (r.section) {
-      obj[r.section] = {
-        ...r,
-        image_url: convertDriveUrl(r.image_url || ""),
-      };
+      obj[r.section] = { ...r };
     }
   });
   return obj;
 }
 
-// ============================================================
-// Image URL converter (for Google Drive URLs)
-// ============================================================
-
-export function convertDriveUrl(url: string): string {
-  if (!url) return "";
-  if (!url.includes("drive.google.com")) return url;
-
-  let fileId = "";
-
-  const fileMatch = url.match(/\/file\/d\/([a-zA-Z0-9_-]+)/);
-  if (fileMatch) fileId = fileMatch[1];
-
-  const openMatch = url.match(/[?&]id=([a-zA-Z0-9_-]+)/);
-  if (openMatch) fileId = openMatch[1];
-
-  const ucMatch = url.match(/\/uc\?.*id=([a-zA-Z0-9_-]+)/);
-  if (ucMatch) fileId = ucMatch[1];
-
-  if (fileId) {
-    return `https://lh3.googleusercontent.com/d/${fileId}=w1600`;
-  }
-  return url;
-}
 
 // ============================================================
 // Nexus system — see lib/nexus.ts (Supabase)

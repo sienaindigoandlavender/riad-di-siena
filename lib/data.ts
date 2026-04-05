@@ -1,4 +1,4 @@
-import { getTableData, getAllSettings, convertDriveUrl } from "./supabase";
+import { getTableData, getAllSettings } from "./supabase";
 
 // ============================================================
 // Server-side data fetching for SSR pages
@@ -31,7 +31,7 @@ function toFrontend(obj: Record<string, any>): Record<string, any> {
   for (const [k, v] of Object.entries(obj)) {
     if (k === "id") continue;
     const mappedKey = MAP[k] || k;
-    result[mappedKey] = k === "image_url" ? convertDriveUrl(v || "") : v;
+    result[mappedKey] = v;
   }
   return result;
 }
