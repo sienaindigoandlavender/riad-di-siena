@@ -6,7 +6,7 @@ export default function robots(): MetadataRoute.Robots {
       {
         userAgent: 'Googlebot',
         allow: '/',
-        disallow: ['/api/', '/admin/'],
+        disallow: ['/api/', '/admin/', '/annex-directions/', '/riad-directions/'],
       },
       // AI Search Crawlers - full access
       {
@@ -45,7 +45,7 @@ export default function robots(): MetadataRoute.Robots {
       {
         userAgent: '*',
         allow: '/',
-        disallow: ['/api/', '/admin/'],
+        disallow: ['/api/', '/admin/', '/annex-directions/', '/riad-directions/'],
       },
     ],
     sitemap: 'https://www.riaddisiena.com/sitemap.xml',
