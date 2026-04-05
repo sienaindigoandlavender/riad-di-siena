@@ -1,3 +1,5 @@
+export const dynamic = 'force-dynamic';
+
 import Link from "next/link";
 import { getSections, getList } from "@/lib/data";
 import TestimonialCarousel from "@/components/TestimonialCarousel";
