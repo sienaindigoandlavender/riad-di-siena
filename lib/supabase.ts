@@ -215,7 +215,7 @@ export function convertDriveUrl(url: string): string {
   if (ucMatch) fileId = ucMatch[1];
 
   if (fileId) {
-    return `https://drive.google.com/thumbnail?id=${fileId}&sz=w1600`;
+    return `https://lh3.googleusercontent.com/d/${fileId}=w1600`;
   }
   return url;
 }

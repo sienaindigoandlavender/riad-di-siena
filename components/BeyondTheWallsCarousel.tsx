@@ -64,6 +64,14 @@ export default function BeyondTheWallsCarousel({ properties }: Props) {
                   src={property.Image_URL}
                   alt={property.Name}
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  onError={(e) => {
+                    const img = e.currentTarget;
+                    // Retry once with Google Drive thumbnail endpoint as fallback
+                    const lh3Match = img.src.match(/lh3\.googleusercontent\.com\/d\/([a-zA-Z0-9_-]+)/);
+                    if (lh3Match) {
+                      img.src = `https://drive.google.com/thumbnail?id=${lh3Match[1]}&sz=w1600`;
+                    }
+                  }}
                 />
               )}
             </div>
