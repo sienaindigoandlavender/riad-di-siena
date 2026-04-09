@@ -91,6 +91,7 @@ function remapKeys(obj: Record<string, any>): Record<string, any> {
     caption_fr: "Caption_FR", caption_es: "Caption_ES",
     caption_it: "Caption_IT", caption_pt: "Caption_PT",
     caption_ar: "Caption_AR",
+    image_position: "Image_Position",
     key: "Key", value: "Value",
     en: "EN", fr: "FR", es: "ES", it: "IT", pt: "PT", ar: "AR",
     category: "Category", answer_fr: "Answer_FR", answer_es: "Answer_ES",
