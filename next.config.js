@@ -21,8 +21,19 @@ const nextConfig = {
     return [
       // ============================================
       // WordPress legacy ?page_id= and ?p= URLs
-      // Handled by middleware.ts (self-redirects don't work in next.config)
       // ============================================
+      {
+        source: "/",
+        has: [{ type: "query", key: "page_id" }],
+        destination: "/",
+        permanent: true,
+      },
+      {
+        source: "/",
+        has: [{ type: "query", key: "p" }],
+        destination: "/",
+        permanent: true,
+      },
 
       // ============================================
       // Old WordPress individual room pages
@@ -81,6 +92,7 @@ const nextConfig = {
       { source: "/blog", destination: "/", permanent: true },
       { source: "/blog/:slug", destination: "/", permanent: true },
       { source: "/amenities-1", destination: "/amenities", permanent: true },
+      { source: "/guide", destination: "/", permanent: true },
 
       // ============================================
       // Legacy amenities sub-pages → proper routes
