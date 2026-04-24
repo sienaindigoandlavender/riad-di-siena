@@ -23,7 +23,6 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "en_US",
-    alternateLocale: ["es_ES", "it_IT", "fr_FR"],
     url: "https://www.riaddisiena.com",
     siteName: "Riad di Siena",
     title: "Riad di Siena | 18th-Century Riad in Marrakech Medina",
@@ -46,15 +45,6 @@ export const metadata: Metadata = {
   icons: {
     icon: '/favicon.png',
     apple: '/apple-touch-icon.png',
-  },
-  alternates: {
-    canonical: "https://www.riaddisiena.com",
-    languages: {
-      "en": "https://www.riaddisiena.com",
-      "es": "https://www.riaddisiena.com",
-      "it": "https://www.riaddisiena.com",
-      "fr": "https://www.riaddisiena.com",
-    },
   },
   robots: {
     index: true,
