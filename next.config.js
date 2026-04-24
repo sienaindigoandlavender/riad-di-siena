@@ -19,6 +19,20 @@ const nextConfig = {
   },
   async redirects() {
     return [
+      // Force HTTPS
+      {
+        source: '/(.*)',
+        has: [{ type: 'header', key: 'x-forwarded-proto', value: 'http' }],
+        destination: 'https://www.riaddisiena.com/:path*',
+        permanent: true,
+      },
+      // Force www
+      {
+        source: '/(.*)',
+        has: [{ type: 'host', value: 'riaddisiena.com' }],
+        destination: 'https://www.riaddisiena.com/:path*',
+        permanent: true,
+      },
       // ============================================
       // WordPress legacy ?page_id= and ?p= URLs
       // ============================================
