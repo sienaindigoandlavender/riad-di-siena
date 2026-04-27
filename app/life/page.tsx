@@ -213,6 +213,38 @@ export default function LifePage() {
             </Link>
           ))}
         </section>
+
+        {/* Derb cross-link */}
+        <section
+          style={{
+            padding: "0 clamp(24px, 6vw, 96px) 96px",
+            textAlign: "center",
+          }}
+        >
+          <p
+            style={{
+              fontFamily: "var(--font-body)",
+              fontSize: "15px",
+              color: "#6b5c4e",
+              lineHeight: 1.7,
+            }}
+          >
+            Practical questions about Marrakech?{" "}
+            <a
+              href="https://derb.so"
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{
+                color: "#2a2520",
+                borderBottom: "1px solid #2a2520",
+                paddingBottom: "1px",
+                textDecoration: "none",
+              }}
+            >
+              Derb has 57 answers →
+            </a>
+          </p>
+        </section>
       </main>
 
       <Footer />
