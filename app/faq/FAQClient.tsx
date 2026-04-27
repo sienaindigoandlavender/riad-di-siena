@@ -88,7 +88,7 @@ export default function FAQClient({ faqItems }: FAQClientProps) {
             <p className="text-[#A8A29E] text-sm leading-relaxed max-w-sm mx-auto mb-8">
               Where to eat, what to see, how to navigate the medina. Derb is the Marrakech guide written from inside the walls.
             </p>
-            <a href="https://www.derb.so" target="_blank" rel="noopener noreferrer"
+            <a href="https://derb.so" target="_blank" rel="noopener noreferrer"
               className="inline-block border border-[#FAF9F6]/20 px-10 py-4 text-xs tracking-[0.2em] uppercase text-[#FAF9F6] hover:bg-[#FAF9F6] hover:text-[#1C1917] transition-colors">
               Open Derb
             </a>
@@ -100,7 +100,7 @@ export default function FAQClient({ faqItems }: FAQClientProps) {
             <p className="text-[#2a2520]/50 text-sm mb-4">
               Taxis, tipping, the call to prayer, cockroaches, heat — 57 honest answers to the questions you haven't thought of yet.
             </p>
-            <a href="https://www.derb.so" target="_blank" rel="noopener noreferrer"
+            <a href="https://derb.so" target="_blank" rel="noopener noreferrer"
               className="inline-block border border-[#2a2520]/20 px-10 py-4 text-xs tracking-[0.2em] uppercase hover:bg-[#2a2520] hover:text-[#f5f0e8] transition-colors">
               Derb — City Guide
             </a>
