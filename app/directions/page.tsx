@@ -82,7 +82,7 @@ function DirectionsContent() {
 
   // Check if text contains Arabic characters
   const isArabicText = (text: string): boolean => {
-    return /[\u0600-\u06FF]/.test(text);
+    return /[؀-ۿ]/.test(text);
   };
 
   const getCaption = (step: Direction): string => {
@@ -294,7 +294,7 @@ function DirectionsContent() {
             Why taxis can't reach the door, how the alleyways work, what to expect from the sounds and rhythms of the old city.
           </p>
           <a
-            href="https://www.derb.so"
+            href="https://derb.so"
             target="_blank"
             rel="noopener noreferrer"
             className="text-xs tracking-widest text-foreground/50 hover:text-foreground/70 transition-colors border-b border-foreground/20 pb-1"
