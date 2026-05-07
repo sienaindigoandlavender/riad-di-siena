@@ -10,10 +10,6 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "https://www.riaddisiena.com/privacy",
   },
-  robots: {
-    index: false,
-    follow: false,
-  },
 };
 
 export default function PrivacyLayout({

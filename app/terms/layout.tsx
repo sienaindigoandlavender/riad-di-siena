@@ -10,10 +10,6 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "https://www.riaddisiena.com/terms",
   },
-  robots: {
-    index: false,
-    follow: false,
-  },
 };
 
 export default function TermsLayout({

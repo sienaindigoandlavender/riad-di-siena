@@ -1,8 +1,20 @@
-"use client";
-
+import type { Metadata } from "next";
 import Link from "next/link";
-import Header from "@/components/Header";
-import Footer from "@/components/Footer";
+
+export const metadata: Metadata = {
+  title: {
+    absolute: "Life at the Riad — Notes from a 300-year-old house",
+  },
+  description:
+    "Field notes from inside Riad di Siena: Ramadan in the courtyard, the breakfast hour, the medina at dawn. A journal from a 300-year-old riad in Marrakech.",
+  alternates: { canonical: "https://www.riaddisiena.com/life" },
+  openGraph: {
+    title: "Life at the Riad",
+    description: "Notes from inside a 300-year-old riad in Marrakech medina.",
+    url: "https://www.riaddisiena.com/life",
+    type: "website",
+  },
+};
 
 const entries = [
   {
@@ -48,180 +60,165 @@ const pillarColors: Record<string, string> = {
 export default function LifePage() {
   return (
     <div className="min-h-screen" style={{ backgroundColor: "#f8f5f0", color: "#2a2520" }}>
-      <Header />
+      <style>{`.life-card:hover img { transform: scale(1.03); }`}</style>
 
-      <main>
-        {/* Header */}
-        <section
+      {/* Header */}
+      <section
+        style={{
+          paddingTop: "140px",
+          paddingBottom: "60px",
+          paddingLeft: "clamp(24px, 6vw, 96px)",
+          paddingRight: "clamp(24px, 6vw, 96px)",
+        }}
+      >
+        <p
           style={{
-            paddingTop: "140px",
-            paddingBottom: "60px",
-            paddingLeft: "clamp(24px, 6vw, 96px)",
-            paddingRight: "clamp(24px, 6vw, 96px)",
+            fontFamily: "var(--font-body)",
+            fontSize: "11px",
+            letterSpacing: "0.35em",
+            textTransform: "uppercase",
+            color: "#9c8060",
+            marginBottom: "20px",
           }}
         >
-          <p
-            style={{
-              fontFamily: "var(--font-body)",
-              fontSize: "11px",
-              letterSpacing: "0.35em",
-              textTransform: "uppercase",
-              color: "#9c8060",
-              marginBottom: "20px",
-            }}
-          >
-            Field Notes
-          </p>
-          <h1
-            style={{
-              fontFamily: "var(--font-display)",
-              fontSize: "clamp(36px, 6vw, 72px)",
-              fontWeight: 400,
-              lineHeight: 1.05,
-              letterSpacing: "-0.01em",
-              maxWidth: "640px",
-            }}
-          >
-            Life at the Riad
-          </h1>
-          <p
-            style={{
-              fontFamily: "var(--font-body)",
-              fontSize: "17px",
-              lineHeight: 1.7,
-              color: "#6b5c4e",
-              maxWidth: "480px",
-              marginTop: "24px",
-            }}
-          >
-            Notes from inside the house. The kitchen, the courtyard,
-            the neighbours, the seasons.
-          </p>
-        </section>
-
-        {/* Divider */}
-        <div
+          Field Notes
+        </p>
+        <h1
           style={{
-            height: "1px",
-            backgroundColor: "#e0d5c8",
-            marginLeft: "clamp(24px, 6vw, 96px)",
-            marginRight: "clamp(24px, 6vw, 96px)",
-          }}
-        />
-
-        {/* Grid */}
-        <section
-          style={{
-            padding: "72px clamp(24px, 6vw, 96px)",
-            display: "grid",
-            gridTemplateColumns: "repeat(auto-fill, minmax(320px, 1fr))",
-            gap: "48px 40px",
+            fontFamily: "var(--font-display)",
+            fontSize: "clamp(36px, 6vw, 72px)",
+            fontWeight: 400,
+            lineHeight: 1.05,
+            letterSpacing: "-0.01em",
+            maxWidth: "640px",
           }}
         >
-          {entries.map((entry, i) => (
-            <Link
-              key={entry.slug}
-              href={`/life/${entry.slug}`}
-              style={{ textDecoration: "none", color: "inherit" }}
-            >
-              <article
+          Life at the Riad
+        </h1>
+        <p
+          style={{
+            fontFamily: "var(--font-body)",
+            fontSize: "17px",
+            lineHeight: 1.7,
+            color: "#6b5c4e",
+            maxWidth: "480px",
+            marginTop: "24px",
+          }}
+        >
+          Notes from inside the house. The kitchen, the courtyard,
+          the neighbours, the seasons.
+        </p>
+      </section>
+
+      {/* Divider */}
+      <div
+        style={{
+          height: "1px",
+          backgroundColor: "#e0d5c8",
+          marginLeft: "clamp(24px, 6vw, 96px)",
+          marginRight: "clamp(24px, 6vw, 96px)",
+        }}
+      />
+
+      {/* Grid */}
+      <section
+        style={{
+          padding: "72px clamp(24px, 6vw, 96px)",
+          display: "grid",
+          gridTemplateColumns: "repeat(auto-fill, minmax(320px, 1fr))",
+          gap: "48px 40px",
+        }}
+      >
+        {entries.map((entry, i) => (
+          <Link
+            key={entry.slug}
+            href={`/life/${entry.slug}`}
+            style={{ textDecoration: "none", color: "inherit" }}
+          >
+            <article style={{ cursor: "pointer" }} className="life-card">
+              {/* Image */}
+              <div
                 style={{
-                  cursor: "pointer",
+                  aspectRatio: i === 0 ? "4/3" : "3/2",
+                  backgroundColor: entry.fallback,
+                  marginBottom: "24px",
+                  overflow: "hidden",
+                  position: "relative",
                 }}
-                className="life-card"
               >
-                {/* Image */}
-                <div
+                <img
+                  src={entry.image}
+                  alt={entry.title}
                   style={{
-                    aspectRatio: i === 0 ? "4/3" : "3/2",
-                    backgroundColor: entry.fallback,
-                    marginBottom: "24px",
-                    overflow: "hidden",
-                    position: "relative",
+                    width: "100%",
+                    height: "100%",
+                    objectFit: "cover",
+                    display: "block",
+                    transition: "transform 0.6s ease",
                   }}
-                >
-                  <img
-                    src={entry.image}
-                    alt={entry.title}
-                    style={{
-                      width: "100%",
-                      height: "100%",
-                      objectFit: "cover",
-                      display: "block",
-                      transition: "transform 0.6s ease",
-                    }}
-                  />
-                </div>
+                />
+              </div>
 
-                {/* Pillar tag */}
-                <p
-                  style={{
-                    fontFamily: "var(--font-body)",
-                    fontSize: "10px",
-                    letterSpacing: "0.3em",
-                    textTransform: "uppercase",
-                    color: pillarColors[entry.pillar] || "#9c8060",
-                    marginBottom: "10px",
-                  }}
-                >
-                  {entry.pillar}
-                </p>
+              {/* Pillar tag */}
+              <p
+                style={{
+                  fontFamily: "var(--font-body)",
+                  fontSize: "10px",
+                  letterSpacing: "0.3em",
+                  textTransform: "uppercase",
+                  color: pillarColors[entry.pillar] || "#9c8060",
+                  marginBottom: "10px",
+                }}
+              >
+                {entry.pillar}
+              </p>
 
-                {/* Title */}
-                <h2
-                  style={{
-                    fontFamily: "var(--font-display)",
-                    fontSize: "clamp(22px, 2.5vw, 28px)",
-                    fontWeight: 400,
-                    lineHeight: 1.2,
-                    marginBottom: "14px",
-                    letterSpacing: "-0.01em",
-                  }}
-                >
-                  {entry.title}
-                </h2>
+              {/* Title */}
+              <h2
+                style={{
+                  fontFamily: "var(--font-display)",
+                  fontSize: "clamp(22px, 2.5vw, 28px)",
+                  fontWeight: 400,
+                  lineHeight: 1.2,
+                  marginBottom: "14px",
+                  letterSpacing: "-0.01em",
+                }}
+              >
+                {entry.title}
+              </h2>
 
-                {/* Excerpt */}
-                <p
-                  style={{
-                    fontFamily: "var(--font-body)",
-                    fontSize: "15px",
-                    lineHeight: 1.7,
-                    color: "#6b5c4e",
-                  }}
-                >
-                  {entry.excerpt}
-                </p>
+              {/* Excerpt */}
+              <p
+                style={{
+                  fontFamily: "var(--font-body)",
+                  fontSize: "15px",
+                  lineHeight: 1.7,
+                  color: "#6b5c4e",
+                }}
+              >
+                {entry.excerpt}
+              </p>
 
-                {/* Read link */}
-                <p
-                  style={{
-                    fontFamily: "var(--font-body)",
-                    fontSize: "11px",
-                    letterSpacing: "0.25em",
-                    textTransform: "uppercase",
-                    color: "#2a2520",
-                    marginTop: "20px",
-                    borderBottom: "1px solid #2a2520",
-                    display: "inline-block",
-                    paddingBottom: "2px",
-                  }}
-                >
-                  Read
-                </p>
-              </article>
-            </Link>
-          ))}
-        </section>
-      </main>
-
-      <Footer />
-
-      <style jsx global>{`
-        .life-card:hover img {
-          transform: scale(1.03);
-        }
-      `}</style>
+              {/* Read link */}
+              <p
+                style={{
+                  fontFamily: "var(--font-body)",
+                  fontSize: "11px",
+                  letterSpacing: "0.25em",
+                  textTransform: "uppercase",
+                  color: "#2a2520",
+                  marginTop: "20px",
+                  borderBottom: "1px solid #2a2520",
+                  display: "inline-block",
+                  paddingBottom: "2px",
+                }}
+              >
+                Read
+              </p>
+            </article>
+          </Link>
+        ))}
+      </section>
     </div>
   );
 }

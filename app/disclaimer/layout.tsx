@@ -10,10 +10,6 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "https://www.riaddisiena.com/disclaimer",
   },
-  robots: {
-    index: false,
-    follow: false,
-  },
 };
 
 export default function DisclaimerLayout({
