@@ -10,10 +10,6 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "https://www.riaddisiena.com/intellectual-property",
   },
-  robots: {
-    index: false,
-    follow: false,
-  },
 };
 
 export default function IntellectualPropertyLayout({
