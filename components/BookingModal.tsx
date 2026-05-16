@@ -189,7 +189,7 @@ function Calendar({
               className={`
                 aspect-square flex items-center justify-center text-sm relative transition-all
                 ${isDisabled ? "cursor-not-allowed" : "cursor-pointer hover:bg-foreground/5"}
-                ${isCheckIn || isCheckOut ? "bg-foreground text-[#fafafa]" : ""}
+                ${isCheckIn || isCheckOut ? "bg-foreground text-background" : ""}
                 ${isRange ? "bg-foreground/10" : ""}
                 ${isPastDate ? "text-foreground/20" : ""}
                 ${isBookedDate && !isPastDate ? "text-foreground/30" : ""}
@@ -677,7 +677,7 @@ function BookingModalContent({
       />
 
       {/* Modal */}
-      <div className="relative bg-[#fafafa] w-full max-w-md mx-4 shadow-2xl overflow-hidden">
+      <div className="relative bg-background w-full max-w-md mx-4 shadow-2xl overflow-hidden">
         {/* Close button */}
         <button
           onClick={onClose}
@@ -816,7 +816,7 @@ function BookingModalContent({
               <button
                 onClick={() => setStep(2)}
                 disabled={!canProceedStep1}
-                className="w-full mt-8 py-4 bg-foreground text-[#fafafa] text-sm tracking-wider uppercase disabled:opacity-30 disabled:cursor-not-allowed hover:bg-foreground/90 transition-colors"
+                className="w-full mt-8 py-4 bg-foreground text-background text-sm tracking-wider uppercase disabled:opacity-30 disabled:cursor-not-allowed hover:bg-foreground/90 transition-colors"
               >
                 Continue
               </button>
@@ -1032,7 +1032,7 @@ function BookingModalContent({
                     setStep(3);
                   }}
                   disabled={!firstName || !lastName || !email}
-                  className="flex-1 py-4 bg-foreground text-[#fafafa] text-sm tracking-wider uppercase disabled:opacity-30 disabled:cursor-not-allowed hover:bg-foreground/90 transition-colors flex items-center justify-center gap-2"
+                  className="flex-1 py-4 bg-foreground text-background text-sm tracking-wider uppercase disabled:opacity-30 disabled:cursor-not-allowed hover:bg-foreground/90 transition-colors flex items-center justify-center gap-2"
                 >
                   Continue
                   <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" strokeWidth="1.5">
