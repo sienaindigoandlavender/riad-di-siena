@@ -54,7 +54,7 @@ export default function ContactPage() {
             <p className="text-xs tracking-[0.4em] uppercase text-[#2a2520]/40 mb-8">
               Message Sent
             </p>
-            <h1 className="font-serif text-4xl md:text-5xl text-[#2a2520]/90 mb-6">
+            <h1 className="font-serif text-4xl md:text-5xl text-[#2a2520] mb-6">
               Thank you.
             </h1>
             <p className="text-[#2a2520]/50 text-lg">
@@ -167,13 +167,13 @@ export default function ContactPage() {
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8 text-sm">
                 <div>
                   <p className="text-xs tracking-[0.2em] text-[#2a2520]/40 mb-3">EMAIL</p>
-                  <a href="mailto:happy@riaddisiena.com" className="text-[#2a2520]/70 hover:text-[#2a2520] transition-colors">
+                  <a href="mailto:happy@riaddisiena.com" className="text-[#2a2520]/85 hover:text-[#2a2520] transition-colors">
                     happy@riaddisiena.com
                   </a>
                 </div>
                 <div>
                   <p className="text-xs tracking-[0.2em] text-[#2a2520]/40 mb-3">LOCATION</p>
-                  <p className="text-[#2a2520]/70">
+                  <p className="text-[#2a2520]/85">
                     Marrakech Medina, Morocco
                   </p>
                 </div>

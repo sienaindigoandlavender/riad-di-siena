@@ -46,7 +46,7 @@ export default function TheKasbahClient({ hero, paragraphs, experience, gallery 
         <section className="py-24 md:py-32 border-t border-[#2a2520]/10">
           <div className="container mx-auto px-6 lg:px-16">
             <div className="max-w-3xl mx-auto">
-              <div className="text-[#2a2520]/70 leading-relaxed text-lg md:text-xl space-y-6">
+              <div className="text-[#2a2520]/85 leading-relaxed text-lg md:text-xl space-y-6">
                 {paragraphs.map((p: any, i: number) => (
                   <p key={i} dangerouslySetInnerHTML={{ __html: p.Content.replace(/kasbah/gi, '<em>kasbah</em>').replace(/pisé/gi, '<em>pisé</em>') }} />
                 ))}
@@ -60,7 +60,7 @@ export default function TheKasbahClient({ hero, paragraphs, experience, gallery 
         <div className="max-w-4xl mx-auto px-6">
           <div className="text-center mb-16">
             <p className="text-xs tracking-[0.3em] text-[#2a2520]/40 mb-4">THE STAY</p>
-            <h2 className="font-serif text-2xl md:text-3xl text-[#2a2520]/90 italic">
+            <h2 className="font-serif text-2xl md:text-3xl text-[#2a2520] italic">
               {experience?.Name || "Two nights in the deep south"}
             </h2>
           </div>
@@ -70,7 +70,7 @@ export default function TheKasbahClient({ hero, paragraphs, experience, gallery 
               <div className="grid md:grid-cols-2 gap-12">
                 <div>
                   <h3 className="font-serif text-xl mb-6 italic">What&apos;s included</h3>
-                  <ul className="space-y-4 text-[#2a2520]/60 text-sm">
+                  <ul className="space-y-4 text-[#2a2520]/80 text-sm">
                     {experience.includes.map((item: string, i: number) => (
                       <li key={i} className="flex items-start gap-3">
                         <span className="w-1.5 h-1.5 rounded-full bg-[#2a2520]/30 mt-2 flex-shrink-0" />

@@ -151,7 +151,7 @@ export default function Footer() {
                 <span className="text-sm tracking-[0.3em] font-light">RIAD</span>
                 <span className="text-sm tracking-[0.3em] font-light">DI SIENA</span>
               </div>
-              <p className="text-[#2a2520]/75 text-sm leading-relaxed max-w-xs mb-6">
+              <p className="text-[#2a2520]/90 text-sm leading-relaxed max-w-xs mb-6">
                 Old walls, steady and sure. A place that keeps you safe from the city&apos;s rush.
               </p>
               <div className="flex gap-4">
@@ -171,12 +171,12 @@ export default function Footer() {
             <div>
               <span className="text-xs tracking-widest mb-6 block">STAY</span>
               <ul className="space-y-2">
-                <li><Link href="/the-riad" className="text-[#2a2520]/75 text-sm hover:text-[#2a2520] transition-colors">The House</Link></li>
-                <li><Link href="/rooms" className="text-[#2a2520]/75 text-sm hover:text-[#2a2520] transition-colors">Rooms</Link></li>
-                <li><Link href="/amenities" className="text-[#2a2520]/75 text-sm hover:text-[#2a2520] transition-colors">Amenities</Link></li>
-                <li><Link href="/philosophy" className="text-[#2a2520]/75 text-sm hover:text-[#2a2520] transition-colors">Philosophy</Link></li>
-                <li><Link href="/faq" className="text-[#2a2520]/75 text-sm hover:text-[#2a2520] transition-colors">FAQ</Link></li>
-                <li><Link href="/contact" className="text-[#2a2520]/75 text-sm hover:text-[#2a2520] transition-colors">Contact Us</Link></li>
+                <li><Link href="/the-riad" className="text-[#2a2520]/90 text-sm hover:text-[#2a2520] transition-colors">The House</Link></li>
+                <li><Link href="/rooms" className="text-[#2a2520]/90 text-sm hover:text-[#2a2520] transition-colors">Rooms</Link></li>
+                <li><Link href="/amenities" className="text-[#2a2520]/90 text-sm hover:text-[#2a2520] transition-colors">Amenities</Link></li>
+                <li><Link href="/philosophy" className="text-[#2a2520]/90 text-sm hover:text-[#2a2520] transition-colors">Philosophy</Link></li>
+                <li><Link href="/faq" className="text-[#2a2520]/90 text-sm hover:text-[#2a2520] transition-colors">FAQ</Link></li>
+                <li><Link href="/contact" className="text-[#2a2520]/90 text-sm hover:text-[#2a2520] transition-colors">Contact Us</Link></li>
               </ul>
             </div>
 
@@ -185,32 +185,32 @@ export default function Footer() {
               <span className="text-xs tracking-widest mb-6 block">EXPERIENCE</span>
               <ul className="space-y-2">
                 <li>
-                  <a href="https://www.slowmorocco.com/places" target="_blank" rel="noopener noreferrer" className="text-[#2a2520]/75 text-sm hover:text-[#2a2520] transition-colors">
+                  <a href="https://www.slowmorocco.com/places" target="_blank" rel="noopener noreferrer" className="text-[#2a2520]/90 text-sm hover:text-[#2a2520] transition-colors">
                     Places
                   </a>
                 </li>
                 <li>
-                  <a href="https://www.slowmorocco.com/stories" target="_blank" rel="noopener noreferrer" className="text-[#2a2520]/75 text-sm hover:text-[#2a2520] transition-colors">
+                  <a href="https://www.slowmorocco.com/stories" target="_blank" rel="noopener noreferrer" className="text-[#2a2520]/90 text-sm hover:text-[#2a2520] transition-colors">
                     Stories
                   </a>
                 </li>
                 <li>
-                  <a href="https://www.slowmorocco.com/day-trips" target="_blank" rel="noopener noreferrer" className="text-[#2a2520]/75 text-sm hover:text-[#2a2520] transition-colors">
+                  <a href="https://www.slowmorocco.com/day-trips" target="_blank" rel="noopener noreferrer" className="text-[#2a2520]/90 text-sm hover:text-[#2a2520] transition-colors">
                     Day Trips
                   </a>
                 </li>
                 <li>
-                  <a href="https://www.slowmorocco.com/glossary" target="_blank" rel="noopener noreferrer" className="text-[#2a2520]/75 text-sm hover:text-[#2a2520] transition-colors">
+                  <a href="https://www.slowmorocco.com/glossary" target="_blank" rel="noopener noreferrer" className="text-[#2a2520]/90 text-sm hover:text-[#2a2520] transition-colors">
                     Moroccan Glossary
                   </a>
                 </li>
                 <li>
-                  <a href="https://derb.so" target="_blank" rel="noopener noreferrer" className="text-[#2a2520]/75 text-sm hover:text-[#2a2520] transition-colors">
+                  <a href="https://derb.so" target="_blank" rel="noopener noreferrer" className="text-[#2a2520]/90 text-sm hover:text-[#2a2520] transition-colors">
                     Derb — City Guide
                   </a>
                 </li>
                 <li>
-                  <a href="https://darija.io" target="_blank" rel="noopener noreferrer" className="text-[#2a2520]/75 text-sm hover:text-[#2a2520] transition-colors">
+                  <a href="https://darija.io" target="_blank" rel="noopener noreferrer" className="text-[#2a2520]/90 text-sm hover:text-[#2a2520] transition-colors">
                     Darija Dictionary
                   </a>
                 </li>
@@ -219,14 +219,14 @@ export default function Footer() {
 
             {/* Beyond the Walls */}
             <div>
-              <Link href="/beyond-the-walls" className="text-xs tracking-widest mb-6 block hover:text-[#2a2520]/70 transition-colors">
+              <Link href="/beyond-the-walls" className="text-xs tracking-widest mb-6 block hover:text-[#2a2520]/85 transition-colors">
                 BEYOND THE WALLS
               </Link>
               <ul className="space-y-2">
-                <li><Link href="/the-douaria" className="text-[#2a2520]/75 text-sm hover:text-[#2a2520] transition-colors">The Douaria</Link></li>
-                <li><Link href="/the-kasbah" className="text-[#2a2520]/75 text-sm hover:text-[#2a2520] transition-colors">The Kasbah</Link></li>
-                <li><Link href="/the-desert-camp" className="text-[#2a2520]/75 text-sm hover:text-[#2a2520] transition-colors">The Desert Camp</Link></li>
-                <li><Link href="/the-farm" className="text-[#2a2520]/75 text-sm hover:text-[#2a2520] transition-colors">The Farm</Link></li>
+                <li><Link href="/the-douaria" className="text-[#2a2520]/90 text-sm hover:text-[#2a2520] transition-colors">The Douaria</Link></li>
+                <li><Link href="/the-kasbah" className="text-[#2a2520]/90 text-sm hover:text-[#2a2520] transition-colors">The Kasbah</Link></li>
+                <li><Link href="/the-desert-camp" className="text-[#2a2520]/90 text-sm hover:text-[#2a2520] transition-colors">The Desert Camp</Link></li>
+                <li><Link href="/the-farm" className="text-[#2a2520]/90 text-sm hover:text-[#2a2520] transition-colors">The Farm</Link></li>
               </ul>
             </div>
           </div>
@@ -247,7 +247,7 @@ export default function Footer() {
                   href={site.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-xs tracking-wide text-[#2a2520]/75 hover:text-[#2a2520]  transition-colors"
+                  className="text-xs tracking-wide text-[#2a2520]/90 hover:text-[#2a2520]  transition-colors"
                 >
                   {site.label}
                 </a>
@@ -263,11 +263,11 @@ export default function Footer() {
           <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
             {/* Legal Links */}
             <div className="flex flex-wrap gap-6 text-xs">
-              <Link href="/privacy" className="text-[#2a2520]/75 hover:text-[#2a2520]  transition-colors">Privacy Policy</Link>
-              <Link href="/terms" className="text-[#2a2520]/75 hover:text-[#2a2520]  transition-colors">Terms of Service</Link>
-              <Link href="/disclaimer" className="text-[#2a2520]/75 hover:text-[#2a2520]  transition-colors">Before You Book</Link>
-              <Link href="/booking-conditions" className="text-[#2a2520]/75 hover:text-[#2a2520]  transition-colors">Booking Conditions</Link>
-              <Link href="/house-rules" className="text-[#2a2520]/75 hover:text-[#2a2520]  transition-colors">House Rules</Link>
+              <Link href="/privacy" className="text-[#2a2520]/90 hover:text-[#2a2520]  transition-colors">Privacy Policy</Link>
+              <Link href="/terms" className="text-[#2a2520]/90 hover:text-[#2a2520]  transition-colors">Terms of Service</Link>
+              <Link href="/disclaimer" className="text-[#2a2520]/90 hover:text-[#2a2520]  transition-colors">Before You Book</Link>
+              <Link href="/booking-conditions" className="text-[#2a2520]/90 hover:text-[#2a2520]  transition-colors">Booking Conditions</Link>
+              <Link href="/house-rules" className="text-[#2a2520]/90 hover:text-[#2a2520]  transition-colors">House Rules</Link>
             </div>
 
             {/* Language & Currency */}
@@ -276,7 +276,7 @@ export default function Footer() {
               <div ref={langRef} className="relative">
                 <button
                   onClick={() => { setLangOpen(!langOpen); setCurrOpen(false); }}
-                  className="flex items-center gap-1.5 text-[#2a2520]/75 hover:text-[#2a2520] transition-colors"
+                  className="flex items-center gap-1.5 text-[#2a2520]/90 hover:text-[#2a2520] transition-colors"
                 >
                   <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
                     <circle cx="12" cy="12" r="10" />
@@ -292,7 +292,7 @@ export default function Footer() {
                         key={l.code}
                         onClick={() => translateTo(l.code, l.label)}
                         className={`block w-full text-left px-3 py-1.5 transition-colors ${
-                          currentLang === l.label ? "text-[#2a2520]/90" : "text-[#2a2520]/60 hover:text-[#2a2520]/90"
+                          currentLang === l.label ? "text-[#2a2520]" : "text-[#2a2520]/80 hover:text-[#2a2520]"
                         }`}
                       >
                         <span className="inline-block w-6">{l.label}</span>
@@ -310,7 +310,7 @@ export default function Footer() {
               <div ref={currRef} className="relative">
                 <button
                   onClick={() => { setCurrOpen(!currOpen); }}
-                  className="flex items-center gap-1 text-[#2a2520]/75 hover:text-[#2a2520]  transition-colors"
+                  className="flex items-center gap-1 text-[#2a2520]/90 hover:text-[#2a2520]  transition-colors"
                 >
                   <span>{currentCurr.symbol} {currentCurr.code}</span>
                   <IconChevronDown size={10} />
@@ -322,7 +322,7 @@ export default function Footer() {
                         key={c.code}
                         onClick={() => { setCurrency(c.code as Currency); setCurrOpen(false); }}
                         className={`block w-full text-left px-3 py-1.5 transition-colors ${
-                          currency === c.code ? "text-[#2a2520]/90" : "text-[#2a2520]/75 hover:text-[#2a2520] "
+                          currency === c.code ? "text-[#2a2520]" : "text-[#2a2520]/90 hover:text-[#2a2520] "
                         }`}
                       >
                         {c.symbol} {c.code}
@@ -340,7 +340,7 @@ export default function Footer() {
       <div className="bg-[#c8bfb0]">
         <div className="max-w-7xl mx-auto px-6 py-4">
           <div className="flex items-center justify-between">
-            <p className="text-[#2a2520]/70 text-xs">
+            <p className="text-[#2a2520]/85 text-xs">
               © {new Date().getFullYear()} Riad di Siena. All rights reserved.
             </p>
             {/* Hidden directions links */}
@@ -356,7 +356,7 @@ export default function Footer() {
       <div className="bg-[#beb5a5]">
         <div className="max-w-7xl mx-auto px-6 py-2.5">
           <p className="text-[10px] tracking-[0.15em] uppercase text-[#2a2520]/50 text-center">
-            Powered by <a href="https://www.dancingwiththelions.com" target="_blank" rel="noopener noreferrer" className="text-[#2a2520]/70 hover:text-[#2a2520] transition-colors">Dancing with Lions</a>
+            Powered by <a href="https://www.dancingwiththelions.com" target="_blank" rel="noopener noreferrer" className="text-[#2a2520]/85 hover:text-[#2a2520] transition-colors">Dancing with Lions</a>
           </p>
         </div>
       </div>

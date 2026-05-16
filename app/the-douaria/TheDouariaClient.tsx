@@ -68,7 +68,7 @@ export default function TheDouariaClient({ hero, paragraphs, rooms, gallery, cit
         <section className="py-24 md:py-32 border-t border-[#2a2520]/10">
           <div className="container mx-auto px-6 lg:px-16">
             <div className="max-w-3xl mx-auto">
-              <div className="text-[#2a2520]/70 leading-relaxed text-lg md:text-xl space-y-6">
+              <div className="text-[#2a2520]/85 leading-relaxed text-lg md:text-xl space-y-6">
                 {paragraphs.map((p: any, i: number) => (
                   <p key={i} dangerouslySetInnerHTML={{ __html: p.Content.replace(/douaria/gi, '<em>douaria</em>') }} />
                 ))}
@@ -82,7 +82,7 @@ export default function TheDouariaClient({ hero, paragraphs, rooms, gallery, cit
         <div className="max-w-5xl mx-auto px-6">
           <div className="text-center mb-16">
             <p className="text-xs tracking-[0.3em] text-[#2a2520]/40 mb-4">THE STAY</p>
-            <h2 className="font-serif text-2xl md:text-3xl text-[#2a2520]/90 italic">Three rooms, three moods</h2>
+            <h2 className="font-serif text-2xl md:text-3xl text-[#2a2520] italic">Three rooms, three moods</h2>
           </div>
           <div className="space-y-24">
             {rooms.map((room: any, index: number) => (
@@ -93,7 +93,7 @@ export default function TheDouariaClient({ hero, paragraphs, rooms, gallery, cit
                 <div className={`pt-4 md:pt-8 ${index % 2 === 1 ? 'md:order-1' : ''}`}>
                   <h3 className="font-serif text-2xl mb-2 italic">{room.Name}</h3>
                   <p className="text-[#2a2520]/50 text-sm mb-4">From {formatPrice(parseFloat(room.Price_EUR))} / night</p>
-                  <p className="text-[#2a2520]/60 leading-relaxed mb-6 text-lg">{room.Description}</p>
+                  <p className="text-[#2a2520]/80 leading-relaxed mb-6 text-lg">{room.Description}</p>
                   <div className="flex flex-wrap gap-4 mb-6">
                     {room.features.map((feature: string) => {
                       const icon = getIconForFeature(feature);

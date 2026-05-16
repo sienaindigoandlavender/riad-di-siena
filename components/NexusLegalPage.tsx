@@ -72,7 +72,7 @@ export default function NexusLegalPage({ pageId, fallbackTitle, localApiEndpoint
             <p className="text-xs tracking-[0.3em] uppercase text-[#2a2520]/40 mb-6">
               Legal
             </p>
-            <h1 className="font-serif text-4xl md:text-5xl text-[#2a2520]/90">
+            <h1 className="font-serif text-4xl md:text-5xl text-[#2a2520]">
               {fallbackTitle}
             </h1>
           </div>
@@ -100,7 +100,7 @@ export default function NexusLegalPage({ pageId, fallbackTitle, localApiEndpoint
           <p className="text-xs tracking-[0.3em] uppercase text-[#2a2520]/40 mb-6">
             Legal
           </p>
-          <h1 className="font-serif text-4xl md:text-5xl text-[#2a2520]/90">
+          <h1 className="font-serif text-4xl md:text-5xl text-[#2a2520]">
             {content?.title || fallbackTitle}
           </h1>
         </div>
@@ -115,7 +115,7 @@ export default function NexusLegalPage({ pageId, fallbackTitle, localApiEndpoint
                 {content.sections.map((section, index) => (
                   <div key={index}>
                     {section.title && section.title !== "Intro" && (
-                      <h2 className="font-serif text-xl text-[#2a2520]/90 mb-4">{section.title}</h2>
+                      <h2 className="font-serif text-xl text-[#2a2520] mb-4">{section.title}</h2>
                     )}
                     <p className="text-[#2a2520]/50 leading-relaxed whitespace-pre-line">
                       {section.content}
