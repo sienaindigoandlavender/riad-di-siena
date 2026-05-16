@@ -677,7 +677,7 @@ function BookingModalContent({
       />
 
       {/* Modal */}
-      <div className="relative bg-[#f8f5f0] w-full max-w-md mx-4 shadow-2xl overflow-hidden">
+      <div className="relative bg-[#fafafa] w-full max-w-md mx-4 shadow-2xl overflow-hidden">
         {/* Close button */}
         <button
           onClick={onClose}
