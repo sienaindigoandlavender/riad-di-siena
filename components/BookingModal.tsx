@@ -6,6 +6,18 @@ import { createPortal } from "react-dom";
 declare global {
   interface Window {
     paypal?: any;
+    plausible?: (event: string, options?: { props?: Record<string, unknown> }) => void;
+    posthog?: { capture: (event: string, props?: Record<string, unknown>) => void };
+  }
+}
+
+function trackEvent(event: string, props?: Record<string, unknown>) {
+  if (typeof window === "undefined") return;
+  try {
+    window.plausible?.(event, props ? { props } : undefined);
+    window.posthog?.capture(event, props);
+  } catch {
+    // analytics failures must not break the booking flow
   }
 }
 
@@ -177,7 +189,7 @@ function Calendar({
               className={`
                 aspect-square flex items-center justify-center text-sm relative transition-all
                 ${isDisabled ? "cursor-not-allowed" : "cursor-pointer hover:bg-foreground/5"}
-                ${isCheckIn || isCheckOut ? "bg-foreground text-[#f8f5f0]" : ""}
+                ${isCheckIn || isCheckOut ? "bg-foreground text-background" : ""}
                 ${isRange ? "bg-foreground/10" : ""}
                 ${isPastDate ? "text-foreground/20" : ""}
                 ${isBookedDate && !isPastDate ? "text-foreground/30" : ""}
@@ -463,6 +475,9 @@ function BookingModalContent({
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
   const [message, setMessage] = useState("");
+  const [philosophyAcknowledged, setPhilosophyAcknowledged] = useState(false);
+  const [disclaimerAcknowledged, setDisclaimerAcknowledged] = useState(false);
+  const [acknowledgmentsError, setAcknowledgmentsError] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [bookedDates, setBookedDates] = useState<string[]>([]);
 
@@ -574,6 +589,8 @@ function BookingModalContent({
       email,
       phone,
       message,
+      philosophyAcknowledged,
+      disclaimerAcknowledged,
       paypalTransactionId: transactionId,
     };
 
@@ -594,7 +611,7 @@ function BookingModalContent({
     } finally {
       setIsSubmitting(false);
     }
-  }, [item, checkIn, checkOut, selectCheckout, calculatedNights, guests, units, total, firstName, lastName, email, phone, message, onBookingComplete]);
+  }, [item, checkIn, checkOut, selectCheckout, calculatedNights, guests, units, total, firstName, lastName, email, phone, message, philosophyAcknowledged, disclaimerAcknowledged, onBookingComplete]);
 
   const handlePaymentError = useCallback((err: any) => {
     console.error("PayPal error:", err);
@@ -622,6 +639,9 @@ function BookingModalContent({
     setEmail("");
     setPhone("");
     setMessage("");
+    setPhilosophyAcknowledged(false);
+    setDisclaimerAcknowledged(false);
+    setAcknowledgmentsError(false);
   }, [item.id, baseGuestsPerUnit]);
 
   // Cap guests when units decrease
@@ -657,7 +677,7 @@ function BookingModalContent({
       />
 
       {/* Modal */}
-      <div className="relative bg-[#f8f5f0] w-full max-w-md mx-4 shadow-2xl overflow-hidden">
+      <div className="relative bg-background w-full max-w-md mx-4 shadow-2xl overflow-hidden">
         {/* Close button */}
         <button
           onClick={onClose}
@@ -796,7 +816,7 @@ function BookingModalContent({
               <button
                 onClick={() => setStep(2)}
                 disabled={!canProceedStep1}
-                className="w-full mt-8 py-4 bg-foreground text-[#f8f5f0] text-sm tracking-wider uppercase disabled:opacity-30 disabled:cursor-not-allowed hover:bg-foreground/90 transition-colors"
+                className="w-full mt-8 py-4 bg-foreground text-background text-sm tracking-wider uppercase disabled:opacity-30 disabled:cursor-not-allowed hover:bg-foreground/90 transition-colors"
               >
                 Continue
               </button>
@@ -865,6 +885,129 @@ function BookingModalContent({
                 </div>
               </div>
 
+              {/* Acknowledgments — editorial, not legal */}
+              <div className="mt-8">
+                <div className="flex items-start gap-3">
+                  <input
+                    id="philosophy-acknowledged"
+                    type="checkbox"
+                    checked={philosophyAcknowledged}
+                    onChange={(e) => {
+                      const next = e.target.checked;
+                      setPhilosophyAcknowledged(next);
+                      if (next) {
+                        trackEvent("philosophy_acknowledged");
+                        if (disclaimerAcknowledged) setAcknowledgmentsError(false);
+                      }
+                    }}
+                    onKeyDown={(e) => {
+                      if (e.key === "Enter") e.preventDefault();
+                    }}
+                    aria-required="true"
+                    aria-describedby={acknowledgmentsError ? "acknowledgments-error" : undefined}
+                    className="philosophy-checkbox mt-1 shrink-0 cursor-pointer"
+                  />
+                  <label
+                    htmlFor="philosophy-acknowledged"
+                    className="text-sm leading-relaxed text-[#0a0a0a] cursor-pointer"
+                  >
+                    I have read the{" "}
+                    <a
+                      href="/philosophy"
+                      target="_blank"
+                      rel="noopener"
+                      className="underline"
+                      style={{ color: "inherit" }}
+                    >
+                      Philosophy page
+                    </a>{" "}
+                    and understand that Riad di Siena is a lived-in 18th-century home,
+                    not a polished hotel.
+                  </label>
+                </div>
+                <div className="flex items-start gap-3 mt-4">
+                  <input
+                    id="disclaimer-acknowledged"
+                    type="checkbox"
+                    checked={disclaimerAcknowledged}
+                    onChange={(e) => {
+                      const next = e.target.checked;
+                      setDisclaimerAcknowledged(next);
+                      if (next) {
+                        trackEvent("disclaimer_acknowledged");
+                        if (philosophyAcknowledged) setAcknowledgmentsError(false);
+                      }
+                    }}
+                    onKeyDown={(e) => {
+                      if (e.key === "Enter") e.preventDefault();
+                    }}
+                    aria-required="true"
+                    aria-describedby={acknowledgmentsError ? "acknowledgments-error" : undefined}
+                    className="philosophy-checkbox mt-1 shrink-0 cursor-pointer"
+                  />
+                  <label
+                    htmlFor="disclaimer-acknowledged"
+                    className="text-sm leading-relaxed text-[#0a0a0a] cursor-pointer"
+                  >
+                    I have read the{" "}
+                    <a
+                      href="/disclaimer"
+                      target="_blank"
+                      rel="noopener"
+                      className="underline"
+                      style={{ color: "inherit" }}
+                    >
+                      Disclaimer
+                    </a>{" "}
+                    and understand the practical realities of staying in a traditional
+                    Medina home.
+                  </label>
+                </div>
+                {acknowledgmentsError && (
+                  <p
+                    id="acknowledgments-error"
+                    className="text-sm italic mt-2 text-[#0a0a0a]"
+                    role="alert"
+                  >
+                    Please confirm you&rsquo;ve read both pages before continuing.
+                  </p>
+                )}
+              </div>
+              <style>{`
+                .philosophy-checkbox {
+                  appearance: none;
+                  -webkit-appearance: none;
+                  width: 20px;
+                  height: 20px;
+                  border: 1px solid #262626;
+                  border-radius: 2px;
+                  background: transparent;
+                  display: inline-block;
+                  position: relative;
+                  margin: 0;
+                  padding: 0;
+                }
+                .philosophy-checkbox:checked {
+                  background: #0a0a0a;
+                  border-color: #0a0a0a;
+                }
+                .philosophy-checkbox:checked::after {
+                  content: "";
+                  position: absolute;
+                  left: 5px;
+                  top: 1px;
+                  width: 6px;
+                  height: 11px;
+                  border: solid #ffffff;
+                  border-width: 0 1.5px 1.5px 0;
+                  transform: rotate(45deg);
+                }
+                .philosophy-checkbox:focus-visible {
+                  outline: 2px solid #0a0a0a;
+                  outline-offset: 2px;
+                }
+              `}</style>
+
               {/* Navigation */}
               <div className="flex gap-4 mt-8">
                 <button
@@ -877,9 +1020,19 @@ function BookingModalContent({
                   Back
                 </button>
                 <button
-                  onClick={() => setStep(3)}
+                  onClick={() => {
+                    if (!philosophyAcknowledged || !disclaimerAcknowledged) {
+                      setAcknowledgmentsError(true);
+                      trackEvent("philosophy_unchecked_submit_attempt", {
+                        philosophy: philosophyAcknowledged,
+                        disclaimer: disclaimerAcknowledged,
+                      });
+                      return;
+                    }
+                    setStep(3);
+                  }}
                   disabled={!firstName || !lastName || !email}
-                  className="flex-1 py-4 bg-foreground text-[#f8f5f0] text-sm tracking-wider uppercase disabled:opacity-30 disabled:cursor-not-allowed hover:bg-foreground/90 transition-colors flex items-center justify-center gap-2"
+                  className="flex-1 py-4 bg-foreground text-background text-sm tracking-wider uppercase disabled:opacity-30 disabled:cursor-not-allowed hover:bg-foreground/90 transition-colors flex items-center justify-center gap-2"
                 >
                   Continue
                   <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" strokeWidth="1.5">

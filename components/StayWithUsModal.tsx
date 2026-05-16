@@ -147,9 +147,9 @@ export default function StayWithUsModal({ isOpen, onClose }: StayWithUsModalProp
       <div className="fixed inset-0 z-[100] flex items-center justify-center p-4">
         <div className="absolute inset-0 bg-black/60 backdrop-blur-sm" onClick={onClose} />
         
-        <div className="relative bg-[#f8f5f0] w-full max-w-xl shadow-2xl overflow-hidden">
+        <div className="relative bg-background w-full max-w-xl shadow-2xl overflow-hidden">
           {/* Header */}
-          <div className="bg-[#f8f5f0] border-b border-foreground/15 px-10 py-6 flex items-center justify-between">
+          <div className="bg-background border-b border-foreground/15 px-10 py-6 flex items-center justify-between">
             <h2 className="font-serif text-xl text-foreground">Stay With Us</h2>
             <button 
               onClick={onClose} 

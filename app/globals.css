@@ -23,7 +23,7 @@
   --font-body: 'Nanum Myeongjo', Georgia, serif;
   
   /* Colors - HSL format for Tailwind compatibility */
-  --background: 40 30% 96%;        /* Cream/sand */
+  --background: 40 20% 97%;        /* Warm off-white */
   --foreground: 0 0% 8%;           /* Near black */
   
   --card: 0 0% 100%;
@@ -33,7 +33,7 @@
   --popover-foreground: 0 0% 8%;
   
   --primary: 0 0% 8%;
-  --primary-foreground: 40 30% 96%;
+  --primary-foreground: 40 20% 97%;
   
   --secondary: 40 20% 92%;
   --secondary-foreground: 0 0% 8%;
