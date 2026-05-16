@@ -1,6 +1,6 @@
 export default function AboutPage() {
   return (
-    <div className="bg-[#f5f0e8] text-[#2a2520] min-h-screen">
+    <div className="bg-[#f9f8f6] text-[#2a2520] min-h-screen">
       <section className="py-32 md:py-40 border-b border-[#2a2520]/10">
         <div className="container mx-auto px-6 lg:px-16 text-center max-w-4xl">
           <p className="text-xs tracking-[0.4em] uppercase text-[#2a2520]/50 mb-8">

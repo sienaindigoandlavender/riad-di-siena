@@ -20,7 +20,7 @@ export default function FAQClient({ faqItems }: FAQClientProps) {
   let globalIndex = 0;
 
   return (
-    <div className="min-h-screen bg-[#f5f0e8] text-[#2a2520]">
+    <div className="min-h-screen bg-[#f9f8f6] text-[#2a2520]">
       {/* Hero */}
       <section className="pt-32 pb-16 md:pt-40 md:pb-20">
         <div className="container mx-auto px-6 lg:px-16 text-center max-w-4xl">
@@ -74,7 +74,7 @@ export default function FAQClient({ faqItems }: FAQClientProps) {
               Riad, medina, hammam, kasbah, zellige — Morocco has its own vocabulary.
             </p>
             <a href="https://www.slowmorocco.com/glossary" target="_blank" rel="noopener noreferrer"
-              className="inline-block border border-[#2a2520]/20 px-10 py-4 text-xs tracking-[0.2em] uppercase hover:bg-[#2a2520] hover:text-[#f5f0e8] transition-colors">
+              className="inline-block border border-[#2a2520]/20 px-10 py-4 text-xs tracking-[0.2em] uppercase hover:bg-[#2a2520] hover:text-[#f9f8f6] transition-colors">
               Moroccan Glossary
             </a>
           </div>
@@ -101,7 +101,7 @@ export default function FAQClient({ faqItems }: FAQClientProps) {
               Taxis, tipping, the call to prayer, cockroaches, heat — 57 honest answers to the questions you haven't thought of yet.
             </p>
             <a href="https://derb.so" target="_blank" rel="noopener noreferrer"
-              className="inline-block border border-[#2a2520]/20 px-10 py-4 text-xs tracking-[0.2em] uppercase hover:bg-[#2a2520] hover:text-[#f5f0e8] transition-colors">
+              className="inline-block border border-[#2a2520]/20 px-10 py-4 text-xs tracking-[0.2em] uppercase hover:bg-[#2a2520] hover:text-[#f9f8f6] transition-colors">
               Derb — City Guide
             </a>
           </div>
@@ -109,7 +109,7 @@ export default function FAQClient({ faqItems }: FAQClientProps) {
           {/* CTA */}
           <div className="mt-16 text-center py-12 border border-[#2a2520]/10">
             <p className="text-[#2a2520]/40 text-sm mb-4">Still have questions?</p>
-            <a href="/contact" className="inline-block border border-[#2a2520]/20 px-10 py-4 text-xs tracking-[0.2em] uppercase hover:bg-[#2a2520] hover:text-[#f5f0e8] transition-colors">
+            <a href="/contact" className="inline-block border border-[#2a2520]/20 px-10 py-4 text-xs tracking-[0.2em] uppercase hover:bg-[#2a2520] hover:text-[#f9f8f6] transition-colors">
               Get in Touch
             </a>
           </div>

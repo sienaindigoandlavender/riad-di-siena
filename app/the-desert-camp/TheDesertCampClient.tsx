@@ -34,7 +34,7 @@ export default function TheDesertCampClient({ hero, paragraphs, tents, gallery }
   const heroImage = hero?.Image_URL || "";
 
   return (
-    <div className="bg-[#f5f0e8] text-[#2a2520] min-h-screen">
+    <div className="bg-[#f9f8f6] text-[#2a2520] min-h-screen">
       <section className="min-h-screen flex items-center justify-center relative">
         {heroImage && (<><div className="absolute inset-0 bg-cover bg-center" style={{ backgroundImage: `url('${heroImage}')` }} /><img src={heroImage} alt="Luxury Sahara desert camp at Erg Chebbi dunes, Morocco" className="sr-only" aria-hidden="true" /><div className="absolute inset-0 bg-[#2a2520]/50" /></>)}
         <div className="container mx-auto px-6 lg:px-16 text-center max-w-4xl relative z-10">
@@ -51,7 +51,7 @@ export default function TheDesertCampClient({ hero, paragraphs, tents, gallery }
         </section>
       )}
 
-      <section className="py-24 md:py-32 bg-[#ebe5db]">
+      <section className="py-24 md:py-32 bg-[#efede7]">
         <div className="max-w-5xl mx-auto px-6">
           <div className="text-center mb-16">
             <p className="text-xs tracking-[0.3em] text-[#2a2520]/40 mb-4">THE STAY</p>
@@ -59,20 +59,20 @@ export default function TheDesertCampClient({ hero, paragraphs, tents, gallery }
           </div>
           <div className="grid md:grid-cols-2 gap-8">
             {tents.map((tent: any, index: number) => (
-              <div key={tent.Tent_ID} className={`flex flex-col ${index === 0 ? "bg-[#f5f0e8] p-8" : "bg-[#2a2520] text-[#f5f0e8] p-8"}`}>
-                <p className={`text-xs tracking-[0.3em] mb-2 ${index === 0 ? 'text-[#2a2520]/40' : 'text-[#f5f0e8]/60'}`}>{tent.Level?.toUpperCase()}</p>
+              <div key={tent.Tent_ID} className={`flex flex-col ${index === 0 ? "bg-[#f9f8f6] p-8" : "bg-[#2a2520] text-[#f9f8f6] p-8"}`}>
+                <p className={`text-xs tracking-[0.3em] mb-2 ${index === 0 ? 'text-[#2a2520]/40' : 'text-[#f9f8f6]/60'}`}>{tent.Level?.toUpperCase()}</p>
                 <h3 className="font-serif text-2xl mb-4 italic">{tent.Name}</h3>
-                <p className={`text-sm leading-relaxed mb-6 ${index === 0 ? 'text-[#2a2520]/60' : 'text-[#f5f0e8]/70'}`}>{tent.Description}</p>
-                <div className={`space-y-3 flex-grow ${index === 0 ? 'text-[#2a2520]/50' : 'text-[#f5f0e8]/60'}`}>
+                <p className={`text-sm leading-relaxed mb-6 ${index === 0 ? 'text-[#2a2520]/60' : 'text-[#f9f8f6]/70'}`}>{tent.Description}</p>
+                <div className={`space-y-3 flex-grow ${index === 0 ? 'text-[#2a2520]/50' : 'text-[#f9f8f6]/60'}`}>
                   {tent.features.map((feature: string, i: number) => {
                     const icon = getIconForFeature(feature);
-                    return (<div key={i} className="flex items-center gap-3"><span className={index === 0 ? 'text-[#2a2520]/30' : 'text-[#f5f0e8]/40'}>{icon || <span className="w-1.5 h-1.5 rounded-full bg-current block" />}</span><span className="text-sm">{feature}</span></div>);
+                    return (<div key={i} className="flex items-center gap-3"><span className={index === 0 ? 'text-[#2a2520]/30' : 'text-[#f9f8f6]/40'}>{icon || <span className="w-1.5 h-1.5 rounded-full bg-current block" />}</span><span className="text-sm">{feature}</span></div>);
                   })}
                 </div>
-                <div className={`pt-6 mt-8 border-t ${index === 0 ? 'border-[#2a2520]/10' : 'border-[#f5f0e8]/20'}`}>
-                  <p className={`text-xs tracking-widest mb-2 ${index === 0 ? 'text-[#2a2520]/40' : 'text-[#f5f0e8]/60'}`}>FROM</p>
-                  <p className="font-serif text-2xl mb-4">{formatPrice(parseFloat(tent.Price_EUR))} <span className={`text-sm font-sans ${index === 0 ? 'text-[#2a2520]/40' : 'text-[#f5f0e8]/60'}`}> / night</span></p>
-                  <button onClick={() => { setSelectedTent(tent); setIsModalOpen(true); }} className={`text-xs tracking-widest border px-6 py-3 inline-block transition-colors ${index === 0 ? 'border-[#2a2520] hover:bg-[#2a2520] hover:text-[#f5f0e8]' : 'border-[#f5f0e8]/70 hover:bg-[#f5f0e8]/10'}`}>BOOK {tent.Name?.toUpperCase()}</button>
+                <div className={`pt-6 mt-8 border-t ${index === 0 ? 'border-[#2a2520]/10' : 'border-[#f9f8f6]/20'}`}>
+                  <p className={`text-xs tracking-widest mb-2 ${index === 0 ? 'text-[#2a2520]/40' : 'text-[#f9f8f6]/60'}`}>FROM</p>
+                  <p className="font-serif text-2xl mb-4">{formatPrice(parseFloat(tent.Price_EUR))} <span className={`text-sm font-sans ${index === 0 ? 'text-[#2a2520]/40' : 'text-[#f9f8f6]/60'}`}> / night</span></p>
+                  <button onClick={() => { setSelectedTent(tent); setIsModalOpen(true); }} className={`text-xs tracking-widest border px-6 py-3 inline-block transition-colors ${index === 0 ? 'border-[#2a2520] hover:bg-[#2a2520] hover:text-[#f9f8f6]' : 'border-[#f9f8f6]/70 hover:bg-[#f9f8f6]/10'}`}>BOOK {tent.Name?.toUpperCase()}</button>
                 </div>
               </div>
             ))}

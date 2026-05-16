@@ -9,7 +9,7 @@ export default async function AmenitiesPage() {
   const heroImage = hero?.Image_URL || amenities[0]?.Image_URL || "";
 
   return (
-    <div className="bg-[#f5f0e8] text-[#2a2520] min-h-screen">
+    <div className="bg-[#f9f8f6] text-[#2a2520] min-h-screen">
       <section className="min-h-screen flex items-center justify-center relative">
         {heroImage && (
           <>
@@ -31,7 +31,7 @@ export default async function AmenitiesPage() {
       </section>
 
       {amenities.map((amenity: any, index: number) => (
-        <section key={amenity.Amenity_ID} className={`py-24 md:py-32 ${index % 2 === 0 ? 'bg-[#f5f0e8]' : 'bg-[#ebe5db]'} border-t border-[#2a2520]/10`}>
+        <section key={amenity.Amenity_ID} className={`py-24 md:py-32 ${index % 2 === 0 ? 'bg-[#f9f8f6]' : 'bg-[#efede7]'} border-t border-[#2a2520]/10`}>
           <div className="container mx-auto px-6 lg:px-16 max-w-6xl">
             <div className="grid md:grid-cols-2 gap-12 md:gap-16 items-center">
               {index % 2 === 0 ? (
@@ -72,7 +72,7 @@ export default async function AmenitiesPage() {
               href="https://derb.so"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-block border border-[#2a2520]/20 px-10 py-4 text-xs tracking-[0.2em] uppercase hover:bg-[#2a2520] hover:text-[#f5f0e8] transition-colors"
+              className="inline-block border border-[#2a2520]/20 px-10 py-4 text-xs tracking-[0.2em] uppercase hover:bg-[#2a2520] hover:text-[#f9f8f6] transition-colors"
             >
               Derb — City Guide
             </a>
@@ -80,7 +80,7 @@ export default async function AmenitiesPage() {
               href="https://www.slowmorocco.com" 
               target="_blank" 
               rel="noopener noreferrer"
-              className="inline-block border border-[#2a2520]/20 px-10 py-4 text-xs tracking-[0.2em] uppercase hover:bg-[#2a2520] hover:text-[#f5f0e8] transition-colors"
+              className="inline-block border border-[#2a2520]/20 px-10 py-4 text-xs tracking-[0.2em] uppercase hover:bg-[#2a2520] hover:text-[#f9f8f6] transition-colors"
             >
               Slow Morocco — Journeys
             </a>

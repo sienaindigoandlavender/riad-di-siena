@@ -85,7 +85,7 @@ export default function RoomsClient({ rooms, hero, gallery, cityTaxPerNight, bey
   const heroImage = hero?.Image_URL || "";
 
   return (
-    <div className="bg-[#f5f0e8] text-[#2a2520] min-h-screen">
+    <div className="bg-[#f9f8f6] text-[#2a2520] min-h-screen">
       {/* Hero */}
       <section className="min-h-screen flex items-center justify-center relative">
         {heroImage && (

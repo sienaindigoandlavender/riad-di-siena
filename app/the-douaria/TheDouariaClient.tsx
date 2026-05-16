@@ -45,7 +45,7 @@ export default function TheDouariaClient({ hero, paragraphs, rooms, gallery, cit
   const heroImage = hero?.Image_URL || "";
 
   return (
-    <div className="bg-[#f5f0e8] text-[#2a2520] min-h-screen">
+    <div className="bg-[#f9f8f6] text-[#2a2520] min-h-screen">
       <section className="min-h-screen flex items-center justify-center relative">
         {heroImage && (
           <>
@@ -78,7 +78,7 @@ export default function TheDouariaClient({ hero, paragraphs, rooms, gallery, cit
         </section>
       )}
 
-      <section className="py-24 md:py-32 bg-[#ebe5db]">
+      <section className="py-24 md:py-32 bg-[#efede7]">
         <div className="max-w-5xl mx-auto px-6">
           <div className="text-center mb-16">
             <p className="text-xs tracking-[0.3em] text-[#2a2520]/40 mb-4">THE STAY</p>

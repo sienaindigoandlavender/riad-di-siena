@@ -7,7 +7,7 @@ export default async function TermsPage() {
   const page = await getLegalPageBySlug('terms')
 
   return (
-    <div className="min-h-screen bg-[#f5f0e8] text-[#2a2520]">
+    <div className="min-h-screen bg-[#f9f8f6] text-[#2a2520]">
       {/* Hero */}
       <section className="pt-32 pb-12 md:pt-40 md:pb-16">
         <div className="container mx-auto px-6 lg:px-16 max-w-3xl">

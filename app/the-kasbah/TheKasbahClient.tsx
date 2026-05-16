@@ -19,7 +19,7 @@ export default function TheKasbahClient({ hero, paragraphs, experience, gallery 
   const heroImage = hero?.Image_URL || "";
 
   return (
-    <div className="bg-[#f5f0e8] text-[#2a2520] min-h-screen">
+    <div className="bg-[#f9f8f6] text-[#2a2520] min-h-screen">
       <section className="min-h-screen flex items-center justify-center relative">
         {heroImage && (
           <>
@@ -56,7 +56,7 @@ export default function TheKasbahClient({ hero, paragraphs, experience, gallery 
         </section>
       )}
 
-      <section className="py-24 md:py-32 bg-[#ebe5db]">
+      <section className="py-24 md:py-32 bg-[#efede7]">
         <div className="max-w-4xl mx-auto px-6">
           <div className="text-center mb-16">
             <p className="text-xs tracking-[0.3em] text-[#2a2520]/40 mb-4">THE STAY</p>
@@ -66,7 +66,7 @@ export default function TheKasbahClient({ hero, paragraphs, experience, gallery 
           </div>
 
           {experience ? (
-            <div className="bg-[#f5f0e8] p-8 md:p-12">
+            <div className="bg-[#f9f8f6] p-8 md:p-12">
               <div className="grid md:grid-cols-2 gap-12">
                 <div>
                   <h3 className="font-serif text-xl mb-6 italic">What&apos;s included</h3>
@@ -102,7 +102,7 @@ export default function TheKasbahClient({ hero, paragraphs, experience, gallery 
               <div className="mt-12 pt-8 border-t border-[#2a2520]/10 text-center">
                 <button 
                   onClick={() => setIsModalOpen(true)}
-                  className="text-xs tracking-widest bg-[#2a2520] text-[#f5f0e8] px-10 py-4 hover:bg-[#2a2520]/90 transition-colors inline-block"
+                  className="text-xs tracking-widest bg-[#2a2520] text-[#f9f8f6] px-10 py-4 hover:bg-[#2a2520]/90 transition-colors inline-block"
                 >
                   BOOK THE KASBAH EXPERIENCE
                 </button>
