@@ -476,7 +476,8 @@ function BookingModalContent({
   const [phone, setPhone] = useState("");
   const [message, setMessage] = useState("");
   const [philosophyAcknowledged, setPhilosophyAcknowledged] = useState(false);
-  const [philosophyError, setPhilosophyError] = useState(false);
+  const [disclaimerAcknowledged, setDisclaimerAcknowledged] = useState(false);
+  const [acknowledgmentsError, setAcknowledgmentsError] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [bookedDates, setBookedDates] = useState<string[]>([]);
 
@@ -589,6 +590,7 @@ function BookingModalContent({
       phone,
       message,
       philosophyAcknowledged,
+      disclaimerAcknowledged,
       paypalTransactionId: transactionId,
     };
 
@@ -609,7 +611,7 @@ function BookingModalContent({
     } finally {
       setIsSubmitting(false);
     }
-  }, [item, checkIn, checkOut, selectCheckout, calculatedNights, guests, units, total, firstName, lastName, email, phone, message, philosophyAcknowledged, onBookingComplete]);
+  }, [item, checkIn, checkOut, selectCheckout, calculatedNights, guests, units, total, firstName, lastName, email, phone, message, philosophyAcknowledged, disclaimerAcknowledged, onBookingComplete]);
 
   const handlePaymentError = useCallback((err: any) => {
     console.error("PayPal error:", err);
@@ -638,7 +640,8 @@ function BookingModalContent({
     setPhone("");
     setMessage("");
     setPhilosophyAcknowledged(false);
-    setPhilosophyError(false);
+    setDisclaimerAcknowledged(false);
+    setAcknowledgmentsError(false);
   }, [item.id, baseGuestsPerUnit]);
 
   // Cap guests when units decrease
@@ -882,7 +885,7 @@ function BookingModalContent({
                 </div>
               </div>
 
-              {/* Philosophy acknowledgment — editorial, not legal */}
+              {/* Acknowledgments — editorial, not legal */}
               <div className="mt-8">
                 <div className="flex items-start gap-3">
                   <input
@@ -893,15 +896,15 @@ function BookingModalContent({
                       const next = e.target.checked;
                       setPhilosophyAcknowledged(next);
                       if (next) {
-                        setPhilosophyError(false);
                         trackEvent("philosophy_acknowledged");
+                        if (disclaimerAcknowledged) setAcknowledgmentsError(false);
                       }
                     }}
                     onKeyDown={(e) => {
                       if (e.key === "Enter") e.preventDefault();
                     }}
                     aria-required="true"
-                    aria-describedby={philosophyError ? "philosophy-error" : undefined}
+                    aria-describedby={acknowledgmentsError ? "acknowledgments-error" : undefined}
                     className="philosophy-checkbox mt-1 shrink-0 cursor-pointer"
                   />
                   <label
@@ -919,17 +922,54 @@ function BookingModalContent({
                       Philosophy page
                     </a>{" "}
                     and understand that Riad di Siena is a lived-in 18th-century home,
-                    not a polished hotel. I am booking the spirit of the house, not its
-                    perfection.
+                    not a polished hotel.
                   </label>
                 </div>
-                {philosophyError && (
+                <div className="flex items-start gap-3 mt-4">
+                  <input
+                    id="disclaimer-acknowledged"
+                    type="checkbox"
+                    checked={disclaimerAcknowledged}
+                    onChange={(e) => {
+                      const next = e.target.checked;
+                      setDisclaimerAcknowledged(next);
+                      if (next) {
+                        trackEvent("disclaimer_acknowledged");
+                        if (philosophyAcknowledged) setAcknowledgmentsError(false);
+                      }
+                    }}
+                    onKeyDown={(e) => {
+                      if (e.key === "Enter") e.preventDefault();
+                    }}
+                    aria-required="true"
+                    aria-describedby={acknowledgmentsError ? "acknowledgments-error" : undefined}
+                    className="philosophy-checkbox mt-1 shrink-0 cursor-pointer"
+                  />
+                  <label
+                    htmlFor="disclaimer-acknowledged"
+                    className="text-sm leading-relaxed text-[#0a0a0a] cursor-pointer"
+                  >
+                    I have read the{" "}
+                    <a
+                      href="/disclaimer"
+                      target="_blank"
+                      rel="noopener"
+                      className="underline"
+                      style={{ color: "inherit" }}
+                    >
+                      Disclaimer
+                    </a>{" "}
+                    and understand the practical realities of staying in a traditional
+                    Medina home.
+                  </label>
+                </div>
+                {acknowledgmentsError && (
                   <p
-                    id="philosophy-error"
+                    id="acknowledgments-error"
                     className="text-sm italic mt-2 text-[#0a0a0a]"
                     role="alert"
                   >
-                    Please confirm you&rsquo;ve read the Philosophy page before continuing.
+                    Please confirm you&rsquo;ve read both pages before continuing.
                   </p>
                 )}
               </div>
@@ -981,9 +1021,12 @@ function BookingModalContent({
                 </button>
                 <button
                   onClick={() => {
-                    if (!philosophyAcknowledged) {
-                      setPhilosophyError(true);
-                      trackEvent("philosophy_unchecked_submit_attempt");
+                    if (!philosophyAcknowledged || !disclaimerAcknowledged) {
+                      setAcknowledgmentsError(true);
+                      trackEvent("philosophy_unchecked_submit_attempt", {
+                        philosophy: philosophyAcknowledged,
+                        disclaimer: disclaimerAcknowledged,
+                      });
                       return;
                     }
                     setStep(3);

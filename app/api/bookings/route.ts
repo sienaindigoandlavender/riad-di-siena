@@ -23,7 +23,7 @@ export async function POST(request: Request) {
       property, tent, tentId, tentLevel, experience, experienceId,
       paypalOrderId, paypalStatus,
       name, roomPreference, itemName, totalEUR, paypalTransactionId,
-      adults, children, philosophyAcknowledged,
+      adults, children, philosophyAcknowledged, disclaimerAcknowledged,
     } = body;
 
     const guestFirstName = firstName || name?.split(" ")[0] || "";
@@ -62,6 +62,7 @@ export async function POST(request: Request) {
         finalPaypalId ? `PayPal: ${finalPaypalId}` : "",
       ].filter(Boolean).join(" | "),
       philosophy_acknowledged: philosophyAcknowledged === true,
+      disclaimer_acknowledged: disclaimerAcknowledged === true,
       created_at: now,
       updated_at: now,
     });
