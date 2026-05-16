@@ -6,6 +6,18 @@ import { createPortal } from "react-dom";
 declare global {
   interface Window {
     paypal?: any;
+    plausible?: (event: string, options?: { props?: Record<string, unknown> }) => void;
+    posthog?: { capture: (event: string, props?: Record<string, unknown>) => void };
+  }
+}
+
+function trackEvent(event: string, props?: Record<string, unknown>) {
+  if (typeof window === "undefined") return;
+  try {
+    window.plausible?.(event, props ? { props } : undefined);
+    window.posthog?.capture(event, props);
+  } catch {
+    // analytics failures must not break the booking flow
   }
 }
 
@@ -463,6 +475,8 @@ function BookingModalContent({
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
   const [message, setMessage] = useState("");
+  const [philosophyAcknowledged, setPhilosophyAcknowledged] = useState(false);
+  const [philosophyError, setPhilosophyError] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [bookedDates, setBookedDates] = useState<string[]>([]);
 
@@ -574,6 +588,7 @@ function BookingModalContent({
       email,
       phone,
       message,
+      philosophyAcknowledged,
       paypalTransactionId: transactionId,
     };
 
@@ -594,7 +609,7 @@ function BookingModalContent({
     } finally {
       setIsSubmitting(false);
     }
-  }, [item, checkIn, checkOut, selectCheckout, calculatedNights, guests, units, total, firstName, lastName, email, phone, message, onBookingComplete]);
+  }, [item, checkIn, checkOut, selectCheckout, calculatedNights, guests, units, total, firstName, lastName, email, phone, message, philosophyAcknowledged, onBookingComplete]);
 
   const handlePaymentError = useCallback((err: any) => {
     console.error("PayPal error:", err);
@@ -622,6 +637,8 @@ function BookingModalContent({
     setEmail("");
     setPhone("");
     setMessage("");
+    setPhilosophyAcknowledged(false);
+    setPhilosophyError(false);
   }, [item.id, baseGuestsPerUnit]);
 
   // Cap guests when units decrease
@@ -865,6 +882,92 @@ function BookingModalContent({
                 </div>
               </div>
 
+              {/* Philosophy acknowledgment — editorial, not legal */}
+              <div className="mt-8">
+                <div className="flex items-start gap-3">
+                  <input
+                    id="philosophy-acknowledged"
+                    type="checkbox"
+                    checked={philosophyAcknowledged}
+                    onChange={(e) => {
+                      const next = e.target.checked;
+                      setPhilosophyAcknowledged(next);
+                      if (next) {
+                        setPhilosophyError(false);
+                        trackEvent("philosophy_acknowledged");
+                      }
+                    }}
+                    onKeyDown={(e) => {
+                      if (e.key === "Enter") e.preventDefault();
+                    }}
+                    aria-required="true"
+                    aria-describedby={philosophyError ? "philosophy-error" : undefined}
+                    className="philosophy-checkbox mt-1 shrink-0 cursor-pointer"
+                  />
+                  <label
+                    htmlFor="philosophy-acknowledged"
+                    className="text-sm leading-relaxed text-[#0a0a0a] cursor-pointer"
+                  >
+                    I have read the{" "}
+                    <a
+                      href="/philosophy"
+                      target="_blank"
+                      rel="noopener"
+                      className="underline"
+                      style={{ color: "inherit" }}
+                    >
+                      Philosophy page
+                    </a>{" "}
+                    and understand that Riad di Siena is a lived-in 18th-century home,
+                    not a polished hotel. I am booking the spirit of the house, not its
+                    perfection.
+                  </label>
+                </div>
+                {philosophyError && (
+                  <p
+                    id="philosophy-error"
+                    className="text-sm italic mt-2 text-[#0a0a0a]"
+                    role="alert"
+                  >
+                    Please confirm you&rsquo;ve read the Philosophy page before continuing.
+                  </p>
+                )}
+              </div>
+              <style>{`
+                .philosophy-checkbox {
+                  appearance: none;
+                  -webkit-appearance: none;
+                  width: 20px;
+                  height: 20px;
+                  border: 1px solid #262626;
+                  border-radius: 2px;
+                  background: transparent;
+                  display: inline-block;
+                  position: relative;
+                  margin: 0;
+                  padding: 0;
+                }
+                .philosophy-checkbox:checked {
+                  background: #0a0a0a;
+                  border-color: #0a0a0a;
+                }
+                .philosophy-checkbox:checked::after {
+                  content: "";
+                  position: absolute;
+                  left: 5px;
+                  top: 1px;
+                  width: 6px;
+                  height: 11px;
+                  border: solid #ffffff;
+                  border-width: 0 1.5px 1.5px 0;
+                  transform: rotate(45deg);
+                }
+                .philosophy-checkbox:focus-visible {
+                  outline: 2px solid #0a0a0a;
+                  outline-offset: 2px;
+                }
+              `}</style>
+
               {/* Navigation */}
               <div className="flex gap-4 mt-8">
                 <button
@@ -877,7 +980,14 @@ function BookingModalContent({
                   Back
                 </button>
                 <button
-                  onClick={() => setStep(3)}
+                  onClick={() => {
+                    if (!philosophyAcknowledged) {
+                      setPhilosophyError(true);
+                      trackEvent("philosophy_unchecked_submit_attempt");
+                      return;
+                    }
+                    setStep(3);
+                  }}
                   disabled={!firstName || !lastName || !email}
                   className="flex-1 py-4 bg-foreground text-[#f8f5f0] text-sm tracking-wider uppercase disabled:opacity-30 disabled:cursor-not-allowed hover:bg-foreground/90 transition-colors flex items-center justify-center gap-2"
                 >
