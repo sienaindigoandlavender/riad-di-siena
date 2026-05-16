@@ -9,7 +9,7 @@ export default function AboutPage() {
           <h1 className="text-3xl md:text-5xl lg:text-6xl tracking-[0.15em] font-light mb-8">
             A B O U T
           </h1>
-          <p className="text-xl md:text-2xl text-[#2a2520]/70 font-serif italic max-w-2xl mx-auto">
+          <p className="text-xl md:text-2xl text-[#2a2520]/85 font-serif italic max-w-2xl mx-auto">
             An 18th-century house in the Laksour quarter of Marrakech medina,
             two minutes from Jemaa el-Fna.
           </p>
@@ -17,7 +17,7 @@ export default function AboutPage() {
       </section>
 
       <section className="py-24 md:py-32">
-        <div className="container mx-auto px-6 lg:px-16 max-w-3xl space-y-10 text-lg md:text-xl leading-relaxed text-[#2a2520]/70">
+        <div className="container mx-auto px-6 lg:px-16 max-w-3xl space-y-10 text-lg md:text-xl leading-relaxed text-[#2a2520]/85">
           <p>
             Riad di Siena is a privately-owned maison d&apos;h&ocirc;tes — a small
             traditional Moroccan house, restored room by room over more than
@@ -55,7 +55,7 @@ export default function AboutPage() {
             a working farm — designed to be visited slowly, one after the
             other, on a journey south.
           </p>
-          <p className="font-serif italic text-[#2a2520]/60">
+          <p className="font-serif italic text-[#2a2520]/80">
             We are happiest when our guests leave feeling more themselves than
             when they arrived.
           </p>

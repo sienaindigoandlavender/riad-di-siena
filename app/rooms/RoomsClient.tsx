@@ -128,8 +128,8 @@ export default function RoomsClient({ rooms, hero, gallery, cityTaxPerNight, bey
                   <p className="text-xs tracking-widest text-[#2a2520]/40 mb-3">
                     FROM {formatPrice(parseFloat(room.Price_EUR))} / NIGHT
                   </p>
-                  <h2 className="font-serif text-2xl md:text-3xl text-[#2a2520]/90 mb-4 italic">{room.Name}</h2>
-                  <p className="text-[#2a2520]/60 leading-relaxed mb-8 text-lg">{room.Description}</p>
+                  <h2 className="font-serif text-2xl md:text-3xl text-[#2a2520] mb-4 italic">{room.Name}</h2>
+                  <p className="text-[#2a2520]/80 leading-relaxed mb-8 text-lg">{room.Description}</p>
                   
                   {room.features && room.features.length > 0 && (
                     <div className="mb-8">

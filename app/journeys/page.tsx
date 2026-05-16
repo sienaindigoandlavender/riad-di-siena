@@ -19,11 +19,11 @@ export default async function JourneysPage() {
       <section className="py-16 md:py-24 bg-[#efede7]">
         <div className="container mx-auto px-6 lg:px-16 max-w-3xl">
           <div className="text-center">
-            <h2 className="font-serif text-3xl md:text-4xl text-[#2a2520]/90 mb-8">
+            <h2 className="font-serif text-3xl md:text-4xl text-[#2a2520] mb-8">
               {content?.Title || "Beyond the Walls"}
             </h2>
             {content?.Body && (
-              <p className="text-[#2a2520]/60 leading-relaxed text-lg mb-12 max-w-2xl mx-auto">{content.Body}</p>
+              <p className="text-[#2a2520]/80 leading-relaxed text-lg mb-12 max-w-2xl mx-auto">{content.Body}</p>
             )}
             {content?.Button_Link && (
               <a href={content.Button_Link} target="_blank" rel="noopener noreferrer"
@@ -37,7 +37,7 @@ export default async function JourneysPage() {
 
       <section className="py-20 md:py-28 border-t border-[#2a2520]/10">
         <div className="container mx-auto px-6 lg:px-16 max-w-4xl text-center">
-          <p className="font-serif text-2xl md:text-3xl lg:text-4xl leading-relaxed text-[#2a2520]/70 italic">
+          <p className="font-serif text-2xl md:text-3xl lg:text-4xl leading-relaxed text-[#2a2520]/85 italic">
             &quot;The riad is your home. Morocco is your garden.&quot;
           </p>
         </div>

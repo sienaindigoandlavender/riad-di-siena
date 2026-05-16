@@ -17,7 +17,7 @@ export default async function BookingConditionsPage() {
       <section className="pt-32 pb-12 md:pt-40 md:pb-16">
         <div className="container mx-auto px-6 lg:px-16 max-w-3xl">
           <p className="text-xs tracking-[0.3em] uppercase text-[#2a2520]/40 mb-6">Policies</p>
-          <h1 className="font-serif text-4xl md:text-5xl text-[#2a2520]/90">Booking Conditions</h1>
+          <h1 className="font-serif text-4xl md:text-5xl text-[#2a2520]">Booking Conditions</h1>
         </div>
       </section>
 
@@ -26,7 +26,7 @@ export default async function BookingConditionsPage() {
           <div className="border-t border-[#2a2520]/10 pt-12 space-y-12">
             {Object.entries(sections).map(([sectionName, items]) => (
               <div key={sectionName}>
-                <h2 className="font-serif text-xl text-[#2a2520]/90 mb-6">{sectionName}</h2>
+                <h2 className="font-serif text-xl text-[#2a2520] mb-6">{sectionName}</h2>
                 {items.length === 1 && !items[0].Title ? (
                   <p className="text-[#2a2520]/50 leading-relaxed">{items[0].Content}</p>
                 ) : (

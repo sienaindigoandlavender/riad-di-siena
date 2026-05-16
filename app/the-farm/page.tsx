@@ -42,7 +42,7 @@ export default async function TheFarmPage() {
         <section className="py-24 md:py-32 border-t border-[#2a2520]/10">
           <div className="container mx-auto px-6 lg:px-16">
             <div className="max-w-3xl mx-auto">
-              <div className="text-[#2a2520]/70 leading-relaxed text-lg md:text-xl space-y-6">
+              <div className="text-[#2a2520]/85 leading-relaxed text-lg md:text-xl space-y-6">
                 {paragraphs.map((p: any, i: number) => (
                   <p key={i}>{p.Content}</p>
                 ))}
@@ -57,7 +57,7 @@ export default async function TheFarmPage() {
         <div className="max-w-3xl mx-auto px-6">
           <div className="text-center mb-16">
             <p className="text-xs tracking-[0.3em] text-[#2a2520]/40 mb-4">FROM THE FARM</p>
-            <h2 className="font-serif text-2xl md:text-3xl text-[#2a2520]/90 italic">What reaches your table</h2>
+            <h2 className="font-serif text-2xl md:text-3xl text-[#2a2520] italic">What reaches your table</h2>
           </div>
           <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-8 text-center">
             {produce.map((item: any) => (

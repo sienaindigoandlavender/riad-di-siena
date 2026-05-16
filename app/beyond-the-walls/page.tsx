@@ -37,7 +37,7 @@ export default async function BeyondTheWallsPage() {
         <section className="py-24 md:py-32 border-t border-[#2a2520]/10">
           <div className="container mx-auto px-6 lg:px-16">
             <div className="max-w-3xl mx-auto">
-              <p className="text-[#2a2520]/70 leading-relaxed text-lg md:text-xl text-center">{hero.Intro}</p>
+              <p className="text-[#2a2520]/85 leading-relaxed text-lg md:text-xl text-center">{hero.Intro}</p>
             </div>
           </div>
         </section>
@@ -56,7 +56,7 @@ export default async function BeyondTheWallsPage() {
                       <div className="w-full h-full bg-[#2a2520]/5 flex items-center justify-center text-[#2a2520]/20">No image</div>
                     )}
                   </div>
-                  <h2 className="font-serif text-2xl md:text-3xl text-[#2a2520]/90 mb-3 italic">{property.Name}</h2>
+                  <h2 className="font-serif text-2xl md:text-3xl text-[#2a2520] mb-3 italic">{property.Name}</h2>
                   <p className="text-[#2a2520]/50 text-lg">{property.Tagline}</p>
                 </article>
               </Link>

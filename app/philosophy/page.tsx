@@ -41,7 +41,7 @@ export default async function PhilosophyPage() {
         <section className="py-24 md:py-32 border-t border-[#2a2520]/10">
           <div className="container mx-auto px-6 lg:px-16">
             <div className="max-w-3xl mx-auto">
-              <p className="text-[#2a2520]/70 leading-relaxed text-lg md:text-xl">{intro.Subtitle}</p>
+              <p className="text-[#2a2520]/85 leading-relaxed text-lg md:text-xl">{intro.Subtitle}</p>
             </div>
           </div>
         </section>
@@ -53,12 +53,12 @@ export default async function PhilosophyPage() {
             <div className="space-y-16">
               {imperfection?.Subtitle && (
                 <div className="max-w-2xl mr-auto">
-                  <p className="font-serif text-2xl md:text-3xl text-[#2a2520]/90 leading-relaxed">{imperfection.Subtitle}</p>
+                  <p className="font-serif text-2xl md:text-3xl text-[#2a2520] leading-relaxed">{imperfection.Subtitle}</p>
                 </div>
               )}
               {imperfection?.Body && (
                 <div className="max-w-2xl ml-auto text-right">
-                  <p className="text-lg md:text-xl leading-relaxed text-[#2a2520]/60">{imperfection.Body}</p>
+                  <p className="text-lg md:text-xl leading-relaxed text-[#2a2520]/80">{imperfection.Body}</p>
                 </div>
               )}
             </div>
@@ -70,7 +70,7 @@ export default async function PhilosophyPage() {
         <section className="py-24 md:py-32 bg-[#efede7]">
           <div className="container mx-auto px-6 lg:px-16">
             <div className="max-w-3xl mx-auto">
-              <p className="text-[#2a2520]/70 leading-relaxed text-lg md:text-xl text-center">{wabisabi.Subtitle}</p>
+              <p className="text-[#2a2520]/85 leading-relaxed text-lg md:text-xl text-center">{wabisabi.Subtitle}</p>
             </div>
           </div>
         </section>

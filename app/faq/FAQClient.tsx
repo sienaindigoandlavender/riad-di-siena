@@ -50,7 +50,7 @@ export default function FAQClient({ faqItems }: FAQClientProps) {
                         onClick={() => setOpenIndex(isOpen ? null : currentIndex)}
                         className="w-full py-6 flex items-start justify-between text-left group"
                       >
-                        <span className="font-serif text-lg text-[#2a2520]/90 pr-8 group-hover:text-[#2a2520] transition-colors">
+                        <span className="font-serif text-lg text-[#2a2520] pr-8 group-hover:text-[#2a2520] transition-colors">
                           {item.Question}
                         </span>
                         <span className="text-[#2a2520]/40 text-xl flex-shrink-0 mt-1 transition-transform duration-200" style={{ transform: isOpen ? 'rotate(45deg)' : 'none' }}>

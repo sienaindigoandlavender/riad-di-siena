@@ -14,7 +14,7 @@ export default async function PrivacyPage() {
           <p className="text-xs tracking-[0.3em] uppercase text-[#2a2520]/40 mb-6">
             Legal
           </p>
-          <h1 className="font-serif text-4xl md:text-5xl text-[#2a2520]/90">
+          <h1 className="font-serif text-4xl md:text-5xl text-[#2a2520]">
             {page?.title || 'Privacy Policy'}
           </h1>
         </div>
@@ -26,7 +26,7 @@ export default async function PrivacyPage() {
           <div className="border-t border-[#2a2520]/10 pt-12">
             {page?.content ? (
               <div 
-                className="text-[#2a2520]/60 leading-relaxed whitespace-pre-line prose prose-headings:font-serif prose-headings:text-[#2a2520]/80 prose-p:text-[#2a2520]/60 max-w-none"
+                className="text-[#2a2520]/80 leading-relaxed whitespace-pre-line prose prose-headings:font-serif prose-headings:text-[#2a2520]/80 prose-p:text-[#2a2520]/80 max-w-none"
                 dangerouslySetInnerHTML={{ __html: page.content }}
               />
             ) : (

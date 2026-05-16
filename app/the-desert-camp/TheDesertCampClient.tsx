@@ -47,7 +47,7 @@ export default function TheDesertCampClient({ hero, paragraphs, tents, gallery }
 
       {paragraphs.length > 0 && (
         <section className="py-24 md:py-32 border-t border-[#2a2520]/10">
-          <div className="container mx-auto px-6 lg:px-16"><div className="max-w-3xl mx-auto"><div className="text-[#2a2520]/70 leading-relaxed text-lg md:text-xl space-y-6">{paragraphs.map((p: any, i: number) => <p key={i}>{p.Content}</p>)}</div></div></div>
+          <div className="container mx-auto px-6 lg:px-16"><div className="max-w-3xl mx-auto"><div className="text-[#2a2520]/85 leading-relaxed text-lg md:text-xl space-y-6">{paragraphs.map((p: any, i: number) => <p key={i}>{p.Content}</p>)}</div></div></div>
         </section>
       )}
 
@@ -55,14 +55,14 @@ export default function TheDesertCampClient({ hero, paragraphs, tents, gallery }
         <div className="max-w-5xl mx-auto px-6">
           <div className="text-center mb-16">
             <p className="text-xs tracking-[0.3em] text-[#2a2520]/40 mb-4">THE STAY</p>
-            <h2 className="font-serif text-2xl md:text-3xl text-[#2a2520]/90 italic">Two ways to experience the night</h2>
+            <h2 className="font-serif text-2xl md:text-3xl text-[#2a2520] italic">Two ways to experience the night</h2>
           </div>
           <div className="grid md:grid-cols-2 gap-8">
             {tents.map((tent: any, index: number) => (
               <div key={tent.Tent_ID} className={`flex flex-col ${index === 0 ? "bg-[#f9f8f6] p-8" : "bg-[#2a2520] text-[#f9f8f6] p-8"}`}>
                 <p className={`text-xs tracking-[0.3em] mb-2 ${index === 0 ? 'text-[#2a2520]/40' : 'text-[#f9f8f6]/60'}`}>{tent.Level?.toUpperCase()}</p>
                 <h3 className="font-serif text-2xl mb-4 italic">{tent.Name}</h3>
-                <p className={`text-sm leading-relaxed mb-6 ${index === 0 ? 'text-[#2a2520]/60' : 'text-[#f9f8f6]/70'}`}>{tent.Description}</p>
+                <p className={`text-sm leading-relaxed mb-6 ${index === 0 ? 'text-[#2a2520]/80' : 'text-[#f9f8f6]/70'}`}>{tent.Description}</p>
                 <div className={`space-y-3 flex-grow ${index === 0 ? 'text-[#2a2520]/50' : 'text-[#f9f8f6]/60'}`}>
                   {tent.features.map((feature: string, i: number) => {
                     const icon = getIconForFeature(feature);

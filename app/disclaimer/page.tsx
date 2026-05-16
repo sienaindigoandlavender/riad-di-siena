@@ -10,13 +10,13 @@ export default async function DisclaimerPage() {
       <section className="pt-32 pb-12 md:pt-40 md:pb-16">
         <div className="container mx-auto px-6 lg:px-16 max-w-3xl">
           <p className="text-xs tracking-[0.3em] uppercase text-[#2a2520]/40 mb-6">Important Information</p>
-          <h1 className="font-serif text-4xl md:text-5xl text-[#2a2520]/90">{intro?.Title || "Before You Book"}</h1>
+          <h1 className="font-serif text-4xl md:text-5xl text-[#2a2520]">{intro?.Title || "Before You Book"}</h1>
         </div>
       </section>
 
       <section className="pb-16 md:pb-24">
         <div className="container mx-auto px-6 lg:px-16 max-w-3xl">
-          <div className="border-t border-[#2a2520]/10 pt-12 space-y-8 text-[#2a2520]/60 leading-relaxed">
+          <div className="border-t border-[#2a2520]/10 pt-12 space-y-8 text-[#2a2520]/80 leading-relaxed">
             {sections.map((section: any, i: number) => (
               section.Content && <p key={i}>{section.Content}</p>
             ))}
