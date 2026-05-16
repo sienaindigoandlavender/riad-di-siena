@@ -48,7 +48,7 @@ export default function ContactPage() {
 
   if (submitted) {
     return (
-      <div className="min-h-screen bg-[#f5f0e8] text-[#2a2520]">
+      <div className="min-h-screen bg-[#f9f8f6] text-[#2a2520]">
         <section className="min-h-screen flex items-center justify-center">
           <div className="text-center px-6">
             <p className="text-xs tracking-[0.4em] uppercase text-[#2a2520]/40 mb-8">
@@ -67,7 +67,7 @@ export default function ContactPage() {
   }
 
   return (
-    <div className="min-h-screen bg-[#f5f0e8] text-[#2a2520]">
+    <div className="min-h-screen bg-[#f9f8f6] text-[#2a2520]">
       {/* Hero */}
       <section className="pt-32 pb-16 md:pt-40 md:pb-20">
         <div className="container mx-auto px-6 lg:px-16 text-center max-w-4xl">
@@ -155,7 +155,7 @@ export default function ContactPage() {
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="w-full border border-[#2a2520]/20 px-12 py-4 text-xs tracking-[0.2em] uppercase hover:bg-[#2a2520] hover:text-[#f5f0e8] transition-colors disabled:opacity-50"
+                  className="w-full border border-[#2a2520]/20 px-12 py-4 text-xs tracking-[0.2em] uppercase hover:bg-[#2a2520] hover:text-[#f9f8f6] transition-colors disabled:opacity-50"
                 >
                   {isSubmitting ? "Sending..." : "Send Message"}
                 </button>

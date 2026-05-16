@@ -109,7 +109,7 @@ export default function RiadDirectionsPage() {
             body { font-family: Georgia, serif; max-width: 600px; margin: 40px auto; padding: 20px; color: #1a1a1a; }
             h1 { font-size: 24px; font-weight: normal; margin-bottom: 8px; }
             .subtitle { color: #666; font-size: 14px; margin-bottom: 32px; }
-            .note { background: #f5f0e8; padding: 16px; margin-bottom: 32px; font-size: 13px; color: #666; line-height: 1.6; }
+            .note { background: #f9f8f6; padding: 16px; margin-bottom: 32px; font-size: 13px; color: #666; line-height: 1.6; }
             .footer { margin-top: 40px; padding-top: 20px; border-top: 1px solid #ddd; font-size: 13px; color: #666; }
           </style>
         </head>

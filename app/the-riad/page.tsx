@@ -12,7 +12,7 @@ export default async function TheRiadPage() {
   const heroImage = hero?.Image_URL || "";
 
   return (
-    <div className="bg-[#f5f0e8] text-[#2a2520] min-h-screen">
+    <div className="bg-[#f9f8f6] text-[#2a2520] min-h-screen">
       {/* Hero - Full viewport with image */}
       <section className="min-h-screen flex items-center justify-center relative">
         {heroImage && (
@@ -86,7 +86,7 @@ export default async function TheRiadPage() {
 
       {/* Authentic Section */}
       {authentic?.Subtitle && (
-        <section className="py-24 md:py-32 bg-[#ebe5db]">
+        <section className="py-24 md:py-32 bg-[#efede7]">
           <div className="container mx-auto px-6 lg:px-16">
             <div className="max-w-3xl mx-auto">
               <p className="text-[#2a2520]/70 leading-relaxed text-lg md:text-xl text-center">
@@ -123,7 +123,7 @@ export default async function TheRiadPage() {
 
       {/* Location Quote */}
       {(location?.Title || location?.Subtitle) && (
-        <section className="py-16 md:py-20 border-y border-[#2a2520]/10 bg-[#f5f0e8]">
+        <section className="py-16 md:py-20 border-y border-[#2a2520]/10 bg-[#f9f8f6]">
           <div className="container mx-auto px-6 lg:px-16 max-w-4xl">
             <div className="flex items-start gap-6">
               <span className="font-serif text-6xl md:text-8xl text-[#2a2520]/20 leading-none">&quot;</span>

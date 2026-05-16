@@ -12,7 +12,7 @@ export default async function BeyondTheWallsPage() {
   const heroImage = hero?.Image_URL || "";
 
   return (
-    <div className="bg-[#f5f0e8] text-[#2a2520] min-h-screen">
+    <div className="bg-[#f9f8f6] text-[#2a2520] min-h-screen">
       <section className="min-h-screen flex items-center justify-center relative">
         {heroImage && (
           <>
@@ -43,7 +43,7 @@ export default async function BeyondTheWallsPage() {
         </section>
       )}
 
-      <section className="py-24 md:py-32 bg-[#ebe5db]">
+      <section className="py-24 md:py-32 bg-[#efede7]">
         <div className="max-w-6xl mx-auto px-6">
           <div className="grid md:grid-cols-2 gap-16">
             {properties.map((property: any) => (
