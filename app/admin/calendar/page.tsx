@@ -21,8 +21,16 @@ interface Booking {
   guests: number;
   total: number;
   paypalStatus: string;
+  status?: string;
   source?: string;
 }
+
+const isCancelledBooking = (b: Booking): boolean => {
+  const status = (b.status || "").toLowerCase();
+  if (status === "cancelled" || status === "blocked") return true;
+  const paypal = (b.paypalStatus || "").toUpperCase();
+  return paypal === "CANCELLED" || paypal === "REFUNDED" || paypal === "VOIDED";
+};
 
 const MONTHS = [
   "January", "February", "March", "April", "May", "June",
@@ -43,6 +51,9 @@ export default function CalendarPage() {
   const [loading, setLoading] = useState(true);
   const [currentDate, setCurrentDate] = useState(new Date());
   const [selectedBooking, setSelectedBooking] = useState<Booking | null>(null);
+  const [cancellingBooking, setCancellingBooking] = useState(false);
+  const [confirmingCancel, setConfirmingCancel] = useState(false);
+  const [cancelError, setCancelError] = useState<string | null>(null);
 
   // Fetch rooms and bookings
   useEffect(() => {
@@ -99,6 +110,9 @@ export default function CalendarPage() {
     const dateStr = date.toISOString().split("T")[0];
     
     return bookings.find((b) => {
+      // Skip cancelled / refunded bookings — they shouldn't block the room
+      if (isCancelledBooking(b)) return false;
+
       // Match room name (case insensitive)
       const roomMatch = b.room?.toLowerCase() === room.Name.toLowerCase();
       
@@ -141,6 +155,46 @@ export default function CalendarPage() {
 
   const isCurrentMonth = (date: Date) => {
     return date.getMonth() === currentDate.getMonth();
+  };
+
+  const closeBookingModal = () => {
+    setSelectedBooking(null);
+    setConfirmingCancel(false);
+    setCancelError(null);
+  };
+
+  const handleCancelBooking = async () => {
+    if (!selectedBooking) return;
+    if (!confirmingCancel) {
+      setConfirmingCancel(true);
+      window.setTimeout(() => setConfirmingCancel((c) => (c ? false : c)), 4000);
+      return;
+    }
+
+    setCancellingBooking(true);
+    setCancelError(null);
+    try {
+      const res = await fetch(`/api/admin/bookings/${encodeURIComponent(selectedBooking.Booking_ID)}`, {
+        method: "PATCH",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ status: "cancelled" }),
+      });
+      if (!res.ok) {
+        const data = await res.json().catch(() => ({}));
+        throw new Error(data.error || `Cancel failed (${res.status})`);
+      }
+      // Update local state so the calendar refreshes without a full reload
+      setBookings((prev) =>
+        prev.map((b) =>
+          b.Booking_ID === selectedBooking.Booking_ID ? { ...b, status: "cancelled" } : b
+        )
+      );
+      closeBookingModal();
+    } catch (err) {
+      setCancelError(err instanceof Error ? err.message : "Cancel failed");
+    } finally {
+      setCancellingBooking(false);
+    }
   };
 
   const formatDateRange = (checkIn: string, checkOut: string) => {
@@ -342,7 +396,7 @@ export default function CalendarPage() {
         <div className="fixed inset-0 bg-foreground/50 flex items-center justify-center z-50 p-4">
           <div className="bg-background max-w-md w-full p-6 relative">
             <button
-              onClick={() => setSelectedBooking(null)}
+              onClick={closeBookingModal}
               className="absolute top-4 right-4 text-muted-foreground hover:text-foreground"
             >
               <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" strokeWidth="1.5">
@@ -388,18 +442,41 @@ export default function CalendarPage() {
               )}
             </div>
 
-            <div className="mt-6 flex gap-3">
-              <Link
-                href="/admin/bookings"
-                className="flex-1 text-center text-xs uppercase tracking-wide border border-foreground/20 py-3 hover:border-foreground transition-colors"
-              >
-                View All Bookings
-              </Link>
+            {cancelError && (
+              <div className="mt-4 px-3 py-2 text-xs text-red-700 bg-red-50 border border-red-200">
+                {cancelError}
+              </div>
+            )}
+
+            <div className="mt-6 space-y-2">
+              <div className="flex gap-3">
+                <Link
+                  href="/admin/bookings"
+                  className="flex-1 text-center text-xs uppercase tracking-wide border border-foreground/20 py-3 hover:border-foreground transition-colors"
+                >
+                  View All Bookings
+                </Link>
+                <button
+                  onClick={closeBookingModal}
+                  className="flex-1 text-xs uppercase tracking-wide bg-foreground text-background py-3 hover:bg-foreground/90 transition-colors"
+                >
+                  Close
+                </button>
+              </div>
               <button
-                onClick={() => setSelectedBooking(null)}
-                className="flex-1 text-xs uppercase tracking-wide bg-foreground text-background py-3 hover:bg-foreground/90 transition-colors"
+                onClick={handleCancelBooking}
+                disabled={cancellingBooking}
+                className={`w-full text-xs uppercase tracking-wide py-3 border transition-colors disabled:opacity-50 ${
+                  confirmingCancel
+                    ? "bg-red-600 text-white border-red-600 hover:bg-red-700"
+                    : "border-red-300 text-red-700 hover:bg-red-50"
+                }`}
               >
-                Close
+                {cancellingBooking
+                  ? "Cancelling..."
+                  : confirmingCancel
+                  ? "Tap again to confirm cancellation"
+                  : "Cancel Reservation"}
               </button>
             </div>
           </div>

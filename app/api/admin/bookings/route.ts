@@ -15,13 +15,14 @@ export async function GET() {
           return {
             Booking_ID: row.booking_id,
             Timestamp: row.timestamp,
+            status: row.status || bookingData.status || "",
             ...bookingData,
           };
         } catch {
           // Fall through to manual mapping
         }
       }
-      
+
       return {
         Booking_ID: row.booking_id || row.Booking_ID,
         Timestamp: row.timestamp || row.Timestamp,
@@ -33,7 +34,8 @@ export async function GET() {
         checkOut: row.check_out || row.checkOut || "",
         guests: row.guests || row.Guests || "",
         total: row.total || row.Total || "",
-        paypalStatus: row.paypal_status || row.paypalStatus || row.status || "PENDING",
+        paypalStatus: row.paypal_status || row.paypalStatus || "PENDING",
+        status: row.status || "",
         paypalOrderId: row.paypal_order_id || row.paypalOrderId || "",
         room: row.room || row.Room || "",
         property: row.property || row.Property || "Riad di Siena",
