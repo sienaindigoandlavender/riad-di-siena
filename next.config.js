@@ -107,6 +107,21 @@ const nextConfig = {
       { source: "/blog/:slug", destination: "/", permanent: true },
       { source: "/amenities-1", destination: "/amenities", permanent: true },
       { source: "/guide", destination: "/", permanent: true },
+      // ---- July 6, 2026: remaining GSC 404 ghosts (old WordPress site) ----
+      { source: "/index.html", destination: "/", permanent: true },
+      // Journeys + Life sections retired July 2026
+      { source: "/journeys", destination: "/beyond-the-walls", permanent: true },
+      { source: "/life", destination: "/", permanent: true },
+      { source: "/life/:slug", destination: "/", permanent: true },
+      { source: "/auth", destination: "/", permanent: true },
+      { source: "/fr/guide", destination: "/", permanent: true },
+      // Old per-language pages -> current equivalents
+      { source: "/english-the-riad", destination: "/the-riad", permanent: true },
+      { source: "/french-the-riad", destination: "/the-riad", permanent: true },
+      { source: "/spanish-the-riad", destination: "/the-riad", permanent: true },
+      { source: "/italian-the-riad", destination: "/the-riad", permanent: true },
+      { source: "/english-the-annex", destination: "/the-douaria", permanent: true },
+      { source: "/french-the-annex", destination: "/the-douaria", permanent: true },
 
       // ============================================
       // Legacy amenities sub-pages → proper routes
