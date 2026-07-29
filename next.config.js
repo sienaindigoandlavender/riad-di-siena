@@ -157,7 +157,7 @@ const nextConfig = {
       { source: "/faq-1", destination: "/faq", permanent: true },
       { source: "/directions-1", destination: "/directions", permanent: true },
       { source: "/the-douaria-1", destination: "/the-douaria", permanent: true },
-      { source: "/experiences", destination: "/journeys", permanent: true },
+      { source: "/experiences", destination: "/beyond-the-walls", permanent: true },
       { source: "/kasbah", destination: "/the-kasbah", permanent: true },
       { source: "/desert", destination: "/the-desert-camp", permanent: true },
       { source: "/desert-camp", destination: "/the-desert-camp", permanent: true },
