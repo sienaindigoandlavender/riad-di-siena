@@ -27,7 +27,7 @@ export interface SiteConfig {
 const SITE_CONFIG: SiteConfig = {
   site_id: "riad-di-siena",
   site_name: "Riad di Siena",
-  site_url: "https://riaddisiena.com",
+  site_url: "https://www.riaddisiena.com",
   legal_entity: "Riad di Siena",
   contact_email: "happy@riaddisiena.com",
   contact_phone: null,
@@ -60,7 +60,7 @@ const LEGAL_PAGES: Record<string, { title: string; sections: { title: string; co
   terms: {
     title: "Terms of Service",
     sections: [
-      { title: "Agreement", content: "By accessing or using https://riaddisiena.com, operated by Riad di Siena, you agree to be bound by these Terms of Service. If you do not agree, please do not use our services." },
+      { title: "Agreement", content: "By accessing or using https://www.riaddisiena.com, operated by Riad di Siena, you agree to be bound by these Terms of Service. If you do not agree, please do not use our services." },
       { title: "Services", content: "Riad di Siena provides services as described on our website. All content, features, and functionality are owned by Riad di Siena and are protected by international copyright, trademark, and other intellectual property laws." },
       { title: "User Responsibilities", content: "You agree to provide accurate and complete information, maintain the confidentiality of your account, comply with all applicable laws, and not misuse or attempt to disrupt our services." },
       { title: "Intellectual Property", content: "All content on this site, including text, graphics, logos, images, photography, videos, and design, is the property of Riad di Siena and is protected by copyright laws." },
@@ -72,7 +72,7 @@ const LEGAL_PAGES: Record<string, { title: string; sections: { title: string; co
   privacy: {
     title: "Privacy Policy",
     sections: [
-      { title: "Introduction", content: "Riad di Siena (\"we\", \"us\", or \"our\") respects your privacy and is committed to protecting your personal data. This policy explains how we collect, use, and safeguard your information when you visit https://riaddisiena.com." },
+      { title: "Introduction", content: "Riad di Siena (\"we\", \"us\", or \"our\") respects your privacy and is committed to protecting your personal data. This policy explains how we collect, use, and safeguard your information when you visit https://www.riaddisiena.com." },
       { title: "Information We Collect", content: "Information you provide: contact information (name, email, phone, WhatsApp), booking information (travel dates, preferences), and communications you send us. Information collected automatically: device information, usage data, and cookies." },
       { title: "How We Use Your Information", content: "To process and manage your bookings, communicate with you about inquiries and reservations, send confirmations and documents, and improve our website and services." },
       { title: "Your Rights", content: "You have the right to access, correct, or delete your personal data. To exercise these rights, contact us at happy@riaddisiena.com." },
@@ -83,7 +83,7 @@ const LEGAL_PAGES: Record<string, { title: string; sections: { title: string; co
   disclaimer: {
     title: "Disclaimer",
     sections: [
-      { title: "General", content: "The information provided on https://riaddisiena.com by Riad di Siena is for general informational purposes only. This content does not constitute professional travel, medical, legal, or financial advice." },
+      { title: "General", content: "The information provided on https://www.riaddisiena.com by Riad di Siena is for general informational purposes only. This content does not constitute professional travel, medical, legal, or financial advice." },
       { title: "Accuracy", content: "While we make every effort to ensure information is accurate and up-to-date, we cannot guarantee completeness. Conditions and regulations change frequently. Prices and availability are subject to change." },
       { title: "Independent Resource", content: "This is an independent resource. We are not affiliated with any government agency or official institution. Information may change\u2014please verify before travel." },
       { title: "Photography", content: "Images on this site are representative of destinations and experiences. They may not reflect current conditions and should not be relied upon as exact representations." },
@@ -94,7 +94,7 @@ const LEGAL_PAGES: Record<string, { title: string; sections: { title: string; co
   "intellectual-property": {
     title: "Intellectual Property",
     sections: [
-      { title: "Ownership", content: "All intellectual property on https://riaddisiena.com is owned by or licensed to Riad di Siena." },
+      { title: "Ownership", content: "All intellectual property on https://www.riaddisiena.com is owned by or licensed to Riad di Siena." },
       { title: "Trademarks", content: "Protected content includes the Riad di Siena name and logo, related brand names and slogans, and service marks." },
       { title: "Copyrighted Material", content: "Website design and layout, written content and copy, photography and images, videos and multimedia, and descriptions are all protected." },
       { title: "Permitted Use", content: "You may view content for personal, non-commercial use, share links to our pages, print pages for personal reference, and quote brief excerpts with proper attribution." },
