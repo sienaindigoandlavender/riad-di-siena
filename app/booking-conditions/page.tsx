@@ -121,6 +121,13 @@ export default function BookingConditionsPage() {
                 retrieved your luggage and left the premises, our responsibility
                 ends.
               </p>
+              <p className="text-[#2a2520]/70 leading-relaxed mt-5">
+                Riad di Siena is an open house of shared salons, courtyards, and
+                dining areas. When you are enjoying these common spaces — over
+                tea, or while waiting to settle in — please keep your bags and
+                valuables with you. Items left unattended in shared areas remain
+                your responsibility.
+              </p>
             </div>
 
             {/* 05 Damage */}
@@ -161,36 +168,53 @@ export default function BookingConditionsPage() {
               </p>
             </div>
 
-            {/* 07 Concerns & Complaints */}
+            {/* 07 Concerns & Feedback */}
             <div>
               <div className="flex items-baseline gap-4 mb-6">
                 <span className="font-serif text-sm text-[#2a2520]/30">07</span>
                 <h2 className="font-serif text-2xl text-[#2a2520]">
-                  Concerns &amp; Complaints
+                  Concerns &amp; Feedback
                 </h2>
               </div>
               <p className="text-[#2a2520]/70 leading-relaxed">
-                If anything is not right during your stay, please tell us while
-                you are here, so we can address it in the moment. Any complaint,
-                including one regarding belongings, must be submitted in writing
-                to{" "}
+                If anything regarding your room, your stay, or our service is not
+                to your satisfaction, please tell us while you are here, so we
+                can make it right in the moment. General feedback or
+                administrative inquiries may be submitted in writing to{" "}
                 <a
                   href="mailto:happy@riaddisiena.com"
                   className="underline hover:text-[#2a2520] transition-colors"
                 >
                   happy@riaddisiena.com
                 </a>{" "}
-                within 7 days of your departure. This allows us to look into it
-                properly and on record. We cannot investigate or act on claims
-                raised after this window, once belongings have passed through
-                onward travel.
+                within 7 days of departure.
               </p>
             </div>
 
-            {/* 08 What You Confirm */}
+            {/* 08 Belongings — Reporting */}
             <div>
               <div className="flex items-baseline gap-4 mb-6">
                 <span className="font-serif text-sm text-[#2a2520]/30">08</span>
+                <h2 className="font-serif text-2xl text-[#2a2520]">
+                  Reporting a Missing Item
+                </h2>
+              </div>
+              <p className="text-[#2a2520]/70 leading-relaxed">
+                Anything regarding missing or damaged personal belongings must be
+                reported to us on-site, before you leave the riad, so that we can
+                look into it while it can still be verified and, if appropriate,
+                involve the Marrakech Tourist Police (Brigade Touristique)
+                together. Because the chain of custody is broken the moment
+                luggage leaves the premises, we cannot investigate, accept
+                liability for, or act on claims of missing items raised after you
+                have checked out and departed.
+              </p>
+            </div>
+
+            {/* 09 What You Confirm */}
+            <div>
+              <div className="flex items-baseline gap-4 mb-6">
+                <span className="font-serif text-sm text-[#2a2520]/30">09</span>
                 <h2 className="font-serif text-2xl text-[#2a2520]">
                   What You Confirm
                 </h2>
@@ -217,10 +241,10 @@ export default function BookingConditionsPage() {
               </p>
             </div>
 
-            {/* 09 Governing Law */}
+            {/* 10 Governing Law */}
             <div>
               <div className="flex items-baseline gap-4 mb-6">
-                <span className="font-serif text-sm text-[#2a2520]/30">09</span>
+                <span className="font-serif text-sm text-[#2a2520]/30">10</span>
                 <h2 className="font-serif text-2xl text-[#2a2520]">
                   Governing Law
                 </h2>
