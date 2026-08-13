@@ -4,7 +4,7 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Booking Conditions",
   description:
-    "The terms of your reservation at Riad di Siena — cancellation, payment, liability, complaints, and governing law.",
+    "The terms of your reservation at Riad di Siena — cancellation, payment, city tax, belongings, damage, and the events beyond our control.",
   alternates: {
     canonical: "https://www.riaddisiena.com/booking-conditions",
   },
@@ -35,7 +35,7 @@ export default function BookingConditionsPage() {
         <div className="container mx-auto px-6 lg:px-16 max-w-3xl">
           <div className="border-t border-[#2a2520]/10 pt-12 space-y-14">
 
-            {/* 1. Cancellation */}
+            {/* 01 Cancellation */}
             <div>
               <div className="flex items-baseline gap-4 mb-6">
                 <span className="font-serif text-sm text-[#2a2520]/30">01</span>
@@ -65,7 +65,7 @@ export default function BookingConditionsPage() {
               </ul>
             </div>
 
-            {/* 2. Payment */}
+            {/* 02 Payment */}
             <div>
               <div className="flex items-baseline gap-4 mb-6">
                 <span className="font-serif text-sm text-[#2a2520]/30">02</span>
@@ -89,10 +89,24 @@ export default function BookingConditionsPage() {
               </ul>
             </div>
 
-            {/* 3. Your Belongings & Liability */}
+            {/* 03 City Tax */}
             <div>
               <div className="flex items-baseline gap-4 mb-6">
                 <span className="font-serif text-sm text-[#2a2520]/30">03</span>
+                <h2 className="font-serif text-2xl text-[#2a2520]">City Tax</h2>
+              </div>
+              <p className="text-[#2a2520]/70 leading-relaxed">
+                A city tax of €2.50 per person, per night is collected on
+                arrival, as required by local regulation. It may be paid in
+                dirhams, euros, or US dollars. This tax is set by the city and
+                is separate from your room rate.
+              </p>
+            </div>
+
+            {/* 04 Your Belongings */}
+            <div>
+              <div className="flex items-baseline gap-4 mb-6">
+                <span className="font-serif text-sm text-[#2a2520]/30">04</span>
                 <h2 className="font-serif text-2xl text-[#2a2520]">
                   Your Belongings
                 </h2>
@@ -109,10 +123,48 @@ export default function BookingConditionsPage() {
               </p>
             </div>
 
-            {/* 4. Complaints */}
+            {/* 05 Damage */}
             <div>
               <div className="flex items-baseline gap-4 mb-6">
-                <span className="font-serif text-sm text-[#2a2520]/30">04</span>
+                <span className="font-serif text-sm text-[#2a2520]/30">05</span>
+                <h2 className="font-serif text-2xl text-[#2a2520]">Damage</h2>
+              </div>
+              <p className="text-[#2a2520]/70 leading-relaxed">
+                Our linens and towels are washed and cared for by hand. Please
+                do not use them for henna, makeup, or shoe care — henna,
+                cosmetics, and polish cause permanent stains that no washing can
+                remove. Guests are responsible for the cost of replacing linens
+                or fittings damaged beyond normal use. A little awareness keeps
+                everything lovely, for you and for those who come after you.
+              </p>
+            </div>
+
+            {/* 06 When Events Are Beyond Our Control */}
+            <div>
+              <div className="flex items-baseline gap-4 mb-6">
+                <span className="font-serif text-sm text-[#2a2520]/30">06</span>
+                <h2 className="font-serif text-2xl text-[#2a2520]">
+                  When Events Are Beyond Our Control
+                </h2>
+              </div>
+              <p className="text-[#2a2520]/70 leading-relaxed">
+                Certain events lie outside anyone&rsquo;s control — including but
+                not limited to forces of nature such as floods, earthquakes, or
+                extreme weather, as well as strikes, closures, civil or
+                political disruptions, and interruptions to travel or utilities.
+                Should such an event affect your stay, we will do all we
+                reasonably can to keep you comfortable and safe, and to respond
+                with care. As these circumstances are beyond our control, they
+                cannot be treated as grounds for a refund, nor can our
+                reasonable handling of them be considered a failure of service.
+                We meet these moments with fairness on both sides.
+              </p>
+            </div>
+
+            {/* 07 Concerns & Complaints */}
+            <div>
+              <div className="flex items-baseline gap-4 mb-6">
+                <span className="font-serif text-sm text-[#2a2520]/30">07</span>
                 <h2 className="font-serif text-2xl text-[#2a2520]">
                   Concerns &amp; Complaints
                 </h2>
@@ -135,16 +187,19 @@ export default function BookingConditionsPage() {
               </p>
             </div>
 
-            {/* 5. Acknowledgement / incorporation by reference */}
+            {/* 08 What You Confirm */}
             <div>
               <div className="flex items-baseline gap-4 mb-6">
-                <span className="font-serif text-sm text-[#2a2520]/30">05</span>
+                <span className="font-serif text-sm text-[#2a2520]/30">08</span>
                 <h2 className="font-serif text-2xl text-[#2a2520]">
                   What You Confirm
                 </h2>
               </div>
               <p className="text-[#2a2520]/70 leading-relaxed">
-                By booking, you confirm that you have read and accept our{" "}
+                Before arrival, every guest receives our pre-arrival message and
+                full house information. We ask that you read it — it prevents
+                misunderstandings and ensures nothing is a surprise. By booking,
+                you confirm you have read and accept our{" "}
                 <Link
                   href="/house-rules"
                   className="underline hover:text-[#2a2520] transition-colors"
@@ -162,19 +217,19 @@ export default function BookingConditionsPage() {
               </p>
             </div>
 
-            {/* 6. Governing law */}
+            {/* 09 Governing Law */}
             <div>
               <div className="flex items-baseline gap-4 mb-6">
-                <span className="font-serif text-sm text-[#2a2520]/30">06</span>
+                <span className="font-serif text-sm text-[#2a2520]/30">09</span>
                 <h2 className="font-serif text-2xl text-[#2a2520]">
                   Governing Law
                 </h2>
               </div>
               <p className="text-[#2a2520]/70 leading-relaxed">
-                These conditions are governed by Moroccan law. In the event of a
-                dispute, both parties will first seek an amicable resolution
-                before referring the matter to the competent courts of
-                Marrakech.
+                These conditions are governed by the laws of the Kingdom of
+                Morocco. In the event of a dispute, both parties will first seek
+                an amicable resolution before referring the matter to the
+                competent courts of Marrakech.
               </p>
             </div>
 
