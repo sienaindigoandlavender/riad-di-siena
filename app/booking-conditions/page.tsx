@@ -242,6 +242,30 @@ export default function BookingConditionsPage() {
               with nothing left to wonder.
             </p>
           </div>
+
+          {/* Related pages */}
+          <div className="border-t border-[#2a2520]/10 mt-16 pt-12">
+            <div className="flex flex-col sm:flex-row gap-6 sm:gap-10">
+              <Link
+                href="/disclaimer"
+                className="text-xs tracking-[0.2em] uppercase text-[#2a2520]/50 hover:text-[#2a2520] transition-colors"
+              >
+                Before You Book
+              </Link>
+              <Link
+                href="/house-rules"
+                className="text-xs tracking-[0.2em] uppercase text-[#2a2520]/50 hover:text-[#2a2520] transition-colors"
+              >
+                House Rules
+              </Link>
+              <Link
+                href="/faq"
+                className="text-xs tracking-[0.2em] uppercase text-[#2a2520]/50 hover:text-[#2a2520] transition-colors"
+              >
+                FAQ
+              </Link>
+            </div>
+          </div>
         </div>
       </section>
     </div>
