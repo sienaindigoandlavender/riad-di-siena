@@ -26,9 +26,11 @@ export default async function DisclaimerPage() {
 
       <section className="py-16 border-t border-[#2a2520]/10">
         <div className="container mx-auto px-6 lg:px-16 max-w-3xl text-center">
-          <div className="flex flex-col sm:flex-row gap-6 justify-center">
-            <Link href="/faq" className="text-xs tracking-[0.2em] uppercase text-[#2a2520]/50 hover:text-[#2a2520] transition-colors">Read FAQ</Link>
+          <div className="flex flex-col sm:flex-row gap-6 justify-center flex-wrap">
+            <Link href="/booking-conditions" className="text-xs tracking-[0.2em] uppercase text-[#2a2520]/50 hover:text-[#2a2520] transition-colors">Booking Conditions</Link>
             <Link href="/house-rules" className="text-xs tracking-[0.2em] uppercase text-[#2a2520]/50 hover:text-[#2a2520] transition-colors">House Rules</Link>
+            <Link href="/faq" className="text-xs tracking-[0.2em] uppercase text-[#2a2520]/50 hover:text-[#2a2520] transition-colors">FAQ</Link>
+            <Link href="/philosophy" className="text-xs tracking-[0.2em] uppercase text-[#2a2520]/50 hover:text-[#2a2520] transition-colors">Philosophy</Link>
           </div>
         </div>
       </section>
