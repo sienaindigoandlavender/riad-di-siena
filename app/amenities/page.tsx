@@ -33,29 +33,36 @@ export default async function AmenitiesPage() {
       {amenities.map((amenity: any, index: number) => (
         <section key={amenity.Amenity_ID} className={`py-24 md:py-32 ${index % 2 === 0 ? 'bg-[#f9f8f6]' : 'bg-[#efede7]'} border-t border-[#2a2520]/10`}>
           <div className="container mx-auto px-6 lg:px-16 max-w-6xl">
-            <div className="grid md:grid-cols-2 gap-12 md:gap-16 items-center">
-              {index % 2 === 0 ? (
-                <>
-                  <div className="aspect-[4/3] overflow-hidden">
-                    {amenity.Image_URL && <img src={amenity.Image_URL} alt={amenity.Title} className="w-full h-full object-cover" />}
-                  </div>
-                  <div className="md:pl-8">
-                    <h2 className="font-serif text-2xl md:text-3xl text-[#2a2520] mb-6 italic">{amenity.Title}</h2>
-                    <p className="text-[#2a2520]/80 leading-relaxed text-lg">{amenity.Subtitle}</p>
-                  </div>
-                </>
-              ) : (
-                <>
-                  <div className="md:pr-8 md:order-1">
-                    <h2 className="font-serif text-2xl md:text-3xl text-[#2a2520] mb-6 italic">{amenity.Title}</h2>
-                    <p className="text-[#2a2520]/80 leading-relaxed text-lg">{amenity.Subtitle}</p>
-                  </div>
-                  <div className="aspect-[4/3] overflow-hidden md:order-2">
-                    {amenity.Image_URL && <img src={amenity.Image_URL} alt={amenity.Title} className="w-full h-full object-cover" />}
-                  </div>
-                </>
-              )}
-            </div>
+            {!amenity.Image_URL ? (
+              <div className="max-w-3xl mx-auto text-center">
+                <h2 className="font-serif text-2xl md:text-3xl text-[#2a2520] mb-6 italic">{amenity.Title}</h2>
+                <p className="text-[#2a2520]/80 leading-relaxed text-lg">{amenity.Subtitle}</p>
+              </div>
+            ) : (
+              <div className="grid md:grid-cols-2 gap-12 md:gap-16 items-center">
+                {index % 2 === 0 ? (
+                  <>
+                    <div className="aspect-[4/3] overflow-hidden">
+                      <img src={amenity.Image_URL} alt={amenity.Title} className="w-full h-full object-cover" />
+                    </div>
+                    <div className="md:pl-8">
+                      <h2 className="font-serif text-2xl md:text-3xl text-[#2a2520] mb-6 italic">{amenity.Title}</h2>
+                      <p className="text-[#2a2520]/80 leading-relaxed text-lg">{amenity.Subtitle}</p>
+                    </div>
+                  </>
+                ) : (
+                  <>
+                    <div className="md:pr-8 md:order-1">
+                      <h2 className="font-serif text-2xl md:text-3xl text-[#2a2520] mb-6 italic">{amenity.Title}</h2>
+                      <p className="text-[#2a2520]/80 leading-relaxed text-lg">{amenity.Subtitle}</p>
+                    </div>
+                    <div className="aspect-[4/3] overflow-hidden md:order-2">
+                      <img src={amenity.Image_URL} alt={amenity.Title} className="w-full h-full object-cover" />
+                    </div>
+                  </>
+                )}
+              </div>
+            )}
           </div>
         </section>
       ))}
@@ -65,7 +72,7 @@ export default async function AmenitiesPage() {
         <div className="container mx-auto px-6 lg:px-16 max-w-3xl text-center">
           <p className="text-xs tracking-[0.3em] uppercase text-[#2a2520]/40 mb-6">Beyond the House</p>
           <p className="text-[#2a2520]/80 leading-relaxed text-lg mb-10">
-            The medina has its own rhythm. We built a city guide for our guests — taxis, tipping, the call to prayer, and everything else nobody tells you before you arrive.
+            The medina has its own rhythm. We built a city guide for our guests, covering taxis, tipping, the call to prayer, and everything else nobody tells you before you arrive.
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
             <a
