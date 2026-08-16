@@ -79,14 +79,14 @@ export default async function PhilosophyPage() {
 
       {(origin?.Title || origin?.Body) && (
         <section className="py-24 md:py-32 bg-[#2a2520] text-[#f9f8f6]">
-          <div className="container mx-auto px-6 lg:px-16 max-w-3xl text-center">
-            <p className="text-xs tracking-[0.4em] uppercase text-[#f9f8f6]/50 mb-10">
+          <div className="container mx-auto px-6 lg:px-16 max-w-4xl">
+            <p className="text-xs tracking-[0.4em] uppercase text-[#f9f8f6]/50 mb-12 text-center">
               The Origin of Dyafa
             </p>
             {origin?.Body && (
-              <p className="font-serif italic text-lg md:text-2xl leading-relaxed text-[#f9f8f6]/90">
-                {origin.Body}
-              </p>
+              <div className="font-serif italic text-base md:text-xl leading-relaxed text-[#f9f8f6]/90 md:columns-2 md:gap-14 [&>*]:mb-0">
+                <p>{origin.Body}</p>
+              </div>
             )}
           </div>
         </section>
