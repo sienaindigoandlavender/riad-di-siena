@@ -7,6 +7,7 @@ export default async function PhilosophyPage() {
   const intro = content.intro;
   const imperfection = content.imperfection;
   const wabisabi = content["wabi-sabi"];
+  const origin = content.origin;
   const soul = content.soul;
   const heroImage = hero?.Image_URL || "";
 
@@ -72,6 +73,21 @@ export default async function PhilosophyPage() {
             <div className="max-w-3xl mx-auto">
               <p className="text-[#2a2520]/85 leading-relaxed text-lg md:text-xl text-center">{wabisabi.Subtitle}</p>
             </div>
+          </div>
+        </section>
+      )}
+
+      {(origin?.Title || origin?.Body) && (
+        <section className="py-24 md:py-32 bg-[#2a2520] text-[#f9f8f6]">
+          <div className="container mx-auto px-6 lg:px-16 max-w-3xl text-center">
+            <p className="text-xs tracking-[0.4em] uppercase text-[#f9f8f6]/50 mb-10">
+              The Origin of Dyafa
+            </p>
+            {origin?.Body && (
+              <p className="font-serif italic text-lg md:text-2xl leading-relaxed text-[#f9f8f6]/90">
+                {origin.Body}
+              </p>
+            )}
           </div>
         </section>
       )}
