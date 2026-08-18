@@ -1108,6 +1108,36 @@ function BookingModalContent({
                 <p className="text-center text-sm text-foreground/50 mt-4">Processing payment...</p>
               )}
 
+              {/* Policy links — surfaced at point of payment */}
+              <div className="mt-5 flex flex-wrap items-center justify-center gap-x-3 gap-y-1 text-[11px] tracking-wider uppercase text-foreground/40">
+                <a
+                  href="/disclaimer"
+                  target="_blank"
+                  rel="noopener"
+                  className="underline underline-offset-2 hover:text-foreground/70 transition-colors"
+                >
+                  Before You Book
+                </a>
+                <span aria-hidden="true" className="text-foreground/20">|</span>
+                <a
+                  href="/booking-conditions"
+                  target="_blank"
+                  rel="noopener"
+                  className="underline underline-offset-2 hover:text-foreground/70 transition-colors"
+                >
+                  Booking Conditions
+                </a>
+                <span aria-hidden="true" className="text-foreground/20">|</span>
+                <a
+                  href="/house-rules"
+                  target="_blank"
+                  rel="noopener"
+                  className="underline underline-offset-2 hover:text-foreground/70 transition-colors"
+                >
+                  House Rules
+                </a>
+              </div>
+
               <button
                 onClick={() => setStep(2)}
                 className="w-full mt-6 py-4 border border-foreground/20 text-foreground/70 text-sm tracking-wider uppercase hover:border-foreground/40 hover:text-foreground transition-colors flex items-center justify-center gap-2"
