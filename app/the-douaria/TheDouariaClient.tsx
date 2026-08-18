@@ -117,6 +117,17 @@ export default function TheDouariaClient({ hero, paragraphs, rooms, gallery, cit
         </div>
       </section>
 
+      {/* Policy links — know the terms before booking */}
+      <div className="px-6 pb-4">
+        <div className="max-w-5xl mx-auto flex flex-wrap items-center justify-center gap-x-3 gap-y-1 text-[11px] tracking-widest uppercase text-[#2a2520]/40">
+          <a href="/disclaimer" target="_blank" rel="noopener" className="underline underline-offset-2 hover:text-[#2a2520] transition-colors">Before You Book</a>
+          <span aria-hidden="true" className="text-[#2a2520]/20">|</span>
+          <a href="/booking-conditions" target="_blank" rel="noopener" className="underline underline-offset-2 hover:text-[#2a2520] transition-colors">Booking Conditions</a>
+          <span aria-hidden="true" className="text-[#2a2520]/20">|</span>
+          <a href="/house-rules" target="_blank" rel="noopener" className="underline underline-offset-2 hover:text-[#2a2520] transition-colors">House Rules</a>
+        </div>
+      </div>
+
       {gallery.length > 0 && <GalleryCarousel images={gallery} />}
 
       {/* Booking.com Reviews */}
