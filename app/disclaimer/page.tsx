@@ -1,3 +1,4 @@
+export const revalidate = 60; // re-fetch content from Supabase every 60s
 import Link from "next/link";
 import { getList } from "@/lib/data";
 
