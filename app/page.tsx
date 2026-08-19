@@ -39,14 +39,14 @@ export default async function Home() {
         </div>
       </section>
 
-      {/* Welcome Section */}
+      {/* Welcome Section — asymmetric, generous air */}
       {welcome && (
-        <section className="py-20 md:py-32 px-6">
-          <div className="max-w-3xl mx-auto text-center">
-            <h2 className="font-display text-3xl md:text-4xl mb-8">{welcome.Title}</h2>
-            <p className="text-lg leading-relaxed opacity-80">{welcome.Body}</p>
+        <section className="py-28 md:py-48 px-6">
+          <div className="max-w-2xl mx-auto md:ml-[12%] md:mr-auto">
+            <h2 className="font-display text-3xl md:text-5xl mb-10 leading-tight">{welcome.Title}</h2>
+            <p className="text-lg md:text-xl leading-loose opacity-80 max-w-xl">{welcome.Body}</p>
             {welcome.Button_Text && welcome.Button_Link && (
-              <Link href={welcome.Button_Link} className="inline-block mt-8 text-sm tracking-widest border-b border-current pb-1 hover:opacity-70 transition-opacity">
+              <Link href={welcome.Button_Link} className="inline-block mt-10 text-sm tracking-widest border-b border-current pb-1 hover:opacity-70 transition-opacity">
                 {welcome.Button_Text}
               </Link>
             )}
@@ -54,28 +54,24 @@ export default async function Home() {
         </section>
       )}
 
-      {/* Rooms Preview */}
+      {/* Rooms Preview — tighter beat, a quiet choice point */}
       {rooms && (
-        <section className="py-20 md:py-32 bg-[hsl(var(--secondary))] px-6">
-          <div className="max-w-7xl mx-auto">
-            <div className="text-center mb-16">
-              <h2 className="font-display text-3xl md:text-4xl mb-4">{rooms.Title}</h2>
-              <p className="opacity-60 max-w-xl mx-auto">{rooms.Subtitle}</p>
-            </div>
-            <div className="text-center">
-              <Link href={rooms.Button_Link || "/rooms"} className="inline-block px-8 py-3 text-sm tracking-widest border border-current hover:bg-[hsl(var(--foreground))] hover:text-[hsl(var(--background))] transition-colors">
-                {rooms.Button_Text || "VIEW ROOMS"}
-              </Link>
-            </div>
+        <section className="py-20 md:py-28 bg-[hsl(var(--secondary))] px-6">
+          <div className="max-w-2xl mx-auto text-center">
+            <h2 className="font-display text-3xl md:text-4xl mb-4">{rooms.Title}</h2>
+            <p className="opacity-60 max-w-xl mx-auto mb-12">{rooms.Subtitle}</p>
+            <Link href={rooms.Button_Link || "/rooms"} className="inline-block px-8 py-3 text-sm tracking-widest border border-current hover:bg-[hsl(var(--foreground))] hover:text-[hsl(var(--background))] transition-colors">
+              {rooms.Button_Text || "VIEW ROOMS"}
+            </Link>
           </div>
         </section>
       )}
 
-      {/* Testimonials */}
+      {/* Testimonials — the emotional peak, most air */}
       {testimonials.length > 0 && (
-        <section className="py-20 md:py-32 px-6">
+        <section className="py-28 md:py-48 px-6">
           <div className="max-w-4xl mx-auto">
-            <h2 className="font-display text-3xl md:text-4xl text-center mb-16">What Guests Say</h2>
+            <h2 className="font-display text-2xl md:text-3xl text-center mb-20 opacity-70">What Guests Say</h2>
             <TestimonialCarousel testimonials={testimonials} />
           </div>
         </section>
@@ -84,25 +80,25 @@ export default async function Home() {
       {/* The Slow Way South - Syndicated Journey */}
       <SlowWaySouth />
 
-      {/* Beyond the Walls */}
+      {/* Beyond the Walls — demoted to a quiet discovery strip */}
       {beyondTheWalls.length > 0 && (
-        <section className="py-20 md:py-32 px-6">
+        <section className="py-16 md:py-24 px-6 border-t border-current/5">
           <div className="max-w-7xl mx-auto">
-            <div className="text-center mb-16">
-              <h2 className="font-display text-3xl md:text-4xl mb-4">Beyond the Walls</h2>
-              <p className="opacity-60 max-w-xl mx-auto">The riad is just the beginning. Discover the places we love.</p>
+            <div className="mb-10 md:ml-[6%]">
+              <p className="text-xs tracking-[0.25em] uppercase opacity-40 mb-2">Beyond the Walls</p>
+              <p className="opacity-50 text-sm max-w-md">The riad is just the beginning. Discover the places we love.</p>
             </div>
             <BeyondTheWallsCarousel properties={beyondTheWalls} />
           </div>
         </section>
       )}
 
-      {/* The Filter Section */}
+      {/* The Filter Section — off-center, the quiet statement of who this is for */}
       {filter && (
-        <section className="py-20 md:py-32 bg-[hsl(var(--foreground))] text-[hsl(var(--background))] px-6">
-          <div className="max-w-3xl mx-auto text-center">
-            <h2 className="font-display text-3xl md:text-4xl mb-8">{filter.Title}</h2>
-            <p className="text-lg leading-relaxed opacity-80 mb-8">{filter.Body}</p>
+        <section className="py-28 md:py-44 bg-[hsl(var(--foreground))] text-[hsl(var(--background))] px-6">
+          <div className="max-w-2xl mx-auto md:ml-[12%] md:mr-auto">
+            <h2 className="font-display text-3xl md:text-5xl mb-10 leading-tight">{filter.Title}</h2>
+            <p className="text-lg md:text-xl leading-loose opacity-80 mb-10 max-w-xl">{filter.Body}</p>
             {filter.Button_Text && filter.Button_Link && (
               <Link href={filter.Button_Link} className="inline-block px-8 py-3 text-sm tracking-widest border border-current hover:bg-[hsl(var(--background))] hover:text-[hsl(var(--foreground))] transition-colors">
                 {filter.Button_Text}
