@@ -1,3 +1,4 @@
+export const revalidate = 60; // re-fetch content from Supabase every 60s
 import { getSections } from "@/lib/data";
 
 export default async function TheRiadPage() {
