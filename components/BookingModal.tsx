@@ -490,9 +490,11 @@ function BookingModalContent({
     const allDates: string[] = [];
 
     const expandRange = (start: string, end: string) => {
+      // Checkout day is NOT occupied — the room is free for a new arrival that day.
+      // Block [check_in, check_out), excluding the checkout date itself.
       const s = new Date(start);
       const e = new Date(end);
-      for (let d = new Date(s); d <= e; d.setDate(d.getDate() + 1)) {
+      for (let d = new Date(s); d < e; d.setDate(d.getDate() + 1)) {
         allDates.push(d.toISOString().split("T")[0]);
       }
     };
