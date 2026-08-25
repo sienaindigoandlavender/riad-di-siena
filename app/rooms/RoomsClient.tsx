@@ -215,7 +215,7 @@ export default function RoomsClient({ rooms, hero, gallery, cityTaxPerNight, bey
           <div className="max-w-7xl mx-auto">
             <div className="text-center mb-16">
               <h2 className="font-display text-3xl md:text-4xl mb-4">Beyond the Walls</h2>
-              <p className="opacity-60 max-w-xl mx-auto">The riad is just the beginning. Discover the places we love.</p>
+              <p className="opacity-75 max-w-xl mx-auto">The riad is just the beginning. Discover the places we love.</p>
             </div>
             <BeyondTheWallsCarousel properties={beyondTheWalls} />
           </div>
