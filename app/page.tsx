@@ -33,7 +33,7 @@ export default async function Home() {
           <h1 className="font-display text-4xl md:text-6xl lg:text-7xl mb-6">
             {hero?.Title || "Riad di Siena"}
           </h1>
-          <p className="text-lg md:text-xl font-light opacity-90 max-w-2xl mx-auto">
+          <p className="text-lg md:text-xl opacity-95 max-w-2xl mx-auto">
             {hero?.Subtitle || ""}
           </p>
         </div>
@@ -44,7 +44,7 @@ export default async function Home() {
         <section className="py-28 md:py-48 px-6">
           <div className="max-w-2xl mx-auto md:ml-[12%] md:mr-auto">
             <h2 className="font-display text-3xl md:text-5xl mb-10 leading-tight">{welcome.Title}</h2>
-            <p className="text-lg md:text-xl leading-loose opacity-80 max-w-xl">{welcome.Body}</p>
+            <p className="text-lg md:text-xl leading-loose opacity-90 max-w-xl">{welcome.Body}</p>
             {welcome.Button_Text && welcome.Button_Link && (
               <Link href={welcome.Button_Link} className="inline-block mt-10 text-sm tracking-widest border-b border-current pb-1 hover:opacity-70 transition-opacity">
                 {welcome.Button_Text}
@@ -59,7 +59,7 @@ export default async function Home() {
         <section className="py-20 md:py-28 bg-[hsl(var(--secondary))] px-6">
           <div className="max-w-2xl mx-auto text-center">
             <h2 className="font-display text-3xl md:text-4xl mb-4">{rooms.Title}</h2>
-            <p className="opacity-60 max-w-xl mx-auto mb-12">{rooms.Subtitle}</p>
+            <p className="opacity-75 max-w-xl mx-auto mb-12">{rooms.Subtitle}</p>
             <Link href={rooms.Button_Link || "/rooms"} className="inline-block px-8 py-3 text-sm tracking-widest border border-current hover:bg-[hsl(var(--foreground))] hover:text-[hsl(var(--background))] transition-colors">
               {rooms.Button_Text || "VIEW ROOMS"}
             </Link>
@@ -98,7 +98,7 @@ export default async function Home() {
         <section className="py-28 md:py-44 bg-[hsl(var(--foreground))] text-[hsl(var(--background))] px-6">
           <div className="max-w-2xl mx-auto md:ml-[12%] md:mr-auto">
             <h2 className="font-display text-3xl md:text-5xl mb-10 leading-tight">{filter.Title}</h2>
-            <p className="text-lg md:text-xl leading-loose opacity-80 mb-10 max-w-xl">{filter.Body}</p>
+            <p className="text-lg md:text-xl leading-loose opacity-90 mb-10 max-w-xl">{filter.Body}</p>
             {filter.Button_Text && filter.Button_Link && (
               <Link href={filter.Button_Link} className="inline-block px-8 py-3 text-sm tracking-widest border border-current hover:bg-[hsl(var(--background))] hover:text-[hsl(var(--foreground))] transition-colors">
                 {filter.Button_Text}
