@@ -43,7 +43,7 @@ export default async function PhilosophyPage() {
         <section className="py-24 md:py-32 border-t border-[#2a2520]/10">
           <div className="container mx-auto px-6 lg:px-16">
             <div className="max-w-3xl mx-auto">
-              <p className="text-[#2a2520]/85 leading-relaxed text-lg md:text-xl">{intro.Subtitle}</p>
+              <p className="text-[#2a2520]/90 leading-relaxed text-lg md:text-xl">{intro.Subtitle}</p>
             </div>
           </div>
         </section>
@@ -60,7 +60,7 @@ export default async function PhilosophyPage() {
               )}
               {imperfection?.Body && (
                 <div className="max-w-2xl ml-auto text-right">
-                  <p className="text-lg md:text-xl leading-relaxed text-[#2a2520]/80">{imperfection.Body}</p>
+                  <p className="text-lg md:text-xl leading-relaxed text-[#2a2520]/90">{imperfection.Body}</p>
                 </div>
               )}
             </div>
@@ -72,7 +72,7 @@ export default async function PhilosophyPage() {
         <section className="py-24 md:py-32 bg-[#efede7]">
           <div className="container mx-auto px-6 lg:px-16">
             <div className="max-w-3xl mx-auto">
-              <p className="text-[#2a2520]/85 leading-relaxed text-lg md:text-xl text-center">{wabisabi.Subtitle}</p>
+              <p className="text-[#2a2520]/90 leading-relaxed text-lg md:text-xl text-center">{wabisabi.Subtitle}</p>
             </div>
           </div>
         </section>
@@ -100,7 +100,7 @@ export default async function PhilosophyPage() {
               <span className="font-serif text-6xl md:text-8xl text-[#2a2520]/20 leading-none">&quot;</span>
               <div>
                 {soul?.Title && (
-                  <p className="font-serif text-xl md:text-2xl leading-relaxed text-[#2a2520]/80">{soul.Title}</p>
+                  <p className="font-serif text-xl md:text-2xl leading-relaxed text-[#2a2520]/90">{soul.Title}</p>
                 )}
                 {soul?.Subtitle && (
                   <p className="text-[#2a2520]/40 text-sm mt-4 italic">{soul.Subtitle}</p>
