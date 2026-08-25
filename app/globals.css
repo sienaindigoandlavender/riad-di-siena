@@ -39,7 +39,7 @@
   --secondary-foreground: 0 0% 8%;
   
   --muted: 40 15% 90%;
-  --muted-foreground: 0 0% 35%;
+  --muted-foreground: 0 0% 24%;
   
   --accent: 40 20% 88%;
   --accent-foreground: 0 0% 8%;
@@ -83,6 +83,7 @@ body {
   font-family: var(--font-body);
   font-size: 19px;
   line-height: 1.7;
+  font-weight: 450;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
