@@ -220,7 +220,7 @@ export async function sendOwnerNotificationEmail(data: BookingEmailData) {
     </table>
     
     <div class="actions">
-      <a href="https://www.riaddisiena.com/admin/bookings" class="btn">View in Admin</a>
+      <a href="https://ops.riaddisiena.com/team" class="btn">View in Ops</a>
     </div>
   </div>
 </body>
