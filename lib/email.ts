@@ -134,7 +134,7 @@ export async function sendGuestConfirmationEmail(data: BookingEmailData) {
 
   try {
     const result = await resend.emails.send({
-      from: 'Riad di Siena <bookings@mail.riaddisiena.com>',
+      from: 'Riad di Siena <bookings@riaddisiena.com>',
       to: data.email,
       subject: `Welcome to Riad di Siena — your booking is confirmed (${data.bookingId})`,
       html,
@@ -238,7 +238,7 @@ export async function sendOwnerNotificationEmail(data: BookingEmailData) {
 
   try {
     const result = await resend.emails.send({
-      from: 'Riad di Siena Bookings <bookings@mail.riaddisiena.com>',
+      from: 'Riad di Siena Bookings <bookings@riaddisiena.com>',
       to: 'happy@riaddisiena.com',
       subject: `💰 New Booking: ${data.firstName} ${data.lastName} - €${data.total} - ${accommodationName}`,
       html,
@@ -316,7 +316,7 @@ export async function sendContactEmail(data: ContactEmailData) {
 
   try {
     const result = await resend.emails.send({
-      from: 'Riad di Siena <hello@mail.riaddisiena.com>',
+      from: 'Riad di Siena <hello@riaddisiena.com>',
       to: 'happy@riaddisiena.com',
       replyTo: data.email,
       subject: `Message from ${data.name}`,
