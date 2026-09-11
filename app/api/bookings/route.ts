@@ -1,9 +1,8 @@
 import { NextResponse } from "next/server";
 import { createClient } from "@supabase/supabase-js";
+import { sendBookingEmails } from "@/lib/email";
 
 export const revalidate = 0;
-
-const MAKE_WEBHOOK_URL = process.env.MAKE_BOOKING_WEBHOOK_URL || "";
 
 export async function POST(request: Request) {
   try {
@@ -72,39 +71,44 @@ export async function POST(request: Request) {
       return NextResponse.json({ success: false, error: "Failed to save booking" }, { status: 500 });
     }
 
-    // ── 2. POST to Make.com webhook (triggers confirmation emails) ──
-    if (MAKE_WEBHOOK_URL) {
-      try {
-        await fetch(MAKE_WEBHOOK_URL, {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({
-            booking_id: bookingId,
-            source: "Website",
-            status: "confirmed",
-            first_name: guestFirstName,
-            last_name: guestLastName,
-            email: email || "",
-            phone: phone || "",
-            property: propertyName,
-            room: accommodationName,
-            check_in: checkIn || "",
-            check_out: checkOut || "",
-            nights: nights || 1,
-            guests: guests || adults || 1,
-            total_eur: finalTotal,
-            special_requests: message || "",
-            paypal_order_id: finalPaypalId,
-            created_at: now,
-          }),
-        });
-      } catch (webhookErr) {
-        console.error("Make.com webhook failed (non-blocking):", webhookErr);
+    // ── 2. Send confirmation emails directly via Resend ─────────────
+    // Guest confirmation + owner notification to happy@riaddisiena.com.
+    // Booking is already saved; email failure is logged loudly but does not
+    // lose the booking.
+    let emailSent = false;
+    let emailError: string | null = null;
+    try {
+      const emailResult = await sendBookingEmails({
+        bookingId,
+        firstName: guestFirstName,
+        lastName: guestLastName,
+        email: email || "",
+        phone: phone || "",
+        property: propertyName,
+        room: accommodationName,
+        checkIn: checkIn || "",
+        checkOut: checkOut || "",
+        nights: parseInt(String(nights)) || 1,
+        guests: parseInt(String(guests || adults)) || 1,
+        total: parseFloat(String(finalTotal)) || 0,
+        paypalOrderId: finalPaypalId,
+        message: message || "",
+      });
+      const guestErr = (emailResult?.guest as { error?: unknown })?.error;
+      const ownerErr = (emailResult?.owner as { error?: unknown })?.error;
+      if (guestErr || ownerErr) {
+        emailError = JSON.stringify({ guestErr, ownerErr });
+        console.error("BOOKING EMAIL PARTIAL FAILURE:", bookingId, emailError);
+      } else {
+        emailSent = true;
       }
+    } catch (mailErr) {
+      emailError = mailErr instanceof Error ? mailErr.message : String(mailErr);
+      console.error("BOOKING EMAIL FAILED — booking saved but NOT emailed:", bookingId, emailError);
     }
 
-    // ── 3. Return success ──────────────────────────────────────────
-    return NextResponse.json({ success: true, bookingId });
+    // ── 3. Return success (booking saved) with email status ─────────
+    return NextResponse.json({ success: true, bookingId, emailSent, emailError });
 
   } catch (error) {
     console.error("Booking error:", error);
