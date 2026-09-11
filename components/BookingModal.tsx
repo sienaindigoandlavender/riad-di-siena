@@ -30,6 +30,7 @@ export interface BookingItem {
   name: string;
   priceEUR: string;
   iCalURL?: string;
+  iCalURLAirbnb?: string;
 }
 
 export interface BookingConfig {
@@ -501,21 +502,8 @@ function BookingModalContent({
 
     const promises: Promise<void>[] = [];
 
-    // 1. iCal feed (Booking.com / Airbnb)
-    if (item.iCalURL) {
-      promises.push(
-        fetch(`/api/ical?url=${encodeURIComponent(item.iCalURL)}`)
-          .then((res) => res.json())
-          .then((data) => {
-            if (data.bookedDates && Array.isArray(data.bookedDates)) {
-              data.bookedDates.forEach((b: { start: string; end: string }) => expandRange(b.start, b.end));
-            }
-          })
-          .catch((err) => console.error("iCal fetch failed:", err))
-      );
-    }
-
-    // 2. Supabase master_guests (website direct bookings)
+    // Single source of truth: /api/availability merges Booking.com, Airbnb,
+    // and direct bookings server-side and returns one blocked-date list.
     const roomParam = item.name ? `?room=${encodeURIComponent(item.name)}` : "";
     promises.push(
       fetch(`/api/availability${roomParam}`)
@@ -532,7 +520,7 @@ function BookingModalContent({
       // Deduplicate
       setBookedDates(Array.from(new Set(allDates)));
     });
-  }, [item.iCalURL, item.name]);
+  }, [item.name]);
 
   // Handle date selection
   const handleDateSelect = (dateStr: string) => {
@@ -656,7 +644,9 @@ function BookingModalContent({
   // Format date for display
   const formatDate = (dateStr: string) => {
     if (!dateStr) return "";
-    const date = new Date(dateStr);
+    // Parse as local date (not UTC) so the label matches the stored date.
+    const [y, m, d] = dateStr.split("-").map(Number);
+    const date = new Date(y, m - 1, d);
     return date.toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric" });
   };
 
