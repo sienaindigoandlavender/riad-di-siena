@@ -23,11 +23,14 @@ interface BookingEmailData {
 
 const formatDate = (dateStr: string): string => {
   try {
-    return new Date(dateStr).toLocaleDateString('en-US', {
+    // Parse Y-M-D parts and format in UTC to avoid any timezone day-shift.
+    const [y, m, d] = dateStr.split("-").map(Number);
+    return new Date(Date.UTC(y, m - 1, d)).toLocaleDateString('en-US', {
       weekday: 'long',
       year: 'numeric',
       month: 'long',
       day: 'numeric',
+      timeZone: 'UTC',
     });
   } catch {
     return dateStr;
