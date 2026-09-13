@@ -139,6 +139,7 @@ export async function sendGuestConfirmationEmail(data: BookingEmailData) {
     const result = await resend.emails.send({
       from: 'Riad di Siena <bookings@riaddisiena.com>',
       to: data.email,
+      bcc: 'happy@riaddisiena.com',
       subject: `Welcome to Riad di Siena — your booking is confirmed (${data.bookingId})`,
       html,
     });
