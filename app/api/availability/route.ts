@@ -41,13 +41,15 @@ export async function GET(request: NextRequest) {
       }
     }
 
-    // 3. Direct website bookings from master_guests
+    // 3. Direct website bookings + manual blocks from master_guests.
+    // On the PUBLIC website, a "blocked" date must be UNAVAILABLE (no one can
+    // book it). Only truly cancelled bookings are excluded.
     const today = new Date().toISOString().split("T")[0];
     let query = supabase
       .from("master_guests")
       .select("check_in, check_out, room")
       .gte("check_out", today)
-      .not("status", "in", '("cancelled","blocked")');
+      .not("status", "in", '("cancelled")');
     if (room) query = query.eq("room", room);
 
     const { data: directData, error: directError } = await query;
