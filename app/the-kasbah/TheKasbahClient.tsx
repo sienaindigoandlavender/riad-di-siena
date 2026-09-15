@@ -24,7 +24,7 @@ export default function TheKasbahClient({ hero, paragraphs, experience, gallery 
         {heroImage && (
           <>
             <div className="absolute inset-0 bg-cover bg-center" style={{ backgroundImage: `url('${heroImage}')` }} />
-            <img src={heroImage} alt="The Kasbah in Draa Valley, Morocco, part of Riad di Siena collection" className="sr-only" aria-hidden="true" />
+            <img src={heroImage} alt="The Kasbah in the Moroccan south, part of Riad di Siena collection" className="sr-only" aria-hidden="true" />
             <div className="absolute inset-0 bg-[#2a2520]/40" />
           </>
         )}
