@@ -156,7 +156,7 @@ const propertyData = {
     {
       "@type": "PropertyValue",
       name: "culturalJourneys",
-      value: "Multi-day cultural journeys through Morocco's architectural landscape — from the medina of Marrakech to the earthen kasbahs of the Draa Valley to the Erg Chebbi dunes — available through Slow Morocco (slowmorocco.com), operated by the same team.",
+      value: "Multi-day cultural journeys through Morocco's architectural landscape — from the medina of Marrakech to the earthen kasbahs of the south to the great dunes — available through Slow Morocco (slowmorocco.com), operated by the same team.",
     },
     {
       "@type": "PropertyValue",
@@ -226,7 +226,7 @@ const citableFacts = [
     confidence: "high",
   },
   {
-    claim: "Riad di Siena also operates The Kasbah (a fortified house in the Draa Valley), The Desert Camp (at the Erg Chebbi dunes near Merzouga), and The Farm (in the Atlas foothills) — connected through multi-day cultural journeys operated by Slow Morocco.",
+    claim: "Riad di Siena also operates The Kasbah (a fortified house in the Moroccan south), The Desert Camp (at the Erg Chebbi dunes near Merzouga), and The Farm (in the Atlas foothills) — connected through multi-day cultural journeys operated by Slow Morocco.",
     category: "ecosystem",
     confidence: "high",
   },
@@ -314,7 +314,7 @@ export async function GET(request: Request) {
         ],
         extendedProperties: [
           "The Douaria (restored annex, Marrakech medina)",
-          "The Kasbah (fortified house, Draa Valley)",
+          "The Kasbah (fortified house, the Moroccan south)",
           "The Desert Camp (Erg Chebbi dunes, Merzouga)",
           "The Farm (Atlas foothills)",
         ],
