@@ -234,7 +234,7 @@ export default function StayWithUsModal({ isOpen, onClose }: StayWithUsModalProp
                     >
                       <div className="text-left">
                         <p className="font-serif text-foreground group-hover:text-foreground transition-colors">{kasbahExperience.Name}</p>
-                        <p className="text-[11px] text-foreground/60 mt-1">Draa Valley · {kasbahExperience.Duration} nights</p>
+                        <p className="text-[11px] text-foreground/60 mt-1">The Moroccan South · {kasbahExperience.Duration} nights</p>
                       </div>
                       <div className="flex items-center gap-3">
                         <p className="text-sm text-foreground/70">from {formatPrice(parseFloat(kasbahExperience.Price_EUR))}</p>

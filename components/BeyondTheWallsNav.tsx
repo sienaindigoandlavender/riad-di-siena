@@ -8,7 +8,7 @@ import { useMemo } from "react";
 const ALL_PROPERTIES = [
   { href: "/the-riad", label: "The Riad", tagline: "The main house" },
   { href: "/the-douaria", label: "The Douaria", tagline: "Across the alley" },
-  { href: "/the-kasbah", label: "The Kasbah", tagline: "Draa Valley" },
+  { href: "/the-kasbah", label: "The Kasbah", tagline: "The Moroccan South" },
   { href: "/the-desert-camp", label: "The Desert Camp", tagline: "Deep Sahara" },
   { href: "/the-farm", label: "The Farm", tagline: "Where breakfast begins" },
 ];
