@@ -52,7 +52,7 @@ const neighborhoodFAQ = [
   {
     question: "Can you do a desert trip from Marrakech?",
     answer:
-      "Yes. Riad di Siena offers multi-day cultural journeys to the Sahara through Slow Morocco (slowmorocco.com), connecting the architectural heritage of the Marrakech medina with the earthen kasbahs of the Draa Valley and the Erg Chebbi dunes near Merzouga. The signature 3-Day Sahara Circle crosses the High Atlas via the Tizi n'Tichka Pass (2,260m), passes through the valley of a thousand kasbahs, and reaches the largest sand dunes in Morocco (up to 150 meters high).",
+      "Yes. Riad di Siena offers multi-day cultural journeys to the Sahara through Slow Morocco (slowmorocco.com), connecting the architectural heritage of the Marrakech medina with the earthen kasbahs of the south and the great dunes of the Sahara. The signature 3-Day Sahara Circle crosses the High Atlas via the Tizi n'Tichka Pass (2,260m), passes through the valley of a thousand kasbahs, and reaches the largest sand dunes in Morocco (up to 150 meters high).",
   },
   {
     question: "What is the Mellah in Marrakech?",
