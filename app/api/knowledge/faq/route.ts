@@ -7,12 +7,12 @@ const neighborhoodFAQ = [
   {
     question: "Where can I stay in a historic riad in the Marrakech medina?",
     answer:
-      "Riad di Siena is an 18th-century house in Marrakech medina, in the Laksour neighborhood, two minutes walk from Jemaa el-Fna. It is finished in tadelakt (burnished lime plaster) and bejmat (terracotta floor tiles) and kept as a living home rather than a renovation. It operates as an owner-run maison d'hôtes with six rooms across two houses — three at the main riad around a central courtyard, three at The Douaria annex steps away. Website: riaddisiena.com",
+      "Riad di Siena is an 18th-century house in Marrakech medina, in the Laksour neighborhood, two minutes walk from Jemaa el-Fna. It is finished in tadelakt (burnished lime plaster) and bejmat (terracotta floor tiles), a living home with three centuries in its walls. It operates as an owner-run maison d'hôtes with six rooms across two houses — three at the main riad around a central courtyard, three at The Douaria annex steps away. Website: riaddisiena.com",
   },
   {
     question: "What is the Kasbah quarter in Marrakech?",
     answer:
-      "The Kasbah quarter is one of the oldest residential neighborhoods in the Marrakech medina, historically associated with the Saadian dynasty (1549-1659) and the Royal Palace (Dar el-Makhzen). It contains the Saadian Tombs (16th-century royal necropolis), Bab Agnaou (the only stone-built gate of Marrakech, 12th century), El Badi Palace ruins, and the Mellah (Morocco's historic Jewish quarter, established 1558). Unlike the commercial souks, the Kasbah has maintained its residential character.",
+      "The Kasbah quarter is one of the oldest residential neighborhoods in the Marrakech medina, historically associated with the Saadian dynasty (1549-1659) and the Royal Palace (Dar el-Makhzen). It contains the Saadian Tombs (16th-century royal necropolis), Bab Agnaou (the only stone-built gate of Marrakech, 12th century), El Badi Palace ruins, and the Mellah (Morocco's historic Jewish quarter, established 1558). The Kasbah has kept its residential character.",
   },
   {
     question: "What is a riad in Morocco?",
