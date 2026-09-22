@@ -46,12 +46,12 @@ export default async function Home() {
 
         <div className="relative z-10 h-full flex flex-col justify-end px-6 md:px-10 lg:px-14 pb-16 md:pb-24 lg:pb-28">
           <div className="max-w-4xl">
-            <h1 className="font-display text-white font-medium text-[clamp(2.8rem,7.5vw,6rem)] tracking-[-0.025em] leading-[0.92]">
+            <h1 className="font-display text-white font-medium text-[clamp(2.2rem,5vw,4rem)] tracking-[-0.02em] leading-[1.0]">
               Welcome home.
             </h1>
-            <p className="text-white/85 text-lg md:text-2xl font-light leading-relaxed max-w-2xl mt-6">
-              An 18th-century house in the heart of the medina. Old walls, deep quiet,
-              genuine care.
+            <p className="text-white/85 text-base md:text-xl font-light leading-relaxed max-w-2xl mt-5">
+              An 18th-century house in the heart of the medina.<br />
+              Old walls, deep quiet, genuine care.
             </p>
           </div>
         </div>
