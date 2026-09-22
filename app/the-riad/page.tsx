@@ -123,7 +123,7 @@ export default async function TheRiadPage() {
             </p>
             <p>
               This is wabi-sabi: the belief that age, use, and the marks of the lives a
-              house has held make a place more beautiful, not less. We have never tried to
+              house has held make a place more beautiful. We have never tried to
               make it look new. We have only tried to keep it true.
             </p>
           </div>
