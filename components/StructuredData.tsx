@@ -3,7 +3,7 @@ export default function StructuredData() {
     "@context": "https://schema.org",
     "@type": "LodgingBusiness",
     name: "Riad di Siena",
-    description: "A 300-year-old house in the heart of Marrakech medina. Not a hotel — a house with soul.",
+    description: "A 300-year-old house with soul, in the heart of the Marrakech medina.",
     url: "https://riaddisiena.com",
     telephone: "+212618070450",
     email: "happy@riaddisiena.com",
@@ -21,10 +21,6 @@ export default function StructuredData() {
     },
     image: "https://riaddisiena.com/og-image.jpg",
     priceRange: "€75 - €110",
-    starRating: {
-      "@type": "Rating",
-      ratingValue: "5",
-    },
     amenityFeature: [
       { "@type": "LocationFeatureSpecification", name: "Free WiFi" },
       { "@type": "LocationFeatureSpecification", name: "Breakfast Included" },
