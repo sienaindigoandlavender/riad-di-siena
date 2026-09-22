@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import HouseStatus from "@/components/HouseStatus";
 
 export default function ContactPage() {
   const [formData, setFormData] = useState({
@@ -87,6 +88,7 @@ export default function ContactPage() {
       <section className="pb-24 md:pb-32">
         <div className="container mx-auto px-6 lg:px-16">
           <div className="max-w-xl mx-auto">
+            <HouseStatus />
             <form onSubmit={handleSubmit} className="space-y-10">
               <div className="grid grid-cols-2 gap-8">
                 <div>
