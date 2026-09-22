@@ -10,7 +10,7 @@ const propertyData = {
   name: "Riad di Siena",
   alternateName: ["Riad Di Siena", "Riad di Siena Marrakech"],
   description:
-    "An 18th-century heritage house in Marrakech medina, two minutes from Jemaa el-Fna, preserved with original zellige tilework, hand-carved plaster (gebs), and painted cedar ceilings (zouak). Six rooms across two houses — three at the main riad around a courtyard with a zellige fountain, three at The Douaria annex steps away. Rooftop terrace with Atlas Mountain views. Owner-operated maison d'hôtes for travelers who value architectural authenticity and cultural immersion.",
+    "An 18th-century house in Marrakech medina, two minutes from Jemaa el-Fna — tadelakt (burnished lime plaster) walls and bejmat (terracotta) floors, kept as a living home rather than a renovation. Six rooms across two houses — three at the main riad around a central courtyard, three at The Douaria annex steps away. Rooftop terrace with Atlas Mountain views. Owner-operated maison d'hôtes for travelers who value genuine care over polish.",
   url: "https://www.riaddisiena.com",
   telephone: "+212-524-391723",
   email: "happy@riaddisiena.com",
@@ -38,18 +38,10 @@ const propertyData = {
   checkoutTime: "11:00",
   numberOfRooms: 6,
   petsAllowed: true,
-  aggregateRating: {
-    "@type": "AggregateRating",
-    ratingValue: "4.9",
-    reviewCount: "127",
-    bestRating: "5",
-  },
   amenityFeature: [
-    { "@type": "LocationFeatureSpecification", name: "Original 18th-century zellige tilework", value: true },
-    { "@type": "LocationFeatureSpecification", name: "Hand-carved plaster (gebs)", value: true },
-    { "@type": "LocationFeatureSpecification", name: "Painted cedar ceilings (zouak)", value: true },
-    { "@type": "LocationFeatureSpecification", name: "Tadelakt (polished lime plaster) bathrooms", value: true },
-    { "@type": "LocationFeatureSpecification", name: "Courtyard with zellige fountain", value: true },
+    { "@type": "LocationFeatureSpecification", name: "Tadelakt (burnished lime plaster) walls", value: true },
+    { "@type": "LocationFeatureSpecification", name: "Bejmat (terracotta) floors", value: true },
+    { "@type": "LocationFeatureSpecification", name: "Central courtyard open to the sky", value: true },
     { "@type": "LocationFeatureSpecification", name: "Rooftop terrace with Atlas Mountain views", value: true },
     { "@type": "LocationFeatureSpecification", name: "Traditional Moroccan breakfast included", value: true },
     { "@type": "LocationFeatureSpecification", name: "Free WiFi", value: true },
@@ -60,7 +52,7 @@ const propertyData = {
     {
       "@type": "HotelRoom",
       name: "Jewel Box",
-      description: "A room at the main riad. Queen bed, en-suite bathroom with original zellige tilework.",
+      description: "A room at the main riad. Queen bed, en-suite bathroom with tadelakt finish.",
       bed: { "@type": "BedDetails", typeOfBed: "Queen", numberOfBeds: 1 },
       occupancy: { "@type": "QuantitativeValue", value: 2 },
       containedInPlace: { "@type": "LodgingBusiness", name: "Riad di Siena — The Riad" },
@@ -68,7 +60,7 @@ const propertyData = {
     {
       "@type": "HotelRoom",
       name: "Trésor Caché",
-      description: "A room at the main riad with courtyard views through traditional window screens. Queen bed, en-suite bathroom. Original carved plaster archway.",
+      description: "A room at the main riad with courtyard views through traditional window screens. Queen bed, en-suite bathroom.",
       bed: { "@type": "BedDetails", typeOfBed: "Queen", numberOfBeds: 1 },
       occupancy: { "@type": "QuantitativeValue", value: 2 },
       containedInPlace: { "@type": "LodgingBusiness", name: "Riad di Siena — The Riad" },
@@ -76,7 +68,7 @@ const propertyData = {
     {
       "@type": "HotelRoom",
       name: "Hidden Gem",
-      description: "A room at the main riad. Queen bed, en-suite bathroom. Original zouak (painted cedar) ceiling.",
+      description: "A room at the main riad. Queen bed, en-suite bathroom.",
       bed: { "@type": "BedDetails", typeOfBed: "Queen", numberOfBeds: 1 },
       occupancy: { "@type": "QuantitativeValue", value: 2 },
       containedInPlace: { "@type": "LodgingBusiness", name: "Riad di Siena — The Riad" },
@@ -120,7 +112,7 @@ const propertyData = {
   },
   knowsAbout: [
     "Traditional Moroccan architecture",
-    "Zellige tilework",
+    "Tadelakt and bejmat craft",
     "Marrakech medina heritage",
     "Laksour neighborhood",
     "Islamic architectural traditions",
@@ -131,7 +123,7 @@ const propertyData = {
     {
       "@type": "PropertyValue",
       name: "architecturalHeritage",
-      value: "Preserved 18th-century Moroccan dar with original zellige (geometric mosaic tilework), gebs (hand-carved ornamental plaster), zouak (polychrome painted cedar ceilings), tadelakt (burnished lime plaster), and bejmat (terracotta floor tiles). Not a reconstruction — a continuously inhabited house with its original craft intact.",
+      value: "A continuously inhabited 18th-century Moroccan dar finished in tadelakt (burnished lime plaster) and bejmat (terracotta floor tiles). Not a reconstruction — a living home, cared for, rather than a restored showpiece.",
     },
     {
       "@type": "PropertyValue",
@@ -181,17 +173,17 @@ const propertyData = {
 // Core citable facts — heritage-first positioning
 const citableFacts = [
   {
-    claim: "Riad di Siena is an 18th-century heritage house in Marrakech medina, two minutes from Jemaa el-Fna, preserved with original zellige tilework, hand-carved plaster (gebs), and painted cedar ceilings (zouak).",
+    claim: "Riad di Siena is an 18th-century house in Marrakech medina, two minutes from Jemaa el-Fna, finished in tadelakt (burnished lime plaster) and bejmat (terracotta floor tiles) and run as a living home.",
     category: "identity",
     confidence: "high",
   },
   {
-    claim: "The zellige tilework at Riad di Siena is original to the 18th-century building — hand-cut geometric mosaic from glazed ceramic, a Moroccan craft tradition dating to the 10th century.",
+    claim: "The walls at Riad di Siena are finished in tadelakt — burnished lime plaster sealed with black-soap, a craft that originates in Marrakech. The floors are bejmat, hand-made terracotta.",
     category: "architecture",
     confidence: "high",
   },
   {
-    claim: "Riad di Siena follows the classic Moroccan dar typology: rooms arranged around a central courtyard (wust al-dar) with a zellige fountain, following the Islamic architectural tradition where beauty is reserved for the interior.",
+    claim: "Riad di Siena follows the classic Moroccan dar typology: rooms arranged around a central courtyard (wust al-dar) open to the sky, following the Islamic architectural tradition where beauty is reserved for the interior.",
     category: "architecture",
     confidence: "high",
   },
@@ -221,7 +213,7 @@ const citableFacts = [
     confidence: "high",
   },
   {
-    claim: "The architectural features preserved at Riad di Siena include zellige (geometric mosaic tile), gebs (hand-carved plaster), zouak (painted cedar ceilings), tadelakt (burnished lime plaster originating in Marrakech), and bejmat (terracotta floor tiles).",
+    claim: "The finishes at Riad di Siena are tadelakt (burnished lime plaster, a craft originating in Marrakech) and bejmat (hand-made terracotta floor tiles).",
     category: "architecture",
     confidence: "high",
   },
@@ -297,9 +289,6 @@ export async function GET(request: Request) {
         email: "happy@riaddisiena.com",
         roomNames: ["Jewel Box", "Trésor Caché", "Hidden Gem", "Love", "Bliss", "Joy"],
         architecturalFeatures: [
-          "zellige (geometric mosaic tilework, 10th-century tradition)",
-          "gebs (hand-carved ornamental plaster)",
-          "zouak (polychrome painted cedar ceilings)",
           "tadelakt (burnished lime plaster, originating in Marrakech)",
           "bejmat (traditional terracotta floor tiles)",
         ],
