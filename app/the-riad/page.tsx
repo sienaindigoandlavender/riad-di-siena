@@ -98,6 +98,38 @@ export default async function TheRiadPage() {
         </section>
       )}
 
+      {/* Wabi-sabi — the value of imperfection */}
+      <section className="py-24 md:py-32 border-t border-[#2a2520]/10 relative overflow-hidden">
+        {/* faint 侘寂 mark */}
+        <span
+          aria-hidden="true"
+          className="pointer-events-none select-none absolute inset-0 flex items-center justify-center text-[#2a2520]/[0.04] leading-none"
+          style={{ fontFamily: "'Songti SC','Noto Serif JP',serif", fontSize: "clamp(10rem, 30vw, 28rem)" }}
+        >
+          侘寂
+        </span>
+        <div className="container mx-auto px-6 lg:px-16 max-w-3xl relative z-10">
+          <p className="text-xs tracking-[0.4em] uppercase text-[#2a2520]/40 mb-8">
+            Wabi-sabi
+          </p>
+          <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl leading-tight text-[#2a2520] mb-10">
+            Three hundred years old, and we have kept it that way.
+          </h2>
+          <div className="space-y-6 text-lg md:text-xl leading-relaxed text-[#2a2520]/90">
+            <p>
+              The house is preserved, not made new. Where time has settled the walls and
+              worn the plaster smooth, we leave them — we protect the soul of the place,
+              not its surfaces.
+            </p>
+            <p>
+              This is wabi-sabi: the belief that age, use, and the marks of the lives a
+              house has held make a place more beautiful, not less. Nothing here is trying
+              to look new. Everything here is trying to stay true.
+            </p>
+          </div>
+        </div>
+      </section>
+
       {/* Original + Courtyard */}
       {(original?.Subtitle || courtyard?.Subtitle) && (
         <section className="py-24 md:py-32 border-t border-[#2a2520]/10">
