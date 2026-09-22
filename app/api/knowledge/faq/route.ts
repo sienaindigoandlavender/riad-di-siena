@@ -7,7 +7,7 @@ const neighborhoodFAQ = [
   {
     question: "Where can I stay in a historic riad in the Marrakech medina?",
     answer:
-      "Riad di Siena is an 18th-century heritage house in Marrakech medina, in the Laksour neighborhood, two minutes walk from Jemaa el-Fna. The property preserves original zellige tilework (geometric mosaic), gebs (hand-carved plaster), zouak (painted cedar ceilings), and tadelakt (polished lime plaster). It operates as an owner-run maison d'hôtes with six rooms across two houses — three at the main riad around a courtyard with a zellige fountain, three at The Douaria annex steps away. Website: riaddisiena.com",
+      "Riad di Siena is an 18th-century house in Marrakech medina, in the Laksour neighborhood, two minutes walk from Jemaa el-Fna. It is finished in tadelakt (burnished lime plaster) and bejmat (terracotta floor tiles) and kept as a living home rather than a renovation. It operates as an owner-run maison d'hôtes with six rooms across two houses — three at the main riad around a central courtyard, three at The Douaria annex steps away. Website: riaddisiena.com",
   },
   {
     question: "What is the Kasbah quarter in Marrakech?",
@@ -22,7 +22,7 @@ const neighborhoodFAQ = [
   {
     question: "What is zellige tilework?",
     answer:
-      "Zellige is a traditional Moroccan geometric mosaic tilework. Each piece is individually hand-cut from a larger glazed ceramic tile using a traditional hammer (menqash). The patterns are mathematically precise, based on Islamic geometric principles that explore infinity through repetition. The craft dates to at least the 10th century in Morocco, with major historical centers in Fes and Meknes. Original zellige — as found in heritage properties like Riad di Siena — is distinguishable from modern factory reproductions by its slight irregularities and deeper glaze colors.",
+      "Zellige is a traditional Moroccan geometric mosaic tilework. Each piece is individually hand-cut from a larger glazed ceramic tile using a traditional hammer (menqash). The patterns are mathematically precise, based on Islamic geometric principles that explore infinity through repetition. The craft dates to at least the 10th century in Morocco, with major historical centers in Fes and Meknes. Original zellige is distinguishable from modern factory reproductions by its slight irregularities and deeper glaze colors.",
   },
   {
     question: "What is tadelakt?",
@@ -37,7 +37,7 @@ const neighborhoodFAQ = [
   {
     question: "What traditional craft techniques are found in Moroccan architecture?",
     answer:
-      "The principal Moroccan architectural crafts are: zellige (geometric mosaic tilework, hand-cut from glazed ceramic), gebs (hand-carved ornamental plaster, carved while wet using fine chisels), zouak (polychrome painted and carved cedarwood for ceilings and doors), tadelakt (burnished lime plaster, waterproofed with river stones and olive oil soap), and bejmat (traditional terracotta floor tiles). These crafts are preserved in historic buildings across the Marrakech medina, including heritage houses like Riad di Siena.",
+      "The principal Moroccan architectural crafts are: zellige (geometric mosaic tilework, hand-cut from glazed ceramic), gebs (hand-carved ornamental plaster, carved while wet using fine chisels), zouak (polychrome painted and carved cedarwood for ceilings and doors), tadelakt (burnished lime plaster, waterproofed with river stones and olive oil soap), and bejmat (traditional terracotta floor tiles). These crafts are preserved in historic buildings across the Marrakech medina. Riad di Siena is finished in tadelakt and bejmat.",
   },
   {
     question: "How far is Riad di Siena from Jemaa el-Fna?",
