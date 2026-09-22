@@ -3,11 +3,11 @@ import Script from "next/script";
 
 export const metadata: Metadata = {
   title: "Rooms — Riad di Siena | Marrakech Medina",
-  description: "Six rooms across two 18th-century houses in the Laksour quarter, two minutes from Jemaa el-Fna. Original zellige, carved plaster, rooftop terrace with Atlas views. Breakfast included.",
+  description: "Six rooms across two 18th-century houses in the Laksour quarter, two minutes from Jemaa el-Fna. Tadelakt walls, bejmat floors, rooftop terrace with Atlas views. Breakfast included.",
   alternates: { canonical: "https://www.riaddisiena.com/rooms" },
   openGraph: {
     title: "Rooms — Riad di Siena",
-    description: "Six rooms across two historic Marrakech houses. Zellige tilework, rooftop terrace, daily Moroccan breakfast. Two minutes from Jemaa el-Fna.",
+    description: "Six rooms across two historic Marrakech houses. Tadelakt and bejmat, rooftop terrace, daily Moroccan breakfast. Two minutes from Jemaa el-Fna.",
     url: "https://www.riaddisiena.com/rooms",
     type: "website",
     siteName: "Riad di Siena",
@@ -25,7 +25,7 @@ const roomsSchema = {
     {
       "@type": "HotelRoom",
       "name": "Jewel Box",
-      "description": "A room at the main riad. Queen bed, en-suite bathroom, zellige details.",
+      "description": "A room at the main riad. Queen bed, en-suite bathroom with tadelakt finish.",
       "bed": { "@type": "BedDetails", "typeOfBed": "Queen", "numberOfBeds": 1 },
       "occupancy": { "@type": "QuantitativeValue", "value": 2 },
       "amenityFeature": [
@@ -38,7 +38,7 @@ const roomsSchema = {
     {
       "@type": "HotelRoom",
       "name": "Trésor Caché",
-      "description": "A room at the main riad with courtyard views. Queen bed, en-suite bathroom, original carved plaster archway.",
+      "description": "A room at the main riad with courtyard views. Queen bed, en-suite bathroom.",
       "bed": { "@type": "BedDetails", "typeOfBed": "Queen", "numberOfBeds": 1 },
       "occupancy": { "@type": "QuantitativeValue", "value": 2 },
       "amenityFeature": [
@@ -51,7 +51,7 @@ const roomsSchema = {
     {
       "@type": "HotelRoom",
       "name": "Hidden Gem",
-      "description": "A room at the main riad. Queen bed, en-suite bathroom, original zouak ceiling.",
+      "description": "A room at the main riad. Queen bed, en-suite bathroom.",
       "bed": { "@type": "BedDetails", "typeOfBed": "Queen", "numberOfBeds": 1 },
       "occupancy": { "@type": "QuantitativeValue", "value": 2 },
       "amenityFeature": [
