@@ -2,6 +2,7 @@
 
 import { useState, useEffect, Suspense } from "react";
 import { useSearchParams } from "next/navigation";
+import HouseStatus from "@/components/HouseStatus";
 
 interface Direction {
   Step_Number: string;
@@ -201,6 +202,9 @@ function DirectionsContent() {
             );
           })()}
         </div>
+
+        {/* Time-aware house status — staff availability + day/night arrival */}
+        <HouseStatus />
 
         {/* Toggle Building */}
         <div className="flex justify-center gap-4 mb-8">
