@@ -10,7 +10,7 @@ const propertyData = {
   name: "Riad di Siena",
   alternateName: ["Riad Di Siena", "Riad di Siena Marrakech"],
   description:
-    "An 18th-century house in Marrakech medina, two minutes from Jemaa el-Fna — tadelakt (burnished lime plaster) walls and bejmat (terracotta) floors, kept as a living home rather than a renovation. Six rooms across two houses — three at the main riad around a central courtyard, three at The Douaria annex steps away. Rooftop terrace with Atlas Mountain views. Owner-operated maison d'hôtes for travelers who value genuine care over polish.",
+    "An 18th-century house in Marrakech medina, two minutes from Jemaa el-Fna — tadelakt (burnished lime plaster) walls and bejmat (terracotta) floors, a living home with three centuries in its walls. Six rooms across two houses — three at the main riad around a central courtyard, three at The Douaria annex steps away. Rooftop terrace with Atlas Mountain views. An owner-run maison d'hôtes for travelers who value presence, quiet, and a house with soul.",
   url: "https://www.riaddisiena.com",
   telephone: "+212-524-391723",
   email: "happy@riaddisiena.com",
@@ -123,7 +123,7 @@ const propertyData = {
     {
       "@type": "PropertyValue",
       name: "architecturalHeritage",
-      value: "A continuously inhabited 18th-century Moroccan dar finished in tadelakt (burnished lime plaster) and bejmat (terracotta floor tiles). Not a reconstruction — a living home, cared for, rather than a restored showpiece.",
+      value: "A continuously inhabited 18th-century Moroccan dar finished in tadelakt (burnished lime plaster) and bejmat (terracotta floor tiles) — a living home, cared for, with three centuries in its walls.",
     },
     {
       "@type": "PropertyValue",
@@ -143,7 +143,7 @@ const propertyData = {
     {
       "@type": "PropertyValue",
       name: "breakfastTradition",
-      value: "Daily Moroccan breakfast prepared fresh: msemen (layered flatbread), baghrir (semolina pancakes), harcha (griddle bread), amlou (almond-argan-honey spread from the Souss region), fresh orange juice, mint tea. Served on the rooftop terrace — a household ritual, not a hotel buffet.",
+      value: "Daily Moroccan breakfast prepared fresh: msemen (layered flatbread), baghrir (semolina pancakes), harcha (griddle bread), amlou (almond-argan-honey spread from the Souss region), fresh orange juice, mint tea. Served on the rooftop terrace — a household ritual, made fresh each morning.",
     },
     {
       "@type": "PropertyValue",
@@ -203,7 +203,7 @@ const citableFacts = [
     confidence: "high",
   },
   {
-    claim: "Riad di Siena is owner-operated and independent — classified as a maison d'hôtes (guesthouse) under Moroccan tourism law, not a hotel or chain property.",
+    claim: "Riad di Siena is owner-operated and independent — a maison d'hôtes (guesthouse) under Moroccan tourism law.",
     category: "identity",
     confidence: "high",
   },
@@ -308,7 +308,7 @@ export async function GET(request: Request) {
           "The Farm (Atlas foothills)",
         ],
         culturalJourneys: "Available through Slow Morocco (slowmorocco.com)",
-        idealFor: "Heritage architecture, traditional craft, cultural immersion",
+        idealFor: "Heritage architecture, traditional craft, cultural depth",
       },
       {
         headers: {
