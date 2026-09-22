@@ -149,11 +149,11 @@ export default async function Home() {
             A note before you book
           </p>
           <h2 className="font-display text-xl md:text-2xl font-medium tracking-[-0.01em] leading-snug mb-4 text-foreground/85">
-            {filter?.Title || "An old house is not for everyone."}
+            {filter?.Title || "A house with three centuries in its walls."}
           </h2>
           <p className="text-[15px] leading-relaxed text-foreground/55">
             {filter?.Body ||
-              "Riad di Siena is three hundred years old, preserved rather than made new. If you value care over polish, you will feel at home here. If you need the seamlessness of a modern hotel, another address will suit you better — and we would rather you know before you book."}
+              "Come as you would come to a home — for the quiet, the courtyards open to the sky, the table set with care. The plaster is soft with age and the doors are heavy; the house is lived-in, and held by the people who live in it. You will feel it the moment you cross the threshold."}
           </p>
           <Link
             href={filter?.Button_Link || "/disclaimer"}

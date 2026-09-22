@@ -64,7 +64,7 @@ const structuredData = {
   "@type": "LodgingBusiness",
   "@id": "https://www.riaddisiena.com/#lodgingbusiness",
   "name": "Riad di Siena",
-  "description": "An 18th-century house in the Laksour quarter of Marrakech medina, finished in tadelakt (burnished lime plaster) and bejmat (terracotta floor tiles) and kept as a living home rather than a renovation. Six rooms across two houses — three at the main riad around a central courtyard, three at The Douaria annex steps away. Rooftop terrace with Atlas Mountain views. Owner-operated maison d'hôtes for travelers who value genuine care over polish.",
+  "description": "An 18th-century house in the Laksour quarter of Marrakech medina, finished in tadelakt (burnished lime plaster) and bejmat (terracotta floor tiles), a living home with three centuries in its walls. Six rooms across two houses — three at the main riad around a central courtyard, three at The Douaria annex steps away. Rooftop terrace with Atlas Mountain views. An owner-run maison d'hôtes for travelers who value presence, quiet, and a house with soul.",
   "url": "https://www.riaddisiena.com",
   "telephone": "+212-524-391723",
   "email": "happy@riaddisiena.com",
