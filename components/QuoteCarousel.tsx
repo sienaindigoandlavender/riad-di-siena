@@ -21,7 +21,7 @@ export default function QuoteCarousel({ testimonials }: { testimonials: Testimon
 
   return (
     <figure className="max-w-3xl mx-auto text-center">
-      <blockquote className="font-display italic text-[clamp(1.5rem,3.4vw,2.4rem)] font-normal leading-[1.35] text-foreground/90 transition-opacity duration-300">
+      <blockquote className="font-display italic text-[clamp(1.1rem,2vw,1.5rem)] font-normal leading-[1.5] text-foreground/85 transition-opacity duration-300">
         {current.Quote}
       </blockquote>
 
