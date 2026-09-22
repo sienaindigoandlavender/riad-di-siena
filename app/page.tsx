@@ -141,29 +141,26 @@ export default async function Home() {
       {/* ══════════════════════════════════════════════════
           A NOTE BEFORE YOU BOOK — honesty as disclosure, low and quiet.
           ══════════════════════════════════════════════════ */}
-      {filter && (
-        <section className="px-6 md:px-10 lg:px-14 py-16 md:py-20 bg-[hsl(var(--secondary))]">
-          <div className="max-w-xl mx-auto text-center">
-            <p className="text-[11px] tracking-[0.28em] uppercase text-foreground/40 mb-5">
-              A note before you book
-            </p>
-            <h2 className="font-display text-xl md:text-2xl font-medium tracking-[-0.01em] leading-snug mb-4 text-foreground/85">
-              {filter.Title}
-            </h2>
-            <p className="text-[15px] leading-relaxed text-foreground/55">
-              {filter.Body}
-            </p>
-            {filter.Button_Text && filter.Button_Link && (
-              <Link
-                href={filter.Button_Link}
-                className="inline-block mt-7 text-[11px] tracking-[0.16em] uppercase text-foreground/50 border-b border-foreground/40 pb-1 hover:text-[#C2410C] hover:border-[#C2410C] transition-colors"
-              >
-                {filter.Button_Text}
-              </Link>
-            )}
-          </div>
-        </section>
-      )}
+      <section className="px-6 md:px-10 lg:px-14 py-16 md:py-20 bg-[hsl(var(--secondary))]">
+        <div className="max-w-xl mx-auto text-center">
+          <p className="text-[11px] tracking-[0.28em] uppercase text-foreground/40 mb-5">
+            A note before you book
+          </p>
+          <h2 className="font-display text-xl md:text-2xl font-medium tracking-[-0.01em] leading-snug mb-4 text-foreground/85">
+            {filter?.Title || "An old house is not for everyone."}
+          </h2>
+          <p className="text-[15px] leading-relaxed text-foreground/55">
+            {filter?.Body ||
+              "Riad di Siena is three hundred years old, preserved rather than made new. If you value care over polish, you will feel at home here. If you need the seamlessness of a modern hotel, another address will suit you better — and we would rather you know before you book."}
+          </p>
+          <Link
+            href={filter?.Button_Link || "/disclaimer"}
+            className="inline-block mt-7 text-[11px] tracking-[0.16em] uppercase text-foreground/50 border-b border-foreground/40 pb-1 hover:text-[#C2410C] hover:border-[#C2410C] transition-colors"
+          >
+            {filter?.Button_Text || "Read before you book"}
+          </Link>
+        </div>
+      </section>
     </main>
   );
 }
