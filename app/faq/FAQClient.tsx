@@ -71,7 +71,7 @@ export default function FAQClient({ faqItems }: FAQClientProps) {
           <div className="mt-16 text-center py-12 border border-[#2a2520]/10">
             <p className="text-[#2a2520]/40 text-sm mb-2">Unfamiliar with a term?</p>
             <p className="text-[#2a2520]/50 text-sm mb-4">
-              Riad, medina, hammam, kasbah, zellige — Morocco has its own vocabulary.
+              Riad, medina, hammam, kasbah, tadelakt — Morocco has its own vocabulary.
             </p>
             <a href="https://www.slowmorocco.com/glossary" target="_blank" rel="noopener noreferrer"
               className="inline-block border border-[#2a2520]/20 px-10 py-4 text-xs tracking-[0.2em] uppercase hover:bg-[#2a2520] hover:text-[#f9f8f6] transition-colors">
