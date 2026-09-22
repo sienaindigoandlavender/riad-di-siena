@@ -9,11 +9,18 @@ const SUPABASE_URL = process.env.NEXT_PUBLIC_SUPABASE_URL!;
 const SUPABASE_ANON_KEY = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!;
 const SUPABASE_SERVICE_KEY = process.env.SUPABASE_SERVICE_ROLE_KEY;
 
+// Force every Supabase read to bypass Next.js's fetch cache so content
+// edits in Supabase go live immediately (no stale/cached data).
+const noStoreFetch: typeof fetch = (input, init) =>
+  fetch(input as any, { ...(init || {}), cache: "no-store" });
+
 // Public client (for read operations)
 let publicClient: SupabaseClient | null = null;
 function getPublicClient(): SupabaseClient {
   if (!publicClient) {
-    publicClient = createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+    publicClient = createClient(SUPABASE_URL, SUPABASE_ANON_KEY, {
+      global: { fetch: noStoreFetch },
+    });
   }
   return publicClient;
 }
