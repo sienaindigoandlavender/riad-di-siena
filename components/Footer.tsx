@@ -109,32 +109,31 @@ export default function Footer() {
     setCurrentLang(label);
     setLangOpen(false);
 
+    // Google stores the googtrans cookie on the ROOT domain (.riaddisiena.com),
+    // so we must set/clear it across every host + domain variant — otherwise
+    // switching back to English silently fails (the cookie survives).
+    const host = window.location.hostname;          // e.g. www.riaddisiena.com
+    const root = host.replace(/^www\./, "");        // riaddisiena.com
+    const domains = ["", host, "." + host, root, "." + root];
+
+    const writeCookie = (value: string, expire = false) => {
+      domains.forEach((d) => {
+        const domain = d ? `; domain=${d}` : "";
+        const exp = expire ? "; expires=Thu, 01 Jan 1970 00:00:00 UTC" : "";
+        document.cookie = `googtrans=${value}; path=/${domain}${exp}`;
+      });
+    };
+
     if (langCode === "en") {
-      // Reset to original
-      const frame = document.querySelector(".goog-te-banner-frame") as HTMLIFrameElement;
-      if (frame) {
-        const closeBtn = frame.contentDocument?.querySelector(".goog-close-link") as HTMLElement;
-        closeBtn?.click();
-      }
-      // Also try cookie reset
-      document.cookie = "googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
-      document.cookie = "googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; domain=." + window.location.hostname;
+      // Clear the translation cookie everywhere, then reload to the original.
+      writeCookie("", true);
       window.location.reload();
       return;
     }
 
-    // Set translation cookie and trigger
-    document.cookie = `googtrans=/en/${langCode}; path=/;`;
-    document.cookie = `googtrans=/en/${langCode}; path=/; domain=.${window.location.hostname}`;
-
-    // Trigger the hidden Google Translate select
-    const select = document.querySelector(".goog-te-combo") as HTMLSelectElement;
-    if (select) {
-      select.value = langCode;
-      select.dispatchEvent(new Event("change"));
-    } else {
-      window.location.reload();
-    }
+    // Set the translation cookie everywhere, then reload so Google applies it.
+    writeCookie(`/en/${langCode}`);
+    window.location.reload();
   };
 
   const currentCurr = currencies.find(c => c.code === currency) || currencies[0];
