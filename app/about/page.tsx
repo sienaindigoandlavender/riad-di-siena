@@ -22,16 +22,16 @@ export default function AboutPage() {
             Riad di Siena is a privately-owned maison d&apos;h&ocirc;tes — a small
             traditional Moroccan house, restored room by room over more than
             twenty years and run by the family who lives in it. Six rooms
-            across two adjoining houses: three around a courtyard with a
-            zellige fountain at the main riad, three at The Douaria annex a
+            across two adjoining houses: three around a central courtyard
+            at the main riad, three at The Douaria annex a
             few steps away.
           </p>
           <p>
-            The house keeps its original architecture: hand-cut zellige
-            tilework, carved plaster (gebs), painted cedar ceilings (zouak),
-            a rooftop terrace with views over the medina rooftops to the
-            Atlas Mountains. Nothing has been gutted or styled. What was
-            here in the 1700s is mostly still here.
+            The house keeps its original character: tadelakt walls — burnished
+            lime plaster — and bejmat floors, the hand-made terracotta tiles
+            underfoot, and a rooftop terrace with views over the medina
+            rooftops to the Atlas Mountains. Nothing has been gutted or styled.
+            What was here in the 1700s is mostly still here.
           </p>
           <p>
             We&apos;re a small team. Zahra and the women who keep the riad have
