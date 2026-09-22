@@ -5,6 +5,7 @@ export const fetchCache = 'force-no-store';
 import Link from "next/link";
 import { getSections, getList, getHero } from "@/lib/data";
 import KinfolkTile from "@/components/KinfolkTile";
+import QuoteCarousel from "@/components/QuoteCarousel";
 
 export default async function Home() {
   const [sections, testimonials, beyondTheWalls, douariaHero] = await Promise.all([
@@ -16,7 +17,6 @@ export default async function Home() {
 
   const hero = sections["hero"];
   const filter = sections["filter"];
-  const quote = testimonials[0];
 
   // Lead the "Beyond the Walls" grid with The Douaria (the annex), then the rest.
   const douariaTile = douariaHero?.Image_URL
@@ -123,20 +123,11 @@ export default async function Home() {
       )}
 
       {/* ══════════════════════════════════════════════════
-          ONE GUEST. No carousel, no stars, no rotation.
+          GUEST VOICES — one at a time, stepped by hand. No autoplay.
           ══════════════════════════════════════════════════ */}
-      {quote?.Quote && (
+      {testimonials.length > 0 && (
         <section className="px-6 md:px-10 lg:px-14 py-24 md:py-40">
-          <figure className="max-w-3xl mx-auto text-center">
-            <blockquote className="font-display italic text-[clamp(1.5rem,3.4vw,2.4rem)] font-normal leading-[1.35] text-foreground/90">
-              {quote.Quote}
-            </blockquote>
-            {quote.Guest_Name && (
-              <figcaption className="mt-8 text-[11px] tracking-[0.2em] uppercase text-foreground/45">
-                {quote.Guest_Name}
-              </figcaption>
-            )}
-          </figure>
+          <QuoteCarousel testimonials={testimonials} />
         </section>
       )}
 
