@@ -56,12 +56,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "monthly",
       priority: 0.7,
     },
-    {
-      url: `${baseUrl}/directions`,
-      lastModified: today,
-      changeFrequency: "monthly",
-      priority: 0.7,
-    },
 
     // Secondary pages
     {

@@ -13,7 +13,7 @@ export const metadata: Metadata = {
     template: "%s | Riad di Siena",
   },
   description: "An 18th-century riad two minutes from Jemaa el-Fna. Step through the door and the medina falls quiet. Soul food, genuine care, and clarity of spirit come first.",
-  keywords: ["heritage riad marrakech", "historic riad medina", "traditional moroccan house", "zellige architecture marrakech", "laksour marrakech medina", "best reviewed riad marrakech", "authentic riad medina marrakech",
+  keywords: ["heritage riad marrakech", "historic riad medina", "traditional moroccan house", "tadelakt bejmat riad marrakech", "laksour marrakech medina", "best reviewed riad marrakech", "authentic riad medina marrakech",
     // Spanish
     "riad marrakech cerca jemaa el fna", "riad medina marrakech", "alojamiento marrakech medina", "riad auténtico marrakech", "casa tradicional marroquí",
     // Italian
@@ -32,7 +32,7 @@ export const metadata: Metadata = {
         url: "/og-image.jpg",
         width: 1200,
         height: 630,
-        alt: "Riad di Siena courtyard with traditional zellige fountain",
+        alt: "Riad di Siena, a central courtyard open to the sky",
       },
     ],
   },
@@ -64,7 +64,7 @@ const structuredData = {
   "@type": "LodgingBusiness",
   "@id": "https://www.riaddisiena.com/#lodgingbusiness",
   "name": "Riad di Siena",
-  "description": "An 18th-century heritage house in the Laksour quarter of Marrakech medina, preserved with original zellige tilework, hand-carved plaster (gebs), and painted cedar ceilings (zouak). Six rooms across two houses — three at the main riad around a courtyard with a zellige fountain, three at The Douaria annex steps away. Rooftop terrace with Atlas Mountain views. Owner-operated maison d'hôtes for travelers who value architectural authenticity and cultural depth.",
+  "description": "An 18th-century house in the Laksour quarter of Marrakech medina, finished in tadelakt (burnished lime plaster) and bejmat (terracotta floor tiles) and kept as a living home rather than a renovation. Six rooms across two houses — three at the main riad around a central courtyard, three at The Douaria annex steps away. Rooftop terrace with Atlas Mountain views. Owner-operated maison d'hôtes for travelers who value genuine care over polish.",
   "url": "https://www.riaddisiena.com",
   "telephone": "+212-524-391723",
   "email": "happy@riaddisiena.com",
@@ -91,62 +91,6 @@ const structuredData = {
   "checkoutTime": "11:00",
   "numberOfRooms": 6,
   "petsAllowed": true,
-  "starRating": {
-    "@type": "Rating",
-    "ratingValue": "9.0",
-    "bestRating": "10"
-  },
-  "aggregateRating": {
-    "@type": "AggregateRating",
-    "ratingValue": "9.0",
-    "reviewCount": "584",
-    "bestRating": "10"
-  },
-  "review": [
-    {
-      "@type": "Review",
-      "reviewRating": { "@type": "Rating", "ratingValue": "10", "bestRating": "10" },
-      "author": { "@type": "Person", "name": "Eduardo" },
-      "reviewBody": "This place was magical! For being my first time in Marrakesh I couldn't have asked for a better experience. The women maintaining the riad were so lovely making me breakfast every morning and Zahra was always helpful. Will be back again!",
-      "datePublished": "2024-11-15"
-    },
-    {
-      "@type": "Review",
-      "reviewRating": { "@type": "Rating", "ratingValue": "10", "bestRating": "10" },
-      "author": { "@type": "Person", "name": "Giovanni" },
-      "reviewBody": "We stayed for 5 days and left with many beautiful memories. We were very well received and felt at home. Everything was appreciated — the room, the breakfasts, the excellent dinner prepared by Zahra, and the terrace on top of the riad. The description of the accommodation is well done and true to reality.",
-      "datePublished": "2024-09-20"
-    },
-    {
-      "@type": "Review",
-      "reviewRating": { "@type": "Rating", "ratingValue": "10", "bestRating": "10" },
-      "author": { "@type": "Person", "name": "Chloe" },
-      "reviewBody": "A real little haven of peace in the Medina: typical, charming, peaceful and perfectly located. The house is impeccably clean, tastefully decorated in the traditional Moroccan style. Special mention for the rooftop, perfect for enjoying the sun after a day in the city. The breakfast was delicious, generous, and authentically Moroccan.",
-      "datePublished": "2025-03-10"
-    },
-    {
-      "@type": "Review",
-      "reviewRating": { "@type": "Rating", "ratingValue": "10", "bestRating": "10" },
-      "author": { "@type": "Person", "name": "Belen" },
-      "reviewBody": "A beautiful riad. The room was spacious, beautifully decorated and spotlessly clean. The bathroom was like a hammam, spectacular. The breakfasts were varied and delicious, and the personal attention was exceptional.",
-      "datePublished": "2025-01-22",
-      "inLanguage": "es"
-    },
-    {
-      "@type": "Review",
-      "reviewRating": { "@type": "Rating", "ratingValue": "10", "bestRating": "10" },
-      "author": { "@type": "Person", "name": "Juan Andres" },
-      "reviewBody": "I regret not spending enough days in this place. The building was so beautiful and clean. Jacqueline was very helpful and sweet. Best breakfast I had in a riad in Marrakech.",
-      "datePublished": "2024-12-05"
-    },
-    {
-      "@type": "Review",
-      "reviewRating": { "@type": "Rating", "ratingValue": "10", "bestRating": "10" },
-      "author": { "@type": "Person", "name": "Celine" },
-      "reviewBody": "Beautiful place, a real haven of peace close to the main square, a lovely host and an exquisite breakfast. What more could you ask for!",
-      "datePublished": "2025-02-14"
-    }
-  ],
   "parentOrganization": {
     "@type": "Organization",
     "name": "Slow Morocco",
@@ -189,9 +133,9 @@ export default function RootLayout({
         <link rel="alternate" href="/api/knowledge/property" type="application/ld+json" title="Property Data" />
         <link rel="alternate" href="/api/knowledge/faq" type="application/ld+json" title="FAQ Data" />
         {/* Spanish meta description — for es_ES Google results */}
-        <meta name="description:es" content="Riad del siglo XVIII a dos minutos de la Plaza Jemaa el-Fna. Cruza la puerta y la medina enmudece. Arquitectura auténtica, zellige original, desayuno en la terraza con vistas al Atlas." />
+        <meta name="description:es" content="Riad del siglo XVIII a dos minutos de la Plaza Jemaa el-Fna. Cruza la puerta y la medina enmudece. Una casa de verdad, cuidada, con desayuno en la terraza y vistas al Atlas." />
         {/* Italian meta description — for it_IT Google results */}
-        <meta name="description:it" content="Riad del XVIII secolo a due minuti da Piazza Jemaa el-Fna. Varca la soglia e la medina si fa silenziosa. Architettura autentica, zellige originale, colazione in terrazza con vista sull'Atlante." />
+        <meta name="description:it" content="Riad del XVIII secolo a due minuti da Piazza Jemaa el-Fna. Varca la soglia e la medina si fa silenziosa. Una casa vera, curata, con colazione in terrazza e vista sull'Atlante." />
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-V48C7J04GJ"
           strategy="afterInteractive"

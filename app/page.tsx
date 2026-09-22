@@ -1,135 +1,169 @@
 export const dynamic = 'force-dynamic';
 
 import Link from "next/link";
-import { getSections, getList } from "@/lib/data";
-import TestimonialCarousel from "@/components/TestimonialCarousel";
-import SlowWaySouth from "@/components/SlowWaySouth";
-import BeyondTheWallsCarousel from "@/components/BeyondTheWallsCarousel";
+import { getSections, getList, getHero } from "@/lib/data";
+import KinfolkTile from "@/components/KinfolkTile";
 
 export default async function Home() {
-  const [sections, testimonials, beyondTheWalls] = await Promise.all([
+  const [sections, testimonials, beyondTheWalls, douariaHero] = await Promise.all([
     getSections("home"),
     getList("testimonials"),
     getList("beyond_the_walls"),
+    getHero("douaria_hero"),
   ]);
 
   const hero = sections["hero"];
-  const welcome = sections["welcome"];
-  const rooms = sections["rooms"];
   const filter = sections["filter"];
+  const quote = testimonials[0];
+
+  // Lead the "Beyond the Walls" grid with The Douaria (the annex), then the rest.
+  const douariaTile = douariaHero?.Image_URL
+    ? [{
+        Property_ID: "the-douaria",
+        Name: "The Douaria",
+        Tagline: "The annex, a few steps away",
+        Image_URL: douariaHero.Image_URL,
+        Link: "/the-douaria",
+      }]
+    : [];
+  const rest = beyondTheWalls.filter((p: any) => !/douaria/i.test(p.Name || ""));
+  const walls = [...douariaTile, ...rest];
 
   return (
-    <main className="min-h-screen">
-      {/* Hero Section */}
-      <section className="relative h-screen flex items-center justify-center pt-16 bg-[hsl(var(--sand))]">
+    <main className="min-h-screen bg-[hsl(var(--background))]">
+
+      {/* ══════════════════════════════════════════════════
+          HERO — one still image, the name, one quiet line.
+          ══════════════════════════════════════════════════ */}
+      <section className="relative h-screen min-h-[640px] overflow-hidden bg-[hsl(var(--sand))]">
         {hero?.Image_URL && (
           <>
             <div className="absolute inset-0 bg-cover bg-center" style={{ backgroundImage: `url(${hero.Image_URL})` }} />
-            <img src={hero.Image_URL} alt="Riad di Siena, a 300-year-old traditional riad in the heart of Marrakech medina" className="sr-only" aria-hidden="true" />
+            <img src={hero.Image_URL} alt="Riad di Siena, an 18th-century house in the Marrakech medina" className="sr-only" aria-hidden="true" />
           </>
         )}
-        <div className="absolute inset-0 bg-black/30" />
-        <div className="relative z-10 text-center text-white px-6 max-w-4xl">
-          <h1 className="font-display text-4xl md:text-6xl lg:text-7xl mb-6">
-            {hero?.Title || "Riad di Siena"}
-          </h1>
-          <p className="text-lg md:text-xl opacity-95 max-w-2xl mx-auto">
-            {hero?.Subtitle || ""}
-          </p>
+        <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/15 to-black/20" />
+
+        <div className="relative z-10 h-full flex flex-col justify-end px-6 md:px-10 lg:px-14 pb-16 md:pb-24 lg:pb-28">
+          <div className="max-w-4xl">
+            <h1 className="font-display text-white font-medium text-[clamp(2.8rem,7.5vw,6rem)] tracking-[-0.025em] leading-[0.92]">
+              Welcome home.
+            </h1>
+            <p className="text-white/85 text-lg md:text-2xl font-light leading-relaxed max-w-2xl mt-6">
+              An 18th-century house in the heart of the medina. Old walls, deep quiet,
+              genuine care.
+            </p>
+          </div>
         </div>
       </section>
 
-      {/* Welcome Section — asymmetric, generous air */}
-      {welcome && (
-        <section className="py-28 md:py-48 px-6">
-          <div className="max-w-2xl mx-auto md:ml-[12%] md:mr-auto">
-            <h2 className="font-display text-3xl md:text-5xl mb-10 leading-tight">{welcome.Title}</h2>
-            <p className="text-lg md:text-xl leading-loose opacity-90 max-w-xl">{welcome.Body}</p>
-            {welcome.Button_Text && welcome.Button_Link && (
-              <Link href={welcome.Button_Link} className="inline-block mt-10 text-sm tracking-widest border-b border-current pb-1 hover:opacity-70 transition-opacity">
-                {welcome.Button_Text}
-              </Link>
-            )}
-          </div>
-        </section>
-      )}
+      {/* ══════════════════════════════════════════════════
+          DYAFA — the one thing that makes us different.
+          Copy from the Riad constitution (§12–13).
+          ══════════════════════════════════════════════════ */}
+      <section className="relative overflow-hidden px-6 md:px-10 lg:px-14 py-28 md:py-48">
+        {/* Arabic watermark — ضيافة (dyafa), faint, read over */}
+        <span
+          aria-hidden="true"
+          dir="rtl"
+          className="pointer-events-none select-none absolute inset-0 flex items-center justify-center text-[hsl(var(--foreground))]/[0.05] leading-none"
+          style={{ fontFamily: "'Amiri', serif", fontSize: "clamp(9rem, 26vw, 26rem)" }}
+        >
+          ضيافة
+        </span>
+        <div className="relative z-10 max-w-3xl md:ml-[8%]">
+          <h2 className="font-display text-[clamp(1.6rem,3.6vw,2.9rem)] font-medium tracking-[-0.02em] leading-[1.12] mb-8">
+            There is an old Arabic word for the way a guest is received: dyafa.
+          </h2>
+          <p className="text-lg md:text-xl leading-loose text-foreground/75 max-w-2xl">
+            Born in the desert, where taking in a weary traveler was a sacred duty, it
+            lives on in Moroccan life as a point of honor. When you cross our threshold
+            you are not a customer to be attended to, but a guest to be cared for: met
+            with a hot glass of tea, a room prepared with devotion, and the ease of
+            knowing you are held by a house that takes real pride in your comfort.
+          </p>
+          <Link
+            href="/philosophy"
+            className="inline-block mt-10 text-[11px] tracking-[0.16em] uppercase border-b border-foreground pb-1 hover:text-[#C2410C] hover:border-[#C2410C] transition-colors"
+          >
+            Our philosophy →
+          </Link>
+        </div>
+      </section>
 
-      {/* Rooms Preview — tighter beat, a quiet choice point */}
-      {rooms && (
-        <section className="py-20 md:py-28 bg-[hsl(var(--secondary))] px-6">
-          <div className="max-w-2xl mx-auto text-center">
-            <h2 className="font-display text-3xl md:text-4xl mb-4">{rooms.Title}</h2>
-            <p className="opacity-75 max-w-xl mx-auto mb-12">{rooms.Subtitle}</p>
-            <Link href={rooms.Button_Link || "/rooms"} className="inline-block px-8 py-3 text-sm tracking-widest border border-current hover:bg-[hsl(var(--foreground))] hover:text-[hsl(var(--background))] transition-colors">
-              {rooms.Button_Text || "VIEW ROOMS"}
-            </Link>
-          </div>
-        </section>
-      )}
-
-      {/* Testimonials — the emotional peak, most air */}
-      {testimonials.length > 0 && (
-        <section className="py-28 md:py-48 px-6">
-          <div className="max-w-4xl mx-auto">
-            <h2 className="font-display text-2xl md:text-3xl text-center mb-20 opacity-70">What Guests Say</h2>
-            <TestimonialCarousel testimonials={testimonials} />
-          </div>
-        </section>
-      )}
-
-      {/* The Slow Way South - Syndicated Journey */}
-      <SlowWaySouth />
-
-      {/* Beyond the Walls — demoted to a quiet discovery strip */}
-      {beyondTheWalls.length > 0 && (
-        <section className="py-16 md:py-24 px-6 border-t border-current/5">
+      {/* ══════════════════════════════════════════════════
+          BEYOND THE WALLS — where the sanctuary continues.
+          ══════════════════════════════════════════════════ */}
+      {walls.length > 0 && (
+        <section className="px-6 md:px-10 lg:px-14 py-20 md:py-28 bg-[hsl(var(--secondary))]">
           <div className="max-w-7xl mx-auto">
-            <div className="mb-10 md:ml-[6%]">
-              <p className="text-xs tracking-[0.25em] uppercase opacity-40 mb-2">Beyond the Walls</p>
-              <p className="opacity-50 text-sm max-w-md">The riad is just the beginning. Discover the places we love.</p>
+            <Link href="/beyond-the-walls" className="group block mb-10 md:mb-12">
+              <p className="text-[11px] tracking-[0.28em] uppercase text-foreground/40 mb-3">Beyond the Walls</p>
+              <h2 className="font-display text-xl md:text-2xl font-medium tracking-[-0.01em] text-foreground/85 group-hover:text-[#C2410C] transition-colors">
+                Where the sanctuary continues.{" "}
+                <span className="inline-block transition-transform group-hover:translate-x-1">→</span>
+              </h2>
+            </Link>
+            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-5">
+              {walls.map((p: any) => (
+                <KinfolkTile
+                  key={p.Property_ID || p.Name}
+                  href={p.Link || "#"}
+                  image={p.Image_URL}
+                  kicker={p.Location || undefined}
+                  title={p.Name}
+                  sub={p.Tagline || undefined}
+                />
+              ))}
             </div>
-            <BeyondTheWallsCarousel properties={beyondTheWalls} />
           </div>
         </section>
       )}
 
-      {/* The Filter Section — off-center, the quiet statement of who this is for */}
+      {/* ══════════════════════════════════════════════════
+          ONE GUEST. No carousel, no stars, no rotation.
+          ══════════════════════════════════════════════════ */}
+      {quote?.Quote && (
+        <section className="px-6 md:px-10 lg:px-14 py-24 md:py-40">
+          <figure className="max-w-3xl mx-auto text-center">
+            <blockquote className="font-display italic text-[clamp(1.5rem,3.4vw,2.4rem)] font-normal leading-[1.35] text-foreground/90">
+              {quote.Quote}
+            </blockquote>
+            {quote.Guest_Name && (
+              <figcaption className="mt-8 text-[11px] tracking-[0.2em] uppercase text-foreground/45">
+                {quote.Guest_Name}
+              </figcaption>
+            )}
+          </figure>
+        </section>
+      )}
+
+      {/* ══════════════════════════════════════════════════
+          A NOTE BEFORE YOU BOOK — honesty as disclosure, low and quiet.
+          ══════════════════════════════════════════════════ */}
       {filter && (
-        <section className="py-28 md:py-44 bg-[hsl(var(--foreground))] text-[hsl(var(--background))] px-6">
-          <div className="max-w-2xl mx-auto md:ml-[12%] md:mr-auto">
-            <h2 className="font-display text-3xl md:text-5xl mb-10 leading-tight">{filter.Title}</h2>
-            <p className="text-lg md:text-xl leading-loose opacity-90 mb-10 max-w-xl">{filter.Body}</p>
+        <section className="px-6 md:px-10 lg:px-14 py-16 md:py-20 bg-[hsl(var(--secondary))]">
+          <div className="max-w-xl mx-auto text-center">
+            <p className="text-[11px] tracking-[0.28em] uppercase text-foreground/40 mb-5">
+              A note before you book
+            </p>
+            <h2 className="font-display text-xl md:text-2xl font-medium tracking-[-0.01em] leading-snug mb-4 text-foreground/85">
+              {filter.Title}
+            </h2>
+            <p className="text-[15px] leading-relaxed text-foreground/55">
+              {filter.Body}
+            </p>
             {filter.Button_Text && filter.Button_Link && (
-              <Link href={filter.Button_Link} className="inline-block px-8 py-3 text-sm tracking-widest border border-current hover:bg-[hsl(var(--background))] hover:text-[hsl(var(--foreground))] transition-colors">
+              <Link
+                href={filter.Button_Link}
+                className="inline-block mt-7 text-[11px] tracking-[0.16em] uppercase text-foreground/50 border-b border-foreground/40 pb-1 hover:text-[#C2410C] hover:border-[#C2410C] transition-colors"
+              >
                 {filter.Button_Text}
               </Link>
             )}
           </div>
         </section>
       )}
-
-      {/* Derb City Guide */}
-      <section className="py-16 md:py-20 bg-[#1C1917] text-[#FAF9F6]">
-        <div className="max-w-3xl mx-auto px-6 text-center">
-          <a href="https://derb.so/stories/the-three-glasses" target="_blank" rel="noopener noreferrer" className="group block">
-            <p className="text-[#C2410C] text-xs tracking-[0.3em] uppercase mb-6">01</p>
-            <p className="font-serif text-3xl md:text-4xl lg:text-5xl text-[#FAF9F6] group-hover:text-[#FAF9F6]/80 transition-colors mb-6" style={{ fontStyle: 'italic' }}>
-              Is it rude to refuse tea?
-            </p>
-            <p className="text-[#A8A29E] text-sm leading-relaxed max-w-md mx-auto mb-8">
-              Tea is a social contract. Offering it means you&apos;re being received as a guest.
-            </p>
-            <span className="inline-flex items-center gap-2 text-[#C2410C] text-xs tracking-[0.2em] group-hover:gap-3 transition-all">
-              Read more <span className="transition-transform group-hover:translate-x-1">→</span>
-            </span>
-          </a>
-          <div className="mt-10 pt-6 border-t border-[#FAF9F6]/10">
-            <a href="https://derb.so" target="_blank" rel="noopener noreferrer" className="text-[#78716C] text-xs tracking-[0.2em] hover:text-[#A8A29E] transition-colors">
-              DERB — THE MARRAKECH CITY GUIDE
-            </a>
-          </div>
-        </div>
-      </section>
     </main>
   );
 }
