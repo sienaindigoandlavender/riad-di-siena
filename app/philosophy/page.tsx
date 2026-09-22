@@ -1,4 +1,4 @@
-export const revalidate = 60; // re-fetch content from Supabase every 60s
+export const dynamic = 'force-dynamic'; // always live — reflect Supabase edits immediately
 import { getSections } from "@/lib/data";
 
 export default async function PhilosophyPage() {
