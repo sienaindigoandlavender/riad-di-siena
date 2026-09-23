@@ -24,12 +24,12 @@ export default async function PhilosophyPage() {
           </>
         )}
         <div className="container mx-auto px-6 lg:px-16 text-center max-w-4xl relative z-10">
-          <p className="text-xs tracking-[0.4em] uppercase text-white/60 mb-8">Riad di Siena</p>
-          <h1 className="text-3xl md:text-5xl lg:text-6xl tracking-[0.15em] font-light mb-8 text-white">
-            P H I L O S O P H Y
+          <p className="text-[11px] tracking-[0.3em] uppercase text-white/60 mb-6">Riad di Siena · Marrakech Medina</p>
+          <h1 className="font-display font-medium text-white text-[clamp(2.6rem,7vw,5rem)] tracking-[-0.02em] leading-[0.95] mb-6">
+            Philosophy
           </h1>
           {hero?.Subtitle && (
-            <p className="text-xl md:text-2xl text-white/80 font-serif italic max-w-2xl mx-auto">
+            <p className="text-lg md:text-xl text-white/80 font-light leading-relaxed max-w-2xl mx-auto">
               {hero.Subtitle}
             </p>
           )}
