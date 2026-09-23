@@ -20,10 +20,10 @@ export default async function AmenitiesPage() {
           </>
         )}
         <div className="container mx-auto px-6 lg:px-16 text-center max-w-4xl relative z-10">
-          <p className="text-xs tracking-[0.4em] uppercase text-white/60 mb-8">Riad di Siena</p>
-          <h1 className="text-3xl md:text-5xl lg:text-6xl tracking-[0.15em] font-light mb-8 text-white">A M E N I T I E S</h1>
+          <p className="text-[11px] tracking-[0.3em] uppercase text-white/60 mb-6">Riad di Siena · Marrakech Medina</p>
+          <h1 className="font-display font-medium text-white text-[clamp(2.6rem,7vw,5rem)] tracking-[-0.02em] leading-[0.95] mb-6">Amenities</h1>
           {hero?.Subtitle && (
-            <p className="text-xl md:text-2xl text-white/80 font-serif italic max-w-2xl mx-auto">{hero.Subtitle}</p>
+            <p className="text-lg md:text-xl text-white/80 font-light leading-relaxed max-w-2xl mx-auto">{hero.Subtitle}</p>
           )}
         </div>
         <div className="absolute bottom-12 left-1/2 -translate-x-1/2">
@@ -71,7 +71,7 @@ export default async function AmenitiesPage() {
       {/* Beyond the house */}
       <section className="py-20 md:py-28 border-t border-[#2a2520]/10">
         <div className="container mx-auto px-6 lg:px-16 max-w-3xl text-center">
-          <p className="text-xs tracking-[0.3em] uppercase text-[#2a2520]/40 mb-6">Beyond the House</p>
+          <p className="text-[11px] tracking-[0.28em] uppercase text-[#C2410C] mb-6">Beyond the House</p>
           <p className="text-[#2a2520]/90 leading-relaxed text-lg mb-10">
             The medina has its own rhythm. We built a city guide for our guests, covering taxis, tipping, the call to prayer, and everything else nobody tells you before you arrive.
           </p>
