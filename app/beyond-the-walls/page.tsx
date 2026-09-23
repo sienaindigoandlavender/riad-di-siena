@@ -1,7 +1,7 @@
 export const dynamic = 'force-dynamic';
 
 import { getHero, getList } from "@/lib/data";
-import Link from "next/link";
+import KinfolkTile from "@/components/KinfolkTile";
 
 export default async function BeyondTheWallsPage() {
   const [hero, properties] = await Promise.all([
@@ -44,21 +44,15 @@ export default async function BeyondTheWallsPage() {
 
       <section className="py-24 md:py-32 bg-[#efede7]">
         <div className="max-w-6xl mx-auto px-6">
-          <div className="grid md:grid-cols-2 gap-16">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-5">
             {properties.map((property: any) => (
-              <Link key={property.Property_ID} href={property.Link} className="group block">
-                <article>
-                  <div className="aspect-[4/3] overflow-hidden mb-8">
-                    {property.Image_URL ? (
-                      <img src={property.Image_URL} alt={property.Name} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
-                    ) : (
-                      <div className="w-full h-full bg-[#2a2520]/5 flex items-center justify-center text-[#2a2520]/20">No image</div>
-                    )}
-                  </div>
-                  <h2 className="font-serif text-2xl md:text-3xl text-[#2a2520] mb-3 italic">{property.Name}</h2>
-                  <p className="text-[#2a2520]/50 text-lg">{property.Tagline}</p>
-                </article>
-              </Link>
+              <KinfolkTile
+                key={property.Property_ID}
+                href={property.Link}
+                image={property.Image_URL}
+                title={property.Name}
+                sub={property.Tagline}
+              />
             ))}
           </div>
         </div>
