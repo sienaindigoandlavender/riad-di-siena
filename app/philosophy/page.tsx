@@ -24,7 +24,6 @@ export default async function PhilosophyPage() {
           </>
         )}
         <div className="container mx-auto px-6 lg:px-16 text-center max-w-4xl relative z-10">
-          <p className="text-[11px] tracking-[0.3em] uppercase text-white/60 mb-6">Riad di Siena · Marrakech Medina</p>
           <h1 className="font-display font-medium text-white text-[clamp(2.6rem,7vw,5rem)] tracking-[-0.02em] leading-[0.95] mb-6">
             Philosophy
           </h1>
