@@ -1,0 +1,178 @@
+export const dynamic = 'force-dynamic'; // always live — reflect Supabase edits immediately
+import { getSections } from "@/lib/data";
+
+export default async function TheRiadPage() {
+  const content = await getSections("the_riad");
+
+  const hero = content.hero;
+  const history = content.history;
+  const authentic = content.authentic;
+  const original = content.original;
+  const courtyard = content.courtyard;
+  const location = content.location;
+  const heroImage = hero?.Image_URL || "";
+
+  return (
+    <div className="bg-[#f9f8f6] text-[#2a2520] min-h-screen">
+      {/* Hero - Full viewport with image */}
+      <section className="min-h-screen flex items-center justify-center relative">
+        {heroImage && (
+          <>
+            <div className="absolute inset-0 bg-cover bg-center" style={{ backgroundImage: `url('${heroImage}')` }} />
+            <img src={heroImage} alt="The House at Riad di Siena, traditional Moroccan riad in Marrakech medina" className="sr-only" aria-hidden="true" />
+            <div className="absolute inset-0 bg-[#2a2520]/40" />
+          </>
+        )}
+        <div className="container mx-auto px-6 lg:px-16 text-center max-w-4xl relative z-10">
+          <h1 className="font-display font-medium text-white text-[clamp(2.6rem,7vw,5.5rem)] tracking-[-0.02em] leading-[0.95] mb-6">
+            The House
+          </h1>
+          <p className="text-lg md:text-xl text-white/80 font-light leading-relaxed max-w-2xl mx-auto">
+            A 300-year-old sanctuary in the heart of the medina
+          </p>
+        </div>
+        
+        {/* Scroll indicator */}
+        <div className="absolute bottom-12 left-1/2 -translate-x-1/2">
+          <div className="w-[1px] h-16 bg-gradient-to-b from-white/0 via-white/30 to-white/0" />
+        </div>
+      </section>
+
+      {/* Opening prose */}
+      {hero?.Subtitle && (
+        <section className="py-24 md:py-32 border-t border-[#2a2520]/10">
+          <div className="container mx-auto px-6 lg:px-16">
+            <div className="max-w-3xl mx-auto">
+              <p className="text-[#2a2520]/90 leading-relaxed text-lg md:text-xl">
+                {hero.Subtitle}
+              </p>
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* History Section */}
+      {history && (history.Title || history.Subtitle) && (
+        <section className="py-24 md:py-32 border-t border-[#2a2520]/10">
+          <div className="container mx-auto px-6 lg:px-16 max-w-5xl">
+            <div className="space-y-16">
+              {history?.Title && (
+                <div className="max-w-2xl mr-auto">
+                  <p className="font-serif text-2xl md:text-3xl text-[#2a2520] leading-relaxed italic">
+                    {history.Title}
+                  </p>
+                </div>
+              )}
+              {history?.Subtitle && (
+                <div className="max-w-2xl ml-auto text-right">
+                  <p className="text-lg md:text-xl leading-relaxed text-[#2a2520]/90">
+                    {history.Subtitle}
+                  </p>
+                </div>
+              )}
+              {history?.Body && (
+                <div className="max-w-2xl mr-auto">
+                  <p className="text-lg leading-relaxed text-[#2a2520]/90">
+                    {history.Body}
+                  </p>
+                </div>
+              )}
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* Authentic Section */}
+      {authentic?.Subtitle && (
+        <section className="py-24 md:py-32 bg-[#efede7]">
+          <div className="container mx-auto px-6 lg:px-16">
+            <div className="max-w-3xl mx-auto">
+              <p className="text-[#2a2520]/90 leading-relaxed text-lg md:text-xl text-center">
+                {authentic.Subtitle}
+              </p>
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* Wabi-sabi — the value of imperfection */}
+      <section className="py-24 md:py-32 border-t border-[#2a2520]/10 relative overflow-hidden">
+        {/* faint 侘寂 mark */}
+        <span
+          aria-hidden="true"
+          className="pointer-events-none select-none absolute inset-0 flex items-center justify-center text-[#2a2520]/[0.04] leading-none"
+          style={{ fontFamily: "'Songti SC','Noto Serif JP',serif", fontSize: "clamp(10rem, 30vw, 28rem)" }}
+        >
+          侘寂
+        </span>
+        <div className="container mx-auto px-6 lg:px-16 max-w-3xl relative z-10">
+          <p className="text-xs tracking-[0.4em] uppercase text-[#2a2520]/40 mb-8">
+            Wabi-sabi
+          </p>
+          <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl leading-tight text-[#2a2520] mb-10">
+            Three hundred years old, and we have kept it that way.
+          </h2>
+          <div className="space-y-6 text-lg md:text-xl leading-relaxed text-[#2a2520]/90">
+            <p>
+              The house is preserved, not made new. Where time has settled the walls and
+              worn the plaster smooth, we leave them — we protect the soul of the place,
+              not its surfaces.
+            </p>
+            <p>
+              This is wabi-sabi: the belief that age, use, and the marks of the lives a
+              house has held make a place more beautiful. We have never tried to
+              make it look new. We have only tried to keep it true.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Original + Courtyard */}
+      {(original?.Subtitle || courtyard?.Subtitle) && (
+        <section className="py-24 md:py-32 border-t border-[#2a2520]/10">
+          <div className="container mx-auto px-6 lg:px-16 max-w-5xl">
+            <div className="space-y-16">
+              {original?.Subtitle && (
+                <div className="max-w-2xl ml-auto text-right">
+                  <p className="text-lg md:text-xl leading-relaxed text-[#2a2520]/90">
+                    {original.Subtitle}
+                  </p>
+                </div>
+              )}
+              {courtyard?.Subtitle && (
+                <div className="max-w-2xl mr-auto">
+                  <p className="text-lg md:text-xl leading-relaxed text-[#2a2520]/90">
+                    {courtyard.Subtitle}
+                  </p>
+                </div>
+              )}
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* Location Quote */}
+      {(location?.Title || location?.Subtitle) && (
+        <section className="py-16 md:py-20 border-y border-[#2a2520]/10 bg-[#f9f8f6]">
+          <div className="container mx-auto px-6 lg:px-16 max-w-4xl">
+            <div className="flex items-start gap-6">
+              <span className="font-serif text-6xl md:text-8xl text-[#2a2520]/20 leading-none">&quot;</span>
+              <div>
+                {location?.Title && (
+                  <p className="font-serif text-2xl md:text-3xl leading-relaxed text-[#2a2520]/90">
+                    {location.Title}
+                  </p>
+                )}
+                {location?.Subtitle && (
+                  <p className="text-[#2a2520]/40 text-sm mt-4">
+                    {location.Subtitle}
+                  </p>
+                )}
+              </div>
+            </div>
+          </div>
+        </section>
+      )}
+    </div>
+  );
+}
