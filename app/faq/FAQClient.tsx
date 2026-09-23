@@ -24,9 +24,9 @@ export default function FAQClient({ faqItems }: FAQClientProps) {
       {/* Hero */}
       <section className="pt-32 pb-16 md:pt-40 md:pb-20">
         <div className="container mx-auto px-6 lg:px-16 text-center max-w-4xl">
-          <p className="text-xs tracking-[0.4em] uppercase text-[#2a2520]/40 mb-8">Support</p>
-          <h1 className="text-3xl md:text-5xl lg:text-6xl tracking-[0.15em] font-light mb-8">F A Q</h1>
-          <p className="text-xl text-[#2a2520]/50 max-w-xl mx-auto">
+          <p className="text-[11px] tracking-[0.3em] uppercase text-[#C2410C] mb-6">Support</p>
+          <h1 className="font-display font-medium text-[#2a2520] text-[clamp(2.6rem,7vw,4.5rem)] tracking-[-0.02em] leading-[0.95] mb-6">FAQ</h1>
+          <p className="text-lg md:text-xl text-[#2a2520]/60 font-light max-w-xl mx-auto">
             Everything you need to know about staying at Riad di Siena
           </p>
         </div>
