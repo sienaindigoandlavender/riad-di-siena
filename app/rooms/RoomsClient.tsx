@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import BookingModal from "@/components/BookingModal";
-import BeyondTheWallsCarousel from "@/components/BeyondTheWallsCarousel";
+import KinfolkTile from "@/components/KinfolkTile";
 import { useCurrency } from "@/components/CurrencyContext";
 import ElfsightWidget, { ElfsightScript } from "@/components/ElfsightWidget";
 import {
@@ -96,10 +96,10 @@ export default function RoomsClient({ rooms, hero, gallery, cityTaxPerNight, bey
           </>
         )}
         <div className="container mx-auto px-6 lg:px-16 text-center max-w-4xl relative z-10">
-          <p className="text-xs tracking-[0.4em] uppercase text-white/60 mb-8">Riad di Siena</p>
-          <h1 className="text-3xl md:text-5xl lg:text-6xl tracking-[0.15em] font-light mb-8 text-white">R O O M S</h1>
+          <p className="text-[11px] tracking-[0.3em] uppercase text-white/60 mb-6">Riad di Siena · Marrakech Medina</p>
+          <h1 className="font-display font-medium text-white text-[clamp(2.6rem,7vw,5rem)] tracking-[-0.02em] leading-[0.95] mb-6">Rooms</h1>
           {hero?.Subtitle && (
-            <p className="text-xl md:text-2xl text-white/80 font-serif italic max-w-2xl mx-auto">{hero.Subtitle}</p>
+            <p className="text-lg md:text-xl text-white/80 font-light leading-relaxed max-w-2xl mx-auto">{hero.Subtitle}</p>
           )}
         </div>
         <div className="absolute bottom-12 left-1/2 -translate-x-1/2">
@@ -209,15 +209,28 @@ export default function RoomsClient({ rooms, hero, gallery, cityTaxPerNight, bey
       />
       <ElfsightScript />
 
-      {/* Beyond the Walls */}
+      {/* Beyond the Walls — delicate grid, matching the home */}
       {beyondTheWalls.length > 0 && (
-        <section className="py-20 md:py-32 px-6">
+        <section className="py-20 md:py-28 px-6 md:px-10 lg:px-14 border-t border-[#2a2520]/10">
           <div className="max-w-7xl mx-auto">
-            <div className="text-center mb-16">
-              <h2 className="font-display text-3xl md:text-4xl mb-4">Beyond the Walls</h2>
-              <p className="opacity-75 max-w-xl mx-auto">The riad is just the beginning. Discover the places we love.</p>
+            <a href="/beyond-the-walls" className="group block mb-10 md:mb-12">
+              <p className="text-[11px] tracking-[0.28em] uppercase text-[#C2410C] mb-3">Beyond the Walls</p>
+              <h2 className="font-display text-xl md:text-2xl font-medium tracking-[-0.01em] text-[#2a2520]/85 group-hover:text-[#C2410C] transition-colors">
+                Where the sanctuary continues.{" "}
+                <span className="inline-block transition-transform group-hover:translate-x-1">→</span>
+              </h2>
+            </a>
+            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-5">
+              {beyondTheWalls.map((p: any) => (
+                <KinfolkTile
+                  key={p.Property_ID || p.Name}
+                  href={p.Link || "#"}
+                  image={p.Image_URL}
+                  title={p.Name}
+                  sub={p.Tagline || undefined}
+                />
+              ))}
             </div>
-            <BeyondTheWallsCarousel properties={beyondTheWalls} />
           </div>
         </section>
       )}
