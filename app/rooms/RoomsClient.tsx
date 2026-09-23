@@ -5,7 +5,54 @@ import BookingModal from "@/components/BookingModal";
 import KinfolkTile from "@/components/KinfolkTile";
 import { useCurrency } from "@/components/CurrencyContext";
 import ElfsightWidget, { ElfsightScript } from "@/components/ElfsightWidget";
-import { IconBed } from "@/components/icons";
+import {
+  IconBed,
+  IconShower,
+  IconWifi,
+  IconAC,
+  IconRoom,
+  IconBreakfast,
+  IconTowel,
+  IconShampoo,
+} from "@/components/icons";
+
+const ViewIcon = () => (
+  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+    <circle cx="12" cy="12" r="3" />
+    <path d="M2 12s4-6 10-6 10 6 10 6-4 6-10 6-10-6-10-6z" />
+  </svg>
+);
+
+const iconMap: Record<string, () => JSX.Element> = {
+  "bathroom": () => <IconShower size={20} />,
+  "ensuite": () => <IconShower size={20} />,
+  "en-suite": () => <IconShower size={20} />,
+  "private": () => <IconShower size={20} />,
+  "wi-fi": () => <IconWifi size={20} />,
+  "wifi": () => <IconWifi size={20} />,
+  "air": () => <IconAC size={20} />,
+  "conditioning": () => <IconAC size={20} />,
+  "bed": () => <IconBed size={20} />,
+  "queen": () => <IconBed size={20} />,
+  "king": () => <IconBed size={20} />,
+  "double": () => <IconBed size={20} />,
+  "m²": () => <IconRoom size={20} />,
+  "m2": () => <IconRoom size={20} />,
+  "sqm": () => <IconRoom size={20} />,
+  "30m": () => <IconRoom size={20} />,
+  "25m": () => <IconRoom size={20} />,
+  "20m": () => <IconRoom size={20} />,
+  "35m": () => <IconRoom size={20} />,
+  "40m": () => <IconRoom size={20} />,
+  "view": () => <ViewIcon />,
+  "courtyard": () => <ViewIcon />,
+  "breakfast": () => <IconBreakfast size={20} />,
+  "linens": () => <IconTowel size={20} />,
+  "towels": () => <IconTowel size={20} />,
+  "shower": () => <IconShower size={20} />,
+  "shampoo": () => <IconShampoo size={20} />,
+  "toiletries": () => <IconShampoo size={20} />,
+};
 
 interface RoomsClientProps {
   rooms: any[];
@@ -23,6 +70,16 @@ export default function RoomsClient({ rooms, hero, gallery, cityTaxPerNight, bey
   const openBookingModal = (room: any) => {
     setSelectedRoom(room);
     setIsModalOpen(true);
+  };
+
+  const getIconForFeature = (feature: string): JSX.Element | null => {
+    const lowerFeature = feature.toLowerCase();
+    const matchedKey = Object.keys(iconMap).find(key => lowerFeature.includes(key));
+    if (matchedKey) {
+      const Icon = iconMap[matchedKey];
+      return <Icon />;
+    }
+    return null;
   };
 
   const heroImage = hero?.Image_URL || "";
@@ -91,17 +148,27 @@ export default function RoomsClient({ rooms, hero, gallery, cityTaxPerNight, bey
                       </p>
 
                       {room.features && room.features.length > 0 && (
-                        <p className="text-[11px] tracking-[0.18em] uppercase text-[#2a2520]/45 leading-relaxed mt-6">
-                          {room.features.join("  ·  ")}
-                        </p>
+                        <div className="grid grid-cols-2 gap-x-8 gap-y-3 mt-8">
+                          {room.features.map((feature: string) => {
+                            const icon = getIconForFeature(feature);
+                            return (
+                              <div key={feature} className="flex items-center gap-3 text-[#2a2520]/55">
+                                <span className="text-[#2a2520]/35">
+                                  {icon || <span className="w-1.5 h-1.5 rounded-full bg-[#2a2520]/30 block" />}
+                                </span>
+                                <span className="text-sm">{feature}</span>
+                              </div>
+                            );
+                          })}
+                        </div>
                       )}
 
-                      <div className="flex items-baseline gap-6 mt-8 pt-6 border-t border-[#2a2520]/10">
+                      <div className="flex items-baseline gap-6 mt-10 pt-6 border-t border-[#2a2520]/10">
                         <div>
-                          <span className="block text-[10px] tracking-[0.22em] uppercase text-[#2a2520]/40 mb-1">From</span>
-                          <span className="font-display text-2xl text-[#2a2520]">
+                          <span className="block text-[10px] tracking-[0.22em] uppercase text-[#2a2520]/40 mb-1.5">From</span>
+                          <span className="font-display text-3xl md:text-4xl text-[#2a2520] leading-none">
                             {formatPrice(parseFloat(room.Price_EUR))}
-                            <span className="text-sm text-[#2a2520]/45 font-sans"> / night</span>
+                            <span className="text-base text-[#2a2520]/45 font-sans"> / night</span>
                           </span>
                         </div>
                         <div className="ml-auto">
