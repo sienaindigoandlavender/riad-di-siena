@@ -106,13 +106,14 @@ export default function RoomsClient({ rooms, hero, gallery, cityTaxPerNight, bey
         </div>
       </section>
 
-      {/* Room lookbook — contained image, editorial caption beneath */}
-      <section className="py-24 md:py-32">
-        <div className="space-y-24 md:space-y-36">
-          {rooms.map((room, index) => {
-            const num = String(index + 1).padStart(2, "0");
-            return (
-              <article key={room.Room_ID} className="max-w-5xl mx-auto px-6 lg:px-8">
+      {/* Room lookbook — alternating white / light-gray bands */}
+      <section>
+        {rooms.map((room, index) => {
+          const num = String(index + 1).padStart(2, "0");
+          const bandBg = index % 2 === 0 ? "bg-[#f9f8f6]" : "bg-[#efede7]";
+          return (
+            <div key={room.Room_ID} className={`${bandBg} py-20 md:py-28`}>
+              <article className="max-w-5xl mx-auto px-6 lg:px-8">
                 {/* Contained image */}
                 <div className="aspect-[3/2] overflow-hidden bg-[#efede7] group">
                   {room.Image_URL ? (
@@ -195,9 +196,9 @@ export default function RoomsClient({ rooms, hero, gallery, cityTaxPerNight, bey
                   </div>
                 </div>
               </article>
-            );
-          })}
-        </div>
+            </div>
+          );
+        })}
       </section>
 
       {/* Policy links — know the terms before booking */}
