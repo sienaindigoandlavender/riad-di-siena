@@ -38,9 +38,9 @@ export default function TheDesertCampClient({ hero, paragraphs, tents, gallery }
       <section className="min-h-screen flex items-center justify-center relative">
         {heroImage && (<><div className="absolute inset-0 bg-cover bg-center" style={{ backgroundImage: `url('${heroImage}')` }} /><img src={heroImage} alt="Luxury Sahara desert camp at Erg Chebbi dunes, Morocco" className="sr-only" aria-hidden="true" /><div className="absolute inset-0 bg-[#2a2520]/50" /></>)}
         <div className="container mx-auto px-6 lg:px-16 text-center max-w-4xl relative z-10">
-          {hero?.Location && <p className="text-xs tracking-[0.4em] uppercase text-white/60 mb-8">{hero.Location}</p>}
-          <h1 className="text-3xl md:text-5xl lg:text-6xl tracking-[0.15em] font-light mb-8 text-white">T H E<br />D E S E R T  C A M P</h1>
-          {hero?.Subtitle && <p className="text-xl md:text-2xl text-white/80 font-serif italic max-w-2xl mx-auto">{hero.Subtitle}</p>}
+          {hero?.Location && <p className="text-[11px] tracking-[0.3em] uppercase text-white/60 mb-6">{hero.Location}</p>}
+          <h1 className="font-display font-medium text-white text-[clamp(2.6rem,7vw,5rem)] tracking-[-0.02em] leading-[0.95] mb-6">The Desert Camp</h1>
+          {hero?.Subtitle && <p className="text-lg md:text-xl text-white/80 font-light leading-relaxed max-w-2xl mx-auto">{hero.Subtitle}</p>}
         </div>
         <div className="absolute bottom-12 left-1/2 -translate-x-1/2"><div className="w-[1px] h-16 bg-gradient-to-b from-white/0 via-white/30 to-white/0" /></div>
       </section>
