@@ -142,15 +142,15 @@ export default function Footer() {
     <footer>
       {/* Level 1: Brand Content */}
       <div className="bg-[#e8e0d4] text-[#2a2520]">
-        <div className="max-w-7xl mx-auto px-6 py-16">
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-12">
+        <div className="max-w-7xl mx-auto px-6 py-10">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             {/* Logo & Tagline */}
-            <div>
-              <div className="flex flex-col items-start leading-tight mb-4">
+            <div className="col-span-2 md:col-span-1">
+              <div className="flex flex-col items-start leading-tight mb-3">
                 <span className="text-sm tracking-[0.3em] font-light">RIAD</span>
                 <span className="text-sm tracking-[0.3em] font-light">DI SIENA</span>
               </div>
-              <p className="text-[#2a2520]/90 text-sm leading-relaxed max-w-xs mb-6">
+              <p className="text-[#2a2520]/90 text-sm leading-relaxed max-w-xs mb-4">
                 Old walls, steady and sure. A place that keeps you safe from the city&apos;s rush.
               </p>
               <div className="flex gap-4">
@@ -168,8 +168,8 @@ export default function Footer() {
 
             {/* Stay */}
             <div>
-              <span className="text-xs tracking-widest mb-6 block">STAY</span>
-              <ul className="space-y-2">
+              <span className="text-xs tracking-widest mb-4 block">STAY</span>
+              <ul className="space-y-1.5">
                 <li><Link href="/the-riad" className="text-[#2a2520]/90 text-sm hover:text-[#2a2520] transition-colors">The House</Link></li>
                 <li><Link href="/rooms" className="text-[#2a2520]/90 text-sm hover:text-[#2a2520] transition-colors">Rooms</Link></li>
                 <li><Link href="/amenities" className="text-[#2a2520]/90 text-sm hover:text-[#2a2520] transition-colors">Amenities</Link></li>
@@ -181,8 +181,8 @@ export default function Footer() {
 
             {/* Experience */}
             <div>
-              <span className="text-xs tracking-widest mb-6 block">EXPERIENCE</span>
-              <ul className="space-y-2">
+              <span className="text-xs tracking-widest mb-4 block">EXPERIENCE</span>
+              <ul className="space-y-1.5">
                 <li>
                   <a href="https://www.slowmorocco.com/places" target="_blank" rel="noopener noreferrer" className="text-[#2a2520]/90 text-sm hover:text-[#2a2520] transition-colors">
                     Places
@@ -218,10 +218,10 @@ export default function Footer() {
 
             {/* Beyond the Walls */}
             <div>
-              <Link href="/beyond-the-walls" className="text-xs tracking-widest mb-6 block hover:text-[#2a2520]/85 transition-colors">
+              <Link href="/beyond-the-walls" className="text-xs tracking-widest mb-4 block hover:text-[#2a2520]/85 transition-colors">
                 BEYOND THE WALLS
               </Link>
-              <ul className="space-y-2">
+              <ul className="space-y-1.5">
                 <li><Link href="/the-douaria" className="text-[#2a2520]/90 text-sm hover:text-[#2a2520] transition-colors">The Douaria</Link></li>
                 <li><Link href="/the-kasbah" className="text-[#2a2520]/90 text-sm hover:text-[#2a2520] transition-colors">The Kasbah</Link></li>
                 <li><Link href="/the-desert-camp" className="text-[#2a2520]/90 text-sm hover:text-[#2a2520] transition-colors">The Desert Camp</Link></li>
@@ -235,7 +235,7 @@ export default function Footer() {
       {/* Content Network (from Nexus Supabase) */}
       {contentSites.length > 0 && (
         <div className="bg-[#ddd5c8]">
-          <div className="max-w-7xl mx-auto px-6 py-5">
+          <div className="max-w-7xl mx-auto px-6 py-4">
             <div className="flex flex-wrap items-center gap-x-6 gap-y-2">
               <span className="text-[10px] tracking-[0.2em] uppercase text-[#2a2520]/40">
                 Explore
@@ -258,7 +258,7 @@ export default function Footer() {
 
       {/* Level 3: Legal + Language/Currency */}
       <div className="bg-[#d2c9bb]">
-        <div className="max-w-7xl mx-auto px-6 py-5">
+        <div className="max-w-7xl mx-auto px-6 py-4">
           <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
             {/* Legal Links */}
             <div className="flex flex-wrap gap-6 text-xs">
