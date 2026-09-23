@@ -49,88 +49,92 @@ export default function RoomsClient({ rooms, hero, gallery, cityTaxPerNight, bey
         </div>
       </section>
 
-      {/* Room spreads — editorial, alternating */}
-      <section className="py-24 md:py-36">
-        <div className="max-w-6xl mx-auto px-6 lg:px-10">
-          <div className="space-y-28 md:space-y-44">
-            {rooms.map((room, index) => {
-              const flipped = index % 2 === 1;
-              const num = String(index + 1).padStart(2, "0");
-              return (
-                <article key={room.Room_ID} className="grid md:grid-cols-12 gap-10 md:gap-16 items-center">
-                  {/* Image */}
-                  <div className={`md:col-span-7 ${flipped ? "md:order-2" : ""}`}>
-                    <div className="aspect-[4/5] overflow-hidden bg-[#efede7] group">
-                      {room.Image_URL ? (
-                        <img
-                          src={room.Image_URL}
-                          alt={room.Name}
-                          className="w-full h-full object-cover transition-transform duration-[1200ms] ease-out group-hover:scale-[1.03]"
-                        />
-                      ) : (
-                        <div className="w-full h-full flex items-center justify-center text-[#2a2520]/15">
-                          <IconBed size={48} />
+      {/* Room lookbook — contained image, editorial caption beneath */}
+      <section className="py-24 md:py-32">
+        <div className="space-y-24 md:space-y-36">
+          {rooms.map((room, index) => {
+            const num = String(index + 1).padStart(2, "0");
+            return (
+              <article key={room.Room_ID} className="max-w-5xl mx-auto px-6 lg:px-8">
+                {/* Contained image */}
+                <div className="aspect-[3/2] overflow-hidden bg-[#efede7] group">
+                  {room.Image_URL ? (
+                    <img
+                      src={room.Image_URL}
+                      alt={room.Name}
+                      className="w-full h-full object-cover transition-transform duration-[1400ms] ease-out group-hover:scale-[1.02]"
+                    />
+                  ) : (
+                    <div className="w-full h-full flex items-center justify-center text-[#2a2520]/15">
+                      <IconBed size={56} />
+                    </div>
+                  )}
+                </div>
+
+                {/* Editorial caption bar */}
+                <div className="mt-9 md:mt-11">
+                  <div className="grid md:grid-cols-12 gap-8 md:gap-12">
+                    {/* Left: number + name */}
+                    <div className="md:col-span-5">
+                      <span className="block text-[11px] tracking-[0.34em] text-[#C2410C] mb-4">
+                        NO. {num}
+                      </span>
+                      <h2 className="font-display font-medium text-[clamp(2rem,4vw,3.2rem)] leading-[1.03] tracking-[-0.02em] text-[#2a2520]">
+                        {room.Name}
+                      </h2>
+                    </div>
+
+                    {/* Right: description + essentials + reserve */}
+                    <div className="md:col-span-7 md:pt-2">
+                      <p className="text-[#2a2520]/80 leading-relaxed text-lg">
+                        {room.Description}
+                      </p>
+
+                      {room.features && room.features.length > 0 && (
+                        <p className="text-[11px] tracking-[0.18em] uppercase text-[#2a2520]/45 leading-relaxed mt-6">
+                          {room.features.join("  ·  ")}
+                        </p>
+                      )}
+
+                      <div className="flex items-baseline gap-6 mt-8 pt-6 border-t border-[#2a2520]/10">
+                        <div>
+                          <span className="block text-[10px] tracking-[0.22em] uppercase text-[#2a2520]/40 mb-1">From</span>
+                          <span className="font-display text-2xl text-[#2a2520]">
+                            {formatPrice(parseFloat(room.Price_EUR))}
+                            <span className="text-sm text-[#2a2520]/45 font-sans"> / night</span>
+                          </span>
+                        </div>
+                        <div className="ml-auto">
+                          {room.Bookable?.toLowerCase() === "no" ? (
+                            <span className="text-[11px] tracking-widest uppercase text-[#2a2520]/40 italic">On request</span>
+                          ) : (
+                            <button
+                              onClick={() => openBookingModal(room)}
+                              className="text-[11px] tracking-[0.2em] uppercase border-b border-[#2a2520]/40 pb-1 hover:border-[#C2410C] hover:text-[#C2410C] transition-colors"
+                            >
+                              Reserve
+                            </button>
+                          )}
+                        </div>
+                      </div>
+
+                      {room.Widget_ID && (
+                        <div className="mt-10 pt-8 border-t border-[#2a2520]/10">
+                          <p className="text-[11px] tracking-[0.22em] uppercase text-[#2a2520]/40 mb-6">Guest reviews</p>
+                          <ElfsightWidget widgetId={room.Widget_ID} />
                         </div>
                       )}
                     </div>
                   </div>
-
-                  {/* Text */}
-                  <div className={`md:col-span-5 ${flipped ? "md:order-1" : ""}`}>
-                    <span className="block text-[11px] tracking-[0.34em] text-[#C2410C] mb-5">
-                      NO. {num}
-                    </span>
-                    <h2 className="font-display font-medium text-[clamp(2.1rem,4vw,3.1rem)] leading-[1.02] tracking-[-0.02em] text-[#2a2520] mb-6">
-                      {room.Name}
-                    </h2>
-                    <p className="text-[#2a2520]/80 leading-relaxed text-lg mb-8 max-w-prose">
-                      {room.Description}
-                    </p>
-
-                    {room.features && room.features.length > 0 && (
-                      <p className="text-[11px] tracking-[0.18em] uppercase text-[#2a2520]/45 leading-relaxed mb-10">
-                        {room.features.join("  ·  ")}
-                      </p>
-                    )}
-
-                    <div className="flex items-baseline gap-6 pt-6 border-t border-[#2a2520]/10">
-                      <div>
-                        <span className="block text-[10px] tracking-[0.22em] uppercase text-[#2a2520]/40 mb-1">From</span>
-                        <span className="font-display text-2xl text-[#2a2520]">
-                          {formatPrice(parseFloat(room.Price_EUR))}
-                          <span className="text-sm text-[#2a2520]/45 font-sans"> / night</span>
-                        </span>
-                      </div>
-                      <div className="ml-auto">
-                        {room.Bookable?.toLowerCase() === "no" ? (
-                          <span className="text-[11px] tracking-widest uppercase text-[#2a2520]/40 italic">On request</span>
-                        ) : (
-                          <button
-                            onClick={() => openBookingModal(room)}
-                            className="text-[11px] tracking-[0.2em] uppercase border-b border-[#2a2520]/40 pb-1 hover:border-[#C2410C] hover:text-[#C2410C] transition-colors"
-                          >
-                            Reserve
-                          </button>
-                        )}
-                      </div>
-                    </div>
-
-                    {room.Widget_ID && (
-                      <div className="mt-10 pt-8 border-t border-[#2a2520]/10">
-                        <p className="text-[11px] tracking-[0.22em] uppercase text-[#2a2520]/40 mb-6">Guest reviews</p>
-                        <ElfsightWidget widgetId={room.Widget_ID} />
-                      </div>
-                    )}
-                  </div>
-                </article>
-              );
-            })}
-          </div>
+                </div>
+              </article>
+            );
+          })}
         </div>
       </section>
 
       {/* Policy links — know the terms before booking */}
-      <div className="px-6 pb-4">
+      <div className="px-6 pb-4 pt-16">
         <div className="max-w-7xl mx-auto flex flex-wrap items-center justify-center gap-x-3 gap-y-1 text-[11px] tracking-widest uppercase text-[#2a2520]/40">
           <a href="/disclaimer" target="_blank" rel="noopener" className="underline underline-offset-2 hover:text-[#2a2520] transition-colors">Before You Book</a>
           <span aria-hidden="true" className="text-[#2a2520]/20">|</span>
