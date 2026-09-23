@@ -72,9 +72,6 @@ export default function ContactPage() {
       {/* Hero */}
       <section className="pt-32 pb-16 md:pt-40 md:pb-20">
         <div className="container mx-auto px-6 lg:px-16 text-center max-w-4xl">
-          <p className="text-[11px] tracking-[0.3em] uppercase text-[#C2410C] mb-6">
-            Riad di Siena · Marrakech Medina
-          </p>
           <h1 className="font-display font-medium text-[#2a2520] text-[clamp(2.6rem,7vw,4.5rem)] tracking-[-0.02em] leading-[0.95] mb-6">
             Contact
           </h1>
