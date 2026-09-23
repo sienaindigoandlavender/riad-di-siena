@@ -3,13 +3,13 @@ export default function AboutPage() {
     <div className="bg-[#f9f8f6] text-[#2a2520] min-h-screen">
       <section className="py-32 md:py-40 border-b border-[#2a2520]/10">
         <div className="container mx-auto px-6 lg:px-16 text-center max-w-4xl">
-          <p className="text-xs tracking-[0.4em] uppercase text-[#2a2520]/50 mb-8">
-            Riad di Siena
+          <p className="text-[11px] tracking-[0.3em] uppercase text-[#C2410C] mb-6">
+            Riad di Siena · Marrakech Medina
           </p>
-          <h1 className="text-3xl md:text-5xl lg:text-6xl tracking-[0.15em] font-light mb-8">
-            A B O U T
+          <h1 className="font-display font-medium text-[#2a2520] text-[clamp(2.6rem,7vw,4.5rem)] tracking-[-0.02em] leading-[0.95] mb-6">
+            About
           </h1>
-          <p className="text-xl md:text-2xl text-[#2a2520]/85 font-serif italic max-w-2xl mx-auto">
+          <p className="text-lg md:text-xl text-[#2a2520]/70 font-light leading-relaxed max-w-2xl mx-auto">
             An 18th-century house in the Laksour quarter of Marrakech medina,
             two minutes from Jemaa el-Fna.
           </p>
