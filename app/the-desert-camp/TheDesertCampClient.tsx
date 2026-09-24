@@ -53,30 +53,30 @@ export default function TheDesertCampClient({ hero, paragraphs, tents, gallery }
       <section className="py-24 md:py-32 bg-[#efede7]">
         <div className="max-w-5xl mx-auto px-6">
           <div className="text-center mb-16">
-            <p className="text-xs tracking-[0.3em] text-[#2a2520]/40 mb-4">THE STAY</p>
+            <p className="text-xs tracking-[0.3em] text-[#2a2520]/55 mb-4">THE STAY</p>
             <h2 className="font-serif text-2xl md:text-3xl text-[#2a2520] italic">Two ways to experience the night</h2>
           </div>
           <div className="grid md:grid-cols-2 gap-8">
             {tents.map((tent: any, index: number) => (
               <div key={tent.Tent_ID} className={`flex flex-col ${index === 0 ? "bg-[#f9f8f6] p-8" : "bg-[#2a2520] text-[#f9f8f6] p-8"}`}>
-                <p className={`text-xs tracking-[0.3em] mb-2 ${index === 0 ? 'text-[#2a2520]/40' : 'text-[#f9f8f6]/60'}`}>{tent.Level?.toUpperCase()}</p>
+                <p className={`text-xs tracking-[0.3em] mb-2 ${index === 0 ? 'text-[#2a2520]/55' : 'text-[#f9f8f6]/60'}`}>{tent.Level?.toUpperCase()}</p>
                 <h3 className="font-serif text-2xl mb-4 italic">{tent.Name}</h3>
                 <p className={`text-sm leading-relaxed mb-6 ${index === 0 ? 'text-[#2a2520]/80' : 'text-[#f9f8f6]/70'}`}>{tent.Description}</p>
-                <div className={`space-y-3 flex-grow ${index === 0 ? 'text-[#2a2520]/50' : 'text-[#f9f8f6]/60'}`}>
+                <div className={`space-y-3 flex-grow ${index === 0 ? 'text-[#2a2520]/65' : 'text-[#f9f8f6]/60'}`}>
                   {tent.features.map((feature: string, i: number) => {
                     const icon = getIconForFeature(feature);
                     return (<div key={i} className="flex items-center gap-3"><span className={index === 0 ? 'text-[#2a2520]/30' : 'text-[#f9f8f6]/40'}>{icon || <span className="w-1.5 h-1.5 rounded-full bg-current block" />}</span><span className="text-sm">{feature}</span></div>);
                   })}
                 </div>
                 <div className={`pt-6 mt-8 border-t ${index === 0 ? 'border-[#2a2520]/10' : 'border-[#f9f8f6]/20'}`}>
-                  <p className={`text-xs tracking-widest mb-2 ${index === 0 ? 'text-[#2a2520]/40' : 'text-[#f9f8f6]/60'}`}>FROM</p>
-                  <p className="font-serif text-2xl mb-4">{formatPrice(parseFloat(tent.Price_EUR))} <span className={`text-sm font-sans ${index === 0 ? 'text-[#2a2520]/40' : 'text-[#f9f8f6]/60'}`}> / night</span></p>
+                  <p className={`text-xs tracking-widest mb-2 ${index === 0 ? 'text-[#2a2520]/55' : 'text-[#f9f8f6]/60'}`}>FROM</p>
+                  <p className="font-serif text-2xl mb-4">{formatPrice(parseFloat(tent.Price_EUR))} <span className={`text-sm font-sans ${index === 0 ? 'text-[#2a2520]/55' : 'text-[#f9f8f6]/60'}`}> / night</span></p>
                   <button onClick={() => { setSelectedTent(tent); setIsModalOpen(true); }} className={`text-xs tracking-widest border px-6 py-3 inline-block transition-colors ${index === 0 ? 'border-[#2a2520] hover:bg-[#2a2520] hover:text-[#f9f8f6]' : 'border-[#f9f8f6]/70 hover:bg-[#f9f8f6]/10'}`}>BOOK {tent.Name?.toUpperCase()}</button>
                 </div>
               </div>
             ))}
           </div>
-          <p className="text-center text-[#2a2520]/40 text-xs mt-8">Also part of <a href="/#the-journey" className="underline hover:text-[#2a2520] transition-colors">The Slow Journey South</a></p>
+          <p className="text-center text-[#2a2520]/55 text-xs mt-8">Also part of <a href="/#the-journey" className="underline hover:text-[#2a2520] transition-colors">The Slow Journey South</a></p>
         </div>
       </section>
 
