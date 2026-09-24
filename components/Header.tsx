@@ -139,7 +139,7 @@ export default function Header() {
 
           {/* Bottom — quiet tagline + a doorway to Slow Morocco */}
           <div className="max-w-7xl mx-auto w-full flex flex-col md:flex-row md:items-baseline justify-between gap-3 pt-6">
-            <span className="text-[11px] tracking-[0.2em] uppercase text-[#1C1917]/45">
+            <span className="text-[12px] tracking-[0.2em] uppercase text-[#1C1917]/45">
               18th-century riad · Marrakech medina
             </span>
             <a
@@ -147,7 +147,7 @@ export default function Header() {
               target="_blank"
               rel="noopener noreferrer"
               onClick={() => setMenuOpen(false)}
-              className="text-[11px] tracking-[0.2em] uppercase text-[#1C1917]/60 hover:text-[#C2410C] transition-colors"
+              className="text-[12px] tracking-[0.2em] uppercase text-[#1C1917]/60 hover:text-[#C2410C] transition-colors"
             >
               Slow Morocco — the medina, decoded ↗
             </a>

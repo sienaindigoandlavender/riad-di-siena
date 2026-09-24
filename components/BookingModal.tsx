@@ -158,7 +158,7 @@ function Calendar({
       {/* Day headers */}
       <div className="grid grid-cols-7 mb-2">
         {["Su", "Mo", "Tu", "We", "Th", "Fr", "Sa"].map((day) => (
-          <div key={day} className="text-center text-[10px] tracking-wider text-foreground/30 uppercase">
+          <div key={day} className="text-center text-[12px] tracking-wider text-foreground/30 uppercase">
             {day}
           </div>
         ))}
@@ -211,11 +211,11 @@ function Calendar({
       <div className="flex items-center gap-6 mt-6 pt-4 border-t border-foreground/10">
         <div className="flex items-center gap-2">
           <div className="w-4 h-4 bg-foreground" />
-          <span className="text-[10px] tracking-wide text-foreground/40 uppercase">Selected</span>
+          <span className="text-[12px] tracking-wide text-foreground/40 uppercase">Selected</span>
         </div>
         <div className="flex items-center gap-2">
           <div className="w-4 h-4 border border-foreground/20 bg-foreground/5" />
-          <span className="text-[10px] tracking-wide text-foreground/40 uppercase">Unavailable</span>
+          <span className="text-[12px] tracking-wide text-foreground/40 uppercase">Unavailable</span>
         </div>
       </div>
     </div>
@@ -695,7 +695,7 @@ function BookingModalContent({
           {/* Step 1: Dates */}
           {step === 1 && (
             <div className="animate-fadeIn">
-              <p className="text-[10px] tracking-[0.3em] uppercase text-foreground/40 mb-6">
+              <p className="text-[12px] tracking-[0.3em] uppercase text-foreground/40 mb-6">
                 Step 1 of 3 — {selectCheckout ? "Select dates" : "Select arrival"}
               </p>
 
@@ -818,12 +818,12 @@ function BookingModalContent({
           {/* Step 2: Guest Details */}
           {step === 2 && (
             <div className="animate-fadeIn">
-              <p className="text-[10px] tracking-[0.3em] uppercase text-foreground/40 mb-6">Step 2 of 3 — Your details</p>
+              <p className="text-[12px] tracking-[0.3em] uppercase text-foreground/40 mb-6">Step 2 of 3 — Your details</p>
 
               <div className="space-y-4">
                 <div className="grid grid-cols-2 gap-4">
                   <div>
-                    <label className="block text-[10px] tracking-wider uppercase text-foreground/40 mb-2">First name</label>
+                    <label className="block text-[12px] tracking-wider uppercase text-foreground/40 mb-2">First name</label>
                     <input
                       type="text"
                       value={firstName}
@@ -832,7 +832,7 @@ function BookingModalContent({
                     />
                   </div>
                   <div>
-                    <label className="block text-[10px] tracking-wider uppercase text-foreground/40 mb-2">Last name</label>
+                    <label className="block text-[12px] tracking-wider uppercase text-foreground/40 mb-2">Last name</label>
                     <input
                       type="text"
                       value={lastName}
@@ -843,7 +843,7 @@ function BookingModalContent({
                 </div>
 
                 <div>
-                  <label className="block text-[10px] tracking-wider uppercase text-foreground/40 mb-2">Email</label>
+                  <label className="block text-[12px] tracking-wider uppercase text-foreground/40 mb-2">Email</label>
                   <input
                     type="email"
                     value={email}
@@ -853,7 +853,7 @@ function BookingModalContent({
                 </div>
 
                 <div>
-                  <label className="block text-[10px] tracking-wider uppercase text-foreground/40 mb-2">
+                  <label className="block text-[12px] tracking-wider uppercase text-foreground/40 mb-2">
                     Phone <span className="normal-case text-foreground/30">(optional)</span>
                   </label>
                   <input
@@ -865,7 +865,7 @@ function BookingModalContent({
                 </div>
 
                 <div>
-                  <label className="block text-[10px] tracking-wider uppercase text-foreground/40 mb-2">
+                  <label className="block text-[12px] tracking-wider uppercase text-foreground/40 mb-2">
                     Special requests <span className="normal-case text-foreground/30">(optional)</span>
                   </label>
                   <textarea
@@ -1038,7 +1038,7 @@ function BookingModalContent({
           {/* Step 3: Payment */}
           {step === 3 && (
             <div className="animate-fadeIn">
-              <p className="text-[10px] tracking-[0.3em] uppercase text-foreground/40 mb-6">Step 3 of 3 — Payment</p>
+              <p className="text-[12px] tracking-[0.3em] uppercase text-foreground/40 mb-6">Step 3 of 3 — Payment</p>
 
               {/* Booking summary with details */}
               <div className="bg-foreground/[0.03] p-6 mb-6">
@@ -1111,7 +1111,7 @@ function BookingModalContent({
               </button>
 
               {/* Contact link */}
-              <p className="text-center mt-6 text-[11px] text-foreground/30">
+              <p className="text-center mt-6 text-[12px] text-foreground/30">
                 <a href="/contact" target="_blank" rel="noopener noreferrer" className="hover:text-foreground/50 transition-colors">Send us a note</a>
               </p>
             </div>
@@ -1131,7 +1131,7 @@ function BookingModalContent({
               </p>
               <button
                 onClick={onClose}
-                className="text-[10px] tracking-[0.2em] uppercase text-foreground/50 hover:text-foreground transition-colors"
+                className="text-[12px] tracking-[0.2em] uppercase text-foreground/50 hover:text-foreground transition-colors"
               >
                 Close
               </button>

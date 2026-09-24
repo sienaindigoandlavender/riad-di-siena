@@ -173,7 +173,7 @@ export default function StayWithUsModal({ isOpen, onClose }: StayWithUsModalProp
                 {/* Riad di Siena */}
                 {riadRooms.length > 0 && (
                   <div>
-                    <p className="text-[10px] tracking-[0.3em] uppercase text-foreground/60 mb-5">Riad di Siena</p>
+                    <p className="text-[12px] tracking-[0.3em] uppercase text-foreground/60 mb-5">Riad di Siena</p>
                     <div className="space-y-2">
                       {riadRooms.map((room) => (
                         <button
@@ -183,7 +183,7 @@ export default function StayWithUsModal({ isOpen, onClose }: StayWithUsModalProp
                         >
                           <div className="text-left">
                             <p className="font-serif text-foreground group-hover:text-foreground transition-colors">{room.Name}</p>
-                            <p className="text-[11px] text-foreground/60 mt-1">Main House · No. 37</p>
+                            <p className="text-[12px] text-foreground/60 mt-1">Main House · No. 37</p>
                           </div>
                           <div className="flex items-center gap-3">
                             <p className="text-sm text-foreground/70">from {formatPrice(parseFloat(room.Price_EUR))}</p>
@@ -200,7 +200,7 @@ export default function StayWithUsModal({ isOpen, onClose }: StayWithUsModalProp
                 {/* The Douaria */}
                 {douariaRooms.length > 0 && (
                   <div>
-                    <p className="text-[10px] tracking-[0.3em] uppercase text-foreground/60 mb-5">The Douaria</p>
+                    <p className="text-[12px] tracking-[0.3em] uppercase text-foreground/60 mb-5">The Douaria</p>
                     <div className="space-y-2">
                       {douariaRooms.map((room) => (
                         <button
@@ -210,7 +210,7 @@ export default function StayWithUsModal({ isOpen, onClose }: StayWithUsModalProp
                         >
                           <div className="text-left">
                             <p className="font-serif text-foreground group-hover:text-foreground transition-colors">{room.Name}</p>
-                            <p className="text-[11px] text-foreground/60 mt-1">The Annex · No. 35</p>
+                            <p className="text-[12px] text-foreground/60 mt-1">The Annex · No. 35</p>
                           </div>
                           <div className="flex items-center gap-3">
                             <p className="text-sm text-foreground/70">from {formatPrice(parseFloat(room.Price_EUR))}</p>
@@ -227,14 +227,14 @@ export default function StayWithUsModal({ isOpen, onClose }: StayWithUsModalProp
                 {/* The Kasbah */}
                 {kasbahExperience && (
                   <div>
-                    <p className="text-[10px] tracking-[0.3em] uppercase text-foreground/60 mb-5">The Kasbah</p>
+                    <p className="text-[12px] tracking-[0.3em] uppercase text-foreground/60 mb-5">The Kasbah</p>
                     <button
                       onClick={openKasbahBooking}
                       className="w-full flex items-center justify-between py-4 px-5 bg-foreground/[0.03] hover:bg-foreground/[0.06] transition-all duration-200 group"
                     >
                       <div className="text-left">
                         <p className="font-serif text-foreground group-hover:text-foreground transition-colors">{kasbahExperience.Name}</p>
-                        <p className="text-[11px] text-foreground/60 mt-1">The Moroccan South · {kasbahExperience.Duration} nights</p>
+                        <p className="text-[12px] text-foreground/60 mt-1">The Moroccan South · {kasbahExperience.Duration} nights</p>
                       </div>
                       <div className="flex items-center gap-3">
                         <p className="text-sm text-foreground/70">from {formatPrice(parseFloat(kasbahExperience.Price_EUR))}</p>
@@ -249,7 +249,7 @@ export default function StayWithUsModal({ isOpen, onClose }: StayWithUsModalProp
                 {/* The Desert Camp */}
                 {desertTents.length > 0 && (
                   <div>
-                    <p className="text-[10px] tracking-[0.3em] uppercase text-foreground/60 mb-5">The Desert Camp</p>
+                    <p className="text-[12px] tracking-[0.3em] uppercase text-foreground/60 mb-5">The Desert Camp</p>
                     <div className="space-y-2">
                       {desertTents.map((tent) => (
                         <button
@@ -259,7 +259,7 @@ export default function StayWithUsModal({ isOpen, onClose }: StayWithUsModalProp
                         >
                           <div className="text-left">
                             <p className="font-serif text-foreground group-hover:text-foreground transition-colors">{tent.Name}</p>
-                            <p className="text-[11px] text-foreground/60 mt-1">Erg Chebbi · {tent.Level}</p>
+                            <p className="text-[12px] text-foreground/60 mt-1">Erg Chebbi · {tent.Level}</p>
                           </div>
                           <div className="flex items-center gap-3">
                             <p className="text-sm text-foreground/70">from {formatPrice(parseFloat(tent.Price_EUR))}</p>

@@ -41,7 +41,7 @@ export default function HouseStatus() {
     <div className="bg-[hsl(var(--secondary))] border border-foreground/10 p-6 mb-10">
       <div className="flex items-center justify-center gap-2 mb-3">
         <span className={`w-2 h-2 rounded-full ${staffOpen ? "bg-[#C2410C]" : "bg-foreground/25"}`} />
-        <span className="text-[11px] tracking-[0.2em] uppercase text-foreground/45">
+        <span className="text-[12px] tracking-[0.2em] uppercase text-foreground/45">
           {t.label} in the medina
         </span>
       </div>

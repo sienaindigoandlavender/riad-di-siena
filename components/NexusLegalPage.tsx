@@ -69,7 +69,7 @@ export default function NexusLegalPage({ pageId, fallbackTitle, localApiEndpoint
       <div className="min-h-screen bg-[#f9f8f6] text-[#2a2520]">
         <section className="pt-32 pb-12 md:pt-40 md:pb-16">
           <div className="container mx-auto px-6 lg:px-16 max-w-3xl">
-            <p className="text-xs tracking-[0.3em] uppercase text-[#2a2520]/40 mb-6">
+            <p className="text-xs tracking-[0.3em] uppercase text-[#2a2520]/55 mb-6">
               Legal
             </p>
             <h1 className="font-serif text-4xl md:text-5xl text-[#2a2520]">
@@ -97,7 +97,7 @@ export default function NexusLegalPage({ pageId, fallbackTitle, localApiEndpoint
       {/* Hero */}
       <section className="pt-32 pb-12 md:pt-40 md:pb-16">
         <div className="container mx-auto px-6 lg:px-16 max-w-3xl">
-          <p className="text-xs tracking-[0.3em] uppercase text-[#2a2520]/40 mb-6">
+          <p className="text-xs tracking-[0.3em] uppercase text-[#2a2520]/55 mb-6">
             Legal
           </p>
           <h1 className="font-serif text-4xl md:text-5xl text-[#2a2520]">
@@ -117,14 +117,14 @@ export default function NexusLegalPage({ pageId, fallbackTitle, localApiEndpoint
                     {section.title && section.title !== "Intro" && (
                       <h2 className="font-serif text-xl text-[#2a2520] mb-4">{section.title}</h2>
                     )}
-                    <p className="text-[#2a2520]/50 leading-relaxed whitespace-pre-line">
+                    <p className="text-[#2a2520]/65 leading-relaxed whitespace-pre-line">
                       {section.content}
                     </p>
                   </div>
                 ))}
               </div>
             ) : (
-              <p className="text-[#2a2520]/50">Content not available.</p>
+              <p className="text-[#2a2520]/65">Content not available.</p>
             )}
           </div>
         </div>

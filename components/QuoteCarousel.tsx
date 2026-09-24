@@ -26,7 +26,7 @@ export default function QuoteCarousel({ testimonials }: { testimonials: Testimon
       </blockquote>
 
       {current.Guest_Name && (
-        <figcaption className="mt-8 text-[11px] tracking-[0.2em] uppercase text-foreground/45">
+        <figcaption className="mt-8 text-[12px] tracking-[0.2em] uppercase text-foreground/45">
           {current.Guest_Name}
         </figcaption>
       )}
@@ -43,7 +43,7 @@ export default function QuoteCarousel({ testimonials }: { testimonials: Testimon
             </svg>
           </button>
 
-          <span className="text-[11px] tracking-[0.25em] text-foreground/40 tabular-nums">
+          <span className="text-[12px] tracking-[0.25em] text-foreground/40 tabular-nums">
             {String(index + 1).padStart(2, "0")} / {String(total).padStart(2, "0")}
           </span>
 

@@ -154,13 +154,13 @@ export default function Footer() {
                 Old walls, steady and sure. A place that keeps you safe from the city&apos;s rush.
               </p>
               <div className="flex gap-4">
-                <span className="text-[#2a2520]/50">
+                <span className="text-[#2a2520]/65">
                   <IconInstagram size={18} />
                 </span>
-                <span className="text-[#2a2520]/50">
+                <span className="text-[#2a2520]/65">
                   <PinterestIcon />
                 </span>
-                <span className="text-[#2a2520]/50">
+                <span className="text-[#2a2520]/65">
                   <TumblrIcon />
                 </span>
               </div>
@@ -237,7 +237,7 @@ export default function Footer() {
         <div className="bg-[#ddd5c8]">
           <div className="max-w-7xl mx-auto px-6 py-4">
             <div className="flex flex-wrap items-center gap-x-6 gap-y-2">
-              <span className="text-[10px] tracking-[0.2em] uppercase text-[#2a2520]/40">
+              <span className="text-[12px] tracking-[0.2em] uppercase text-[#2a2520]/55">
                 Explore
               </span>
               {contentSites.map((site, idx) => (
@@ -295,7 +295,7 @@ export default function Footer() {
                         }`}
                       >
                         <span className="inline-block w-6">{l.label}</span>
-                        <span className="text-[#2a2520]/40 ml-1">{l.name}</span>
+                        <span className="text-[#2a2520]/55 ml-1">{l.name}</span>
                       </button>
                     ))}
                   </div>
