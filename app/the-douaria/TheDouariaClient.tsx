@@ -80,7 +80,7 @@ export default function TheDouariaClient({ hero, paragraphs, rooms, gallery, cit
       <section className="py-24 md:py-32 bg-[#efede7]">
         <div className="max-w-5xl mx-auto px-6">
           <div className="text-center mb-16">
-            <p className="text-xs tracking-[0.3em] text-[#2a2520]/40 mb-4">THE STAY</p>
+            <p className="text-xs tracking-[0.3em] text-[#2a2520]/55 mb-4">THE STAY</p>
             <h2 className="font-serif text-2xl md:text-3xl text-[#2a2520] italic">Three rooms, three moods</h2>
           </div>
           <div className="space-y-24">
@@ -91,13 +91,13 @@ export default function TheDouariaClient({ hero, paragraphs, rooms, gallery, cit
                 </div>
                 <div className={`pt-4 md:pt-8 ${index % 2 === 1 ? 'md:order-1' : ''}`}>
                   <h3 className="font-serif text-2xl mb-2 italic">{room.Name}</h3>
-                  <p className="text-[#2a2520]/50 text-sm mb-4">From {formatPrice(parseFloat(room.Price_EUR))} / night</p>
+                  <p className="text-[#2a2520]/65 text-sm mb-4">From {formatPrice(parseFloat(room.Price_EUR))} / night</p>
                   <p className="text-[#2a2520]/80 leading-relaxed mb-6 text-lg">{room.Description}</p>
                   <div className="flex flex-wrap gap-4 mb-6">
                     {room.features.map((feature: string) => {
                       const icon = getIconForFeature(feature);
                       return (
-                        <div key={feature} className="flex items-center gap-2 text-[#2a2520]/50">
+                        <div key={feature} className="flex items-center gap-2 text-[#2a2520]/65">
                           <span className="text-[#2a2520]/30">{icon || <span className="w-1.5 h-1.5 rounded-full bg-[#2a2520]/30 block" />}</span>
                           <span className="text-xs">{feature}</span>
                         </div>
@@ -105,7 +105,7 @@ export default function TheDouariaClient({ hero, paragraphs, rooms, gallery, cit
                     })}
                   </div>
                   {room.Bookable?.toLowerCase() === "no" ? (
-                    <p className="text-xs tracking-widest text-[#2a2520]/40 italic">Not available for direct booking</p>
+                    <p className="text-xs tracking-widest text-[#2a2520]/55 italic">Not available for direct booking</p>
                   ) : (
                     <button onClick={() => { setSelectedRoom(room); setIsModalOpen(true); }} className="text-xs tracking-widest border-b border-[#2a2520]/30 pb-1 hover:border-[#2a2520] transition-colors">BOOK THIS ROOM</button>
                   )}
@@ -118,7 +118,7 @@ export default function TheDouariaClient({ hero, paragraphs, rooms, gallery, cit
 
       {/* Policy links — know the terms before booking */}
       <div className="px-6 pb-4">
-        <div className="max-w-5xl mx-auto flex flex-wrap items-center justify-center gap-x-3 gap-y-1 text-[11px] tracking-widest uppercase text-[#2a2520]/40">
+        <div className="max-w-5xl mx-auto flex flex-wrap items-center justify-center gap-x-3 gap-y-1 text-[12px] tracking-widest uppercase text-[#2a2520]/55">
           <a href="/disclaimer" target="_blank" rel="noopener" className="underline underline-offset-2 hover:text-[#2a2520] transition-colors">Before You Book</a>
           <span aria-hidden="true" className="text-[#2a2520]/20">|</span>
           <a href="/booking-conditions" target="_blank" rel="noopener" className="underline underline-offset-2 hover:text-[#2a2520] transition-colors">Booking Conditions</a>
