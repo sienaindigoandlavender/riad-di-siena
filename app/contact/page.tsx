@@ -52,13 +52,13 @@ export default function ContactPage() {
       <div className="min-h-screen bg-[#f9f8f6] text-[#2a2520]">
         <section className="min-h-screen flex items-center justify-center">
           <div className="text-center px-6">
-            <p className="text-xs tracking-[0.4em] uppercase text-[#2a2520]/40 mb-8">
+            <p className="text-xs tracking-[0.4em] uppercase text-[#2a2520]/55 mb-8">
               Message Sent
             </p>
             <h1 className="font-serif text-4xl md:text-5xl text-[#2a2520] mb-6">
               Thank you.
             </h1>
-            <p className="text-[#2a2520]/50 text-lg">
+            <p className="text-[#2a2520]/65 text-lg">
               We'll be in touch soon.
             </p>
           </div>
@@ -89,7 +89,7 @@ export default function ContactPage() {
             <form onSubmit={handleSubmit} className="space-y-10">
               <div className="grid grid-cols-2 gap-8">
                 <div>
-                  <label className="text-xs tracking-[0.2em] text-[#2a2520]/40 block mb-4">
+                  <label className="text-xs tracking-[0.2em] text-[#2a2520]/55 block mb-4">
                     FIRST NAME
                   </label>
                   <input
@@ -101,7 +101,7 @@ export default function ContactPage() {
                   />
                 </div>
                 <div>
-                  <label className="text-xs tracking-[0.2em] text-[#2a2520]/40 block mb-4">
+                  <label className="text-xs tracking-[0.2em] text-[#2a2520]/55 block mb-4">
                     LAST NAME
                   </label>
                   <input
@@ -114,7 +114,7 @@ export default function ContactPage() {
               </div>
 
               <div>
-                <label className="text-xs tracking-[0.2em] text-[#2a2520]/40 block mb-4">
+                <label className="text-xs tracking-[0.2em] text-[#2a2520]/55 block mb-4">
                   EMAIL ADDRESS
                 </label>
                 <input
@@ -127,7 +127,7 @@ export default function ContactPage() {
               </div>
 
               <div>
-                <label className="text-xs tracking-[0.2em] text-[#2a2520]/40 block mb-4">
+                <label className="text-xs tracking-[0.2em] text-[#2a2520]/55 block mb-4">
                   PHONE NUMBER
                 </label>
                 <input
@@ -139,7 +139,7 @@ export default function ContactPage() {
               </div>
 
               <div>
-                <label className="text-xs tracking-[0.2em] text-[#2a2520]/40 block mb-4">
+                <label className="text-xs tracking-[0.2em] text-[#2a2520]/55 block mb-4">
                   MESSAGE
                 </label>
                 <textarea
@@ -165,13 +165,13 @@ export default function ContactPage() {
             <div className="mt-20 pt-12 border-t border-[#2a2520]/10">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8 text-sm">
                 <div>
-                  <p className="text-xs tracking-[0.2em] text-[#2a2520]/40 mb-3">EMAIL</p>
+                  <p className="text-xs tracking-[0.2em] text-[#2a2520]/55 mb-3">EMAIL</p>
                   <a href="mailto:happy@riaddisiena.com" className="text-[#2a2520]/85 hover:text-[#2a2520] transition-colors">
                     happy@riaddisiena.com
                   </a>
                 </div>
                 <div>
-                  <p className="text-xs tracking-[0.2em] text-[#2a2520]/40 mb-3">LOCATION</p>
+                  <p className="text-xs tracking-[0.2em] text-[#2a2520]/55 mb-3">LOCATION</p>
                   <p className="text-[#2a2520]/85">
                     Marrakech Medina, Morocco
                   </p>
