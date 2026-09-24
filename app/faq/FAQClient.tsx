@@ -24,7 +24,7 @@ export default function FAQClient({ faqItems }: FAQClientProps) {
       {/* Hero */}
       <section className="pt-32 pb-16 md:pt-40 md:pb-20">
         <div className="container mx-auto px-6 lg:px-16 text-center max-w-4xl">
-          <p className="text-[11px] tracking-[0.3em] uppercase text-[#C2410C] mb-6">Support</p>
+          <p className="text-[12px] tracking-[0.3em] uppercase text-[#C2410C] mb-6">Support</p>
           <h1 className="font-display font-medium text-[#2a2520] text-[clamp(2.6rem,7vw,4.5rem)] tracking-[-0.02em] leading-[0.95] mb-6">FAQ</h1>
           <p className="text-lg md:text-xl text-[#2a2520]/60 font-light max-w-xl mx-auto">
             Everything you need to know about staying at Riad di Siena
@@ -37,7 +37,7 @@ export default function FAQClient({ faqItems }: FAQClientProps) {
         <div className="container mx-auto px-6 lg:px-16 max-w-3xl">
           {Object.entries(sections).map(([sectionName, items]) => (
             <div key={sectionName} className="mb-16">
-              <p className="text-xs tracking-[0.3em] uppercase text-[#2a2520]/40 mb-8 pb-4 border-b border-[#2a2520]/10">
+              <p className="text-xs tracking-[0.3em] uppercase text-[#2a2520]/55 mb-8 pb-4 border-b border-[#2a2520]/10">
                 {sectionName}
               </p>
               <div className="space-y-0">
@@ -53,12 +53,12 @@ export default function FAQClient({ faqItems }: FAQClientProps) {
                         <span className="font-serif text-lg text-[#2a2520] pr-8 group-hover:text-[#2a2520] transition-colors">
                           {item.Question}
                         </span>
-                        <span className="text-[#2a2520]/40 text-xl flex-shrink-0 mt-1 transition-transform duration-200" style={{ transform: isOpen ? 'rotate(45deg)' : 'none' }}>
+                        <span className="text-[#2a2520]/55 text-xl flex-shrink-0 mt-1 transition-transform duration-200" style={{ transform: isOpen ? 'rotate(45deg)' : 'none' }}>
                           +
                         </span>
                       </button>
                       <div className={`overflow-hidden transition-all duration-300 ${isOpen ? 'max-h-96 pb-6' : 'max-h-0'}`}>
-                        <p className="text-[#2a2520]/50 leading-relaxed pr-12">{item.Answer}</p>
+                        <p className="text-[#2a2520]/65 leading-relaxed pr-12">{item.Answer}</p>
                       </div>
                     </div>
                   );
@@ -69,8 +69,8 @@ export default function FAQClient({ faqItems }: FAQClientProps) {
 
           {/* Glossary Reference */}
           <div className="mt-16 text-center py-12 border border-[#2a2520]/10">
-            <p className="text-[#2a2520]/40 text-sm mb-2">Unfamiliar with a term?</p>
-            <p className="text-[#2a2520]/50 text-sm mb-4">
+            <p className="text-[#2a2520]/55 text-sm mb-2">Unfamiliar with a term?</p>
+            <p className="text-[#2a2520]/65 text-sm mb-4">
               Riad, medina, hammam, kasbah, tadelakt — Morocco has its own vocabulary.
             </p>
             <a href="https://www.slowmorocco.com/glossary" target="_blank" rel="noopener noreferrer"
@@ -81,7 +81,7 @@ export default function FAQClient({ faqItems }: FAQClientProps) {
 
           {/* Derb City Guide Reference */}
           <div className="mt-8 bg-[#1C1917] text-[#FAF9F6] py-12 px-10 text-center">
-            <p className="text-[#C2410C] text-[10px] tracking-[0.3em] uppercase mb-4">Before You Go Out</p>
+            <p className="text-[#C2410C] text-[12px] tracking-[0.3em] uppercase mb-4">Before You Go Out</p>
             <p className="font-serif text-2xl md:text-3xl mb-4" style={{ fontStyle: 'italic' }}>
               Know the city before you walk into it.
             </p>
@@ -96,8 +96,8 @@ export default function FAQClient({ faqItems }: FAQClientProps) {
 
           {/* Derb City Guide */}
           <div className="mt-6 text-center py-12 border border-[#2a2520]/10">
-            <p className="text-[#2a2520]/40 text-sm mb-2">First time in Morocco?</p>
-            <p className="text-[#2a2520]/50 text-sm mb-4">
+            <p className="text-[#2a2520]/55 text-sm mb-2">First time in Morocco?</p>
+            <p className="text-[#2a2520]/65 text-sm mb-4">
               Taxis, tipping, the call to prayer, cockroaches, heat — 57 honest answers to the questions you haven't thought of yet.
             </p>
             <a href="https://derb.so" target="_blank" rel="noopener noreferrer"
@@ -108,7 +108,7 @@ export default function FAQClient({ faqItems }: FAQClientProps) {
 
           {/* CTA */}
           <div className="mt-16 text-center py-12 border border-[#2a2520]/10">
-            <p className="text-[#2a2520]/40 text-sm mb-4">Still have questions?</p>
+            <p className="text-[#2a2520]/55 text-sm mb-4">Still have questions?</p>
             <a href="/contact" className="inline-block border border-[#2a2520]/20 px-10 py-4 text-xs tracking-[0.2em] uppercase hover:bg-[#2a2520] hover:text-[#f9f8f6] transition-colors">
               Get in Touch
             </a>
