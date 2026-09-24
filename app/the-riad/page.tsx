@@ -106,7 +106,7 @@ export default async function TheRiadPage() {
           侘寂
         </span>
         <div className="container mx-auto px-6 lg:px-16 max-w-3xl relative z-10">
-          <p className="text-xs tracking-[0.4em] uppercase text-[#2a2520]/40 mb-8">
+          <p className="text-xs tracking-[0.4em] uppercase text-[#2a2520]/55 mb-8">
             Wabi-sabi
           </p>
           <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl leading-tight text-[#2a2520] mb-10">
@@ -164,7 +164,7 @@ export default async function TheRiadPage() {
                   </p>
                 )}
                 {location?.Subtitle && (
-                  <p className="text-[#2a2520]/40 text-sm mt-4">
+                  <p className="text-[#2a2520]/55 text-sm mt-4">
                     {location.Subtitle}
                   </p>
                 )}
