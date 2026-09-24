@@ -8,9 +8,9 @@ export default async function HouseRulesPage() {
     <div className="min-h-screen bg-[#f9f8f6] text-[#2a2520]">
       <section className="pt-32 pb-12 md:pt-40 md:pb-16">
         <div className="container mx-auto px-6 lg:px-16 max-w-3xl">
-          <p className="text-xs tracking-[0.3em] uppercase text-[#2a2520]/40 mb-6">Guest Information</p>
+          <p className="text-xs tracking-[0.3em] uppercase text-[#2a2520]/55 mb-6">Guest Information</p>
           <h1 className="font-serif text-4xl md:text-5xl text-[#2a2520] mb-6">House Rules</h1>
-          <p className="text-xl text-[#2a2520]/50">To ensure a peaceful stay for everyone</p>
+          <p className="text-xl text-[#2a2520]/65">To ensure a peaceful stay for everyone</p>
         </div>
       </section>
 
@@ -20,7 +20,7 @@ export default async function HouseRulesPage() {
             {rules.map((rule: any) => (
               <div key={rule.Title} className="py-8 border-b border-[#2a2520]/10">
                 <h3 className="font-serif text-xl text-[#2a2520] mb-4">{rule.Title}</h3>
-                <p className="text-[#2a2520]/50 leading-relaxed">{rule.Content}</p>
+                <p className="text-[#2a2520]/65 leading-relaxed">{rule.Content}</p>
               </div>
             ))}
           </div>
