@@ -102,7 +102,7 @@ export default async function PhilosophyPage() {
                   <p className="font-serif text-xl md:text-2xl leading-relaxed text-[#2a2520]/90">{soul.Title}</p>
                 )}
                 {soul?.Subtitle && (
-                  <p className="text-[#2a2520]/40 text-sm mt-4 italic">{soul.Subtitle}</p>
+                  <p className="text-[#2a2520]/55 text-sm mt-4 italic">{soul.Subtitle}</p>
                 )}
               </div>
             </div>
