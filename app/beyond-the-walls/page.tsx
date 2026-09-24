@@ -22,9 +22,9 @@ export default async function BeyondTheWallsPage() {
           </>
         )}
         <div className="container mx-auto px-6 lg:px-16 text-center max-w-4xl relative z-10">
-          <h1 className="font-display font-medium text-white text-[clamp(2.6rem,7vw,5rem)] tracking-[-0.02em] leading-[0.95] mb-6">Beyond the Walls</h1>
+          <h1 className="font-display font-medium text-white text-[clamp(2.6rem,7vw,5rem)] uppercase tracking-[0.08em] leading-[1.08] mb-6">Beyond the Walls</h1>
           {hero?.Subtitle && (
-            <p className="text-lg md:text-xl text-white/80 font-light leading-relaxed max-w-2xl mx-auto">{hero.Subtitle}</p>
+            <p className="text-xl md:text-2xl text-white/90 font-light leading-relaxed max-w-2xl mx-auto">{hero.Subtitle}</p>
           )}
         </div>
         <div className="absolute bottom-12 left-1/2 -translate-x-1/2">
