@@ -22,7 +22,7 @@ export default async function TheFarmPage() {
           </>
         )}
         <div className="container mx-auto px-6 lg:px-16 text-center max-w-4xl relative z-10">
-          <h1 className="font-display font-medium text-white text-[clamp(2.6rem,7vw,5rem)] uppercase tracking-[0.08em] leading-[1.08] mb-6">
+          <h1 className="font-display font-medium text-white text-[clamp(2rem,5vw,3.5rem)] uppercase tracking-[0.08em] leading-[1.08] mb-6">
             The Farm
           </h1>
           {hero?.Subtitle && (
