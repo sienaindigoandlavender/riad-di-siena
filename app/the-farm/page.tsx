@@ -53,14 +53,14 @@ export default async function TheFarmPage() {
       <section className="py-24 md:py-32 bg-[#efede7]">
         <div className="max-w-3xl mx-auto px-6">
           <div className="text-center mb-16">
-            <p className="text-xs tracking-[0.3em] text-[#2a2520]/40 mb-4">FROM THE FARM</p>
+            <p className="text-xs tracking-[0.3em] text-[#2a2520]/55 mb-4">FROM THE FARM</p>
             <h2 className="font-serif text-2xl md:text-3xl text-[#2a2520] italic">What reaches your table</h2>
           </div>
           <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-8 text-center">
             {produce.map((item: any) => (
               <div key={item.Produce_ID} className="py-4">
                 <p className="font-serif text-xl mb-2 italic">{item.Name}</p>
-                <p className="text-[#2a2520]/50 text-sm">{item.Description}</p>
+                <p className="text-[#2a2520]/65 text-sm">{item.Description}</p>
               </div>
             ))}
           </div>
