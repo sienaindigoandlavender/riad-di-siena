@@ -35,7 +35,6 @@ const STATIC_PAGES = [
   "/the-farm",
   "/philosophy",
   "/amenities",
-  "/about",
   "/faq",
   "/house-rules",
   "/booking-conditions",
