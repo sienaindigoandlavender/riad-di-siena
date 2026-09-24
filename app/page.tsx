@@ -86,7 +86,7 @@ export default async function Home() {
           </p>
           <Link
             href="/philosophy"
-            className="inline-block mt-10 text-[11px] tracking-[0.16em] uppercase border-b border-foreground pb-1 hover:text-[#C2410C] hover:border-[#C2410C] transition-colors"
+            className="inline-block mt-10 text-[12px] tracking-[0.16em] uppercase border-b border-foreground pb-1 hover:text-[#C2410C] hover:border-[#C2410C] transition-colors"
           >
             Our philosophy →
           </Link>
@@ -100,7 +100,7 @@ export default async function Home() {
         <section className="px-6 md:px-10 lg:px-14 py-20 md:py-28 bg-[hsl(var(--secondary))]">
           <div className="max-w-7xl mx-auto">
             <Link href="/beyond-the-walls" className="group block mb-10 md:mb-12">
-              <p className="text-[11px] tracking-[0.28em] uppercase text-foreground/40 mb-3">Beyond the Walls</p>
+              <p className="text-[12px] tracking-[0.28em] uppercase text-foreground/40 mb-3">Beyond the Walls</p>
               <h2 className="font-display text-xl md:text-2xl font-medium tracking-[-0.01em] text-foreground/85 group-hover:text-[#C2410C] transition-colors">
                 Where the sanctuary continues.{" "}
                 <span className="inline-block transition-transform group-hover:translate-x-1">→</span>
@@ -136,7 +136,7 @@ export default async function Home() {
           ══════════════════════════════════════════════════ */}
       <section className="px-6 md:px-10 lg:px-14 py-16 md:py-20 bg-[hsl(var(--secondary))]">
         <div className="max-w-xl mx-auto text-center">
-          <p className="text-[11px] tracking-[0.28em] uppercase text-foreground/40 mb-5">
+          <p className="text-[12px] tracking-[0.28em] uppercase text-foreground/40 mb-5">
             A note before you book
           </p>
           <h2 className="font-display text-xl md:text-2xl font-medium tracking-[-0.01em] leading-snug mb-4 text-foreground/85">
@@ -148,7 +148,7 @@ export default async function Home() {
           </p>
           <Link
             href={filter?.Button_Link || "/disclaimer"}
-            className="inline-block mt-7 text-[11px] tracking-[0.16em] uppercase text-foreground/50 border-b border-foreground/40 pb-1 hover:text-[#C2410C] hover:border-[#C2410C] transition-colors"
+            className="inline-block mt-7 text-[12px] tracking-[0.16em] uppercase text-foreground/50 border-b border-foreground/40 pb-1 hover:text-[#C2410C] hover:border-[#C2410C] transition-colors"
           >
             {filter?.Button_Text || "Read before you book"}
           </Link>
