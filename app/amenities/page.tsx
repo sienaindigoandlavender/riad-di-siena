@@ -70,7 +70,7 @@ export default async function AmenitiesPage() {
       {/* Beyond the house */}
       <section className="py-20 md:py-28 border-t border-[#2a2520]/10">
         <div className="container mx-auto px-6 lg:px-16 max-w-3xl text-center">
-          <p className="text-[11px] tracking-[0.28em] uppercase text-[#C2410C] mb-6">Beyond the House</p>
+          <p className="text-[12px] tracking-[0.28em] uppercase text-[#C2410C] mb-6">Beyond the House</p>
           <p className="text-[#2a2520]/90 leading-relaxed text-lg mb-10">
             The medina has its own rhythm. We built a city guide for our guests, covering taxis, tipping, the call to prayer, and everything else nobody tells you before you arrive.
           </p>
