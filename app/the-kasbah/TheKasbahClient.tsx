@@ -56,7 +56,7 @@ export default function TheKasbahClient({ hero, paragraphs, experience, gallery 
       <section className="py-24 md:py-32 bg-[#efede7]">
         <div className="max-w-4xl mx-auto px-6">
           <div className="text-center mb-16">
-            <p className="text-xs tracking-[0.3em] text-[#2a2520]/40 mb-4">THE STAY</p>
+            <p className="text-xs tracking-[0.3em] text-[#2a2520]/55 mb-4">THE STAY</p>
             <h2 className="font-serif text-2xl md:text-3xl text-[#2a2520] italic">
               {experience?.Name || "Two nights in the deep south"}
             </h2>
@@ -80,16 +80,16 @@ export default function TheKasbahClient({ hero, paragraphs, experience, gallery 
                   <h3 className="font-serif text-xl mb-6 italic">Pricing</h3>
                   <div className="space-y-6">
                     <div>
-                      <p className="text-[#2a2520]/40 text-xs tracking-widest mb-2">PER NIGHT (DOUBLE OCCUPANCY)</p>
+                      <p className="text-[#2a2520]/55 text-xs tracking-widest mb-2">PER NIGHT (DOUBLE OCCUPANCY)</p>
                       <p className="font-serif text-3xl">{formatPrice(parseFloat(experience.Price_EUR))}</p>
                     </div>
                     {experience.Single_Supplement_EUR && (
                       <div>
-                        <p className="text-[#2a2520]/40 text-xs tracking-widest mb-2">SINGLE SUPPLEMENT</p>
+                        <p className="text-[#2a2520]/55 text-xs tracking-widest mb-2">SINGLE SUPPLEMENT</p>
                         <p className="font-serif text-xl">{formatPrice(parseFloat(experience.Single_Supplement_EUR))}</p>
                       </div>
                     )}
-                    <p className="text-[#2a2520]/40 text-xs">
+                    <p className="text-[#2a2520]/55 text-xs">
                       Price includes all transfers, accommodation, meals, and activities. 
                       Minimum {experience.Min_Guests} guests. Private kasbah buyout available on request.
                     </p>
@@ -103,14 +103,14 @@ export default function TheKasbahClient({ hero, paragraphs, experience, gallery 
                 >
                   BOOK THE KASBAH EXPERIENCE
                 </button>
-                <p className="text-[#2a2520]/40 text-xs mt-6">
+                <p className="text-[#2a2520]/55 text-xs mt-6">
                   Also part of{" "}
                   <a href="/#the-journey" className="underline hover:text-[#2a2520] transition-colors">The Slow Journey South</a>
                 </p>
               </div>
             </div>
           ) : (
-            <div className="text-center text-[#2a2520]/50">No experience package available</div>
+            <div className="text-center text-[#2a2520]/65">No experience package available</div>
           )}
         </div>
       </section>
