@@ -11,7 +11,7 @@ export default async function PrivacyPage() {
       {/* Hero */}
       <section className="pt-32 pb-12 md:pt-40 md:pb-16">
         <div className="container mx-auto px-6 lg:px-16 max-w-3xl">
-          <p className="text-xs tracking-[0.3em] uppercase text-[#2a2520]/40 mb-6">
+          <p className="text-xs tracking-[0.3em] uppercase text-[#2a2520]/55 mb-6">
             Legal
           </p>
           <h1 className="font-serif text-4xl md:text-5xl text-[#2a2520]">
@@ -30,7 +30,7 @@ export default async function PrivacyPage() {
                 dangerouslySetInnerHTML={{ __html: page.content }}
               />
             ) : (
-              <p className="text-[#2a2520]/50">
+              <p className="text-[#2a2520]/65">
                 Privacy policy content will be loaded from Nexus.
               </p>
             )}
