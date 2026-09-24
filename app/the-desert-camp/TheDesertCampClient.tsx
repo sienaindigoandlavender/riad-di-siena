@@ -38,8 +38,8 @@ export default function TheDesertCampClient({ hero, paragraphs, tents, gallery }
       <section className="min-h-screen flex items-center justify-center relative">
         {heroImage && (<><div className="absolute inset-0 bg-cover bg-center" style={{ backgroundImage: `url('${heroImage}')` }} /><img src={heroImage} alt="Luxury Sahara desert camp at Erg Chebbi dunes, Morocco" className="sr-only" aria-hidden="true" /><div className="absolute inset-0 bg-[#2a2520]/50" /></>)}
         <div className="container mx-auto px-6 lg:px-16 text-center max-w-4xl relative z-10">
-          <h1 className="font-display font-medium text-white text-[clamp(2.6rem,7vw,5rem)] tracking-[-0.02em] leading-[0.95] mb-6">The Desert Camp</h1>
-          {hero?.Subtitle && <p className="text-lg md:text-xl text-white/80 font-light leading-relaxed max-w-2xl mx-auto">{hero.Subtitle}</p>}
+          <h1 className="font-display font-medium text-white text-[clamp(2.6rem,7vw,5rem)] uppercase tracking-[0.08em] leading-[1.08] mb-6">The Desert Camp</h1>
+          {hero?.Subtitle && <p className="text-xl md:text-2xl text-white/90 font-light leading-relaxed max-w-2xl mx-auto">{hero.Subtitle}</p>}
         </div>
         <div className="absolute bottom-12 left-1/2 -translate-x-1/2"><div className="w-[1px] h-16 bg-gradient-to-b from-white/0 via-white/30 to-white/0" /></div>
       </section>
