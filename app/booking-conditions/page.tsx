@@ -16,7 +16,7 @@ export default function BookingConditionsPage() {
       {/* Header */}
       <section className="pt-32 pb-12 md:pt-40 md:pb-16">
         <div className="container mx-auto px-6 lg:px-16 max-w-3xl">
-          <p className="text-xs tracking-[0.3em] uppercase text-[#2a2520]/40 mb-6">
+          <p className="text-xs tracking-[0.3em] uppercase text-[#2a2520]/55 mb-6">
             Policies
           </p>
           <h1 className="font-serif text-4xl md:text-5xl text-[#2a2520] mb-8">
@@ -272,19 +272,19 @@ export default function BookingConditionsPage() {
             <div className="flex flex-col sm:flex-row gap-6 sm:gap-10">
               <Link
                 href="/disclaimer"
-                className="text-xs tracking-[0.2em] uppercase text-[#2a2520]/50 hover:text-[#2a2520] transition-colors"
+                className="text-xs tracking-[0.2em] uppercase text-[#2a2520]/65 hover:text-[#2a2520] transition-colors"
               >
                 Before You Book
               </Link>
               <Link
                 href="/house-rules"
-                className="text-xs tracking-[0.2em] uppercase text-[#2a2520]/50 hover:text-[#2a2520] transition-colors"
+                className="text-xs tracking-[0.2em] uppercase text-[#2a2520]/65 hover:text-[#2a2520] transition-colors"
               >
                 House Rules
               </Link>
               <Link
                 href="/faq"
-                className="text-xs tracking-[0.2em] uppercase text-[#2a2520]/50 hover:text-[#2a2520] transition-colors"
+                className="text-xs tracking-[0.2em] uppercase text-[#2a2520]/65 hover:text-[#2a2520] transition-colors"
               >
                 FAQ
               </Link>
