@@ -55,7 +55,7 @@ export default function TheDouariaClient({ hero, paragraphs, rooms, gallery, cit
           </>
         )}
         <div className="container mx-auto px-6 lg:px-16 text-center max-w-4xl relative z-10">
-          <h1 className="font-display font-medium text-white text-[clamp(2.6rem,7vw,5rem)] uppercase tracking-[0.08em] leading-[1.08] mb-6">The Douaria</h1>
+          <h1 className="font-display font-medium text-white text-[clamp(2rem,5vw,3.5rem)] uppercase tracking-[0.08em] leading-[1.08] mb-6">The Douaria</h1>
           {hero?.Subtitle && <p className="text-xl md:text-2xl text-white/90 font-light leading-relaxed max-w-2xl mx-auto">{hero.Subtitle}</p>}
         </div>
         <div className="absolute bottom-12 left-1/2 -translate-x-1/2">
