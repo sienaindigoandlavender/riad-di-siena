@@ -31,7 +31,6 @@ export default function Header() {
 
   // Secondary / practical (smaller, muted)
   const secondary = [
-    { href: "/about", label: "About" },
     { href: "/contact", label: "Contact" },
     { href: "/faq", label: "FAQ" },
     { href: "/house-rules", label: "House Rules" },
