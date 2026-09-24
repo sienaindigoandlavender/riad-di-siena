@@ -72,10 +72,10 @@ export default function ContactPage() {
       {/* Hero */}
       <section className="pt-32 pb-16 md:pt-40 md:pb-20">
         <div className="container mx-auto px-6 lg:px-16 text-center max-w-4xl">
-          <h1 className="font-display font-medium text-[#2a2520] text-[clamp(2.6rem,7vw,4.5rem)] tracking-[-0.02em] leading-[0.95] mb-6">
+          <h1 className="font-display font-medium text-[#2a2520] text-[clamp(2.6rem,7vw,4.5rem)] uppercase tracking-[0.08em] leading-[1.08] mb-6">
             Contact
           </h1>
-          <p className="text-lg md:text-xl text-[#2a2520]/60 font-light max-w-xl mx-auto">
+          <p className="text-xl md:text-2xl text-[#2a2520]/75 font-light max-w-xl mx-auto">
             Questions about your stay, special requests, or simply want to say hello.
           </p>
         </div>
