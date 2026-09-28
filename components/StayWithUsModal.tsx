@@ -197,32 +197,25 @@ export default function StayWithUsModal({ isOpen, onClose }: StayWithUsModalProp
                   </div>
                 )}
 
-                {/* The Douaria */}
-                {douariaRooms.length > 0 && (
-                  <div>
-                    <p className="text-[12px] tracking-[0.3em] uppercase text-foreground/60 mb-5">The Douaria</p>
-                    <div className="space-y-2">
-                      {douariaRooms.map((room) => (
-                        <button
-                          key={room.Room_ID}
-                          onClick={() => openRoomBooking(room)}
-                          className="w-full flex items-center justify-between py-4 px-5 bg-foreground/[0.03] hover:bg-foreground/[0.06] transition-all duration-200 group"
-                        >
-                          <div className="text-left">
-                            <p className="font-serif text-foreground group-hover:text-foreground transition-colors">{room.Name}</p>
-                            <p className="text-[12px] text-foreground/60 mt-1">The Annex · No. 35</p>
-                          </div>
-                          <div className="flex items-center gap-3">
-                            <p className="text-sm text-foreground/70">from {formatPrice(parseFloat(room.Price_EUR))}</p>
-                            <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" strokeWidth="1.5" className="text-foreground/40 group-hover:text-foreground/70 transition-colors">
-                              <polyline points="5,2 10,7 5,12" />
-                            </svg>
-                          </div>
-                        </button>
-                      ))}
+                {/* The Douaria — sold as the whole house only, one group */}
+                <div>
+                  <p className="text-[12px] tracking-[0.3em] uppercase text-foreground/60 mb-5">The Douaria</p>
+                  <a
+                    href="/the-douaria"
+                    className="w-full flex items-center justify-between py-4 px-5 bg-foreground/[0.03] hover:bg-foreground/[0.06] transition-all duration-200 group"
+                  >
+                    <div className="text-left">
+                      <p className="font-serif text-foreground group-hover:text-foreground transition-colors">The whole house</p>
+                      <p className="text-[12px] text-foreground/60 mt-1">The Annex · No. 35 · up to 6 · breakfast included</p>
                     </div>
-                  </div>
-                )}
+                    <div className="flex items-center gap-3">
+                      <p className="text-sm text-foreground/70">from {formatPrice(300)}</p>
+                      <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" strokeWidth="1.5" className="text-foreground/40 group-hover:text-foreground/70 transition-colors">
+                        <polyline points="5,2 10,7 5,12" />
+                      </svg>
+                    </div>
+                  </a>
+                </div>
 
                 {/* The Kasbah */}
                 {kasbahExperience && (
