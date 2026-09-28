@@ -77,6 +77,12 @@ export default function TheDouariaClient({ hero, gallery, cityTaxPerNight }: Pro
               Guéliz; day trips to the Atlas, Ourika or the desert easy to arrange. And each morning, a home-cooked
               Moroccan breakfast, made fresh in the house — the thing our guests remember longest.
             </p>
+            <p>
+              The word <em>douaria</em> comes from <em>dar</em>, the Arabic for house — a little house within the
+              house. In old medina homes it was the separate quarters beside the main riad, where the household staff
+              lived and the cooking and washing were done, a few steps from the family&apos;s rooms. Ours is now a
+              private house in its own right: the same walls, restored, and entirely yours.
+            </p>
           </div>
         </div>
       </section>
