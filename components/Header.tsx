@@ -20,6 +20,7 @@ export default function Header() {
   const primary = [
     { href: "/the-riad", label: "The House" },
     { href: "/rooms", label: "Rooms" },
+    { href: "/the-douaria", label: "The Douaria" },
     { href: "/amenities", label: "Amenities" },
     { href: "/philosophy", label: "Philosophy" },
   ];
