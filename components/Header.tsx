@@ -18,7 +18,7 @@ export default function Header() {
 
   // Primary sections (small, tracked)
   const primary = [
-    { href: "/the-riad", label: "The House" },
+    { href: "/the-riad", label: "The Riad" },
     { href: "/rooms", label: "Rooms" },
     { href: "/the-douaria", label: "The Douaria" },
     { href: "/amenities", label: "Amenities" },
