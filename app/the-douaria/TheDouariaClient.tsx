@@ -7,13 +7,11 @@ import GalleryCarousel from "@/components/GalleryCarousel";
 
 interface Props {
   hero: any;
-  paragraphs: any[];
-  rooms: any[];
   gallery: any[];
   cityTaxPerNight: number;
 }
 
-const HOUSE_PRICE_EUR = "450"; // whole house, up to 6, breakfast included
+const HOUSE_PRICE_EUR = "300"; // whole house, up to 6, breakfast included
 
 const BEFORE_YOU_BOOK = [
   "You are renting the whole house, exclusively — three bedrooms, the courtyard and the rooftop. No other guests, no shared spaces. One group only.",

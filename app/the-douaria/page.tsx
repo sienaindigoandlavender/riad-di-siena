@@ -1,11 +1,10 @@
-import { getHero, getList, getRooms, getSettings } from "@/lib/data";
+import { getHero, getList, getSettings } from "@/lib/data";
 import TheDouariaClient from "./TheDouariaClient";
 
 export default async function TheDouariaPage() {
-  const [hero, paragraphs, rooms, gallery, settings] = await Promise.all([
+  // The Douaria is rented as the whole house only — no room-by-room data pulled.
+  const [hero, gallery, settings] = await Promise.all([
     getHero("douaria_hero"),
-    getList("douaria_content"),
-    getRooms("douaria_rooms"),
     getList("douaria_gallery"),
     getSettings(),
   ]);
@@ -15,8 +14,6 @@ export default async function TheDouariaPage() {
   return (
     <TheDouariaClient
       hero={hero}
-      paragraphs={paragraphs}
-      rooms={rooms}
       gallery={gallery}
       cityTaxPerNight={cityTaxPerNight}
     />
