@@ -45,15 +45,20 @@ export default async function BeyondTheWallsPage() {
       <section className="py-24 md:py-32 bg-[#efede7]">
         <div className="max-w-6xl mx-auto px-6">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-5">
-            {properties.map((property: any) => (
-              <KinfolkTile
-                key={property.Property_ID}
-                href={property.Link}
-                image={property.Image_URL}
-                title={property.Name}
-                sub={property.Tagline}
-              />
-            ))}
+            {properties
+              .filter((property: any) =>
+                property.Link !== "/the-douaria" &&
+                !(property.Name || "").toLowerCase().includes("douaria")
+              )
+              .map((property: any) => (
+                <KinfolkTile
+                  key={property.Property_ID}
+                  href={property.Link}
+                  image={property.Image_URL}
+                  title={property.Name}
+                  sub={property.Tagline}
+                />
+              ))}
           </div>
         </div>
       </section>
