@@ -4,6 +4,7 @@ import { useState } from "react";
 import { useCurrency } from "@/components/CurrencyContext";
 import BookingModal from "@/components/BookingModal";
 import GalleryCarousel from "@/components/GalleryCarousel";
+import QuoteCarousel from "@/components/QuoteCarousel";
 
 interface Props {
   hero: any;
@@ -120,18 +121,12 @@ export default function TheDouariaClient({ hero, gallery, cityTaxPerNight }: Pro
               Eight years of welcomes
             </h2>
           </div>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
-            {REVIEWS.map((r) => (
-              <figure key={r.name} className="border border-[#2a2520]/10 p-8 bg-[#f9f8f6] flex flex-col">
-                <blockquote className="text-[#2a2520]/85 leading-relaxed text-[15px] flex-grow">
-                  &ldquo;{r.text}&rdquo;
-                </blockquote>
-                <figcaption className="mt-6 text-[12px] tracking-[0.2em] uppercase text-[#2a2520]/70">
-                  {r.name} · Guest
-                </figcaption>
-              </figure>
-            ))}
-          </div>
+          <QuoteCarousel
+            testimonials={REVIEWS.map((r) => ({
+              Quote: `“${r.text}”`,
+              Guest_Name: `${r.name} · Guest`,
+            }))}
+          />
         </div>
       </section>
 
