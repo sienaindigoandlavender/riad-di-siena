@@ -67,9 +67,10 @@ export default function TheDouariaClient({ hero, gallery, cityTaxPerNight }: Pro
         <div className="container mx-auto px-6 lg:px-16 max-w-3xl">
           <div className="text-[#2a2520]/85 leading-relaxed text-lg md:text-xl space-y-6">
             <p>
-              The whole house is yours — three bedrooms, a small central courtyard and a rooftop terrace, with no
-              other guests and no shared spaces. A 300-year-old Moroccan house in the heart of the medina, two
-              minutes on foot from Jemaa el-Fna and quiet behind its walls.
+              The Douaria is the house next door to the main riad — a private riad of its own, a few steps across a
+              quiet alley from Riad di Siena. The whole of it is yours: three bedrooms, a small central courtyard
+              and a rooftop terrace, with no other guests and no shared spaces. A 300-year-old Moroccan house in the
+              heart of the medina, two minutes on foot from Jemaa el-Fna and quiet behind its walls.
             </p>
             <p>
               Everything is close: walk to the souks, the restaurants and the monuments; ten minutes by taxi to
