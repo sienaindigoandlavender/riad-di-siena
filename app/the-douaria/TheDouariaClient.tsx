@@ -128,7 +128,7 @@ export default function TheDouariaClient({ hero, gallery, cityTaxPerNight }: Pro
                 <blockquote className="text-[#2a2520]/85 leading-relaxed text-[15px] flex-grow">
                   &ldquo;{r.text}&rdquo;
                 </blockquote>
-                <figcaption className="mt-6 text-[12px] tracking-[0.2em] uppercase text-[#2a2520]/50">
+                <figcaption className="mt-6 text-[12px] tracking-[0.2em] uppercase text-[#2a2520]/70">
                   {r.name} · Guest
                 </figcaption>
               </figure>
@@ -150,7 +150,7 @@ export default function TheDouariaClient({ hero, gallery, cityTaxPerNight }: Pro
 
           {/* Before you book */}
           <div className="text-left bg-[#f9f8f6] border border-[#2a2520]/10 p-7 md:p-8 mb-8">
-            <p className="text-[12px] tracking-[0.25em] uppercase text-[#2a2520]/50 mb-5">Before you book</p>
+            <p className="text-[12px] tracking-[0.25em] uppercase text-[#2a2520]/70 mb-5">Before you book</p>
             <ul className="space-y-4">
               {BEFORE_YOU_BOOK.map((point, i) => (
                 <li key={i} className="flex gap-3 text-[#2a2520]/80 leading-relaxed text-[15px]">
@@ -179,21 +179,21 @@ export default function TheDouariaClient({ hero, gallery, cityTaxPerNight }: Pro
             className={`inline-block px-12 py-4 text-xs tracking-[0.2em] uppercase transition-colors ${
               acknowledged
                 ? "bg-[#2a2520] text-[#f9f8f6] hover:bg-[#C2410C] cursor-pointer"
-                : "bg-[#2a2520]/20 text-[#f9f8f6]/70 cursor-not-allowed"
+                : "bg-[#2a2520]/40 text-white cursor-not-allowed"
             }`}
           >
             Check availability
           </button>
           {!acknowledged && (
-            <p className="text-[#2a2520]/45 text-xs mt-3">Please confirm you&apos;ve read the note above to continue.</p>
+            <p className="text-[#2a2520]/70 text-xs mt-3">Please confirm you&apos;ve read the note above to continue.</p>
           )}
 
-          <p className="text-[#2a2520]/50 text-sm mt-8">
+          <p className="text-[#2a2520]/70 text-sm mt-8">
             Also listed on Airbnb — but booking direct here is the same house, without the platform fees.
           </p>
 
           {/* Policy links */}
-          <div className="mt-8 flex flex-wrap items-center justify-center gap-x-3 gap-y-1 text-[12px] tracking-widest uppercase text-[#2a2520]/55">
+          <div className="mt-8 flex flex-wrap items-center justify-center gap-x-3 gap-y-1 text-[12px] tracking-widest uppercase text-[#2a2520]/70">
             <a href="/disclaimer" target="_blank" rel="noopener" className="underline underline-offset-2 hover:text-[#2a2520] transition-colors">Before You Book</a>
             <span aria-hidden="true" className="text-[#2a2520]/20">|</span>
             <a href="/booking-conditions" target="_blank" rel="noopener" className="underline underline-offset-2 hover:text-[#2a2520] transition-colors">Booking Conditions</a>
