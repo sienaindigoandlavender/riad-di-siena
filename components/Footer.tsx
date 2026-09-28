@@ -171,8 +171,8 @@ export default function Footer() {
               <span className="text-xs tracking-widest mb-4 block">STAY</span>
               <ul className="space-y-1.5">
                 <li><Link href="/the-riad" className="text-[#2a2520]/90 text-sm hover:text-[#2a2520] transition-colors">The Riad</Link></li>
-                <li><Link href="/the-douaria" className="text-[#2a2520]/90 text-sm hover:text-[#2a2520] transition-colors">The Douaria</Link></li>
                 <li><Link href="/rooms" className="text-[#2a2520]/90 text-sm hover:text-[#2a2520] transition-colors">Rooms</Link></li>
+                <li><Link href="/the-douaria" className="text-[#2a2520]/90 text-sm hover:text-[#2a2520] transition-colors">The Douaria</Link></li>
                 <li><Link href="/amenities" className="text-[#2a2520]/90 text-sm hover:text-[#2a2520] transition-colors">Amenities</Link></li>
                 <li><Link href="/philosophy" className="text-[#2a2520]/90 text-sm hover:text-[#2a2520] transition-colors">Philosophy</Link></li>
                 <li><Link href="/faq" className="text-[#2a2520]/90 text-sm hover:text-[#2a2520] transition-colors">FAQ</Link></li>
