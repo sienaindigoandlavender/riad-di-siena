@@ -44,7 +44,6 @@ const PAYPAL_CLIENT_ID = "AWVf28iPmlVmaEyibiwkOtdXAl5UPqL9i8ee9yStaG6qb7hCwNRB2G
 export default function StayWithUsModal({ isOpen, onClose }: StayWithUsModalProps) {
   const { formatPrice } = useCurrency();
   const [riadRooms, setRiadRooms] = useState<Room[]>([]);
-  const [douariaRooms, setDouariaRooms] = useState<Room[]>([]);
   const [kasbahExperience, setKasbahExperience] = useState<Experience | null>(null);
   const [desertTents, setDesertTents] = useState<Tent[]>([]);
   const [loading, setLoading] = useState(true);
@@ -59,17 +58,15 @@ export default function StayWithUsModal({ isOpen, onClose }: StayWithUsModalProp
     if (isOpen) {
       Promise.all([
         fetch("/api/sheets/rooms").then(res => res.json()),
-        fetch("/api/sheets/douaria-rooms").then(res => res.json()),
         fetch("/api/sheets/kasbah-experience").then(res => res.json()),
         fetch("/api/sheets/desert-tents").then(res => res.json()),
         fetch("/api/sheets/settings").then(res => res.json()),
       ])
-        .then(([riad, douaria, kasbah, tents, settings]) => {
-          const filterBookable = (rooms: any[]) => rooms.filter((r: any) => 
+        .then(([riad, kasbah, tents, settings]) => {
+          const filterBookable = (rooms: any[]) => rooms.filter((r: any) =>
             r.Bookable?.toLowerCase() !== "no"
           );
           setRiadRooms(filterBookable(riad).map((r: Room) => ({ ...r, property: "riad" })));
-          setDouariaRooms(filterBookable(douaria).map((r: Room) => ({ ...r, property: "douaria" })));
           if (kasbah.length > 0) setKasbahExperience(kasbah[0]);
           setDesertTents(tents);
           if (settings.city_tax_eur) {
