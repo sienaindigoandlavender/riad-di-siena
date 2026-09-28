@@ -222,7 +222,6 @@ export default function Footer() {
                 BEYOND THE WALLS
               </Link>
               <ul className="space-y-1.5">
-                <li><Link href="/the-douaria" className="text-[#2a2520]/90 text-sm hover:text-[#2a2520] transition-colors">The Douaria</Link></li>
                 <li><Link href="/the-kasbah" className="text-[#2a2520]/90 text-sm hover:text-[#2a2520] transition-colors">The Kasbah</Link></li>
                 <li><Link href="/the-desert-camp" className="text-[#2a2520]/90 text-sm hover:text-[#2a2520] transition-colors">The Desert Camp</Link></li>
                 <li><Link href="/the-farm" className="text-[#2a2520]/90 text-sm hover:text-[#2a2520] transition-colors">The Farm</Link></li>
